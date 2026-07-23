@@ -4,6 +4,7 @@ import { PlatformLogos } from "@/components/platform-logos";
 import { getAllPlays, money } from "@/lib/data/plays";
 import { computeChart, CHART_WEEK } from "@/lib/charts";
 import { listCategoryGroups } from "@/lib/categories";
+import { thesis, partnerships } from "@/lib/data/thesis";
 import { PodcastCard } from "@/components/podcast-card";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { CoverArt, CoverImage } from "@/components/cover-art";
@@ -188,6 +189,110 @@ export default function HomePage() {
 
       {/* --------------------- Platform logos strip --------------------- */}
       <PlatformLogos />
+
+      {/* ------------------------ WHY WE EXIST — the thesis ------------------------ */}
+      <section className="bg-navy py-24 text-white" id="why">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-400">
+            Why We Exist
+          </h2>
+          <p className="display max-w-4xl text-3xl leading-[1.1] text-white sm:text-5xl">
+            {thesis.arbitrage.headline}
+          </p>
+          <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed text-white/70">
+            {thesis.positioning.premise}
+          </p>
+
+          {/* The receipts — why podcast ads work */}
+          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {thesis.whyItWorks.map((s) => (
+              <div
+                key={s.id}
+                className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6"
+              >
+                <div className="text-4xl font-black tracking-tighter text-sky-400">
+                  {s.value}
+                </div>
+                <div className="mt-2 text-sm font-black uppercase tracking-tight text-white">
+                  {s.label}
+                </div>
+                <div className="mt-2 text-xs font-medium leading-relaxed text-white/60">
+                  {s.detail}
+                </div>
+                <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-white/40">
+                  {s.source}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* The arbitrage — CPM comparison */}
+          <div className="mt-12 rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
+              <div className="flex-1">
+                <div className="mb-6">
+                  <div className="mb-2 flex items-baseline justify-between">
+                    <span className="text-sm font-black uppercase tracking-tight text-white/80">
+                      {thesis.arbitrage.outliers.label}
+                    </span>
+                    <span className="text-xl font-black tabular-nums text-white/80">
+                      ${thesis.arbitrage.outliers.cpmLow}–${thesis.arbitrage.outliers.cpmHigh}{" "}
+                      <span className="text-xs font-bold text-white/50">CPM</span>
+                    </span>
+                  </div>
+                  <div className="h-3 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-full rounded-full bg-white/30" />
+                  </div>
+                  <p className="mt-2 text-xs font-medium text-white/50">
+                    {thesis.arbitrage.outliers.note}
+                  </p>
+                </div>
+                <div>
+                  <div className="mb-2 flex items-baseline justify-between">
+                    <span className="text-sm font-black uppercase tracking-tight text-sky-400">
+                      {thesis.arbitrage.midTier.label}
+                    </span>
+                    <span className="text-xl font-black tabular-nums text-sky-400">
+                      ${thesis.arbitrage.midTier.cpmLow}–${thesis.arbitrage.midTier.cpmHigh}{" "}
+                      <span className="text-xs font-bold text-sky-400/60">CPM</span>
+                    </span>
+                  </div>
+                  <div className="h-3 overflow-hidden rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-sky-500 to-blue-500"
+                      style={{
+                        width: `${Math.round(
+                          (thesis.arbitrage.midTier.cpmHigh /
+                            thesis.arbitrage.outliers.cpmHigh) *
+                            100,
+                        )}%`,
+                      }}
+                    />
+                  </div>
+                  <p className="mt-2 text-xs font-medium text-white/50">
+                    {thesis.arbitrage.midTier.note}
+                  </p>
+                </div>
+              </div>
+              <div className="max-w-sm flex-none">
+                <p className="text-lg font-medium leading-relaxed text-white/70">
+                  {thesis.arbitrage.conclusion}
+                </p>
+                <p className="display mt-4 text-2xl text-white">
+                  Same trust engine.{" "}
+                  <span className="text-orange">A fraction of the price.</span>
+                  <br />
+                  That's the play.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-[11px] font-bold uppercase tracking-widest text-white/30">
+            Sources: {thesis.sources.join(" · ")}
+          </p>
+        </div>
+      </section>
 
       {/* ------------------------- Campaign builder ------------------------- */}
       <section
@@ -427,6 +532,60 @@ export default function HomePage() {
             >
               All {plays.length} plays →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------- Real receipts — documented partnerships ----------------- */}
+      <section className="bg-white py-24" id="receipts">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 max-w-3xl">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+              The Receipts
+            </h2>
+            <p className="display text-4xl text-ink md:text-5xl">
+              Big brands already run this play.
+            </p>
+            <p className="mt-4 text-lg font-medium text-ink-dim">
+              Documented partnerships on culture podcasts — every one sourced.
+              The plan works; the receipts are public.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {partnerships.slice(0, 6).map((c) => (
+              <div
+                key={c.sourceUrl}
+                className="flex h-full flex-col rounded-[2rem] border border-sky-50 bg-white p-7 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.12)]"
+              >
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <span className="text-lg font-black uppercase tracking-tight text-ink">
+                    {c.brand}
+                  </span>
+                  {c.year && (
+                    <span className="rounded-full border border-sky-100 bg-sky-50 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-sky-600">
+                      {c.year}
+                    </span>
+                  )}
+                </div>
+                <p className="mb-1 text-[11px] font-black uppercase tracking-widest text-sky-500">
+                  × {c.show}
+                </p>
+                <p className="mb-4 text-sm font-medium leading-relaxed text-ink-dim">
+                  {c.summary}
+                </p>
+                {c.outcome && (
+                  <p className="mb-4 text-sm font-bold text-ink">{c.outcome}</p>
+                )}
+                <a
+                  href={c.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto text-[11px] font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
+                >
+                  Source: {c.sourceTitle} ↗
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,0 +1,83 @@
+{
+  "positioning": {
+    "name": "Run the Play",
+    "tagline": "Advertising Made Simple for the Culture",
+    "premise": "Podcast advertising is the most trusted ad format left. The money chases the top 100 shows, priced like Super Bowl inventory — while mid-tier culture shows deliver the same trust engine at a fraction of the price. Nobody is planning against that. Run the Play is the plan.",
+    "closer": "Same trust engine. A fraction of the price. That's the play."
+  },
+  "whyItWorks": [
+    {
+      "id": "host-read-recall",
+      "value": "60–70%",
+      "label": "ad recall on host-read ads",
+      "detail": "versus 24–31% for programmatic insertions — a host-read is a trust transfer, not an interruption",
+      "source": "Ad Results Media benchmarks"
+    },
+    {
+      "id": "nielsen-recall",
+      "value": "+71%",
+      "label": "higher brand recall for host-read spots",
+      "detail": "host-read ads outperform pre-produced ads on brand recall",
+      "source": "Nielsen"
+    },
+    {
+      "id": "skip-rate",
+      "value": "~8%",
+      "label": "skip rate on mid-roll podcast ads",
+      "detail": "listeners chose the show and stay through the ad — compare that to a YouTube pre-roll",
+      "source": "Industry benchmarks"
+    },
+    {
+      "id": "monthly-listeners",
+      "value": "165M",
+      "label": "Americans listen to podcasts monthly",
+      "detail": "about 55% of everyone 12 and up — locked-in, weekly audiences",
+      "source": "Edison Research, Infinite Dial"
+    }
+  ],
+  "growth": [
+    {
+      "id": "revenue-2025",
+      "value": "$2.9B",
+      "label": "US podcast ad revenue in 2025",
+      "detail": "up ~18% year over year; from $105M in 2015 to nearly $3B in a decade",
+      "source": "IAB / PwC US Podcast Advertising Revenue Study"
+    },
+    {
+      "id": "video-share",
+      "value": "71%",
+      "label": "of US podcast creators now produce video",
+      "detail": "every placement works twice: in the feed and in the clip economy on TikTok, Reels, Shorts, and YouTube",
+      "source": "Industry reporting"
+    }
+  ],
+  "arbitrage": {
+    "headline": "The money chases the top 100. The value sits below them.",
+    "outliers": {
+      "label": "Top 100 shows",
+      "cpmLow": 60,
+      "cpmHigh": 120,
+      "note": "Great shows — priced like Super Bowl inventory. For most brands the math stops working."
+    },
+    "midTier": {
+      "label": "Mid-tier culture shows",
+      "cpmLow": 25,
+      "cpmHigh": 50,
+      "note": "Same host-read trust mechanics, often tighter audience fit: 80,000 die-hard weekly listeners in your exact demo beat 3M casuals who will never buy."
+    },
+    "conclusion": "The performance gap between host-read and programmatic is documented. The price gap between the outliers and the mid-tier is documented. The arbitrage lives in between — and nobody is planning against it.",
+    "source": "Host-read CPM ranges per industry benchmarks (Ad Results Media, IAB)"
+  },
+  "whatWeDo": [
+    "Put the culture shows on the map — real public performance data, the receipts on display.",
+    "Make the case in the culture's own voice — every chart and clip is proof the channel works.",
+    "Turn discovery into a plan — budget in, slate of shows and placements out. No agency retainer, no six-figure minimum."
+  ],
+  "sources": [
+    "IAB / PwC US Podcast Advertising Revenue Study (2025, 2026 forecast)",
+    "Edison Research, Infinite Dial",
+    "Nielsen",
+    "Sounds Profitable",
+    "Ad Results Media benchmarks"
+  ]
+}
