@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getAllPodcasts, getPodcastBySlug, listCategories } from "@/lib/data/podcasts";
 import { PlatformLogos } from "@/components/platform-logos";
 import { getAllPlays, money } from "@/lib/data/plays";
-import { computeChart, CHART_WEEK } from "@/lib/charts";
+import { computeChart } from "@/lib/charts";
 import { listCategoryGroups } from "@/lib/categories";
 import { thesis, partnerships } from "@/lib/data/thesis";
 import { PodcastCard } from "@/components/podcast-card";
@@ -21,7 +21,6 @@ export default function HomePage() {
     plays.find((p) => p.tier === "Growth"),
     plays.find((p) => p.tier === "Pro"),
   ].filter((p): p is NonNullable<typeof p> => Boolean(p));
-  const topChart = computeChart("youtube-subscribers").slice(0, 4);
   const categoryGroups = listCategoryGroups().filter((c) => c.indexable);
 
   // Real aggregation demo: five actual mid-tier shows and their combined reach.
@@ -35,26 +34,61 @@ export default function HomePage() {
     .slice(0, 5);
   const combinedReach = midTierShows.reduce((n, x) => n + x.total, 0);
 
-  // Hero "viral proof" card: the top charting show WITH real cover art.
-  const topEntry =
-    topChart.find((e) => getPodcastBySlug(e.slug)?.artworkUrl) ?? topChart[0];
-  const topShow = topEntry ? getPodcastBySlug(topEntry.slug) : undefined;
   const fmtCount = (n: number) =>
     n >= 1e6 ? `${(n / 1e6).toFixed(n >= 1e7 ? 0 : 1)}M` : `${Math.round(n / 1e3)}K`;
-  const heroStats = (topShow?.platforms ?? [])
-    .filter((x) => x.followers)
-    .slice(0, 3)
-    .map((x) => ({
-      label:
-        x.platform === "youtube"
-          ? "YouTube"
-          : x.platform === "instagram"
-            ? "Instagram"
-            : x.platform === "tiktok"
-              ? "TikTok"
-              : x.platform,
-      value: fmtCount(x.followers!),
-    }));
+
+  // Hero collage: real shows, real covers, real public numbers. Columns are
+  // bottom-aligned so the stagger happens at the top and nothing gets clipped.
+  const reachRank = new Map(
+    computeChart("combined-reach").map((e) => [e.slug, e.rank]),
+  );
+  const heroTile = (
+    slug: string,
+    aspect: string,
+    badge?: "subscribers" | "reach",
+  ) => {
+    const show = getPodcastBySlug(slug);
+    if (!show) return null;
+    const yt = show.platforms.find((x) => x.platform === "youtube")?.followers;
+    const rank = reachRank.get(slug);
+    const badgeData =
+      badge === "subscribers" && yt
+        ? { value: fmtCount(yt), label: "Subscribers" }
+        : badge === "reach" && rank
+          ? { value: `#${rank}`, label: "Reach" }
+          : undefined;
+    return { show, aspect, badge: badgeData };
+  };
+  const collageColumns = [
+    [
+      heroTile("the-read", "aspect-square"),
+      heroTile("drink-champs", "aspect-[4/5]"),
+      heroTile("therapy-for-black-girls", "aspect-square"),
+    ],
+    [
+      heroTile("earn-your-leisure", "aspect-[4/5]", "subscribers"),
+      heroTile("the-pivot-podcast", "aspect-[3/4]", "reach"),
+    ],
+    [
+      heroTile("market-mondays", "aspect-square"),
+      heroTile("club-shay-shay", "aspect-[4/5]", "subscribers"),
+      heroTile("caresha-please", "aspect-square"),
+    ],
+  ].map((col) => col.filter((t): t is NonNullable<typeof t> => t !== null));
+
+  // Receipts cluster: the actual shows brands bought, with real public numbers.
+  const receiptShows = [
+    { slug: "all-the-smoke", brand: "DraftKings" },
+    { slug: "million-dollaz-worth-of-game", brand: "Barstool Sports" },
+    { slug: "the-pivot-podcast", brand: "Fanatics" },
+  ]
+    .map(({ slug, brand }) => {
+      const show = getPodcastBySlug(slug);
+      if (!show) return null;
+      const yt = show.platforms.find((x) => x.platform === "youtube")?.followers;
+      return { show, brand, subs: yt ? fmtCount(yt) : null };
+    })
+    .filter((r): r is NonNullable<typeof r> => r !== null);
 
   return (
     <div>
@@ -117,81 +151,19 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right: viral proof card — the real #1 show, real cover, real stats */}
-            {topShow && (
-              <div className="relative mx-auto mt-10 w-full max-w-md lg:ml-auto lg:mr-0 lg:mt-0">
-                <div className="absolute inset-0 z-0 rotate-3 scale-105 rounded-[3rem] bg-gradient-to-tr from-sky-400/30 to-blue-300/30 blur-lg" />
-                <div className="relative z-20 rounded-[2rem] border border-sky-50 bg-white p-4 shadow-[0_30px_60px_-15px_rgba(14,165,233,0.3)] transition-transform duration-500 hover:-translate-y-2">
-                  {/* Card header */}
-                  <div className="mb-4 flex items-center justify-between px-2 pt-1">
-                    <div className="flex items-center gap-3">
-                      <CoverArt
-                        name={topShow.name}
-                        slug={topShow.slug}
-                        artworkUrl={topShow.artworkUrl}
-                        size={40}
-                        radius={20}
-                      />
-                      <div>
-                        <h4 className="text-sm font-black uppercase tracking-tight text-ink">
-                          {topShow.name}
-                        </h4>
-                        <p className="text-[10px] font-bold uppercase tracking-widest text-ink-faint">
-                          {CHART_WEEK}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="flex animate-pulse items-center gap-1.5 rounded-full border border-red-100 bg-red-50 px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-red-500 shadow-sm">
-                      #1 This Week
-                    </span>
-                  </div>
-
-                  {/* Cover frame (reels style) — real artwork, unbreakable fallback */}
-                  <Link
-                    href={`/podcast/${topShow.slug}`}
-                    className="group relative block aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-slate-100 bg-navy shadow-inner"
-                  >
-                    <CoverImage
-                      name={topShow.name}
-                      slug={topShow.slug}
-                      artworkUrl={topShow.artworkUrl}
-                      className="opacity-90 transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sky-500/90 shadow-[0_0_30px_rgba(14,165,233,0.5)] backdrop-blur-md transition-transform group-hover:scale-110">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true" className="translate-x-0.5">
-                        <path d="M8 5.5 19 12 8 18.5Z" />
-                      </svg>
-                    </span>
-                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/60 to-transparent p-5 pt-16">
-                      <span className="block text-lg font-black leading-tight text-white drop-shadow-md">
-                        {topShow.shortDescription ??
-                          "The culture's biggest show."}
-                      </span>
-                    </span>
-                  </Link>
-
-                  {/* Real platform stats */}
-                  <div className="flex items-center justify-between px-3 pb-2 pt-5">
-                    {heroStats.map((s) => (
-                      <div key={s.label} className="text-center">
-                        <span className="block text-sm font-black tabular-nums text-ink">
-                          {s.value}
-                        </span>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-ink-faint">
-                          {s.label}
-                        </span>
-                      </div>
+            {/* Right: real-show collage, bottom-aligned so nothing clips */}
+            <div className="relative mx-auto mt-10 w-full max-w-xl lg:mx-0 lg:ml-auto lg:mt-0">
+              <div className="pointer-events-none absolute inset-4 z-0 scale-105 rounded-[3rem] bg-gradient-to-tr from-sky-400/20 to-blue-300/20 blur-2xl" />
+              <div className="relative z-10 flex items-end justify-center gap-3 sm:gap-4">
+                {collageColumns.map((col, ci) => (
+                  <div key={ci} className="flex w-1/3 flex-col gap-3 sm:gap-4">
+                    {col.map((t) => (
+                      <HeroTile key={t.show.slug} tile={t} />
                     ))}
-                    <Link
-                      href="/charts"
-                      className="rounded-full bg-sky-50 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
-                    >
-                      All Charts →
-                    </Link>
                   </div>
-                </div>
+                ))}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </header>
@@ -594,16 +566,29 @@ export default function HomePage() {
       {/* ----------------- Real receipts — documented partnerships ----------------- */}
       <section className="bg-white py-24" id="receipts">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 max-w-3xl">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
-              The Receipts
-            </h2>
-            <p className="display text-4xl text-ink md:text-5xl">
-              Big brands already run this play.
-            </p>
-            <p className="mt-4 text-lg font-medium text-ink-dim">
-              Documented partnerships on culture podcasts. Every one sourced.
-            </p>
+          <div className="mb-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div className="max-w-3xl">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+                The Receipts
+              </h2>
+              <p className="display text-4xl text-ink md:text-5xl">
+                Big brands already run this play.
+              </p>
+              <p className="mt-4 text-lg font-medium text-ink-dim">
+                Documented partnerships on culture podcasts. Every one sourced.
+              </p>
+            </div>
+
+            {/* The actual shows the brands below bought, floating card style */}
+            <div className="flex items-start justify-center gap-5 sm:gap-7 lg:justify-end">
+              {receiptShows.map((r, i) => (
+                <ReceiptCard
+                  key={r.show.slug}
+                  r={r}
+                  className={i === 1 ? "mt-12" : i === 2 ? "mt-5" : ""}
+                />
+              ))}
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {partnerships.slice(0, 6).map((c) => (
@@ -701,5 +686,112 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+  );
+}
+
+/* Hero collage tile: real cover, real name and hosts, optional real-number badge. */
+function HeroTile({
+  tile,
+}: {
+  tile: {
+    show: {
+      slug: string;
+      name: string;
+      artworkUrl: string | null;
+      hosts: string[];
+    };
+    aspect: string;
+    badge?: { value: string; label: string };
+  };
+}) {
+  const { show, aspect, badge } = tile;
+  return (
+    <Link
+      href={`/podcast/${show.slug}`}
+      className={`group relative block overflow-hidden rounded-[1.25rem] border border-sky-50 bg-navy shadow-[0_20px_40px_-20px_rgba(14,165,233,0.35)] transition-transform duration-500 hover:-translate-y-1 ${aspect}`}
+    >
+      <CoverImage
+        name={show.name}
+        slug={show.slug}
+        artworkUrl={show.artworkUrl}
+        className="transition-transform duration-700 group-hover:scale-105"
+      />
+      {badge && (
+        <span className="absolute right-2.5 top-2.5 z-10 rounded-xl bg-white/95 px-2.5 py-1.5 text-center shadow-md backdrop-blur">
+          <span className="block text-xs font-black tabular-nums leading-tight text-ink">
+            {badge.value}
+          </span>
+          <span className="block text-[8px] font-bold uppercase tracking-widest text-ink-faint">
+            {badge.label}
+          </span>
+        </span>
+      )}
+      <span className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-navy via-navy/50 to-transparent p-3 pt-10">
+        <span className="block text-[13px] font-black leading-tight text-white drop-shadow">
+          {show.name}
+        </span>
+        {show.hosts.length > 0 && (
+          <span className="mt-0.5 block truncate text-[10px] font-medium text-white/75">
+            {show.hosts.slice(0, 3).join(", ")}
+          </span>
+        )}
+      </span>
+    </Link>
+  );
+}
+
+/* Receipts floating card: a show a brand actually bought, with real numbers. */
+function ReceiptCard({
+  r,
+  className = "",
+}: {
+  r: {
+    show: {
+      slug: string;
+      name: string;
+      artworkUrl: string | null;
+      hosts: string[];
+    };
+    brand: string;
+    subs: string | null;
+  };
+  className?: string;
+}) {
+  const { show, brand, subs } = r;
+  return (
+    <Link
+      href={`/podcast/${show.slug}`}
+      className={`group relative block w-36 rounded-[1.5rem] border border-sky-50 bg-white p-3 shadow-[0_20px_40px_-20px_rgba(14,165,233,0.25)] transition-transform duration-500 hover:-translate-y-1 sm:w-44 ${className}`}
+    >
+      {subs && (
+        <span className="absolute -left-3 top-5 z-10 rounded-xl bg-white px-2.5 py-1.5 text-center shadow-md">
+          <span className="block text-xs font-black tabular-nums leading-tight text-ink">
+            {subs}
+          </span>
+          <span className="block text-[8px] font-bold uppercase tracking-widest text-ink-faint">
+            Subscribers
+          </span>
+        </span>
+      )}
+      <span className="relative block aspect-square overflow-hidden rounded-xl bg-navy">
+        <CoverImage
+          name={show.name}
+          slug={show.slug}
+          artworkUrl={show.artworkUrl}
+          className="transition-transform duration-700 group-hover:scale-105"
+        />
+      </span>
+      <span className="block px-1 pb-1 pt-3">
+        <span className="block truncate text-sm font-black tracking-tight text-ink">
+          {show.name}
+        </span>
+        <span className="block truncate text-[11px] font-medium text-ink-faint">
+          {show.hosts.slice(0, 2).join(", ")}
+        </span>
+        <span className="mt-2 inline-block rounded-full border border-sky-100 bg-sky-50 px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-sky-600">
+          × {brand}
+        </span>
+      </span>
+    </Link>
   );
 }
