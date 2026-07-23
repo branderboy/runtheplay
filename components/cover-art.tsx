@@ -8,6 +8,51 @@ import { accentFor, initials, hashString } from "@/lib/cover";
  * if the URL is missing OR the image fails to load, falls back to the
  * deterministic branded monogram — a broken image icon can never appear.
  */
+/**
+ * Fill-parent cover image with an unbreakable fallback: real artwork if it
+ * loads, otherwise a brand-gradient monogram panel. Used in the hero frame.
+ */
+export function CoverImage({
+  name,
+  slug,
+  artworkUrl,
+  className = "",
+}: {
+  name: string;
+  slug: string;
+  artworkUrl?: string | null;
+  className?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  const a = accentFor(slug);
+
+  if (artworkUrl && !failed) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={artworkUrl}
+        alt={`${name} cover art`}
+        onError={() => setFailed(true)}
+        className={`h-full w-full object-cover ${className}`}
+      />
+    );
+  }
+  return (
+    <div
+      role="img"
+      aria-label={`${name} cover`}
+      className={`flex h-full w-full items-center justify-center ${className}`}
+      style={{
+        background: `linear-gradient(140deg, ${a.accentDeep}, #0b1021 75%)`,
+      }}
+    >
+      <span className="text-6xl font-black tracking-tight text-white/90">
+        {initials(name)}
+      </span>
+    </div>
+  );
+}
+
 export function CoverArt({
   name,
   slug,

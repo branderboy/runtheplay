@@ -6,7 +6,7 @@ import { CartButton } from "./basket";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full bg-navy shadow-xl">
-      <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           aria-label="Run the Play home"

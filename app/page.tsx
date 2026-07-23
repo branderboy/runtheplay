@@ -6,7 +6,7 @@ import { computeChart, CHART_WEEK } from "@/lib/charts";
 import { listCategoryGroups } from "@/lib/categories";
 import { PodcastCard } from "@/components/podcast-card";
 import { NewsletterSignup } from "@/components/newsletter-signup";
-import { CoverArt } from "@/components/cover-art";
+import { CoverArt, CoverImage } from "@/components/cover-art";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
@@ -135,28 +135,17 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  {/* Cover frame (reels style) — real artwork */}
+                  {/* Cover frame (reels style) — real artwork, unbreakable fallback */}
                   <Link
                     href={`/podcast/${topShow.slug}`}
                     className="group relative block aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-slate-100 bg-navy shadow-inner"
                   >
-                    {topShow.artworkUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={topShow.artworkUrl}
-                        alt={`${topShow.name} cover art`}
-                        className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center">
-                        <CoverArt
-                          name={topShow.name}
-                          slug={topShow.slug}
-                          size={220}
-                          radius={0}
-                        />
-                      </div>
-                    )}
+                    <CoverImage
+                      name={topShow.name}
+                      slug={topShow.slug}
+                      artworkUrl={topShow.artworkUrl}
+                      className="opacity-90 transition-transform duration-700 group-hover:scale-105"
+                    />
                     <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sky-500/90 shadow-[0_0_30px_rgba(14,165,233,0.5)] backdrop-blur-md transition-transform group-hover:scale-110">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true" className="translate-x-0.5">
                         <path d="M8 5.5 19 12 8 18.5Z" />
@@ -190,6 +179,42 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
+
+                {/* Floating live chart — real weekly ranking */}
+                <div className="absolute -bottom-10 -left-6 z-30 hidden w-72 rounded-[1.5rem] border border-sky-50 bg-white p-4 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.35)] lg:block xl:-left-24">
+                  <div className="mb-2 flex items-center justify-between px-1">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-ink">
+                      This Week's Chart
+                    </span>
+                    <Link
+                      href="/charts"
+                      className="text-[10px] font-black uppercase tracking-widest text-sky-500 hover:text-sky-600"
+                    >
+                      All →
+                    </Link>
+                  </div>
+                  <ol>
+                    {topChart.slice(0, 3).map((e) => (
+                      <li key={e.slug}>
+                        <Link
+                          href={`/podcast/${e.slug}`}
+                          className="flex items-center gap-3 rounded-xl px-1 py-2 transition-colors hover:bg-sky-50/60"
+                        >
+                          <span className="w-4 text-center text-sm font-black tabular-nums text-sky-500">
+                            {e.rank}
+                          </span>
+                          <CoverArt name={e.name} slug={e.slug} artworkUrl={e.artworkUrl} size={30} radius={9} />
+                          <span className="min-w-0 flex-1 truncate text-xs font-black uppercase tracking-tight text-ink">
+                            {e.name}
+                          </span>
+                          <span className="flex-none text-xs font-black tabular-nums text-ink">
+                            {e.display}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             )}
           </div>
@@ -212,48 +237,59 @@ export default function HomePage() {
             className="h-12 w-auto rounded-lg object-contain opacity-90 drop-shadow-sm"
           />
         </div>
-        <form
-          action="/directory"
-          className="flex flex-col gap-3 rounded-[2rem] border border-sky-100 bg-white p-3 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.3)] md:flex-row"
-        >
-          <div className="relative flex flex-1 items-center">
-            <svg
-              className="absolute left-6 h-6 w-6 text-sky-400"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="text"
-              name="q"
-              placeholder="Search creators, audiences, or niches…"
-              aria-label="Search creators, audiences, or niches"
-              className="w-full rounded-2xl border border-transparent bg-navy-2 py-5 pl-16 pr-4 text-lg font-black text-ink outline-none transition-all placeholder:text-ink-faint focus:border-sky-100 focus:bg-sky-50/50"
-            />
+        {/* Campaign builder — Step 1 of the real planning flow: pick your goal */}
+        <div className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.3)] sm:p-10">
+          <div className="mb-8 text-center">
+            <p className="mb-2 text-[11px] font-black uppercase tracking-widest text-sky-500">
+              Step 1 of 4
+            </p>
+            <h2 className="display text-3xl text-ink sm:text-4xl">
+              What are you promoting?
+            </h2>
+            <p className="mt-2 font-medium text-ink-dim">
+              Pick a goal — then budget, audience, and your plan. Like a real
+              media buy, minus the agency.
+            </p>
           </div>
-          <button
-            type="submit"
-            className="rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(14,165,233,0.6)]"
-          >
-            Build Plan
-          </button>
-        </form>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["brand_awareness", "📣", "Brand awareness", "Get your name in the culture"],
+              ["product_launch", "🚀", "Product launch", "Drop something new"],
+              ["music_release", "🎵", "Music release", "Push a single or project"],
+              ["event_promotion", "🎟️", "Event promotion", "Fill the room"],
+              ["local_business", "📍", "Local business", "Own your city"],
+              ["lead_generation", "🎯", "Lead generation", "Drive signups & sales"],
+            ].map(([value, icon, label, blurb]) => (
+              <Link
+                key={value}
+                href={`/plan?goal=${value}`}
+                className="flex items-center gap-4 rounded-2xl border border-sky-50 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)]"
+              >
+                <span className="text-3xl" aria-hidden="true">{icon}</span>
+                <span>
+                  <span className="block font-black uppercase tracking-tight text-ink">
+                    {label}
+                  </span>
+                  <span className="text-sm font-medium text-ink-dim">{blurb}</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-bold uppercase tracking-widest text-ink-faint">
-          <span>Trending:</span>
-          {["Hip-Hop", "Entrepreneurs", "Sports", "Comedy"].map((t) => (
+          <span>Try a play:</span>
+          {[
+            ["$500 Local Business", "/plan?goal=local_business&budget=500&audience=local culture"],
+            ["$1,500 Music Release", "/plan?goal=music_release&budget=1500&audience=hip-hop, music fans"],
+            ["$5,000 Product Launch", "/plan?goal=product_launch&budget=5000&audience=entrepreneurs, investing"],
+          ].map(([label, href]) => (
             <Link
-              key={t}
-              href={`/directory?q=${encodeURIComponent(t.toLowerCase())}`}
+              key={label}
+              href={href}
               className="rounded-full border border-slate-200 bg-white px-4 py-1.5 transition-colors hover:border-sky-300 hover:text-sky-500"
             >
-              {t}
+              {label}
             </Link>
           ))}
         </div>

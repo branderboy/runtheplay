@@ -29,29 +29,23 @@ export default async function DirectoryPage({
         </div>
       </div>
 
-      {/* Search */}
-      <form
-        action="/directory"
-        className="flex flex-col gap-3 rounded-[2rem] border border-sky-100 bg-white p-3 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.2)] md:flex-row"
-      >
-        {category && <input type="hidden" name="category" value={category} />}
-        <input
-          name="q"
-          defaultValue={q ?? ""}
-          placeholder="Search by show, host, or audience…"
-          aria-label="Search podcasts"
-          className="flex-1 rounded-2xl border border-transparent bg-navy-2 px-6 py-4 text-base font-black text-ink outline-none transition-all placeholder:text-ink-faint focus:border-sky-100 focus:bg-sky-50/50"
-        />
-        <button
-          type="submit"
-          className="rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 px-10 py-4 text-sm font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5"
-        >
-          Search
-        </button>
-      </form>
+      {/* Active filter (set from the homepage campaign bar) */}
+      {q && (
+        <div className="mb-4 flex items-center gap-3">
+          <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
+            Filter: {q}
+          </span>
+          <Link
+            href="/directory"
+            className="text-xs font-black uppercase tracking-widest text-ink-faint hover:text-danger"
+          >
+            Clear ✕
+          </Link>
+        </div>
+      )}
 
       {/* Category chips */}
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         <CategoryChip active={!category} href="/directory" label="All" />
         {categories.map((c) => (
           <CategoryChip

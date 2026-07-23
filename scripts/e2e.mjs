@@ -89,18 +89,36 @@ for (const path of PATHS) {
   await page.close();
 }
 
-// 3) Planner flow returns explained results.
+// 3) Planner wizard: goal → budget → audience → details → results.
 {
   const page = await browser.newPage();
   await page.goto(`${BASE}/plan`, { waitUntil: "networkidle" });
+  await page.click('button[data-goal="product_launch"]');
   await page.fill("input[name=budget]", "3000");
+  await page.click('button:has-text("Continue")');
   await page.fill("input[name=audience]", "entrepreneurs, investing");
+  await page.click('button:has-text("Continue")');
   await page.click("button[type=submit]");
   await page.waitForSelector('a[href^="/podcast/"]', { timeout: 15000 });
   const results = (await page.$$('a[href^="/podcast/"]')).length;
   results > 0
-    ? ok(`planner returns results (${results})`)
-    : fail("planner returns results", "0 results");
+    ? ok(`planner wizard returns results (${results})`)
+    : fail("planner wizard", "0 results");
+  await page.close();
+}
+
+// 3b) Deep link (from a Play / homepage) auto-builds the plan.
+{
+  const page = await browser.newPage();
+  await page.goto(
+    `${BASE}/plan?goal=music_release&budget=1500&audience=hip-hop`,
+    { waitUntil: "networkidle" },
+  );
+  await page.waitForSelector('a[href^="/podcast/"]', { timeout: 15000 });
+  const results = (await page.$$('a[href^="/podcast/"]')).length;
+  results > 0
+    ? ok(`planner deep-link auto-builds (${results})`)
+    : fail("planner deep-link", "0 results");
   await page.close();
 }
 

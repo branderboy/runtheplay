@@ -14,7 +14,7 @@ export function Wordmark() {
     <img
       src="/runlogo.png"
       alt="Run the Play — Advertising Made Simple for the Culture"
-      className="h-12 w-auto rounded-lg object-contain"
+      className="h-16 w-auto rounded-lg object-contain"
     />
   );
 }
