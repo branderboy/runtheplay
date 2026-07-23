@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Podcast } from "@/lib/data/podcasts";
+import { deriveFormats } from "@/lib/formats";
 import { CoverArt } from "./cover-art";
 import { AddToPlanButton } from "./basket";
 
@@ -17,6 +18,10 @@ function reach(p: Podcast): string | null {
 
 export function PodcastCard({ p }: { p: Podcast }) {
   const r = reach(p);
+  const f = deriveFormats(p);
+  const support = [f.clips ? "Clips" : null, f.social.length ? "Social" : null]
+    .filter(Boolean)
+    .join(" · ");
   return (
     <div className="group relative flex h-full flex-col rounded-[2rem] border border-sky-50 bg-white p-7 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(14,165,233,0.25)]">
       <Link
@@ -48,9 +53,12 @@ export function PodcastCard({ p }: { p: Podcast }) {
           <span className="mb-1 block text-[10px] font-black uppercase tracking-widest text-ink-faint">
             Format
           </span>
-          <span className="text-sm font-black text-ink">
-            {p.primaryCategory ?? "Podcast"}
-          </span>
+          <span className="text-sm font-black text-ink">{f.label}</span>
+          {support && (
+            <span className="mt-0.5 block text-[10px] font-bold uppercase tracking-widest text-sky-500">
+              + {support}
+            </span>
+          )}
         </div>
       </div>
 

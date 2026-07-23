@@ -7,10 +7,10 @@ export const metadata = { title: "The Directory" };
 export default async function DirectoryPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; category?: string }>;
+  searchParams: Promise<{ q?: string; category?: string; format?: string }>;
 }) {
-  const { q, category } = await searchParams;
-  const results = searchPodcasts(q, category);
+  const { q, category, format } = await searchParams;
+  const results = searchPodcasts(q, category, format);
   const categories = listCategories();
 
   return (
@@ -44,14 +44,47 @@ export default async function DirectoryPage({
         </div>
       )}
 
+      {/* Format chips — audio / video / social support */}
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className="mr-1 text-[10px] font-black uppercase tracking-widest text-ink-faint">
+          Format
+        </span>
+        {[
+          ["", "All"],
+          ["video", "Video"],
+          ["audio", "Audio only"],
+          ["social", "Social support"],
+        ].map(([value, label]) => (
+          <CategoryChip
+            key={label}
+            active={(format ?? "") === value}
+            href={`/directory?${new URLSearchParams({
+              ...(category ? { category } : {}),
+              ...(value ? { format: value } : {}),
+            }).toString()}`}
+            label={label}
+          />
+        ))}
+      </div>
+
       {/* Category chips */}
-      <div className="flex flex-wrap gap-2">
-        <CategoryChip active={!category} href="/directory" label="All" />
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="mr-1 text-[10px] font-black uppercase tracking-widest text-ink-faint">
+          Category
+        </span>
+        <CategoryChip
+          active={!category}
+          href={`/directory${format ? `?format=${format}` : ""}`}
+          label="All"
+        />
         {categories.map((c) => (
           <CategoryChip
             key={c}
             active={category === c}
-            href={`/directory?category=${encodeURIComponent(c)}`}
+            href={`/directory?${new URLSearchParams({
+              category: c,
+              ...(format ? { format } : {}),
+            }).toString()}`}
             label={c}
           />
         ))}

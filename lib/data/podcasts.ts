@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parse } from "csv-parse/sync";
 import type { PodcastInput } from "@/src/lib/planner/types";
+import { deriveFormats } from "@/lib/formats";
 import artworkMap from "@/data/seed/artwork.json";
 import coversManifest from "@/data/seed/covers.json";
 import spotifyUrlMap from "@/data/seed/spotify_urls.json";
@@ -185,9 +186,22 @@ export function listCategories(): string[] {
   return Array.from(set).sort();
 }
 
-export function searchPodcasts(query?: string, category?: string): Podcast[] {
+export function searchPodcasts(
+  query?: string,
+  category?: string,
+  format?: string,
+): Podcast[] {
   let list = getAllPodcasts();
   if (category) list = list.filter((p) => p.primaryCategory === category);
+  if (format) {
+    list = list.filter((p) => {
+      const f = deriveFormats(p);
+      if (format === "video") return f.video;
+      if (format === "audio") return f.audio && !f.video;
+      if (format === "social") return f.social.length > 0;
+      return true;
+    });
+  }
   if (query) {
     const q = query.toLowerCase();
     list = list.filter(

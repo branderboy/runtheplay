@@ -124,6 +124,23 @@ export default async function PlayPage({
         )}
       </section>
 
+      {/* Creator promo — plays double as case studies */}
+      <section className="mt-10 flex flex-col items-start gap-4 rounded-[2rem] bg-gradient-to-br from-orange-400 to-orange-600 p-8 text-white shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="display text-2xl text-white">Run a show? Get in plays like this.</h2>
+          <p className="mt-2 max-w-md font-medium text-white/90">
+            Plays are live case studies. Claim your free profile and publish
+            your inventory so buyers can book you into campaigns like this one.
+          </p>
+        </div>
+        <Link
+          href="/claim"
+          className="flex-none rounded-full bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-orange-600 shadow-xl transition-all hover:scale-105"
+        >
+          Claim Free Profile ↗
+        </Link>
+      </section>
+
       {/* CTAs */}
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link

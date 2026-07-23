@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getPodcastBySlug, getAllPodcasts } from "@/lib/data/podcasts";
 import { similarShows, categorySlug } from "@/lib/categories";
+import { deriveFormats, typicalPlacements } from "@/lib/formats";
 import { Badge } from "@/components/badges";
 import { ProfileHero } from "@/components/profile-hero";
 import { PodcastCard } from "@/components/podcast-card";
@@ -72,6 +73,8 @@ export default async function ProfilePage({
   const spotifyUrl = p.platforms.find((x) => x.platform === "spotify")?.url;
   const embed = spotifyEmbed(spotifyUrl);
   const similar = similarShows(p);
+  const formats = deriveFormats(p);
+  const placements = typicalPlacements(formats);
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-12">
@@ -126,6 +129,41 @@ export default async function ProfilePage({
       {p.shortDescription && (
         <p className="mt-6 max-w-2xl text-ink-dim">{p.shortDescription}</p>
       )}
+
+      {/* Format — derived from real platform presence */}
+      <section className="mt-8">
+        <h2 className="mb-3 text-xs font-black uppercase tracking-widest text-ink-faint">
+          Format
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {formats.video && (
+            <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
+              🎬 Video Podcast
+            </span>
+          )}
+          {formats.audio && (
+            <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
+              🎧 Audio
+            </span>
+          )}
+          {formats.clips && (
+            <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
+              ✂️ Clips
+            </span>
+          )}
+          {formats.social.map((s) => (
+            <span
+              key={s}
+              className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600"
+            >
+              {s === "instagram" ? "📸 Instagram" : "🎥 TikTok"}
+            </span>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-ink-faint">
+          Based on the show's public platform presence.
+        </p>
+      </section>
 
       {/* Spotify player */}
       {embed && (
@@ -192,19 +230,41 @@ export default async function ProfilePage({
         </section>
       )}
 
-      {/* Advertising */}
+      {/* Ad placements — typical for this show's format */}
       <section className="mt-10">
-        <h2 className="mb-3 text-xs font-bold uppercase tracking-wider text-ink-faint">
-          Advertising opportunities
+        <h2 className="mb-3 text-xs font-black uppercase tracking-widest text-ink-faint">
+          Ad placement types
         </h2>
-        <div className="rounded-2xl border border-line bg-navy-1 p-5 text-sm text-ink-dim">
-          Pricing and inventory are set by the show.{" "}
+        <div className="grid gap-4 sm:grid-cols-2">
+          {placements.map((g) => (
+            <div
+              key={g.channel}
+              className="rounded-[1.5rem] border border-sky-50 bg-white p-5 shadow-sm"
+            >
+              <h3 className="mb-3 text-[11px] font-black uppercase tracking-widest text-sky-500">
+                {g.channel}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {g.placements.map((pl) => (
+                  <span
+                    key={pl}
+                    className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-bold text-ink"
+                  >
+                    {pl}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-sky-50 bg-sky-50/50 p-4 text-sm font-medium text-ink-dim">
+          <Badge tone="contact">Contact for pricing</Badge>
+          Typical placements for this show's format —{" "}
           {p.advertisingAvailable
-            ? "This show accepts advertising — send an inquiry below to get formats and rates."
-            : "Advertising availability isn't confirmed yet — reach out to ask."}
-          <div className="mt-2">
-            <Badge tone="contact">Contact for pricing</Badge>
-          </div>
+            ? "this show accepts advertising. Confirm formats and rates in your inquiry below."
+            : "availability isn't confirmed yet. Ask in your inquiry below."}{" "}
+          When the show claims its profile, its real inventory and rates appear
+          here.
         </div>
       </section>
 
@@ -221,7 +281,8 @@ export default async function ProfilePage({
         <section className="rounded-2xl border border-line bg-navy-1 p-6" id="claim">
           <h2 className="text-lg font-bold">Is this your show?</h2>
           <p className="mb-4 mt-1 text-sm text-ink-dim">
-            Claim it free to control your info and advertising options.
+            Claim it free to publish your real ad inventory — placements,
+            rates, and availability — right on this page.
           </p>
           <ClaimForm slug={p.slug} name={p.name} />
         </section>
