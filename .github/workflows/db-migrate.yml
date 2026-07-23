@@ -1,0 +1,29 @@
+name: Migrate and seed database
+
+# Run from the GitHub UI: Actions → "Migrate and seed database" → Run workflow.
+# The runner has open internet, so it can reach Neon (which the dev sandbox
+# cannot). Creates the tables and loads the 66 seed shows.
+#
+# Setup (once): add a repo secret DATABASE_URL = your Neon pooled connection
+# string (Vercel → Storage → your Neon DB → .env.local / connection string).
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: Apply migrations
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: npm run db:migrate
+      - name: Seed 66 shows
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: npm run db:seed
