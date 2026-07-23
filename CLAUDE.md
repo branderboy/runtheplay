@@ -47,7 +47,7 @@
 - Cover art is served from /public/covers (auto-downloaded by the artwork
   workflow). Never hotlink as the primary source.
 - The seed CSV in data/seed is the source of truth until the DB is flipped on;
-  scope: Black creators only (mixed-host shows qualify with at least one Black
-  host), no politics. Also OUT of scope for roster expansion: faith, food,
-  film/TV recap, and regional shows (owner's call, 2026-07-23). Mainly
+  scope: at least one Black host, no politics, no faith (both enforced on the
+  whole roster, not just new adds). Also OUT of scope for roster expansion:
+  food, film/TV recap, and regional shows (owner's call, 2026-07-23). Mainly
   hip-hop and urban culture; national or global reach.
