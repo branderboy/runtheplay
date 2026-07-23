@@ -173,7 +173,13 @@ export default async function ProfilePage({
           {p.topClip && (
             <span className="w-full text-xs font-bold text-ink-faint sm:w-auto">
               Top Recent Clip: "{p.topClip.title}" · {fmt(p.topClip.views)}{" "}
-              Views (YouTube, {p.topClip.publishedAt})
+              Views (
+              {p.topClip.platform === "youtube"
+                ? "YouTube"
+                : p.topClip.platform === "tiktok"
+                  ? "TikTok"
+                  : "Instagram"}
+              , {p.topClip.publishedAt})
             </span>
           )}
         </div>

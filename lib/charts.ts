@@ -68,10 +68,10 @@ export const CHARTS: ChartDef[] = [
   {
     slug: "viral-clips",
     title: "Most Viral Clips",
-    subtitle: "Each show's biggest upload of the last 30 days.",
+    subtitle: "Each show's biggest clip of the last 30 days, any platform.",
     metricLabel: "Clip views",
     methodology:
-      "Ranked by the view count of each show's most-viewed YouTube upload published in the last 30 days, via the official YouTube Data API. Refreshed weekly.",
+      "Ranked by the view count of each show's most-viewed clip published in the last 30 days across YouTube (official Data API), TikTok, and Instagram (public counts via Apify). Third-party counts are directional, not verified. Refreshed weekly.",
   },
 ];
 

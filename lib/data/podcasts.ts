@@ -11,6 +11,8 @@ import podcastIndexMap from "@/data/seed/podcastindex.json";
 import youtubeStatsMap from "@/data/seed/youtube_stats.json";
 import appleChartsMap from "@/data/seed/apple_charts.json";
 import youtubeClipsMap from "@/data/seed/youtube_clips.json";
+import socialStatsMap from "@/data/seed/social_stats.json";
+import socialClipsMap from "@/data/seed/social_clips.json";
 
 const ARTWORK = artworkMap as Record<
   string,
@@ -43,11 +45,34 @@ const YOUTUBE_CLIPS = youtubeClipsMap as Record<
   }
 >;
 
+const SOCIAL_STATS = socialStatsMap as Record<
+  string,
+  {
+    tiktok?: { followers: number; fetchedAt: string };
+    instagram?: { followers: number; fetchedAt: string };
+  }
+>;
+const SOCIAL_CLIPS = socialClipsMap as Record<
+  string,
+  {
+    clips: {
+      platform: string;
+      title: string;
+      views: number;
+      publishedAt: string;
+      url?: string | null;
+    }[];
+    fetchedAt: string;
+  }
+>;
+
 export interface TopClip {
-  videoId: string;
+  platform: "youtube" | "tiktok" | "instagram";
   title: string;
   views: number;
   publishedAt: string;
+  videoId?: string;
+  url?: string | null;
 }
 
 /**
@@ -225,10 +250,33 @@ function loadPodcasts(): Podcast[] {
       const ch = p.platforms.find((x) => x.platform === "youtube");
       if (ch) ch.followers = yt.subscribers;
     }
+    // Overlay TikTok/Instagram follower counts (Apify public-data refresh).
+    const social = SOCIAL_STATS[p.slug];
+    for (const key of ["tiktok", "instagram"] as const) {
+      const n = social?.[key]?.followers;
+      if (n) {
+        const ch = p.platforms.find((x) => x.platform === key);
+        if (ch) ch.followers = n;
+      }
+    }
     // Overlay Apple Podcasts chart position (keyless public charts feed).
     p.appleChart = APPLE_CHARTS[p.slug] ?? null;
-    // Overlay the biggest recent clip (official YouTube API, last 30 days).
-    p.topClip = YOUTUBE_CLIPS[p.slug]?.clips?.[0] ?? null;
+    // Overlay the biggest recent clip across platforms (last 30 days):
+    // YouTube via the official API, TikTok/Instagram via Apify.
+    const candidates: TopClip[] = [
+      ...(YOUTUBE_CLIPS[p.slug]?.clips ?? []).map((c) => ({
+        ...c,
+        platform: "youtube" as const,
+      })),
+      ...(SOCIAL_CLIPS[p.slug]?.clips ?? []).map((c) => ({
+        ...c,
+        platform: (c.platform === "tiktok" ? "tiktok" : "instagram") as
+          | "tiktok"
+          | "instagram",
+      })),
+    ];
+    p.topClip =
+      candidates.sort((a, b) => b.views - a.views)[0] ?? null;
   }
   return cache;
 }

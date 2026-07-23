@@ -48,12 +48,17 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: npm run youtube-stats
 
+      - name: TikTok and Instagram via Apify
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: npm run apify-social
+
       - name: Weekly snapshot
         run: node scripts/snapshot.mjs || true
 
       - name: Commit refreshed data
         run: |
-          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/snapshots
+          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/seed/social_stats.json data/seed/social_clips.json data/snapshots
           if git diff --cached --quiet; then
             echo "No data changes."
             exit 0
