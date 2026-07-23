@@ -7,14 +7,14 @@ export function PlayGlyph({ size = 22 }: { size?: number }) {
   );
 }
 
-/** White transparent logo — sits directly on the navy header, no box. */
+/** The Run the Play logo in the header (design spec: h-12, object-contain). */
 export function Wordmark() {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/runlogo-white.png"
+      src="/runlogo.png"
       alt="Run the Play — Advertising Made Simple for the Culture"
-      className="h-12 w-auto"
+      className="h-12 w-auto rounded-lg object-contain"
     />
   );
 }

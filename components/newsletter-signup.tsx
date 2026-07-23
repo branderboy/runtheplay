@@ -15,28 +15,28 @@ export function NewsletterSignup({
   return (
     <form action={action} className="flex flex-col gap-3">
       <input type="hidden" name="edition" value={edition} />
-      <div className="flex flex-col gap-2 sm:flex-row">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
           name="email"
           required
-          placeholder="you@email.com"
+          placeholder="ENTER WORK EMAIL"
           aria-label="Email address"
-          className="flex-1 rounded-lg border border-line bg-navy-2 px-4 py-2.5 text-sm text-ink placeholder:text-ink-faint focus:border-orange"
+          className="flex-1 rounded-full border border-transparent bg-navy-2 px-7 py-4 text-sm font-bold uppercase tracking-widest text-ink shadow-inner outline-none transition-all placeholder:text-ink-faint focus:border-sky-200 focus:bg-white"
         />
         <button
           type="submit"
           disabled={pending}
-          className="rounded-lg bg-orange px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-navy disabled:opacity-60"
+          className="rounded-full bg-sky-500 px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-[0_10px_20px_-10px_rgba(14,165,233,0.5)] disabled:opacity-60"
         >
           {pending ? "…" : "Keep me in the loop"}
         </button>
       </div>
-      <p className="text-xs text-ink-faint">
+      <p className="text-xs font-medium text-ink-faint">
         Weekly. Double opt-in — we'll confirm before sending. Unsubscribe anytime.
       </p>
       {state.message && (
-        <p className={`text-sm ${state.ok ? "text-green" : "text-danger"}`}>
+        <p className={`text-sm font-bold ${state.ok ? "text-green" : "text-danger"}`}>
           {state.message}
         </p>
       )}

@@ -116,7 +116,7 @@ export function PlannerForm({
         <button
           type="submit"
           disabled={pending}
-          className="mt-2 rounded-lg bg-orange px-5 py-3 text-sm font-bold uppercase tracking-wide text-navy disabled:opacity-60"
+          className="mt-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-5 py-4 text-sm font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5 disabled:opacity-60"
         >
           {pending ? "Building your play…" : "Build my plan"}
         </button>

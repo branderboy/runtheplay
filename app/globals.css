@@ -1,40 +1,44 @@
 @import "tailwindcss";
 
 /*
- * Light editorial theme — Apple Podcasts clean + Spotify discovery + BET/iHeart
- * boldness, in the logo's navy + orange. Token names are kept from the earlier
- * dark build so components didn't need renaming; their VALUES are now light:
+ * "Latest design" theme — white ground, sky-blue primary, orange reserved for
+ * Add-to-Plan / creator CTAs, Inter black uppercase display type, pill
+ * buttons, soft sky shadows. Token names kept from earlier builds so all
+ * components restyle through the values:
+ *   navy    = brand dark (#0B1021) — header/logo ground
  *   navy-1  = card surface (white)
- *   navy-2  = raised / input / chip (light gray)
- *   ink*    = text (navy → slate → light slate)
- *   navy    = the brand dark, used only for button text and generated art
+ *   navy-2  = raised / input (slate-50)
+ *   line    = sky-tinted hairline
+ *   ink*    = slate text scale
  */
 @theme {
   --color-bg: #ffffff;
-  --color-navy: #0a1524;
+  --color-navy: #0b1021;
   --color-navy-1: #ffffff;
-  --color-navy-2: #f1f4f9;
-  --color-line: #e3e7ef;
-  --color-line-soft: #eef1f7;
-  --color-ink: #0a1524;
-  --color-ink-dim: #4a5a70;
-  --color-ink-faint: #5c6879; /* darkened to meet WCAG AA on white */
-  --color-orange: #f26a1b;
+  --color-navy-2: #f8fafc;
+  --color-line: #e0f2fe;
+  --color-line-soft: #f0f9ff;
+  --color-ink: #0f172a;
+  --color-ink-dim: #64748b;
+  --color-ink-faint: #94a3b8;
+  --color-orange: #f97316;
   --color-green: #12a06a;
   --color-danger: #d64545;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-sky: 0 20px 50px -15px rgba(14, 165, 233, 0.25);
+  --shadow-sky-sm: 0 10px 30px -15px rgba(14, 165, 233, 0.15);
 }
 
 html {
-  background:
-    radial-gradient(1100px 480px at 78% -8%, #fff4ec 0%, #ffffff 55%);
   background-color: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -42,12 +46,21 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-orange) 22%, transparent);
+  background: #0ea5e9;
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-orange);
+  outline: 2px solid #0ea5e9;
   outline-offset: 2px;
+}
+
+/* Display headline utility — the design's signature type treatment. */
+.display {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 /* Legal / long-form prose */
@@ -79,7 +92,7 @@ body {
   margin: 0.35rem 0;
 }
 .legal a {
-  color: var(--color-orange);
+  color: #0ea5e9;
 }
 .legal strong {
   color: var(--color-ink);

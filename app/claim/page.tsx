@@ -13,7 +13,7 @@ export default async function ClaimPage({
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
         For creators
       </p>
       <h1 className="text-3xl font-extrabold">Claim your profile</h1>

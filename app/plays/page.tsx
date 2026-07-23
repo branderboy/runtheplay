@@ -20,10 +20,10 @@ export default function PlaysPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
         Plays to Run
       </p>
-      <h1 className="max-w-2xl text-balance text-3xl font-extrabold sm:text-4xl">
+      <h1 className="display max-w-2xl text-4xl text-ink sm:text-5xl">
         See the play. Understand the strategy. Make it yours.
       </h1>
       <p className="mt-3 max-w-2xl text-ink-dim">

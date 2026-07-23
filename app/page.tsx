@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getAllPodcasts, listCategories } from "@/lib/data/podcasts";
+import { getAllPodcasts, getPodcastBySlug, listCategories } from "@/lib/data/podcasts";
+import { PlatformLogos } from "@/components/platform-logos";
 import { getAllPlays, money } from "@/lib/data/plays";
 import { computeChart, CHART_WEEK } from "@/lib/charts";
 import { listCategoryGroups } from "@/lib/categories";
 import { PodcastCard } from "@/components/podcast-card";
-import { ChartTable } from "@/components/chart-table";
 import { NewsletterSignup } from "@/components/newsletter-signup";
+import { CoverArt } from "@/components/cover-art";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
@@ -18,12 +19,32 @@ export default function HomePage() {
     plays.find((p) => p.tier === "Starter"),
     plays.find((p) => p.tier === "Growth"),
     plays.find((p) => p.tier === "Pro"),
-  ].filter(Boolean).slice(0, 3);
-  const topChart = computeChart("youtube-subscribers").slice(0, 5);
+  ].filter((p): p is NonNullable<typeof p> => Boolean(p));
+  const topChart = computeChart("youtube-subscribers").slice(0, 4);
   const categoryGroups = listCategoryGroups().filter((c) => c.indexable);
 
+  // Hero "viral proof" card: the real #1 charting show, real cover, real stats.
+  const topEntry = topChart[0];
+  const topShow = topEntry ? getPodcastBySlug(topEntry.slug) : undefined;
+  const fmtCount = (n: number) =>
+    n >= 1e6 ? `${(n / 1e6).toFixed(n >= 1e7 ? 0 : 1)}M` : `${Math.round(n / 1e3)}K`;
+  const heroStats = (topShow?.platforms ?? [])
+    .filter((x) => x.followers)
+    .slice(0, 3)
+    .map((x) => ({
+      label:
+        x.platform === "youtube"
+          ? "YouTube"
+          : x.platform === "instagram"
+            ? "Instagram"
+            : x.platform === "tiktok"
+              ? "TikTok"
+              : x.platform,
+      value: fmtCount(x.followers!),
+    }));
+
   return (
-    <div className="mx-auto max-w-6xl px-5">
+    <div>
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -46,153 +67,366 @@ export default function HomePage() {
           },
         }}
       />
-      {/* Hero */}
-      <section className="grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2">
-        <div>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
-            Advertising Made Simple for the Culture
-          </p>
-          <h1 className="text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-            Build a podcast ad plan with Black creators.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-ink-dim">
-            Tell us your goal, audience, and budget. Run the Play organizes the
-            right hip-hop and culture podcasts — reach, formats, and how to
-            contact them directly.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/plan"
-              className="rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
-            >
-              Start Planning
-            </Link>
-            <Link
-              href="/directory"
-              className="rounded-lg border border-line px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink hover:border-orange/50"
-            >
-              Explore Podcasts
-            </Link>
-          </div>
-          <p className="mt-6 text-sm text-ink-faint">
-            {podcasts.length} shows and counting · {categories.length} categories
-          </p>
-        </div>
 
-        {/* Live mini-chart */}
-        {topChart.length > 0 && (
-          <div className="rounded-3xl border border-line bg-navy-1 p-5 shadow-sm">
-            <div className="mb-3 flex items-baseline justify-between">
-              <div>
-                <h2 className="text-sm font-bold uppercase tracking-wide">
-                  Top YouTube Subscribers
-                </h2>
-                <p className="text-xs text-ink-faint">{CHART_WEEK}</p>
+      {/* ------------------------------- Hero ------------------------------- */}
+      <header className="relative overflow-hidden bg-gradient-to-b from-sky-50/50 to-white pb-24 pt-16">
+        <div className="pointer-events-none absolute left-[-10%] top-[-10%] h-96 w-96 rounded-full bg-sky-300/20 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-[-10%] right-[-10%] h-[40rem] w-[40rem] rounded-full bg-blue-200/20 blur-3xl" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            {/* Left: copy */}
+            <div className="text-center lg:text-left">
+              <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-sky-100 bg-sky-50 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-600 shadow-sm lg:justify-start">
+                ✦ The Urban Podcast Network
               </div>
-              <Link href="/charts" className="text-sm font-semibold text-ink-dim hover:text-ink">
-                All charts →
-              </Link>
+              <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
+                Create your next{" "}
+                <span className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent drop-shadow-sm">
+                  Campaign
+                </span>
+                <br />
+                on the hottest podcasts on the planet.
+              </h1>
+              <p className="mx-auto mb-8 max-w-2xl text-lg font-medium leading-relaxed tracking-tight text-ink-dim md:text-xl lg:mx-0">
+                Leverage the culture. Promote your business, music, or brand by
+                building a media plan across top Black creators and independent
+                shows.
+              </p>
+              <div className="flex items-center justify-center lg:justify-start">
+                <Link
+                  href="#campaign-builder"
+                  className="flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-[0_10px_20px_-10px_rgba(14,165,233,0.6)] transition-all hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Start Building ↓
+                </Link>
+              </div>
+              <p className="mt-6 text-sm font-bold uppercase tracking-widest text-ink-faint">
+                {podcasts.length} shows · {categories.length} categories
+              </p>
             </div>
-            <ChartTable entries={topChart} metricLabel="Subs" />
-          </div>
-        )}
-      </section>
 
-      {/* Featured shows */}
-      <section className="py-6">
-        <div className="mb-5 flex items-baseline justify-between">
-          <h2 className="text-xl font-bold">Recently added</h2>
-          <Link href="/directory" className="text-sm font-semibold text-ink-dim hover:text-ink">
-            See all →
-          </Link>
+            {/* Right: viral proof card — the real #1 show, real cover, real stats */}
+            {topShow && (
+              <div className="relative mx-auto mt-10 w-full max-w-md lg:ml-auto lg:mr-0 lg:mt-0">
+                <div className="absolute inset-0 z-0 rotate-3 scale-105 rounded-[3rem] bg-gradient-to-tr from-sky-400/30 to-blue-300/30 blur-lg" />
+                <div className="relative z-20 rounded-[2rem] border border-sky-50 bg-white p-4 shadow-[0_30px_60px_-15px_rgba(14,165,233,0.3)] transition-transform duration-500 hover:-translate-y-2">
+                  {/* Card header */}
+                  <div className="mb-4 flex items-center justify-between px-2 pt-1">
+                    <div className="flex items-center gap-3">
+                      <CoverArt
+                        name={topShow.name}
+                        slug={topShow.slug}
+                        artworkUrl={topShow.artworkUrl}
+                        size={40}
+                        radius={20}
+                      />
+                      <div>
+                        <h4 className="text-sm font-black uppercase tracking-tight text-ink">
+                          {topShow.name}
+                        </h4>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-ink-faint">
+                          {CHART_WEEK}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="flex animate-pulse items-center gap-1.5 rounded-full border border-red-100 bg-red-50 px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-red-500 shadow-sm">
+                      🔥 #1 This Week
+                    </span>
+                  </div>
+
+                  {/* Cover frame (reels style) — real artwork */}
+                  <Link
+                    href={`/podcast/${topShow.slug}`}
+                    className="group relative block aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-slate-100 bg-navy shadow-inner"
+                  >
+                    {topShow.artworkUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={topShow.artworkUrl}
+                        alt={`${topShow.name} cover art`}
+                        className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center">
+                        <CoverArt
+                          name={topShow.name}
+                          slug={topShow.slug}
+                          size={220}
+                          radius={0}
+                        />
+                      </div>
+                    )}
+                    <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-sky-500/90 shadow-[0_0_30px_rgba(14,165,233,0.5)] backdrop-blur-md transition-transform group-hover:scale-110">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true" className="translate-x-0.5">
+                        <path d="M8 5.5 19 12 8 18.5Z" />
+                      </svg>
+                    </span>
+                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/60 to-transparent p-5 pt-16">
+                      <span className="block text-lg font-black leading-tight text-white drop-shadow-md">
+                        {topShow.shortDescription ??
+                          "The culture's biggest show — see the receipts."}
+                      </span>
+                    </span>
+                  </Link>
+
+                  {/* Real platform stats */}
+                  <div className="flex items-center justify-between px-3 pb-2 pt-5">
+                    {heroStats.map((s) => (
+                      <div key={s.label} className="text-center">
+                        <span className="block text-sm font-black tabular-nums text-ink">
+                          {s.value}
+                        </span>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-ink-faint">
+                          {s.label}
+                        </span>
+                      </div>
+                    ))}
+                    <Link
+                      href="/charts"
+                      className="rounded-full bg-sky-50 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
+                    >
+                      All Charts →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p) => (
-            <PodcastCard key={p.slug} p={p} />
+      </header>
+
+      {/* --------------------- Platform logos strip --------------------- */}
+      <PlatformLogos />
+
+      {/* ------------------------- Campaign builder ------------------------- */}
+      <section
+        id="campaign-builder"
+        className="relative z-40 mx-auto mb-20 mt-14 max-w-5xl px-4 sm:px-6 lg:px-8"
+      >
+        <div className="mb-6 flex justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/runlogo.png"
+            alt="Run the Play"
+            className="h-12 w-auto rounded-lg object-contain opacity-90 drop-shadow-sm"
+          />
+        </div>
+        <form
+          action="/directory"
+          className="flex flex-col gap-3 rounded-[2rem] border border-sky-100 bg-white p-3 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.3)] md:flex-row"
+        >
+          <div className="relative flex flex-1 items-center">
+            <svg
+              className="absolute left-6 h-6 w-6 text-sky-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+              type="text"
+              name="q"
+              placeholder="Search creators, audiences, or niches…"
+              aria-label="Search creators, audiences, or niches"
+              className="w-full rounded-2xl border border-transparent bg-navy-2 py-5 pl-16 pr-4 text-lg font-black text-ink outline-none transition-all placeholder:text-ink-faint focus:border-sky-100 focus:bg-sky-50/50"
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(14,165,233,0.6)]"
+          >
+            Build Plan
+          </button>
+        </form>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-bold uppercase tracking-widest text-ink-faint">
+          <span>Trending:</span>
+          {["Hip-Hop", "Entrepreneurs", "Sports", "Comedy"].map((t) => (
+            <Link
+              key={t}
+              href={`/directory?q=${encodeURIComponent(t.toLowerCase())}`}
+              className="rounded-full border border-slate-200 bg-white px-4 py-1.5 transition-colors hover:border-sky-300 hover:text-sky-500"
+            >
+              {t}
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Browse by category — internal links */}
-      {categoryGroups.length > 0 && (
-        <section className="py-6">
-          <h2 className="mb-4 text-xl font-bold">Browse by category</h2>
-          <div className="flex flex-wrap gap-2">
-            {categoryGroups.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/category/${c.slug}`}
-                className="rounded-full border border-line bg-navy-1 px-4 py-2 text-sm font-semibold shadow-sm transition hover:border-orange/40"
-              >
-                {c.name}
-                <span className="ml-1.5 text-ink-faint">{c.shows.length}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Plays to Run */}
-      {samplePlays.length > 0 && (
-        <section className="py-10">
-          <div className="mb-5 flex items-baseline justify-between">
+      {/* --------------------------- 01 / Directory -------------------------- */}
+      <section className="bg-white py-16" id="directory-preview">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 flex flex-col justify-between gap-6 border-b border-sky-50 pb-8 md:flex-row md:items-end">
             <div>
-              <h2 className="text-xl font-bold">Plays to Run</h2>
-              <p className="mt-1 text-sm text-ink-dim">
-                Not sure where to start? Copy a proven campaign for your budget.
-              </p>
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+                01 / The Directory
+              </h2>
+              <h3 className="display text-4xl text-ink md:text-6xl">
+                Your media mix.
+              </h3>
             </div>
-            <Link href="/plays" className="text-sm font-semibold text-ink-dim hover:text-ink">
-              All plays →
+            <Link
+              href="/directory"
+              className="text-sm font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
+            >
+              All {podcasts.length} creators →
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {samplePlays.map((p) => (
-              <Link
-                key={p!.slug}
-                href={`/plays/${p!.slug}`}
-                className="flex flex-col gap-2 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
-              >
-                <span className="text-2xl font-extrabold tabular-nums text-ink">
-                  {money(p!.budget)}
-                </span>
-                <h3 className="text-[15px] font-bold leading-tight">{p!.title}</h3>
-                <p className="line-clamp-2 text-[13px] text-ink-dim">{p!.objective}</p>
-              </Link>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((p) => (
+              <PodcastCard key={p.slug} p={p} />
             ))}
           </div>
-        </section>
-      )}
 
-      {/* Keep in the loop */}
-      <section className="my-16 rounded-3xl border border-line bg-navy-2 p-8 sm:p-12">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-2xl font-bold">Keep in the loop</h2>
-            <p className="mt-3 text-ink-dim">
-              Weekly charts, new shows open to advertising, and budget-based
-              campaign ideas — the culture's media, in your inbox.
-            </p>
-          </div>
-          <NewsletterSignup edition="buyer" />
+          {categoryGroups.length > 0 && (
+            <div className="mt-10 flex flex-wrap gap-3">
+              {categoryGroups.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/category/${c.slug}`}
+                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-black uppercase tracking-widest text-ink-dim transition-colors hover:border-sky-300 hover:text-sky-500"
+                >
+                  {c.name} <span className="text-ink-faint">{c.shows.length}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Creator CTA */}
-      <section className="mb-8 flex flex-col items-start gap-4 rounded-3xl border border-orange/30 bg-orange/5 p-8 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h2 className="text-xl font-bold">Are you a creator?</h2>
-          <p className="mt-2 max-w-xl text-ink-dim">
-            Listing is free. Claim your profile to control your info, add your
-            advertising options, and choose how brands reach you.
-          </p>
+      {/* ------------------------- 02 / Plays to Run ------------------------- */}
+      <section className="bg-sky-50/30 py-24" id="plays-preview">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 flex flex-col justify-between gap-6 text-center md:flex-row md:items-end md:text-left">
+            <div className="max-w-2xl">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+                02 / Plays to Run
+              </h2>
+              <h3 className="display text-5xl text-ink md:text-7xl">
+                Study the strategy.
+              </h3>
+            </div>
+            <p className="max-w-sm text-xl font-medium leading-relaxed text-ink-dim md:text-right">
+              Ready-made campaign examples. See the play. Understand the
+              strategy. Make it yours.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {samplePlays.map((p, i) => (
+              <div
+                key={p.slug}
+                className="group flex h-full flex-col rounded-[2.5rem] border border-sky-50 bg-white p-10 shadow-[0_20px_40px_-15px_rgba(14,165,233,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(14,165,233,0.2)]"
+              >
+                <div className="mb-8 inline-block self-start rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
+                  Play 0{i + 1}
+                </div>
+                <div className="mb-3 text-5xl font-black tracking-tighter text-ink">
+                  {money(p.budget)}
+                </div>
+                <h4 className="display mb-8 text-2xl text-ink">{p.title}</h4>
+                <div className="mb-8">
+                  <span className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-ink-faint">
+                    Target audience
+                  </span>
+                  <span className="inline-block rounded-xl border border-sky-100 bg-sky-50 px-4 py-2 text-sm font-black capitalize text-sky-700">
+                    {p.audienceTags.slice(0, 2).join(" · ")}
+                  </span>
+                </div>
+                <ul className="mt-auto space-y-3">
+                  {p.mediaMix.slice(0, 3).map((m, j) => (
+                    <li
+                      key={j}
+                      className="flex items-center gap-3 rounded-xl border border-sky-50 bg-white p-3 text-sm font-bold text-ink-dim shadow-sm"
+                    >
+                      <span className="text-sky-500">✓</span>
+                      {m.count}× {m.channel}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/plays/${p.slug}`}
+                  className="mt-10 w-full rounded-full bg-sky-50 py-5 text-center text-sm font-black uppercase tracking-widest text-sky-700 transition-all hover:-translate-y-0.5 hover:bg-sky-500 hover:text-white hover:shadow-lg"
+                >
+                  Customize Play
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/plays"
+              className="text-sm font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
+            >
+              All {plays.length} plays →
+            </Link>
+          </div>
         </div>
-        <Link
-          href="/claim"
-          className="flex-none rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
-        >
-          Claim Your Profile
-        </Link>
+      </section>
+
+      {/* --------------------------- 03 / The Loop --------------------------- */}
+      <section className="relative overflow-hidden bg-white py-24" id="creators">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Brands: newsletter */}
+            <div className="relative flex flex-col justify-center overflow-hidden rounded-[3rem] border border-sky-100 bg-white p-10 shadow-[0_20px_50px_-10px_rgba(14,165,233,0.05)] md:p-14">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-ink-faint">
+                03 / The Loop
+              </h2>
+              <h3 className="display mb-8 text-5xl text-ink lg:text-6xl">
+                For
+                <br />
+                Brands
+              </h3>
+              <ul className="mb-10 space-y-5">
+                {[
+                  "New media opportunities",
+                  "Weekly independent charts",
+                  "Budget-based campaign ideas",
+                ].map((t) => (
+                  <li
+                    key={t}
+                    className="flex items-center gap-4 text-lg font-bold uppercase tracking-tight text-ink-dim"
+                  >
+                    <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-sky-100 bg-sky-50 text-sky-500">
+                      ✓
+                    </span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <NewsletterSignup edition="buyer" />
+            </div>
+
+            {/* Creators: claim */}
+            <div className="relative flex flex-col justify-center overflow-hidden rounded-[3rem] bg-gradient-to-br from-orange-400 to-orange-600 p-10 text-white shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] md:p-14 lg:-translate-y-6">
+              <div className="mb-8 inline-flex items-center self-start rounded-full border border-white/30 bg-white/20 px-5 py-2 text-xs font-black uppercase tracking-[0.2em] backdrop-blur-md">
+                🎙 Media Owners
+              </div>
+              <h3 className="display relative z-10 mb-6 text-5xl text-white drop-shadow-md lg:text-6xl">
+                Was your show featured?
+              </h3>
+              <p className="relative z-10 mb-10 max-w-md text-xl font-medium leading-relaxed text-white/90">
+                We already put your show in front of the market. Claim your
+                profile free and control what they see next.
+              </p>
+              <Link
+                href="/claim"
+                className="relative z-10 self-start rounded-full bg-white px-10 py-5 text-sm font-black uppercase tracking-[0.2em] text-orange-600 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
+              >
+                Claim Free Profile ↗
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

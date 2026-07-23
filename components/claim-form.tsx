@@ -46,7 +46,7 @@ export function ClaimForm({ slug, name }: { slug: string; name: string }) {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg bg-orange px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-navy disabled:opacity-60"
+        className="rounded-full bg-orange px-6 py-3.5 text-sm font-black uppercase tracking-widest text-white shadow-[0_10px_20px_-10px_rgba(249,115,22,0.6)] transition-all hover:-translate-y-0.5 hover:bg-orange-600 disabled:opacity-60"
       >
         {pending ? "Checking…" : "Claim this profile"}
       </button>

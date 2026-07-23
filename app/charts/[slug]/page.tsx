@@ -55,7 +55,7 @@ export default async function ChartPage({
         ← All charts
       </Link>
 
-      <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
+      <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
         {CHART_WEEK}
       </p>
       <h1 className="mt-1 text-balance text-3xl font-extrabold">{c.title}</h1>

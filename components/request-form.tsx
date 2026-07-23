@@ -38,7 +38,7 @@ export function RequestForm({ slug, name }: { slug: string; name: string }) {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-lg bg-orange px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-navy disabled:opacity-60"
+        className="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3.5 text-sm font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5 disabled:opacity-60"
       >
         {pending ? "Sending…" : "Send inquiry"}
       </button>
