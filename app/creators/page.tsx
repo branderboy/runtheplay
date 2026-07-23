@@ -7,7 +7,7 @@ import { GetListedForm } from "@/components/get-listed-form";
 export const metadata = {
   title: "For Creators",
   description:
-    "Claim your show or get listed free on Run the Play. Connect with brands, show up in real plans, and grow with receipts.",
+    "Claim your show or get listed free on Run the Play. A structured way to add ad revenue, even incremental income, on your terms.",
 };
 
 /** The creator journey, mirroring the product: Directory, Planner, Charts. */
@@ -16,7 +16,7 @@ const JOURNEY = [
     step: "01",
     title: "Connect",
     kicker: "The Creator Directory",
-    body: "Your show gets a landing profile brands can find: platforms, reach, formats, and how to book you. Free, forever.",
+    body: "Your show gets a landing profile with your platforms, reach, formats, and how to book you. Free, forever.",
     href: "/directory",
     linkLabel: "See the Directory",
   },
@@ -24,7 +24,7 @@ const JOURNEY = [
     step: "02",
     title: "Plan",
     kicker: "Ad Planner & Marketplace",
-    body: "Brands build plans by goal, budget, and audience. Claim your profile to publish your real inventory and rates, so the plans that match you book you.",
+    body: "Advertisers come here for structured access to alternative media. They build plans by goal, budget, and audience. Publish your real inventory and rates so the plans that match you book you.",
     href: "/plan",
     linkLabel: "See the Planner",
   },
@@ -32,7 +32,7 @@ const JOURNEY = [
     step: "03",
     title: "Grow",
     kicker: "Charts, Metrics & Results",
-    body: "Weekly public charts and sourced receipts make your case for you. Chart positions are earned by the numbers and can never be bought.",
+    body: "Every booking is revenue you were not getting one-off. Weekly public charts and sourced receipts make your case, and chart positions can never be bought.",
     href: "/charts",
     linkLabel: "See the Charts",
   },
@@ -62,8 +62,8 @@ export default function CreatorsPage() {
             Grow.
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg font-medium leading-relaxed text-ink-dim md:text-xl">
-            The growth network for Black-creator podcasts. List free, get
-            discovered by brands, and keep control of your rates.
+            The growth network for Black-creator podcasts. A structured way to
+            add ad revenue, even incremental income. You set the rates.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
@@ -78,6 +78,16 @@ export default function CreatorsPage() {
             >
               Get Listed Free
             </a>
+          </div>
+
+          {/* The owner's network illustration */}
+          <div className="mx-auto mt-14 max-w-6xl overflow-hidden rounded-[2rem] border border-sky-50 bg-white shadow-[0_30px_60px_-20px_rgba(14,165,233,0.25)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/creators-network.webp"
+              alt="The Run the Play creator journey: the creator directory connects shows with brands, the ad planner and marketplace turn budgets into campaigns, and campaign metrics show the results"
+              className="block h-auto w-full"
+            />
           </div>
         </div>
       </header>
@@ -206,7 +216,7 @@ export default function CreatorsPage() {
                 Not Listed Yet?
               </h2>
               <p className="display mb-6 text-4xl text-ink md:text-5xl">
-                Get Your Show on the Map.
+                List Your Show Free.
               </p>
               <p className="mb-8 max-w-xl text-lg font-medium leading-relaxed text-ink-dim">
                 {thesis.story.problem} Run the Play puts independent culture
