@@ -194,14 +194,6 @@ export default function HomePage() {
         id="campaign-builder"
         className="relative z-40 mx-auto mb-20 mt-14 max-w-5xl px-4 sm:px-6 lg:px-8"
       >
-        <div className="mb-6 flex justify-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/runlogo.png"
-            alt="Run the Play"
-            className="h-12 w-auto rounded-lg object-contain opacity-90 drop-shadow-sm"
-          />
-        </div>
         {/* Campaign builder — Step 1 of the real planning flow: pick your goal */}
         <div className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.3)] sm:p-10">
           <div className="mb-8 text-center">
