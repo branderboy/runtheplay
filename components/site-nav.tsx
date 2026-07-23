@@ -9,7 +9,7 @@ const NAV = [
   { href: "/charts", label: "Charts" },
   { href: "/plays", label: "Plays" },
   { href: "/directory", label: "Directory" },
-  { href: "/claim", label: "For Creators" },
+  { href: "/creators", label: "For Creators" },
 ];
 
 export function SiteNav() {

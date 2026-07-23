@@ -9,6 +9,7 @@ import { getDb } from "@/lib/db-optional";
 import {
   inquiries,
   claims,
+  listingRequests,
   newsletterSubscribers,
   newsletterEditionSubscriptions,
 } from "@/src/db/schema/index";
@@ -118,6 +119,43 @@ export async function submitClaim(
     message: onFile
       ? `Submitted for review. That email doesn't match the one on file, so a person will verify your claim.`
       : `Submitted for review. We don't have an email on file for ${pod.name} yet, so a person will verify your claim.`,
+  };
+}
+
+/* --------------------- creator sign-up (not listed yet) --------------------- */
+
+export async function submitListingRequest(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const showName = String(formData.get("showName") ?? "").trim();
+  const contactName = String(formData.get("contactName") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const showUrl = String(formData.get("showUrl") ?? "").trim();
+
+  if (showName.length < 2)
+    return { ok: false, message: "Enter your show's name." };
+  if (!isEmail(email))
+    return { ok: false, message: "Enter a valid business email." };
+  if (showUrl && !/^https?:\/\//.test(showUrl))
+    return { ok: false, message: "Show link must be a full URL (https://...)." };
+
+  record("listing_requests", { showName, contactName, email, showUrl });
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.insert(listingRequests).values({
+        showName,
+        contactName: contactName || null,
+        email,
+        showUrl: showUrl || null,
+      });
+    } catch { /* fall back to the log */ }
+  }
+  // TODO: send a confirmation via Resend once email is wired up.
+  return {
+    ok: true,
+    message: `Received. We review every show against our scope before it goes live, then email you at ${email} to claim your profile.`,
   };
 }
 

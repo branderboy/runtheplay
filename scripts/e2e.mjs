@@ -29,6 +29,7 @@ const PATHS = [
   "/charts/combined-reach",
   "/plays",
   "/plays/500-barbershop-play",
+  "/creators",
   "/claim",
   "/claim?q=drink",
   "/legal/privacy",
