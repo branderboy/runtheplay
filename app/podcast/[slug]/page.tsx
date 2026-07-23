@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPodcastBySlug, getAllPodcasts } from "@/lib/data/podcasts";
 import { Badge } from "@/components/badges";
+import { ProfileHero } from "@/components/profile-hero";
 import { RequestForm } from "@/components/request-form";
 import { ClaimForm } from "@/components/claim-form";
 
@@ -47,29 +48,19 @@ export default async function ProfilePage({
   const p = getPodcastBySlug(slug);
   if (!p) notFound();
 
-  const location = [p.city, p.stateOrRegion].filter(Boolean).join(", ");
-
   return (
     <div className="mx-auto max-w-4xl px-5 py-12">
       <Link href="/directory" className="text-sm text-ink-faint hover:text-ink-dim">
         ← Explore Podcasts
       </Link>
 
-      {/* Identity */}
-      <div className="mt-4 flex flex-wrap items-start gap-2">
-        <h1 className="text-3xl font-extrabold">{p.name}</h1>
+      <div className="mt-4">
+        <ProfileHero p={p} />
       </div>
-      <p className="mt-2 text-ink-dim">
-        {p.primaryCategory}
-        {location ? ` · ${location}` : ""}
-        {p.hosts.length ? ` · ${p.hosts.join(", ")}` : ""}
-      </p>
-      <div className="mt-3 flex flex-wrap gap-2">
-        <Badge tone="unclaimed">Unclaimed</Badge>
-        <Badge tone="public">Public source</Badge>
-        {p.advertisingAvailable && <Badge tone="contact">Advertising available</Badge>}
-        {p.networkName && <span className="text-xs text-ink-faint">Network: {p.networkName}</span>}
-      </div>
+
+      {p.networkName && (
+        <p className="mt-3 text-xs text-ink-faint">Network: {p.networkName}</p>
+      )}
 
       {p.shortDescription && (
         <p className="mt-6 max-w-2xl text-ink-dim">{p.shortDescription}</p>

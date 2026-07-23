@@ -1,16 +1,7 @@
 import Link from "next/link";
 import type { Podcast } from "@/lib/data/podcasts";
 import { Badge } from "./badges";
-
-function initials(name: string) {
-  return name
-    .replace(/^the\s+/i, "")
-    .split(/\s+/)
-    .slice(0, 3)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
+import { CoverArt } from "./cover-art";
 
 function reach(p: Podcast): string | null {
   const yt = p.platforms.find((x) => x.platform === "youtube")?.followers;
@@ -28,8 +19,8 @@ export function PodcastCard({ p }: { p: Podcast }) {
       className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 transition-colors hover:border-orange/50"
     >
       <div className="flex items-start gap-3">
-        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-xl border border-line bg-navy-2 text-[13px] font-extrabold text-ink-dim">
-          {initials(p.name)}
+        <div className="flex-none">
+          <CoverArt name={p.name} slug={p.slug} artworkUrl={p.artworkUrl} size={48} radius={12} />
         </div>
         <div className="min-w-0">
           <h3 className="truncate text-[15px] font-bold leading-tight">{p.name}</h3>
