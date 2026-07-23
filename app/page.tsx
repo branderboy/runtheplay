@@ -471,8 +471,10 @@ export default function HomePage() {
               <p className="mt-4 max-w-2xl text-base font-medium text-ink-dim">
                 Finding Black podcasts shouldn't take scrolling Instagram,
                 searching YouTube, and emailing creators one by one. We help
-                advertisers find the right audience faster: less time
-                searching, more time reaching audiences that matter.
+                advertisers find the right audience faster.
+              </p>
+              <p className="mt-3 text-lg font-black uppercase tracking-tight text-ink">
+                Less Searching. Better Ad Placements.
               </p>
             </div>
             <Link
