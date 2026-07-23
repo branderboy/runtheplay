@@ -1,0 +1,27 @@
+{
+  "name": "runtheplay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Run the Play — Clutch-style directory + Ad Planner for Black creators' podcast advertising inventory",
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx scripts/import-seed.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.36.4",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.28.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
