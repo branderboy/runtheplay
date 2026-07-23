@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/*
+ * Light editorial theme — Apple Podcasts clean + Spotify discovery + BET/iHeart
+ * boldness, in the logo's navy + orange. Token names are kept from the earlier
+ * dark build so components didn't need renaming; their VALUES are now light:
+ *   navy-1  = card surface (white)
+ *   navy-2  = raised / input / chip (light gray)
+ *   ink*    = text (navy → slate → light slate)
+ *   navy    = the brand dark, used only for button text and generated art
+ */
+@theme {
+  --color-bg: #ffffff;
+  --color-navy: #0a1524;
+  --color-navy-1: #ffffff;
+  --color-navy-2: #f1f4f9;
+  --color-line: #e3e7ef;
+  --color-line-soft: #eef1f7;
+  --color-ink: #0a1524;
+  --color-ink-dim: #4a5a70;
+  --color-ink-faint: #5c6879; /* darkened to meet WCAG AA on white */
+  --color-orange: #f26a1b;
+  --color-green: #12a06a;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background:
+    radial-gradient(1100px 480px at 78% -8%, #fff4ec 0%, #ffffff 55%);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-orange) 22%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+/* Legal / long-form prose */
+.legal {
+  color: var(--color-ink-dim);
+  line-height: 1.7;
+}
+.legal h2 {
+  color: var(--color-ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+.legal h3 {
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+.legal p {
+  margin: 0.75rem 0;
+}
+.legal ul {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.legal li {
+  margin: 0.35rem 0;
+}
+.legal a {
+  color: var(--color-orange);
+}
+.legal strong {
+  color: var(--color-ink);
+}

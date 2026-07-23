@@ -1,0 +1,2725 @@
+[
+ {
+  "slug": "500-barbershop-play",
+  "title": "The $500 Barbershop Play",
+  "businessType": "Barbershop",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 500,
+  "geography": "Local",
+  "audienceTags": [
+   "local culture",
+   "hip-hop",
+   "grooming",
+   "lifestyle"
+  ],
+  "objective": "Fill weekday chairs and book new regulars by getting a trusted host to send local listeners in for a first-visit deal.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots on two local hip-hop/culture shows"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "One live mention with a promo code the host uses himself"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions with swipe-up to booking link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 300
+   },
+   {
+    "label": "Live read",
+    "amount": 120
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 80
+   }
+  ],
+  "whyItWorks": "Barbershops live and die on trust and routine, and a host who gets his own cut on-mic is the perfect referral. Loyal local podcast audiences already care about grooming and neighborhood spots, and mid-tier shows are cheap enough to run two of them on a $500 budget.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "650-soul-food-play",
+  "title": "The $650 Soul Food Plate Play",
+  "businessType": "Soul food restaurant",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 650,
+  "geography": "Local",
+  "audienceTags": [
+   "local culture",
+   "food",
+   "comfort cooking",
+   "family"
+  ],
+  "objective": "Drive weekend dinner traffic and Sunday plate pre-orders by putting the menu in front of hungry local listeners with a host who actually eats there.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots describing signature plates on two culture shows"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Live mid-show read timed for Friday drop before the weekend"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 1,
+    "detail": "One sponsored blurb with weekend hours and pre-order link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 380
+   },
+   {
+    "label": "Live read",
+    "amount": 170
+   },
+   {
+    "label": "Newsletter blurb",
+    "amount": 100
+   }
+  ],
+  "whyItWorks": "Nothing sells a plate like a host describing the smell of the mac and cheese between segments. Culture podcasts pull loyal local audiences who treat food recommendations as gospel, and a Friday live read lands right when weekend meal plans get made. Mid-tier show pricing lets a small kitchen run real frequency without a big budget.",
+  "shopCategories": [
+   "Society & Culture",
+   "Comedy"
+  ]
+ },
+ {
+  "slug": "550-hair-salon-play",
+  "title": "The $550 Hair Salon Play",
+  "businessType": "Hair salon",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 550,
+  "geography": "Local",
+  "audienceTags": [
+   "beauty",
+   "local culture",
+   "self-care",
+   "lifestyle"
+  ],
+  "objective": "Book out stylists' open slots and attract new color and protective-style clients through host recommendations and social proof.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots on lifestyle and culture shows"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three Story mentions featuring before/after transformation clips"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 350
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 200
+   }
+  ],
+  "whyItWorks": "Hair is a high-trust, referral-driven purchase, and a host vouching for a salon carries the weight of a friend's recommendation. Loyal culture and lifestyle audiences care deeply about self-presentation, and pairing the audio read with transformation clips on Instagram closes the loop from hearing to seeing to booking.",
+  "shopCategories": [
+   "Society & Culture",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "450-nail-salon-play",
+  "title": "The $450 Nail Salon Play",
+  "businessType": "Nail salon",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 450,
+  "geography": "Local",
+  "audienceTags": [
+   "beauty",
+   "self-care",
+   "local culture",
+   "lifestyle"
+  ],
+  "objective": "Grow midweek appointments and introduce a new set of seasonal nail designs to local listeners looking for a go-to spot.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read 60s spot on a lifestyle/culture show"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions with a carousel of recent nail sets"
+   },
+   {
+    "channel": "TikTok",
+    "count": 1,
+    "detail": "One creator clip showing a design time-lapse with the salon tagged"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 190
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 130
+   },
+   {
+    "label": "TikTok clip",
+    "amount": 130
+   }
+  ],
+  "whyItWorks": "Nail art is visual and social, so pairing a trusted host read with short-form clips shows the craft while borrowing the host's credibility. Local lifestyle audiences book beauty services on impulse and loyalty, and a single mid-tier show plus social keeps the whole play inside a $450 budget.",
+  "shopCategories": [
+   "Pop Culture",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "700-personal-trainer-play",
+  "title": "The $700 Personal Trainer Play",
+  "businessType": "Personal trainer / gym",
+  "tier": "Starter",
+  "goal": "lead_generation",
+  "budget": 700,
+  "geography": "Local",
+  "audienceTags": [
+   "fitness",
+   "motivation",
+   "wellness",
+   "local culture"
+  ],
+  "objective": "Generate free-consultation and trial-session leads for a local trainer by tapping into audiences already primed for discipline and self-improvement.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots on motivation and sports shows with a trackable landing page"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Live read where the host shares a personal fitness goal and the offer"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions with a lead form link for a free assessment"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 420
+   },
+   {
+    "label": "Live read",
+    "amount": 180
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 100
+   }
+  ],
+  "whyItWorks": "Fitness is sold on belief and accountability, and motivation-minded podcast audiences are already leaning into self-improvement when the offer hits. A host framing the trainer around his own goals turns an ad into a testimonial, and a trackable landing page makes every lead measurable on a starter budget.",
+  "shopCategories": [
+   "Motivation",
+   "Sports"
+  ]
+ },
+ {
+  "slug": "800-tax-preparer-play",
+  "title": "The $800 Tax Season Play",
+  "businessType": "Tax preparer / CPA",
+  "tier": "Starter",
+  "goal": "lead_generation",
+  "budget": 800,
+  "geography": "Regional",
+  "audienceTags": [
+   "personal finance",
+   "small business",
+   "money",
+   "local culture"
+  ],
+  "objective": "Book tax-prep appointments and consultations during filing season by reaching listeners who want a trusted preparer who understands their situation.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "Host-read 60s spots across business and culture shows with a booking link"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 1,
+    "detail": "One sponsored blurb with an early-filer discount and deadline reminder"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions with quick tax tips and a consult link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 540
+   },
+   {
+    "label": "Newsletter blurb",
+    "amount": 150
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 110
+   }
+  ],
+  "whyItWorks": "Choosing who handles your money is a trust decision, and a host vouching for a preparer removes the fear of the unknown. Business and culture audiences include gig workers and small-business owners who need real help by the deadline, and running three mid-tier shows regionally builds the frequency that turns filing pressure into booked appointments.",
+  "shopCategories": [
+   "Business",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "600-tattoo-artist-play",
+  "title": "The $600 Tattoo Shop Play",
+  "businessType": "Tattoo artist / shop",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 600,
+  "geography": "Local",
+  "audienceTags": [
+   "art",
+   "local culture",
+   "hip-hop",
+   "lifestyle"
+  ],
+  "objective": "Book consultations and fill an artist's calendar by showcasing portfolio work to culture-forward listeners who value custom art.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots on hip-hop and culture shows"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions featuring healed portfolio pieces"
+   },
+   {
+    "channel": "TikTok",
+    "count": 1,
+    "detail": "One creator clip of a session time-lapse with the shop tagged"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 360
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 130
+   },
+   {
+    "label": "TikTok clip",
+    "amount": 110
+   }
+  ],
+  "whyItWorks": "Tattoos are permanent, so people choose an artist on reputation and portfolio, exactly what a host read plus visual proof delivers. Hip-hop and culture audiences prize self-expression and custom art, and pairing audio credibility with time-lapse clips shows skill while keeping the play affordable for a single shop.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "400-mobile-detailing-play",
+  "title": "The $400 Mobile Detailing Play",
+  "businessType": "Mobile car detailing",
+  "tier": "Starter",
+  "goal": "lead_generation",
+  "budget": 400,
+  "geography": "Local",
+  "audienceTags": [
+   "cars",
+   "local culture",
+   "lifestyle",
+   "hip-hop"
+  ],
+  "objective": "Book weekend detailing appointments by reaching local car-proud listeners with a convenient come-to-you service and a first-detail offer.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read 60s spot on a local culture or sports show with a booking link"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Live read where the host books a detail on-air as a demo"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Story mentions with before/after clips and a text-to-book number"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 190
+   },
+   {
+    "label": "Live read",
+    "amount": 120
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 90
+   }
+  ],
+  "whyItWorks": "A clean ride is a point of pride, and a host getting his own car detailed on-air is instant proof the service delivers. Local audiences love convenience, so a come-to-you offer paired with dramatic before/after clips converts, and one mid-tier show plus social keeps the play lean at $400.",
+  "shopCategories": [
+   "Society & Culture",
+   "Sports"
+  ]
+ },
+ {
+  "slug": "650-local-boutique-play",
+  "title": "The $650 Boutique Drop Play",
+  "businessType": "Local boutique (clothing)",
+  "tier": "Starter",
+  "goal": "product_launch",
+  "budget": 650,
+  "geography": "Local",
+  "audienceTags": [
+   "fashion",
+   "local culture",
+   "streetwear",
+   "lifestyle"
+  ],
+  "objective": "Drive traffic and sales for a new seasonal collection drop by getting culture-forward listeners excited about a limited local release.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read 60s spots teasing the drop on hip-hop and lifestyle shows"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three Story mentions with lookbook shots and a drop-day countdown"
+   },
+   {
+    "channel": "TikTok",
+    "count": 1,
+    "detail": "One creator try-on clip styling the new pieces with the shop tagged"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots",
+    "amount": 350
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 180
+   },
+   {
+    "label": "TikTok clip",
+    "amount": 120
+   }
+  ],
+  "whyItWorks": "Fashion drops thrive on hype and taste-makers, and a trusted host teasing a limited release creates the fear of missing out that fills a store on drop day. Streetwear and culture audiences follow style cues closely, and layering podcast buzz with try-on clips turns a small boutique's launch into an event.",
+  "shopCategories": [
+   "Pop Culture",
+   "Music (Hip-Hop)"
+  ]
+ },
+ {
+  "slug": "500-food-truck-play",
+  "title": "The $500 Food Truck Play",
+  "businessType": "Food truck",
+  "tier": "Starter",
+  "goal": "event_promotion",
+  "budget": 500,
+  "geography": "Local",
+  "audienceTags": [
+   "food",
+   "local culture",
+   "events",
+   "lifestyle"
+  ],
+  "objective": "Draw crowds to the truck's weekly stops and pop-up events by announcing the schedule and menu to hungry local listeners.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read 60s spot naming this week's location and signature item"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Live read timed the morning of a stop with the exact address"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three Story mentions with the weekly location map and menu photos"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 200
+   },
+   {
+    "label": "Live read",
+    "amount": 160
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 140
+   }
+  ],
+  "whyItWorks": "A food truck's biggest challenge is telling people where it is right now, and a same-day live read solves that better than any billboard. Local culture audiences chase good food and events, and a host hyping the menu the morning of a stop turns casual listeners into a lunch-rush line, all within a $500 budget.",
+  "shopCategories": [
+   "Society & Culture",
+   "Comedy"
+  ]
+ },
+ {
+  "slug": "independent-rapper-single-release",
+  "title": "The $1,500 Independent Artist Play",
+  "businessType": "Independent rapper \u2014 single release",
+  "tier": "Growth",
+  "goal": "music_release",
+  "budget": 1500,
+  "geography": "Regional",
+  "audienceTags": [
+   "hip-hop heads",
+   "new music discovery",
+   "underground rap",
+   "playlist culture"
+  ],
+  "objective": "Drive first-week streams and pre-saves for a new single by putting it in front of engaged rap fans through trusted hosts. Convert listeners into Spotify follows and Instagram profile visits.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "60-second host-read spots on two hip-hop podcasts with the hook played under the read"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Host reacts to the single live and shares the pre-save link in the episode"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels from host accounts using the hook as audio with a swipe-up to stream"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots (x2)",
+    "amount": 750
+   },
+   {
+    "label": "Live read reaction segment",
+    "amount": 350
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 300
+   },
+   {
+    "label": "Clip editing and asset delivery",
+    "amount": 100
+   }
+  ],
+  "whyItWorks": "When a host who fans already trust plays your hook and says your name, it lands as a co-sign, not an ad. Loyal rap podcast audiences are exactly the crowd that pre-saves and adds tracks to personal playlists, and a strong hook clipped into Reels can outrun the campaign on its own.",
+  "shopCategories": [
+   "Music (Hip-Hop)"
+  ]
+ },
+ {
+  "slug": "dj-party-promoter-club-night",
+  "title": "The $1,200 Club Night Play",
+  "businessType": "DJ / party promoter (club night)",
+  "tier": "Growth",
+  "goal": "event_promotion",
+  "budget": 1200,
+  "geography": "Local",
+  "audienceTags": [
+   "nightlife",
+   "dj culture",
+   "going out",
+   "weekend plans"
+  ],
+  "objective": "Sell tickets and fill the room for a recurring club night by targeting local listeners who plan their weekends. Build a repeat crowd that comes back monthly.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a local culture podcast plugging the date, lineup, and ticket link"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three story takeovers counting down to the night with the flyer and RSVP link"
+   },
+   {
+    "channel": "Live read",
+    "count": 1,
+    "detail": "Host shouts out the party as their weekend pick with a promo code"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 450
+   },
+   {
+    "label": "Instagram story takeovers (x3)",
+    "amount": 450
+   },
+   {
+    "label": "Live read weekend pick",
+    "amount": 300
+   }
+  ],
+  "whyItWorks": "Nightlife runs on word of mouth, and a host naming your party as their pick carries the same weight as a friend's recommendation. Local podcast crowds skew toward the people already going out, and a countdown of stories keeps the date top of mind through the week when tickets actually move.",
+  "shopCategories": [
+   "Music",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "comedy-open-mic-night",
+  "title": "The $800 Open Mic Play",
+  "businessType": "Comedy show / open mic night",
+  "tier": "Starter",
+  "goal": "event_promotion",
+  "budget": 800,
+  "geography": "Local",
+  "audienceTags": [
+   "stand-up comedy",
+   "date night",
+   "live entertainment",
+   "local scene"
+  ],
+  "objective": "Put butts in seats for a weekly comedy night and grow a regular audience. Position the show as the go-to affordable night out.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a comedy podcast pitching the show as a cheap laugh-filled night out"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels of past-show crowd clips with the recurring date and location"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Comedy podcast host-read spot",
+    "amount": 450
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 250
+   },
+   {
+    "label": "Clip editing",
+    "amount": 100
+   }
+  ],
+  "whyItWorks": "Comedy podcast listeners already love live stand-up, so a host recommending your room is a warm handoff to the exact audience you want. Crowd-laughing clips prove the vibe better than any flyer, and shares from people tagging their friends do the heavy lifting for a low-ticket night out.",
+  "shopCategories": [
+   "Comedy"
+  ]
+ },
+ {
+  "slug": "streetwear-startup-first-drop",
+  "title": "The $2,000 First Drop Play",
+  "businessType": "Local streetwear startup (first drop)",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2000,
+  "geography": "Regional",
+  "audienceTags": [
+   "streetwear",
+   "fashion drops",
+   "sneaker culture",
+   "hype releases"
+  ],
+  "objective": "Sell through a limited first drop and build a mailing list of early supporters. Establish the brand as one to watch in the local scene.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Host-read spots on two culture podcasts telling the founder's story and drop date"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three Reels of hosts wearing the pieces with a link to the drop"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "Two TikToks unboxing and styling the first pieces with the drop countdown"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spots (x2)",
+    "amount": 800
+   },
+   {
+    "label": "Instagram Reels (x3)",
+    "amount": 550
+   },
+   {
+    "label": "TikTok posts (x2)",
+    "amount": 450
+   },
+   {
+    "label": "Product seeding and shipping",
+    "amount": 200
+   }
+  ],
+  "whyItWorks": "A first drop lives or dies on credibility, and a host wearing your pieces on camera lends instant proof that the brand is real. Culture audiences trust taste more than ads, and a styling clip that catches can turn a limited run into a sellout well beyond your follower count.",
+  "shopCategories": [
+   "Society & Culture",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "photographer-videographer-booking",
+  "title": "The $900 Creative Booking Play",
+  "businessType": "Photographer / videographer",
+  "tier": "Starter",
+  "goal": "lead_generation",
+  "budget": 900,
+  "geography": "Local",
+  "audienceTags": [
+   "creative services",
+   "content creation",
+   "small business owners",
+   "personal branding"
+  ],
+  "objective": "Book new photo and video clients by reaching creators and small business owners who need content. Fill the calendar with paid sessions.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a local business or culture podcast offering a first-session discount"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels showing a before-and-after reel and a booking link in bio"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 1,
+    "detail": "Featured blurb in a local creator newsletter with portfolio link and promo code"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 400
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 300
+   },
+   {
+    "label": "Newsletter feature",
+    "amount": 200
+   }
+  ],
+  "whyItWorks": "People hire creatives whose eye they already like, so a host vouching for your work sends leads who are half-sold before they DM. Podcast and newsletter audiences are full of business owners and artists who constantly need shoots, and one strong portfolio clip circulating can book out a month.",
+  "shopCategories": [
+   "Business",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "dance-studio-class-enrollment",
+  "title": "The $700 Dance Class Play",
+  "businessType": "Dance studio / class",
+  "tier": "Starter",
+  "goal": "local_business",
+  "budget": 700,
+  "geography": "Local",
+  "audienceTags": [
+   "dance fitness",
+   "hip-hop dance",
+   "wellness",
+   "hobbies and classes"
+  ],
+  "objective": "Fill weekly class slots and sign up new students on intro packages. Build a loyal roster that renews month to month.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a culture or wellness podcast promoting a free first class"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels of class choreography with a sign-up link and intro offer"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 400
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 250
+   },
+   {
+    "label": "Clip editing",
+    "amount": 50
+   }
+  ],
+  "whyItWorks": "Trying a new class takes a nudge, and a trusted host saying the first one is free lowers the barrier for people already curious. Culture audiences connect with hip-hop dance as both fun and fitness, and choreography clips are endlessly shareable, pulling in friends who want to come together.",
+  "shopCategories": [
+   "Society & Culture",
+   "Music"
+  ]
+ },
+ {
+  "slug": "new-local-podcast-launch",
+  "title": "The $1,000 Podcast Launch Play",
+  "businessType": "New local podcast launch",
+  "tier": "Growth",
+  "goal": "brand_awareness",
+  "budget": 1000,
+  "geography": "Regional",
+  "audienceTags": [
+   "podcast discovery",
+   "audio storytelling",
+   "culture commentary",
+   "new shows"
+  ],
+  "objective": "Win first subscribers and downloads for a brand-new show by cross-promoting to established podcast audiences. Build a base of loyal weekly listeners.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 2,
+    "detail": "Cross-promo host-read swaps on two established culture podcasts driving to the new feed"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels of the best trailer moment with a follow-and-subscribe call to action"
+   },
+   {
+    "channel": "TikTok",
+    "count": 1,
+    "detail": "One TikTok of a sharp episode clip formatted for the fyp"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast cross-promo host-reads (x2)",
+    "amount": 550
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 300
+   },
+   {
+    "label": "TikTok clip",
+    "amount": 150
+   }
+  ],
+  "whyItWorks": "Podcast listeners take recommendations most seriously from other podcast hosts, making cross-promo the single most efficient way to find your first real subscribers. Established culture audiences are primed to add another show to their rotation, and a genuinely funny or sharp clip can pull in listeners who never heard the host at all.",
+  "shopCategories": [
+   "Society & Culture",
+   "Talk"
+  ]
+ },
+ {
+  "slug": "barber-beauty-supply-brand",
+  "title": "The $1,300 Grooming Brand Play",
+  "businessType": "Barber/beauty supply brand",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 1300,
+  "geography": "Regional",
+  "audienceTags": [
+   "grooming",
+   "self-care",
+   "barber culture",
+   "beauty products"
+  ],
+  "objective": "Launch a grooming or beauty supply line and drive first online orders. Get product into the hands of barbers and stylists who become repeat buyers.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a culture podcast built around the host's own grooming routine and a promo code"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Three Reels of barbers and stylists using the product on real clients"
+   },
+   {
+    "channel": "TikTok",
+    "count": 1,
+    "detail": "One TikTok demo of the product with a before-and-after result"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host-read spot",
+    "amount": 500
+   },
+   {
+    "label": "Instagram Reels with barbers (x3)",
+    "amount": 500
+   },
+   {
+    "label": "TikTok demo",
+    "amount": 200
+   },
+   {
+    "label": "Product seeding to barbers",
+    "amount": 100
+   }
+  ],
+  "whyItWorks": "Grooming is personal, so a host folding your product into their real routine reads as a genuine recommendation rather than a pitch. Culture audiences trust barbers and stylists as authorities, and a satisfying before-and-after demo is exactly the kind of clip people save and send, turning one post into steady orders.",
+  "shopCategories": [
+   "Society & Culture",
+   "Business"
+  ]
+ },
+ {
+  "slug": "community-day-block-party",
+  "title": "The $600 Block Party Play",
+  "businessType": "Community day / block party event",
+  "tier": "Starter",
+  "goal": "event_promotion",
+  "budget": 600,
+  "geography": "Local",
+  "audienceTags": [
+   "community events",
+   "family friendly",
+   "local culture",
+   "neighborhood"
+  ],
+  "objective": "Draw a big turnout for a free community day and connect neighbors with local vendors and sponsors. Build goodwill and a mailing list for next year.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Host-read spot on a local culture podcast framing the day as a can't-miss family event"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two story posts with the flyer, schedule, and vendor lineup"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Local podcast host-read spot",
+    "amount": 400
+   },
+   {
+    "label": "Instagram story posts (x2)",
+    "amount": 200
+   }
+  ],
+  "whyItWorks": "A community event thrives on local trust, and a host who knows the neighborhood inviting people out makes the day feel like a shared tradition. Local culture audiences care deeply about what happens in their area, and a warm host read spreads through group chats and reshares far faster than a paid flyer would.",
+  "shopCategories": [
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "self-published-author-book-launch",
+  "title": "The $1,100 Book Launch Play",
+  "businessType": "Self-published author \u2014 book launch",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 1100,
+  "geography": "National",
+  "audienceTags": [
+   "book lovers",
+   "self-improvement",
+   "storytelling",
+   "independent authors"
+  ],
+  "objective": "Drive first-week book sales and reviews for a self-published title. Turn early readers into word-of-mouth advocates who leave ratings.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 1,
+    "detail": "Author interview segment plus a host-read plug with the purchase link and launch-week discount"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Two Reels of the host reading a hooking passage with a link to buy"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 1,
+    "detail": "Featured author spotlight in a culture newsletter with an excerpt and buy button"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast interview and host-read",
+    "amount": 600
+   },
+   {
+    "label": "Instagram Reels (x2)",
+    "amount": 300
+   },
+   {
+    "label": "Newsletter author spotlight",
+    "amount": 200
+   }
+  ],
+  "whyItWorks": "Readers buy books they hear talked about with real enthusiasm, and a host interview lets your story breathe in a way an ad never could. Culture and self-improvement audiences are loyal buyers who leave reviews, and a well-read passage clipped to Reels can travel far past launch week and keep sales rolling.",
+  "shopCategories": [
+   "Society & Culture",
+   "Motivation"
+  ]
+ },
+ {
+  "slug": "streetwear-national-drop-play",
+  "title": "The $3,000 National Drop Play",
+  "businessType": "Streetwear brand (national push)",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 3000,
+  "geography": "National",
+  "audienceTags": [
+   "streetwear",
+   "hypebeast",
+   "sneakerhead",
+   "fashion",
+   "hip-hop"
+  ],
+  "objective": "Drive coast-to-coast awareness and first-week sales for a limited streetwear drop by embedding the release inside culture podcasts your buyers already trust.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-sec mid-roll host reads across 4 mid-tier hip-hop and culture shows timed to drop week"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "3 host Reels styling the collection with swipe-up to the drop page"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "2 creator try-on clips featuring the sold-out-risk angle"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 1,
+    "detail": "1 podcast segment cut into a shoppable YouTube Short"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (4 shows)",
+    "amount": 1650
+   },
+   {
+    "label": "Instagram Reels (3)",
+    "amount": 600
+   },
+   {
+    "label": "TikTok try-on clips (2)",
+    "amount": 450
+   },
+   {
+    "label": "YouTube clip repurpose",
+    "amount": 300
+   }
+  ],
+  "whyItWorks": "A host who lives in the culture makes a drop feel like a tip from a friend, not an ad, which converts far better than a banner. Mid-tier culture shows deliver the same tastemaker listeners as top-100 podcasts at a fraction of the CPM, and every read gets cut into a Reel and a Short so one recording earns twice across the feed and clip economy.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Pop Culture",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "skincare-glow-launch-play",
+  "title": "The $2,500 Glow-Up Launch Play",
+  "businessType": "Skincare / beauty line",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2500,
+  "geography": "National",
+  "audienceTags": [
+   "skincare",
+   "beauty",
+   "self-care",
+   "wellness",
+   "lifestyle"
+  ],
+  "objective": "Introduce a new skincare line to culture-forward beauty buyers and seed authentic before-and-after testimonials from hosts who use it on air.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on culture and mental-health shows framed around a real skin-routine story"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "3 host Stories showing the routine plus a promo code"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "2 get-ready-with-me clips featuring the product"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1400
+   },
+   {
+    "label": "Instagram Stories (3)",
+    "amount": 650
+   },
+   {
+    "label": "TikTok GRWM clips (2)",
+    "amount": 450
+   }
+  ],
+  "whyItWorks": "Skincare lives or dies on trust, and a host describing their own real routine carries more weight than any studio-shot ad. Booking engaged mid-tier beauty and culture shows reaches loyal listeners for less than a single top-100 slot, and each read becomes a GRWM clip that keeps selling in the feed long after air.",
+  "shopCategories": [
+   "Society & Culture",
+   "Mental Health",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "sneaker-resale-cop-play",
+  "title": "The $2,800 Cop or Drop Play",
+  "businessType": "Sneaker store / resale shop",
+  "tier": "Growth",
+  "goal": "brand_awareness",
+  "budget": 2800,
+  "geography": "National",
+  "audienceTags": [
+   "sneakerhead",
+   "resale",
+   "streetwear",
+   "collectibles",
+   "hip-hop"
+  ],
+  "objective": "Position the shop as the go-to source for verified heat and grow follower base among serious sneaker collectors nationwide.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on sneaker-adjacent culture and sports shows spotlighting current inventory grails"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "4 host posts of pickup hauls tagging the shop"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 2,
+    "detail": "2 podcast clips of hosts debating cop-or-drop featuring shop pairs"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1500
+   },
+   {
+    "label": "Instagram haul posts (4)",
+    "amount": 800
+   },
+   {
+    "label": "YouTube cop-or-drop clips (2)",
+    "amount": 500
+   }
+  ],
+  "whyItWorks": "Sneakerheads trust peers over brands, so a host unboxing a pickup from the shop signals legitimacy instantly. Mid-tier sneaker and sports podcasts reach hardcore collectors at CPMs well below top-100 shows, and cop-or-drop debate clips travel naturally across feeds and the clip economy, working twice off one taping.",
+  "shopCategories": [
+   "Sports",
+   "Pop Culture",
+   "Music (Hip-Hop)"
+  ]
+ },
+ {
+  "slug": "fitness-app-transformation-play",
+  "title": "The $2,200 Start Your Streak Play",
+  "businessType": "Fitness app",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2200,
+  "geography": "National",
+  "audienceTags": [
+   "fitness",
+   "wellness",
+   "motivation",
+   "self-improvement",
+   "lifestyle"
+  ],
+  "objective": "Drive free-trial signups for a fitness app by pairing host workout-journey stories with a limited-time onboarding offer.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on motivation and culture shows sharing a personal fitness-streak story with a trial code"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "2 host Reels of an in-app workout with a signup link"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "2 day-in-the-life clips using the app"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1150
+   },
+   {
+    "label": "Instagram Reels (2)",
+    "amount": 550
+   },
+   {
+    "label": "TikTok day-in-the-life clips (2)",
+    "amount": 500
+   }
+  ],
+  "whyItWorks": "Fitness is emotional, and a host narrating their own streak makes the app feel achievable rather than aspirational. Motivation and culture shows in the mid tier deliver committed, action-taking listeners at a fraction of top-100 pricing, and each read spins into a Reel and a TikTok so a single story fuels both the feed and the clip economy.",
+  "shopCategories": [
+   "Motivation",
+   "Society & Culture",
+   "Mental Health"
+  ]
+ },
+ {
+  "slug": "dating-app-real-connections-play",
+  "title": "The $2,600 Slide In Play",
+  "businessType": "Dating app",
+  "tier": "Growth",
+  "goal": "lead_generation",
+  "budget": 2600,
+  "geography": "National",
+  "audienceTags": [
+   "dating",
+   "relationships",
+   "lifestyle",
+   "comedy",
+   "pop-culture"
+  ],
+  "objective": "Generate qualified signups for a dating app by leaning into host storytelling and comedic dating-life bits that make downloading feel natural.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on comedy and culture shows tied to a dating-story segment with a tracked promo link"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "2 live-read integrations during audience Q&A about relationships"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "2 host clips reacting to app matches"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1300
+   },
+   {
+    "label": "Live-read integrations (2)",
+    "amount": 750
+   },
+   {
+    "label": "TikTok reaction clips (2)",
+    "amount": 550
+   }
+  ],
+  "whyItWorks": "Dating decisions are social, and a host joking about their own swipe stories lowers the guard that a polished ad raises. Comedy and culture shows in the mid tier reach the exact single, engaged audience advertisers overpay for on top-100 shows, and each live read becomes a shareable TikTok that keeps driving signups across the feed and clip economy.",
+  "shopCategories": [
+   "Comedy",
+   "Society & Culture",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "meal-kit-weeknight-play",
+  "title": "The $2,400 Weeknight Reset Play",
+  "businessType": "Meal-prep / meal-kit service",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2400,
+  "geography": "National",
+  "audienceTags": [
+   "food",
+   "meal-prep",
+   "lifestyle",
+   "wellness",
+   "convenience"
+  ],
+  "objective": "Acquire first-box subscribers for a meal-kit service by having hosts cook a delivery on air and share a first-week discount.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on culture and talk shows describing a real weeknight-cooking story with a first-box code"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "3 host Reels plating a finished meal-kit dish"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 1,
+    "detail": "1 podcast clip of the host unboxing and cooking a kit"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1250
+   },
+   {
+    "label": "Instagram Reels (3)",
+    "amount": 700
+   },
+   {
+    "label": "YouTube unboxing clip",
+    "amount": 450
+   }
+  ],
+  "whyItWorks": "Food is sensory and personal, so a host walking through a real weeknight cook sells the convenience far better than a stock recipe card. Mid-tier culture and talk shows reach busy, engaged listeners at CPMs well under top-100 rates, and each cook-along read becomes a Reel and a clip that keep the offer working across the feed and clip economy.",
+  "shopCategories": [
+   "Society & Culture",
+   "Talk",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "haircare-texture-launch-play",
+  "title": "The $2,300 Texture First Play",
+  "businessType": "Haircare brand",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2300,
+  "geography": "National",
+  "audienceTags": [
+   "haircare",
+   "beauty",
+   "self-care",
+   "wellness",
+   "lifestyle"
+  ],
+  "objective": "Launch a haircare line by anchoring it to host wash-day routines and real texture-story testimonials that resonate with culture-forward buyers.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on culture and lifestyle shows framed around a personal wash-day routine with a promo code"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "3 host Stories showing the routine step by step"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "2 wash-day transformation clips featuring the products"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1150
+   },
+   {
+    "label": "Instagram Stories (3)",
+    "amount": 600
+   },
+   {
+    "label": "TikTok wash-day clips (2)",
+    "amount": 550
+   }
+  ],
+  "whyItWorks": "Haircare is a routine built on trust and results, so a host sharing their own wash day makes the line feel proven rather than pitched. Booking engaged mid-tier culture and lifestyle shows reaches loyal beauty buyers for far less than a top-100 slot, and each routine read becomes a transformation clip that keeps selling across the feed and clip economy.",
+  "shopCategories": [
+   "Society & Culture",
+   "Pop Culture",
+   "Mental Health"
+  ]
+ },
+ {
+  "slug": "gaming-esports-squad-play",
+  "title": "The $2,700 Squad Up Play",
+  "businessType": "Gaming / esports brand",
+  "tier": "Growth",
+  "goal": "brand_awareness",
+  "budget": 2700,
+  "geography": "National",
+  "audienceTags": [
+   "gaming",
+   "esports",
+   "streaming",
+   "tech",
+   "pop-culture"
+  ],
+  "objective": "Build brand awareness and community among culture-forward gamers by embedding the brand in podcast gaming segments and creator clips.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on gaming-adjacent culture and comedy shows tied to a play-session story"
+   },
+   {
+    "channel": "TikTok",
+    "count": 3,
+    "detail": "3 host gameplay clips featuring the brand"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 2,
+    "detail": "2 podcast clips of hosts reacting to gameplay moments"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1400
+   },
+   {
+    "label": "TikTok gameplay clips (3)",
+    "amount": 750
+   },
+   {
+    "label": "YouTube reaction clips (2)",
+    "amount": 550
+   }
+  ],
+  "whyItWorks": "Gamers reward authenticity and tune out corporate ads, so a host reacting to a real play session earns credibility a scripted spot never could. Mid-tier culture and comedy shows reach a young, hyper-engaged gaming audience at CPMs far below top-100 pricing, and every gameplay read becomes a TikTok and a YouTube clip that work twice across the feed and clip economy.",
+  "shopCategories": [
+   "Pop Culture",
+   "Comedy",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "subscription-box-unbox-play",
+  "title": "The $2,000 Monthly Unbox Play",
+  "businessType": "Subscription box",
+  "tier": "Growth",
+  "goal": "product_launch",
+  "budget": 2000,
+  "geography": "National",
+  "audienceTags": [
+   "subscription",
+   "lifestyle",
+   "gifting",
+   "discovery",
+   "pop-culture"
+  ],
+  "objective": "Drive new subscribers for a curated monthly box by having hosts unbox a real shipment on air and offer a first-month discount.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "3 host reads on culture and comedy shows built around a live unboxing reaction with a first-month code"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "2 host Reels showing off box contents"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 1,
+    "detail": "1 podcast unboxing segment cut into a shoppable Short"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (3 shows)",
+    "amount": 1100
+   },
+   {
+    "label": "Instagram Reels (2)",
+    "amount": 550
+   },
+   {
+    "label": "YouTube unboxing clip",
+    "amount": 350
+   }
+  ],
+  "whyItWorks": "Subscription boxes sell on surprise and delight, and a host's genuine reaction to opening one converts curiosity into signups. Mid-tier culture and comedy shows reach discovery-minded listeners at a fraction of top-100 CPMs, and each unboxing read becomes a Reel and a Short so one moment keeps recruiting subscribers across the feed and clip economy.",
+  "shopCategories": [
+   "Society & Culture",
+   "Comedy",
+   "Pop Culture"
+  ]
+ },
+ {
+  "slug": "fintech-banking-app-play",
+  "title": "The $3,200 Bag Secured Play",
+  "businessType": "Mobile fintech / banking app",
+  "tier": "Growth",
+  "goal": "lead_generation",
+  "budget": 3200,
+  "geography": "National",
+  "audienceTags": [
+   "fintech",
+   "personal-finance",
+   "money",
+   "entrepreneurship",
+   "self-improvement"
+  ],
+  "objective": "Generate qualified app signups for a mobile banking product by pairing host money-story reads with a tracked signup bonus offer.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "4 host reads on business, motivation, and culture shows tied to a real money-management story with a tracked signup bonus"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "2 live-read integrations during money-talk segments"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "2 host Reels walking through the app with a signup link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (4 shows)",
+    "amount": 1900
+   },
+   {
+    "label": "Live-read integrations (2)",
+    "amount": 700
+   },
+   {
+    "label": "Instagram Reels (2)",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "Money apps require trust before a download, and a host openly discussing their own finances turns a signup bonus into a credible recommendation. Business, motivation, and culture shows in the mid tier reach ambitious, financially engaged listeners at CPMs well below top-100 rates, and every money-story read becomes a Reel that keeps driving signups across the feed and clip economy.",
+  "shopCategories": [
+   "Business",
+   "Motivation",
+   "Society & Culture"
+  ]
+ },
+ {
+  "slug": "haircare-national-shelf-to-cart",
+  "title": "The $6,000 Shelf-to-Cart Haircare Play",
+  "businessType": "D2C haircare brand (national)",
+  "tier": "Pro",
+  "goal": "brand_awareness",
+  "budget": 6000,
+  "geography": "National",
+  "audienceTags": [
+   "natural hair",
+   "beauty routines",
+   "self-care",
+   "grooming"
+  ],
+  "objective": "Build national awareness for a D2C haircare line and drive first purchases with a promo code baked into trusted host reads. Position the brand as an everyday staple, not a one-time novelty.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host-read on two culture shows, two flights each, weaving in the host's own wash-day routine"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Reels showing the host using the product mid-routine with the promo code in caption and sticker"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 2,
+    "detail": "Featured blurb with code in the show's subscriber email"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3600
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 1800
+   },
+   {
+    "label": "Newsletter placements",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "When a host describes their own wash day on air, the product inherits the trust the audience already gives that voice. Sponsoring across multiple flights beats a single placement because repetition inside a familiar voice turns curiosity into a code redemption. Mid-tier culture shows deliver engaged listeners at a fraction of celebrity-tier CPMs.",
+  "shopCategories": [
+   "Society & Culture",
+   "Pop Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "energy-drink-daily-fuel",
+  "title": "The $5,500 Daily Fuel Energy Play",
+  "businessType": "Energy drink brand",
+  "tier": "Pro",
+  "goal": "brand_awareness",
+  "budget": 5500,
+  "geography": "National",
+  "audienceTags": [
+   "fitness",
+   "gaming",
+   "hustle culture",
+   "nightlife"
+  ],
+  "objective": "Drive national trial for a new energy drink by tying it to the moments hosts already fuel up for: studio sessions, workouts, and late nights. Convert awareness into a sampling code.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "Live read at the top of the show framed around the host's own energy ritual, two flights on two shows"
+   },
+   {
+    "channel": "TikTok",
+    "count": 3,
+    "detail": "Fast-cut clips of hosts cracking a can before a set or a lift"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 1,
+    "detail": "Mid-roll product moment inside a video episode"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast live reads",
+    "amount": 3300
+   },
+   {
+    "label": "TikTok clips",
+    "amount": 1600
+   },
+   {
+    "label": "YouTube clip mid-roll",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "An energy drink lives or dies on association with high-energy moments, and a host naming when they reach for it is more persuasive than any tagline. Repeated sponsorship across flights builds the habit loop a single spot can't. Mid-tier culture shows over-index on the young, active listeners energy brands chase.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Sports"
+  ],
+  "restrictionsNote": "Some shows restrict energy/caffeine ads for younger-skewing audiences; confirm age-of-audience and any caffeine-claim disclaimers before booking."
+ },
+ {
+  "slug": "cbd-wellness-wind-down",
+  "title": "The $4,500 Wind-Down Wellness Play",
+  "businessType": "CBD wellness brand",
+  "tier": "Pro",
+  "goal": "brand_awareness",
+  "budget": 4500,
+  "geography": "National",
+  "audienceTags": [
+   "wellness",
+   "recovery",
+   "sleep",
+   "self-care",
+   "mindfulness"
+  ],
+  "objective": "Introduce a CBD wellness line as part of a nightly recovery routine and drive first orders via a trusted host-read discount code. Normalize the category through honest, personal storytelling.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "60-second host read framed around post-grind recovery and better sleep, one flight per show"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 2,
+    "detail": "Subscriber blurb with code and a link to the starter bundle"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Story sequence walking through the host's wind-down routine"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 2700
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 1200
+   },
+   {
+    "label": "Newsletter placements",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "CBD is a trust-first category, and a host candidly describing how it fits their recovery removes the skepticism a banner ad triggers. Repetition inside that trusted voice normalizes the product over a few weeks in a way one placement never could. Mid-tier wellness-leaning culture shows reach curious buyers without premium-network waste.",
+  "shopCategories": [
+   "Mental Health",
+   "Society & Culture"
+  ],
+  "restrictionsNote": "CBD is a regulated category: no health or cure claims, adults 21+ targeting where required, and some shows and platforms prohibit CBD reads entirely, confirm eligibility before booking."
+ },
+ {
+  "slug": "pi-law-firm-know-your-rights",
+  "title": "The $5,000 Know-Your-Rights Lead Play",
+  "businessType": "Law firm (personal injury / consumer)",
+  "tier": "Pro",
+  "goal": "lead_generation",
+  "budget": 5000,
+  "geography": "Regional",
+  "audienceTags": [
+   "consumer rights",
+   "everyday finance",
+   "community advice",
+   "accountability"
+  ],
+  "objective": "Generate qualified case inquiries for a personal injury and consumer firm through host reads that lead with a clear call to action and a dedicated intake number. Build trust before the click.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host read explaining when to call and the free-consultation offer, two flights on two regional-relevant shows"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "In-episode reminder with the dedicated intake line and website"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 2,
+    "detail": "Sponsor blurb with the consultation CTA"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3200
+   },
+   {
+    "label": "Live reads",
+    "amount": 1200
+   },
+   {
+    "label": "Newsletter placements",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "People hire lawyers they feel they can trust, and hearing a familiar host vouch for a firm lowers the barrier to that first call. Repeating the intake CTA across flights keeps the number top of mind for the moment a listener actually needs it. Mid-tier culture shows deliver a loyal regional audience at rates that keep cost-per-lead sane.",
+  "shopCategories": [
+   "Society & Culture",
+   "Talk"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "dealership-group-drive-off-lot",
+  "title": "The $6,500 Drive-Off-the-Lot Local Play",
+  "businessType": "Car dealership group",
+  "tier": "Pro",
+  "goal": "lead_generation",
+  "budget": 6500,
+  "geography": "Regional",
+  "audienceTags": [
+   "car culture",
+   "big purchases",
+   "local deals",
+   "lifestyle upgrades"
+  ],
+  "objective": "Drive test-drive appointments and lot visits for a regional dealership group through host reads tied to a seasonal sales event and a trackable landing page. Turn listeners into showroom foot traffic.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host read on the current offer, two flights across two local-market shows"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Reels featuring the host at the lot walking through a featured model"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "In-episode shout to the event weekend and appointment link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3600
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 1900
+   },
+   {
+    "label": "Live reads",
+    "amount": 1000
+   }
+  ],
+  "whyItWorks": "Car buying is emotional and local, and a host who genuinely likes the dealership makes the showroom feel less like a pressure trap. Sustained sponsorship across a sales window keeps the group front of mind through the multi-week car-shopping journey. Mid-tier local culture shows put the message in front of buyers in the exact market the lots serve.",
+  "shopCategories": [
+   "Sports",
+   "Society & Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "financial-advisor-build-your-bag",
+  "title": "The $5,000 Build-Your-Bag Financial Play",
+  "businessType": "Insurance / financial advisor",
+  "tier": "Pro",
+  "goal": "lead_generation",
+  "budget": 5000,
+  "geography": "National",
+  "audienceTags": [
+   "money moves",
+   "generational wealth",
+   "financial literacy",
+   "planning ahead"
+  ],
+  "objective": "Generate booked consultations for an insurance and financial-advisory practice by framing protection and planning as part of building generational wealth. Capture leads through a dedicated booking link.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "75-second host read on protecting what you build, two flights across two money-minded shows"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 3,
+    "detail": "Sponsor blurb with a free-consultation CTA and booking link"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Carousel breaking down one planning tip with the advisor tag"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3200
+   },
+   {
+    "label": "Instagram carousels",
+    "amount": 1100
+   },
+   {
+    "label": "Newsletter placements",
+    "amount": 700
+   }
+  ],
+  "whyItWorks": "Financial decisions run on trust, and a host talking openly about protecting their own family reframes insurance from a hard sell into a wealth move. Repeated reads across flights build the credibility a listener needs before booking a money conversation. Mid-tier culture shows reach an audience actively leveling up their finances at efficient rates.",
+  "shopCategories": [
+   "Business",
+   "Motivation"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "music-festival-lineup-hype",
+  "title": "The $7,500 Lineup Hype Festival Play",
+  "businessType": "Music festival",
+  "tier": "Pro",
+  "goal": "event_promotion",
+  "budget": 7500,
+  "geography": "Regional",
+  "audienceTags": [
+   "live music",
+   "festivals",
+   "nightlife",
+   "concert culture"
+  ],
+  "objective": "Sell tickets for a regional music festival by driving urgency around the lineup and price tiers through host reads and clip content. Push listeners to the ticket page before prices rise.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host read hyping the lineup and current price tier, two flights across two shows"
+   },
+   {
+    "channel": "TikTok",
+    "count": 3,
+    "detail": "Lineup-reveal and hype clips with the discount code and on-sale dates"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Reels and Stories countdown to the price bump with ticket link"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 1,
+    "detail": "Mid-roll festival trailer inside a video episode"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3600
+   },
+   {
+    "label": "TikTok clips",
+    "amount": 1900
+   },
+   {
+    "label": "Instagram content",
+    "amount": 1400
+   },
+   {
+    "label": "YouTube clip mid-roll",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "Festival tickets sell on FOMO, and a host who is genuinely hyped about the lineup transfers that excitement straight to their listeners. Repeated reads tied to rising price tiers manufacture the urgency a single ad can't sustain. Mid-tier culture shows over-index on the exact live-music fans a regional festival needs to fill the grounds.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Music"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "artist-tour-city-by-city",
+  "title": "The $6,500 City-by-City Tour Play",
+  "businessType": "National artist tour",
+  "tier": "Pro",
+  "goal": "event_promotion",
+  "budget": 6500,
+  "geography": "National",
+  "audienceTags": [
+   "live music",
+   "concert culture",
+   "fandom",
+   "hip-hop"
+  ],
+  "objective": "Drive ticket sales across multiple tour markets by aligning host reads and clips with each city's on-sale dates. Push fans to the tour page with market-specific urgency.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host read calling out nearby tour dates, two flights across two nationally-followed shows"
+   },
+   {
+    "channel": "TikTok",
+    "count": 4,
+    "detail": "Tour-announce and snippet clips tagged by market with the ticket link"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Reels routing fans to city-specific on-sales"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3600
+   },
+   {
+    "label": "TikTok clips",
+    "amount": 2000
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 900
+   }
+  ],
+  "whyItWorks": "Tour dates convert when the reminder hits a fan in the right city at the right moment, and hosts naming nearby stops make that connection feel personal. Sustained sponsorship across markets keeps the tour in rotation through each on-sale window. Mid-tier hip-hop and culture shows carry the tastemaker credibility that turns curious listeners into ticket buyers.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Pop Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "streaming-series-premiere-buzz",
+  "title": "The $7,000 Premiere Buzz Series Play",
+  "businessType": "Streaming show / series launch",
+  "tier": "Pro",
+  "goal": "product_launch",
+  "budget": 7000,
+  "geography": "National",
+  "audienceTags": [
+   "binge culture",
+   "tv fandom",
+   "pop culture",
+   "must-watch"
+  ],
+  "objective": "Build premiere-week awareness and drive tune-in for a new streaming series through host reads, clip drops, and reaction content. Turn cultural buzz into first-episode views.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 4,
+    "detail": "60-second host read teasing the premise with a watch-date CTA, two flights across two shows"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 2,
+    "detail": "Trailer mid-roll and a host reaction snippet inside video episodes"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Reels with trailer cutdowns and the premiere date"
+   },
+   {
+    "channel": "TikTok",
+    "count": 2,
+    "detail": "Hook-driven clips seeding the show's most talkable moments"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 3400
+   },
+   {
+    "label": "YouTube clip placements",
+    "amount": 1400
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 1300
+   },
+   {
+    "label": "TikTok clips",
+    "amount": 900
+   }
+  ],
+  "whyItWorks": "New series live and die on premiere-week word of mouth, and a host talking up a show acts like a friend's recommendation at scale. Repeated reads plus clip drops keep the title in the conversation through the tune-in window a single spot would miss. Mid-tier TV-and-culture shows are exactly where binge-minded audiences decide what to watch next.",
+  "shopCategories": [
+   "TV & Film",
+   "Pop Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "real-estate-investing-first-deal",
+  "title": "The $4,000 First-Deal Education Play",
+  "businessType": "Real estate investing platform / education",
+  "tier": "Pro",
+  "goal": "lead_generation",
+  "budget": 4000,
+  "geography": "National",
+  "audienceTags": [
+   "real estate",
+   "side hustles",
+   "generational wealth",
+   "financial literacy"
+  ],
+  "objective": "Generate sign-ups for a real estate investing education platform by positioning it as the on-ramp to a first deal. Capture leads through a free-workshop or starter-guide CTA.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 3,
+    "detail": "75-second host read on getting your first property, one flight per show with a free-workshop CTA"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 2,
+    "detail": "Sponsor blurb with the workshop sign-up link"
+   },
+   {
+    "channel": "Instagram",
+    "count": 2,
+    "detail": "Carousel breaking down one beginner investing step with the platform tag"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 2500
+   },
+   {
+    "label": "Instagram carousels",
+    "amount": 900
+   },
+   {
+    "label": "Newsletter placements",
+    "amount": 600
+   }
+  ],
+  "whyItWorks": "Investing education is a leap of faith, and a host who frames it as the path they took makes the first step feel achievable rather than risky. Repeating the free-workshop CTA across flights nurtures the listener until they're ready to opt in. Mid-tier culture and business shows reach an audience already hungry for wealth-building moves at an efficient cost-per-lead.",
+  "shopCategories": [
+   "Business",
+   "Motivation"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "national-snack-drop-play",
+  "title": "The $18,000 National Snack Drop Play",
+  "businessType": "National CPG snack/beverage brand",
+  "tier": "National",
+  "goal": "brand_awareness",
+  "budget": 18000,
+  "geography": "National",
+  "audienceTags": [
+   "snacking",
+   "late night",
+   "flavor drops",
+   "everyday moments",
+   "fandom"
+  ],
+  "objective": "Make a limited-edition snack flavor feel like a cultural moment by planting it inside the shows listeners already snack along to. Drive nationwide familiarity and trial ahead of the retail push.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 8,
+    "detail": "Mid-roll host reads across 8 hip-hop and culture shows over 2 weeks, each tied to the host's own snack ritual"
+   },
+   {
+    "channel": "Live read",
+    "count": 3,
+    "detail": "Live open-of-show shoutouts on the 3 biggest-audience shows for launch-week urgency"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Host Reels showing the flavor taste-test with a swipe-up to the store locator"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 4,
+    "detail": "The funniest taste-test moments cut into standalone Shorts pushed from show channels"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast mid-roll host reads",
+    "amount": 9000
+   },
+   {
+    "label": "Live reads (top 3 shows)",
+    "amount": 3500
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 3000
+   },
+   {
+    "label": "YouTube clip cutdowns and boosting",
+    "amount": 2500
+   }
+  ],
+  "whyItWorks": "One buy stitches eight loyal culture audiences into genuine national reach without a single mass-market spot. When a trusted host describes their own snack ritual, the flavor borrows their credibility instead of interrupting it, and every taste-test moment gets cut into a clip that keeps earning views long after the read airs.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Comedy",
+   "Pop Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "banking-app-signup-play",
+  "title": "The $20,000 Banking App Sign-Up Play",
+  "businessType": "Bank / financial-services app",
+  "tier": "National",
+  "goal": "lead_generation",
+  "budget": 20000,
+  "geography": "National",
+  "audienceTags": [
+   "personal finance",
+   "side hustle",
+   "building wealth",
+   "money moves",
+   "early direct deposit"
+  ],
+  "objective": "Turn trusted hosts into first-person testimonials for a mobile banking app and drive measurable sign-ups via unique promo codes. Optimize the mix around cost-per-install, not impressions.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 7,
+    "detail": "60-second host reads with a per-show promo code and bonus offer, hosts speaking to their own money goals"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 4,
+    "detail": "Dedicated placements in 4 show newsletters with a tracked sign-up button"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Story sets with the link sticker and the host's personal code"
+   },
+   {
+    "channel": "TikTok",
+    "count": 3,
+    "detail": "Hosts walking through their first deposit on camera, code in caption"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads with promo codes",
+    "amount": 10000
+   },
+   {
+    "label": "Newsletter dedicated placements",
+    "amount": 3500
+   },
+   {
+    "label": "Instagram Stories",
+    "amount": 3000
+   },
+   {
+    "label": "TikTok walkthroughs",
+    "amount": 3500
+   }
+  ],
+  "whyItWorks": "Financial products live or die on trust, and a host who has spent years earning an audience's ear can vouch for an app in a way no billboard can. Per-show promo codes turn multi-show sponsorship into clean attribution, and the on-camera walkthroughs double as clips that keep converting from the show feeds and social channels.",
+  "shopCategories": [
+   "Business",
+   "Society & Culture",
+   "Motivation"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "auto-model-launch-play",
+  "title": "The $25,000 New Vehicle Launch Play",
+  "businessType": "Auto brand (vehicle model)",
+  "tier": "National",
+  "goal": "product_launch",
+  "budget": 25000,
+  "geography": "National",
+  "audienceTags": [
+   "car culture",
+   "road trips",
+   "design and tech",
+   "milestone purchases",
+   "everyday driving"
+  ],
+  "objective": "Introduce a new vehicle model to a national audience through hosts who genuinely test drive it and talk features on air. Build consideration and drive traffic to the build-and-price configurator.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 9,
+    "detail": "Extended mid-roll reads across 9 shows, each host given a weekend with the vehicle to speak from real experience"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 5,
+    "detail": "Ride-along and first-impression clips cut for Shorts and show channels"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Reels of hosts in the vehicle highlighting one signature feature each"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "Launch-week live reads on the two flagship shows with a configurator link"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast extended host reads",
+    "amount": 12000
+   },
+   {
+    "label": "YouTube ride-along clips",
+    "amount": 5000
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 5000
+   },
+   {
+    "label": "Live reads (flagship shows)",
+    "amount": 3000
+   }
+  ],
+  "whyItWorks": "A car is an aspirational, high-consideration buy, so hearing nine trusted hosts describe the model from an actual weekend behind the wheel builds far more consideration than a spec sheet. The multi-show buy assembles a national audience of culturally engaged buyers, and every ride-along clip works twice as both native podcast content and standalone social proof.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Sports",
+   "Pop Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "streaming-premiere-play",
+  "title": "The $22,000 Streaming Premiere Play",
+  "businessType": "Movie / streaming premiere",
+  "tier": "National",
+  "goal": "event_promotion",
+  "budget": 22000,
+  "geography": "National",
+  "audienceTags": [
+   "binge watching",
+   "new releases",
+   "watch party culture",
+   "must-see tv",
+   "streaming"
+  ],
+  "objective": "Drive first-weekend viewership for a streaming premiere by turning hosts into hype builders in the days before drop. Concentrate spend for a tight launch-window surge.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 8,
+    "detail": "Countdown host reads in the 5 days before premiere, hosts reacting to the trailer on air"
+   },
+   {
+    "channel": "Live read",
+    "count": 4,
+    "detail": "Premiere-eve live reads on 4 shows with a watch-tonight call to action"
+   },
+   {
+    "channel": "Instagram",
+    "count": 5,
+    "detail": "Story countdowns and Reels reacting to the first-look footage"
+   },
+   {
+    "channel": "TikTok",
+    "count": 4,
+    "detail": "Hosts posting hot-take reactions with the premiere date pinned"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Countdown podcast host reads",
+    "amount": 10000
+   },
+   {
+    "label": "Premiere-eve live reads",
+    "amount": 4500
+   },
+   {
+    "label": "Instagram Stories and Reels",
+    "amount": 4000
+   },
+   {
+    "label": "TikTok reaction posts",
+    "amount": 3500
+   }
+  ],
+  "whyItWorks": "Premieres win or lose in a narrow window, and stacking eight culture shows in the same launch week concentrates a huge, engaged national audience right when it matters. Host reactions feel like the friend recommendation that actually gets people to press play, and every trailer-reaction clip lives on socially to keep the buzz building into the weekend.",
+  "shopCategories": [
+   "TV & Film",
+   "Pop Culture",
+   "Comedy"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "sports-drink-hydration-play",
+  "title": "The $15,000 Game-Day Hydration Play",
+  "businessType": "Sports drink brand",
+  "tier": "National",
+  "goal": "brand_awareness",
+  "budget": 15000,
+  "geography": "National",
+  "audienceTags": [
+   "fitness",
+   "game day",
+   "recovery",
+   "active lifestyle",
+   "gym culture"
+  ],
+  "objective": "Position a sports drink as the go-to fuel for workouts and game-day watching among an active, culturally engaged audience. Build broad awareness and everyday association.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 7,
+    "detail": "Mid-roll host reads tied to each host's workout or game-day routine"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Reels of hosts refueling post-workout with the product in frame"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 3,
+    "detail": "Gym and game-day clips cut from show content for Shorts"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast mid-roll host reads",
+    "amount": 8500
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 4000
+   },
+   {
+    "label": "YouTube clip cutdowns",
+    "amount": 2500
+   }
+  ],
+  "whyItWorks": "Sports and hip-hop audiences overlap heavily, so a multi-show buy across culture and sports podcasts assembles a national base of active listeners in one order. A host who name-checks the drink as part of their real routine makes it feel earned rather than sponsored, and the workout clips keep circulating on social long past the original read.",
+  "shopCategories": [
+   "Sports",
+   "Music (Hip-Hop)",
+   "Motivation"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "consumer-tech-launch-play",
+  "title": "The $21,000 Consumer Tech Launch Play",
+  "businessType": "Consumer tech product launch",
+  "tier": "National",
+  "goal": "product_launch",
+  "budget": 21000,
+  "geography": "National",
+  "audienceTags": [
+   "early adopters",
+   "gadgets",
+   "creator tools",
+   "everyday tech",
+   "product design"
+  ],
+  "objective": "Launch a new consumer tech product by putting real units in hosts' hands and letting them demo it on air and on camera. Drive preorders and first-week sales.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 8,
+    "detail": "Host reads where each host demos one feature that fits how they actually use tech"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 5,
+    "detail": "Hands-on demo clips cut for Shorts and pushed from show channels"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Unboxing and first-use Reels with a preorder link"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 3,
+    "detail": "Dedicated placements with a launch-window preorder code"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads with demos",
+    "amount": 10000
+   },
+   {
+    "label": "YouTube hands-on clips",
+    "amount": 4500
+   },
+   {
+    "label": "Instagram unboxing Reels",
+    "amount": 3500
+   },
+   {
+    "label": "Newsletter dedicated placements",
+    "amount": 3000
+   }
+  ],
+  "whyItWorks": "Tech buyers trust demonstrations over claims, and eight hosts showing the product in their own hands turns a launch into a wave of authentic hands-on proof across a national audience. The multi-show buy reaches early adopters inside the shows they already listen to, and each demo clip works twice as podcast content and as a preorder-driving social asset.",
+  "shopCategories": [
+   "Business",
+   "Pop Culture",
+   "Society & Culture"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "premium-spirits-toast-play",
+  "title": "The $19,000 Premium Spirits Toast Play",
+  "businessType": "Spirits brand (21+)",
+  "tier": "National",
+  "goal": "brand_awareness",
+  "budget": 19000,
+  "geography": "National",
+  "audienceTags": [
+   "cocktail culture",
+   "celebration",
+   "nightlife",
+   "craft spirits",
+   "occasions"
+  ],
+  "objective": "Build premium brand awareness for a spirit among an adult audience by owning celebration and cocktail moments across culture shows. Establish the brand as the pour worth reaching for.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 7,
+    "detail": "Mid-roll host reads on 21+ verified shows tied to celebration and cocktail moments"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Age-gated Reels of hosts mixing a signature cocktail"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 3,
+    "detail": "Cocktail-build clips cut for show channels with age-restriction settings enabled"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads (21+ shows)",
+    "amount": 11000
+   },
+   {
+    "label": "Instagram age-gated Reels",
+    "amount": 5000
+   },
+   {
+    "label": "YouTube age-restricted clips",
+    "amount": 3000
+   }
+  ],
+  "whyItWorks": "Spirits marketing depends on aspiration and occasion, and a trusted host raising a glass makes the brand feel like the natural choice for a celebration. The multi-show buy assembles a national adult audience across culture shows in one order, and the signature-cocktail clips keep working socially as evergreen inspiration for the next toast.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Society & Culture",
+   "Pop Culture"
+  ],
+  "restrictionsNote": "21+ only. All placements run on age-verified shows and channels with age-gating enabled on social and video; no targeting of under-21 audiences. Category exclusivity: no competing spirits or alcohol brands run concurrently on the same shows during the flight; include responsible-drinking messaging."
+ },
+ {
+  "slug": "nonprofit-giving-drive-play",
+  "title": "The $12,000 National Giving Drive Play",
+  "businessType": "National nonprofit fundraiser",
+  "tier": "National",
+  "goal": "community_nonprofit",
+  "budget": 12000,
+  "geography": "National",
+  "audienceTags": [
+   "community impact",
+   "giving back",
+   "mentorship",
+   "mutual aid",
+   "youth programs"
+  ],
+  "objective": "Raise donations for a national nonprofit fundraiser by having hosts share why the cause matters and driving listeners to a tracked giving page. Optimize for donations per dollar spent.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 6,
+    "detail": "Heartfelt host reads where each host connects the cause to their own community"
+   },
+   {
+    "channel": "Newsletter",
+    "count": 3,
+    "detail": "Dedicated placements with a matching-gift deadline and donate button"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Story sets with the donation link sticker and a personal ask from the host"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 6500
+   },
+   {
+    "label": "Newsletter dedicated placements",
+    "amount": 3000
+   },
+   {
+    "label": "Instagram Stories with donate link",
+    "amount": 2500
+   }
+  ],
+  "whyItWorks": "People give when someone they trust asks them to, and a host tying a national cause to their own community turns an appeal into a personal invitation. The multi-show buy pools many loyal audiences into meaningful national reach on a modest budget, and each heartfelt read can be clipped so the ask keeps circulating through the giving window.",
+  "shopCategories": [
+   "Society & Culture",
+   "Motivation",
+   "Religion & Spirituality"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "hbcu-recruiting-play",
+  "title": "The $10,000 HBCU Recruiting Play",
+  "businessType": "HBCU / university student recruiting",
+  "tier": "National",
+  "goal": "recruiting",
+  "budget": 10000,
+  "geography": "National",
+  "audienceTags": [
+   "college bound",
+   "campus life",
+   "first-gen students",
+   "higher education",
+   "student success"
+  ],
+  "objective": "Drive prospective-student inquiries and applications to a university by reaching college-bound listeners and their families through trusted culture shows. Optimize for info-request sign-ups.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 6,
+    "detail": "Host reads inviting listeners and their families to request info, hosts speaking to campus experience where relevant"
+   },
+   {
+    "channel": "Instagram",
+    "count": 3,
+    "detail": "Reels featuring campus life with a link to the inquiry form"
+   },
+   {
+    "channel": "TikTok",
+    "count": 3,
+    "detail": "Day-in-the-life campus clips with the apply link in caption"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads",
+    "amount": 5500
+   },
+   {
+    "label": "Instagram campus Reels",
+    "amount": 2500
+   },
+   {
+    "label": "TikTok day-in-the-life clips",
+    "amount": 2000
+   }
+  ],
+  "whyItWorks": "College decisions are made across families, and culture podcasts reach both prospective students and the parents and mentors who guide them. A multi-show buy gathers a national pool of college-bound listeners in one order, and campus-life clips work twice as native podcast reads and as shareable social proof that keeps driving inquiries.",
+  "shopCategories": [
+   "Society & Culture",
+   "Motivation",
+   "Music (Hip-Hop)"
+  ],
+  "restrictionsNote": ""
+ },
+ {
+  "slug": "wireless-carrier-switch-play",
+  "title": "The $16,000 Wireless Switch Play",
+  "businessType": "Telecom / wireless carrier",
+  "tier": "National",
+  "goal": "brand_awareness",
+  "budget": 16000,
+  "geography": "National",
+  "audienceTags": [
+   "mobile plans",
+   "switching carriers",
+   "family plans",
+   "value shopping",
+   "everyday connectivity"
+  ],
+  "objective": "Build awareness for a wireless carrier's switch offer and drive listeners to check eligibility. Balance broad reach with a clear promo-code call to action.",
+  "mediaMix": [
+   {
+    "channel": "Podcasts",
+    "count": 7,
+    "detail": "Host reads on the switch offer with a per-show promo code, hosts framing it around real monthly savings"
+   },
+   {
+    "channel": "Instagram",
+    "count": 4,
+    "detail": "Reels of hosts explaining the plan with a link to check eligibility"
+   },
+   {
+    "channel": "YouTube clip",
+    "count": 3,
+    "detail": "Short offer-explainer clips cut for show channels"
+   },
+   {
+    "channel": "Live read",
+    "count": 2,
+    "detail": "Live reads on the two largest shows to anchor the promo window"
+   }
+  ],
+  "budgetAllocation": [
+   {
+    "label": "Podcast host reads with promo codes",
+    "amount": 8500
+   },
+   {
+    "label": "Instagram Reels",
+    "amount": 3500
+   },
+   {
+    "label": "YouTube offer-explainer clips",
+    "amount": 2000
+   },
+   {
+    "label": "Live reads (top 2 shows)",
+    "amount": 2000
+   }
+  ],
+  "whyItWorks": "Switching carriers is a trust-and-value decision, and a host who frames the offer around real monthly savings makes the switch feel low-risk. The multi-show buy assembles a national audience of value-minded listeners, per-show promo codes turn that reach into clean attribution, and every offer-explainer clip keeps working on social through the promo window.",
+  "shopCategories": [
+   "Music (Hip-Hop)",
+   "Comedy",
+   "Talk"
+  ],
+  "restrictionsNote": ""
+ }
+]
