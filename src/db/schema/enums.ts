@@ -224,3 +224,59 @@ export const suppressionReason = pgEnum("suppression_reason", [
   "complaint",
   "manual",
 ]);
+
+/* -------------------------------- Planning -------------------------------- */
+/* Note: no political/advocacy goal — politics is out of scope. */
+export const campaignGoal = pgEnum("campaign_goal", [
+  "brand_awareness",
+  "product_launch",
+  "music_release",
+  "event_promotion",
+  "local_business",
+  "lead_generation",
+  "community_nonprofit",
+  "recruiting",
+  "other",
+]);
+
+export const planStatus = pgEnum("plan_status", ["draft", "active", "archived"]);
+
+export const priceBasis = pgEnum("price_basis", [
+  "listed",
+  "starting",
+  "user_estimate",
+  "unknown",
+]);
+
+/* ---------------------- Promotions (Yelp-style boosts) --------------------- */
+/* Free to list; pay to boost positioning. Boosts are labeled and never
+   override organic relevance — see docs/MONETIZATION_AND_RANKING.md. */
+export const boostScope = pgEnum("boost_scope", [
+  "directory",
+  "planner_results",
+  "newsletter",
+  "all",
+]);
+
+export const boostStatus = pgEnum("boost_status", [
+  "scheduled",
+  "active",
+  "paused",
+  "expired",
+  "canceled",
+]);
+
+export const subscriptionStatus = pgEnum("subscription_status", [
+  "trialing",
+  "active",
+  "past_due",
+  "canceled",
+  "unpaid",
+]);
+
+export const subscriptionProduct = pgEnum("subscription_product", [
+  "boost_directory",
+  "boost_planner_results",
+  "boost_newsletter",
+  "boost_all",
+]);
