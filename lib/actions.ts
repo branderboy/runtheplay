@@ -14,7 +14,15 @@ import {
   newsletterEditionSubscriptions,
 } from "@/src/db/schema/index";
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import { createPlan, getPlan, updatePlanItems, type PlanItem } from "@/lib/plan-store";
+import {
+  createCreatorProfile,
+  getCreatorProfile,
+  updateCreatorProfile,
+  type InventoryItem,
+} from "@/lib/creator-store";
+import { supportTickets } from "@/src/db/schema/index";
 
 /**
  * Persistence: writes to Postgres when DATABASE_URL is set (Neon storage on
@@ -36,7 +44,12 @@ function record(kind: string, data: unknown) {
 
 const isEmail = (s: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s);
 
-export type ActionState = { ok: boolean; message: string; planId?: string };
+export type ActionState = {
+  ok: boolean;
+  message: string;
+  planId?: string;
+  studioId?: string;
+};
 
 /* ------------------------------ buyer inquiry ------------------------------ */
 
@@ -103,9 +116,16 @@ export async function submitClaim(
       } catch { /* fall back to the log */ }
     }
     // TODO: send a confirmation code via Resend to complete the claim.
+    const studioId = await createCreatorProfile({
+      podcastSlug: pod.slug,
+      showName: pod.name,
+      contactEmail: claimEmail,
+      source: "claim",
+    });
     return {
       ok: true,
-      message: `Verified. This matches ${pod.name}'s email on file. We'll email a confirmation link to finish the claim.`,
+      studioId: studioId ?? undefined,
+      message: `Verified. This matches ${pod.name}'s email on file. Your Creator Studio is open below. Bookmark it, it's your dashboard.`,
     };
   }
 
@@ -202,6 +222,129 @@ export async function addPlanItem(formData: FormData) {
   revalidatePath(`/plans/${planId}`);
 }
 
+/* ------------------------- creator studio (P6-P7) --------------------------- */
+
+export async function updateStudioDetails(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const id = String(formData.get("studioId") ?? "");
+  const thumbnailUrl = String(formData.get("thumbnailUrl") ?? "").trim();
+  const description = String(formData.get("description") ?? "").trim();
+  const contactEmail = String(formData.get("contactEmail") ?? "").trim();
+  const profile = await getCreatorProfile(id);
+  if (!profile) return { ok: false, message: "Studio not found." };
+  if (thumbnailUrl && !/^https?:\/\/|^\//.test(thumbnailUrl))
+    return { ok: false, message: "Thumbnail must be a full image URL (https://...)." };
+  if (contactEmail && !isEmail(contactEmail))
+    return { ok: false, message: "Enter a valid contact email." };
+  await updateCreatorProfile(id, {
+    thumbnailUrl: thumbnailUrl || null,
+    description: description || null,
+    contactEmail: contactEmail || profile.contactEmail,
+  });
+  revalidatePath(`/studio/${id}`);
+  revalidatePath(`/podcast/${profile.podcastSlug}`);
+  return { ok: true, message: "Saved." };
+}
+
+export async function addStudioInventory(formData: FormData) {
+  const id = String(formData.get("studioId") ?? "");
+  const placement = String(formData.get("placement") ?? "").trim();
+  const rate = String(formData.get("rate") ?? "").trim();
+  const notes = String(formData.get("notes") ?? "").trim();
+  const profile = await getCreatorProfile(id);
+  if (!profile || !placement) return;
+  const item: InventoryItem = { placement, rate: rate || "Contact for Pricing", notes: notes || undefined };
+  await updateCreatorProfile(id, {
+    inventory: [...profile.inventory, item].slice(0, 30),
+  });
+  revalidatePath(`/studio/${id}`);
+  revalidatePath(`/podcast/${profile.podcastSlug}`);
+}
+
+export async function removeStudioInventory(formData: FormData) {
+  const id = String(formData.get("studioId") ?? "");
+  const index = Number(formData.get("index") ?? -1);
+  const profile = await getCreatorProfile(id);
+  if (!profile || index < 0) return;
+  await updateCreatorProfile(id, {
+    inventory: profile.inventory.filter((_, i) => i !== index),
+  });
+  revalidatePath(`/studio/${id}`);
+  revalidatePath(`/podcast/${profile.podcastSlug}`);
+}
+
+export async function setStudioStatus(formData: FormData) {
+  const id = String(formData.get("studioId") ?? "");
+  const status = String(formData.get("status") ?? "") === "published" ? "published" : "draft";
+  const profile = await getCreatorProfile(id);
+  if (!profile) return;
+  await updateCreatorProfile(id, { status });
+  revalidatePath(`/studio/${id}`);
+  revalidatePath(`/podcast/${profile.podcastSlug}`);
+}
+
+/* ------------------------------ support tickets ----------------------------- */
+
+export async function submitSupportTicket(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const email = String(formData.get("email") ?? "").trim();
+  const topic = String(formData.get("topic") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
+  if (!isEmail(email)) return { ok: false, message: "Enter a valid email." };
+  if (message.length < 5) return { ok: false, message: "Tell us what you need." };
+  record("support_tickets", { email, topic, message });
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.insert(supportTickets).values({ email, topic: topic || null, message });
+    } catch { /* fall back to the log */ }
+  }
+  return { ok: true, message: "Received. We'll reply to your email." };
+}
+
+/* --------------------------------- admin ----------------------------------- */
+
+const ADMIN_COOKIE = "rtp-admin";
+
+export async function adminKeyOk(): Promise<boolean> {
+  const key = process.env.RTP_ADMIN_KEY;
+  if (!key) return false;
+  const jar = await cookies();
+  return jar.get(ADMIN_COOKIE)?.value === key;
+}
+
+export async function adminLogin(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const key = process.env.RTP_ADMIN_KEY;
+  const given = String(formData.get("key") ?? "");
+  if (!key) return { ok: false, message: "RTP_ADMIN_KEY is not set on the server." };
+  if (given !== key) return { ok: false, message: "Wrong key." };
+  const jar = await cookies();
+  jar.set(ADMIN_COOKIE, key, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 30 });
+  revalidatePath("/admin");
+  return { ok: true, message: "In." };
+}
+
+export async function adminSetTicketStatus(formData: FormData) {
+  if (!(await adminKeyOk())) return;
+  const id = String(formData.get("id") ?? "");
+  const status = String(formData.get("status") ?? "") === "closed" ? "closed" : "open";
+  const db = await getDb();
+  if (db && id) {
+    try {
+      const { eq } = await import("drizzle-orm");
+      await db.update(supportTickets).set({ status }).where(eq(supportTickets.id, id));
+    } catch { /* ignore */ }
+  }
+  revalidatePath("/admin");
+}
+
 /* -------------------- claim search (Yelp-style, live states) ---------------- */
 
 export type ClaimSearchResult = {
@@ -286,10 +429,25 @@ export async function submitListingRequest(
       });
     } catch { /* fall back to the log */ }
   }
+  // A draft Creator Studio opens immediately so the creator can add their
+  // thumbnail, details, and inventory while the scope review happens.
+  const proposedSlug = showName
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+  const studioId = await createCreatorProfile({
+    podcastSlug: proposedSlug || "new-show",
+    showName,
+    contactEmail: email,
+    source: "listing",
+  });
   // TODO: send a confirmation via Resend once email is wired up.
   return {
     ok: true,
-    message: `Received. We review every show against our scope before it goes live, then email you at ${email} to claim your profile.`,
+    studioId: studioId ?? undefined,
+    message: `Received. Your Creator Studio is open below. Add your details while we review your show against our scope, then we email you at ${email} when it's live.`,
   };
 }
 

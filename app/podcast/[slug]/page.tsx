@@ -10,6 +10,7 @@ import { PodcastCard } from "@/components/podcast-card";
 import { RequestForm } from "@/components/request-form";
 import { ClaimForm } from "@/components/claim-form";
 import { AddToPlanButton } from "@/components/basket";
+import { getPublishedProfile } from "@/lib/creator-store";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL } from "@/lib/site";
 
@@ -77,6 +78,13 @@ export default async function ProfilePage({
   const formats = deriveFormats(p);
   const placements = typicalPlacements(formats);
 
+  // Creator Studio overlay: published data replaces public-source data.
+  const studio = await getPublishedProfile(slug);
+  const heroShow = studio?.thumbnailUrl
+    ? { ...p, artworkUrl: studio.thumbnailUrl }
+    : p;
+  const description = studio?.description ?? p.shortDescription;
+
   return (
     <div className="mx-auto max-w-4xl px-5 py-12">
       <JsonLd
@@ -120,7 +128,7 @@ export default async function ProfilePage({
       </nav>
 
       <div className="mt-4">
-        <ProfileHero p={p} />
+        <ProfileHero p={heroShow} claimed={Boolean(studio)} />
       </div>
 
       <div className="mt-4 sm:hidden">
@@ -131,8 +139,8 @@ export default async function ProfilePage({
         <p className="mt-3 text-xs text-ink-faint">Network: {p.networkName}</p>
       )}
 
-      {p.shortDescription && (
-        <p className="mt-6 max-w-2xl text-ink-dim">{p.shortDescription}</p>
+      {description && (
+        <p className="mt-6 max-w-2xl text-ink-dim">{description}</p>
       )}
 
       {/* Format — derived from real platform presence */}
@@ -235,10 +243,46 @@ export default async function ProfilePage({
         </section>
       )}
 
+      {/* Published inventory: the creator's own placements and rates */}
+      {studio && studio.inventory.length > 0 && (
+        <section className="mt-10">
+          <h2 className="mb-3 text-xs font-black uppercase tracking-widest text-ink-faint">
+            Ad Inventory & Rates
+          </h2>
+          <div className="overflow-hidden rounded-[1.5rem] border border-sky-100 bg-white shadow-sm">
+            {studio.inventory.map((item, i) => (
+              <div
+                key={`${item.placement}-${i}`}
+                className="flex items-center justify-between gap-4 border-b border-sky-50 p-5 last:border-0"
+              >
+                <div className="min-w-0">
+                  <p className="text-sm font-black uppercase tracking-tight text-ink">
+                    {item.placement}
+                  </p>
+                  {item.notes && (
+                    <p className="text-sm font-medium text-ink-dim">{item.notes}</p>
+                  )}
+                </div>
+                <span className="flex-none text-base font-black tabular-nums text-ink">
+                  {item.rate}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-sky-50 bg-sky-50/50 p-4 text-sm font-medium text-ink-dim">
+            <Badge tone="verified">Published by the Show</Badge>
+            Rates set and published by the creator. Confirm details in your
+            inquiry.
+          </div>
+        </section>
+      )}
+
       {/* Ad placements — typical for this show's format */}
       <section className="mt-10">
         <h2 className="mb-3 text-xs font-black uppercase tracking-widest text-ink-faint">
-          Ad placement types
+          {studio && studio.inventory.length > 0
+            ? "Other Typical Placements for This Format"
+            : "Ad placement types"}
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {placements.map((g) => (

@@ -26,6 +26,7 @@ export function SiteFooter() {
             <Link href="/plays" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">Plays</Link>
             <Link href="/directory" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">Directory</Link>
             <Link href="/creators" className="text-xs font-black uppercase tracking-widest text-sky-500 transition-colors hover:text-sky-600">For Creators</Link>
+            <Link href="/support" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">Support</Link>
             <Link href="/legal/ranking" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">How Ranking Works</Link>
             <Link href="/legal/data-and-corrections" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">Data &amp; Corrections</Link>
             <Link href="/legal/privacy" className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500">Privacy</Link>

@@ -6,3 +6,4 @@ export * from "./planning";
 export * from "./promotions";
 export * from "./submissions";
 export * from "./advertisers";
+export * from "./creator";

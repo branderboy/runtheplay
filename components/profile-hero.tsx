@@ -4,7 +4,13 @@ import { CoverArt } from "./cover-art";
 import { Badge } from "./badges";
 import { AddToPlanButton } from "./basket";
 
-export function ProfileHero({ p }: { p: Podcast }) {
+export function ProfileHero({
+  p,
+  claimed = false,
+}: {
+  p: Podcast;
+  claimed?: boolean;
+}) {
   const a = accentFor(p.slug);
   const id = `hero-${hashString(p.slug).toString(36)}`;
   const seed = hashString(p.slug);
@@ -71,7 +77,11 @@ export function ProfileHero({ p }: { p: Podcast }) {
             {p.hosts.length ? ` · ${p.hosts.slice(0, 3).join(", ")}` : ""}
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
-            <Badge tone="unclaimed">Unclaimed</Badge>
+            {claimed ? (
+              <Badge tone="verified">Claimed</Badge>
+            ) : (
+              <Badge tone="unclaimed">Unclaimed</Badge>
+            )}
             <Badge tone="public">Public source</Badge>
             {p.advertisingAvailable && (
               <Badge tone="contact">Advertising available</Badge>

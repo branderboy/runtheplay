@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { runPlan } from "@/lib/actions";
 import type { CampaignGoal, MatchOutput } from "@/src/lib/planner/types";
 import { Badge } from "./badges";
-import { AddToPlanButton } from "./basket";
+import { AddToPlanButton, useBasket } from "./basket";
 
 /** Step-by-step campaign wizard — how an ad plan is actually built:
  *  1. Goal  →  2. Budget  →  3. Audience  →  4. Details  →  Results   */
@@ -391,6 +392,8 @@ export function PlannerForm({
                   ))}
                 </div>
               </section>
+
+              {out.organic.length > 0 && <SaveResultsCard organic={out.organic} />}
             </div>
           )}
         </div>
@@ -433,6 +436,42 @@ function ResultRow({
       </div>
       <div className="mt-4 flex">
         <AddToPlanButton slug={r.podcastId} name={r.name} category={null} />
+      </div>
+    </div>
+  );
+}
+
+/* Account moment on results: keep the plan with one email (see docs/logic.md A4). */
+function SaveResultsCard({ organic }: { organic: MatchOutput["organic"] }) {
+  const { add, items } = useBasket();
+  const router = useRouter();
+  const inMix = organic.filter((r) => items.some((i) => i.slug === r.podcastId)).length;
+
+  return (
+    <div className="rounded-[2rem] border border-sky-100 bg-sky-50/40 p-8 text-center">
+      <p className="display mb-2 text-2xl text-ink">Keep This Plan.</p>
+      <p className="mx-auto mb-6 max-w-md text-sm font-medium text-ink-dim">
+        Save your matches to a free account. One email, no password, your plan
+        gets a permanent link you can edit anytime.
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <button
+          type="button"
+          onClick={() => {
+            for (const r of organic) {
+              add({ slug: r.podcastId, name: r.name, category: null });
+            }
+            router.push("/basket");
+          }}
+          className="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-4 text-xs font-black uppercase tracking-widest text-white shadow-lg transition-all hover:-translate-y-0.5"
+        >
+          Save All {organic.length} & Create Account
+        </button>
+        {inMix > 0 && (
+          <span className="text-xs font-bold uppercase tracking-widest text-ink-faint">
+            {inMix} Already in Your Mix
+          </span>
+        )}
       </div>
     </div>
   );

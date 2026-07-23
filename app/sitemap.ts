@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/charts",
     "/creators",
     "/claim",
+    "/support",
     "/legal/privacy",
     "/legal/terms",
     "/legal/data-and-corrections",

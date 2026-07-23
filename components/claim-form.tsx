@@ -12,6 +12,14 @@ export function ClaimForm({ slug, name }: { slug: string; name: string }) {
     return (
       <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 text-sm font-bold text-ink">
         {state.message}
+        {state.studioId && (
+          <a
+            href={`/studio/${state.studioId}`}
+            className="mt-4 block rounded-full bg-orange px-6 py-3.5 text-center text-xs font-black uppercase tracking-widest text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-600"
+          >
+            Open Your Creator Studio
+          </a>
+        )}
       </div>
     );
   }

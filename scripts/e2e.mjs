@@ -30,6 +30,7 @@ const PATHS = [
   "/plays",
   "/plays/500-barbershop-play",
   "/creators",
+  "/support",
   "/plans",
   "/claim",
   "/claim?q=drink",
@@ -195,7 +196,34 @@ for (const path of PATHS) {
   await page.close();
 }
 
-// 7) Mobile nav opens and shows all links.
+// 7) Creator Studio: sign up an unlisted show, open the studio, save
+//    details, add inventory, publish.
+{
+  const page = await browser.newPage();
+  await page.goto(BASE + "/creators", { waitUntil: "networkidle" });
+  try {
+    await page.fill("#listing-show", "E2E Test Show");
+    await page.fill("#listing-email", "e2e-creator@example.com");
+    await page.click('button:has-text("Get Listed Free")');
+    await page.waitForSelector('a:has-text("Open Your Creator Studio")', { timeout: 10000 });
+    await page.click('a:has-text("Open Your Creator Studio")');
+    await page.waitForSelector("#st-desc", { timeout: 10000 });
+    await page.fill("#st-desc", "A test show about testing.");
+    await page.click('button:has-text("Save Details")');
+    await page.waitForSelector("text=Saved.", { timeout: 10000 });
+    await page.fill("#inv-rate", "$250 flat");
+    await page.click('button:has-text("+ Add")');
+    await page.waitForSelector("text=$250 flat", { timeout: 10000 });
+    await page.click('button:has-text("Publish")');
+    await page.waitForSelector("text=Inventory Published", { timeout: 10000 });
+    ok("creator studio: sign up, edit, inventory, publish");
+  } catch (e) {
+    fail("creator studio", e.message);
+  }
+  await page.close();
+}
+
+// 8) Mobile nav opens and shows all links.
 {
   const page = await browser.newPage({ viewport: { width: 390, height: 720 } });
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
@@ -214,4 +242,4 @@ if (failures.length) {
   console.error(`\nE2E FAILED: ${failures.length} problem(s).`);
   process.exit(1);
 }
-console.log(`\nE2E passed: ${PATHS.length} pages + 7 flows clean.`);
+console.log(`\nE2E passed: ${PATHS.length} pages + 8 flows clean.`);
