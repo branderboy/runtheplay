@@ -7,6 +7,8 @@ import { runPlan } from "@/lib/actions";
 import type { CampaignGoal, MatchOutput } from "@/src/lib/planner/types";
 import { Badge } from "./badges";
 import { AddToPlanButton, useBasket } from "./basket";
+import { allocateBudget } from "@/src/lib/planner/allocate";
+import { thesis } from "@/lib/data/thesis";
 
 /** Step-by-step campaign wizard — how an ad plan is actually built:
  *  1. Goal  →  2. Budget  →  3. Audience  →  4. Details  →  Results   */
@@ -393,6 +395,13 @@ export function PlannerForm({
                 </div>
               </section>
 
+              {out.organic.length > 0 && budget && (
+                <BudgetSplitCard
+                  budget={Number(budget)}
+                  organic={out.organic}
+                />
+              )}
+
               {out.organic.length > 0 && <SaveResultsCard organic={out.organic} />}
             </div>
           )}
@@ -474,5 +483,68 @@ function SaveResultsCard({ organic }: { organic: MatchOutput["organic"] }) {
         )}
       </div>
     </div>
+  );
+}
+
+/* Suggested budget split across the organic slate. Estimates only, labeled,
+   from the sourced mid-tier CPM benchmarks in the thesis sheet. Boosted
+   (featured) shows never receive auto-allocated budget. */
+function BudgetSplitCard({
+  budget,
+  organic,
+}: {
+  budget: number;
+  organic: MatchOutput["organic"];
+}) {
+  const { midTier } = thesis.arbitrage;
+  const alloc = allocateBudget(
+    budget,
+    organic.map((r) => ({ podcastId: r.podcastId, name: r.name, score: r.score })),
+    { cpmLow: midTier.cpmLow, cpmHigh: midTier.cpmHigh },
+  );
+  if (!alloc) return null;
+
+  const fmtImp = (n: number) =>
+    n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : String(n);
+
+  return (
+    <section className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)]">
+      <div className="mb-1 flex items-center justify-between gap-3">
+        <h3 className="text-xs font-black uppercase tracking-widest text-ink-faint">
+          Suggested Budget Split
+        </h3>
+        <Badge tone="estimated">Estimated</Badge>
+      </div>
+      <p className="mb-6 text-sm font-medium text-ink-dim">
+        ${alloc.totalDollars.toLocaleString()} split across your top matches by
+        match strength, with the impressions it should buy.
+      </p>
+      <ul className="flex flex-col gap-3">
+        {alloc.lines.map((l) => (
+          <li key={l.podcastId} className="flex items-center gap-4">
+            <span className="w-28 flex-none text-right text-base font-black tabular-nums text-ink sm:w-32">
+              ${l.dollars.toLocaleString()}
+            </span>
+            <span className="relative h-3 min-w-0 flex-1 overflow-hidden rounded-full bg-sky-50">
+              <span
+                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-sky-400 to-blue-500"
+                style={{ width: `${Math.max(6, Math.round(l.share * 100))}%` }}
+              />
+            </span>
+            <span className="w-40 min-w-0 flex-none truncate text-sm font-black uppercase tracking-tight text-ink sm:w-48">
+              {l.name}
+            </span>
+            <span className="hidden w-32 flex-none text-right text-xs font-bold tabular-nums text-ink-dim sm:block">
+              {fmtImp(l.impressionsLow)}–{fmtImp(l.impressionsHigh)} imp.
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-5 text-xs font-medium text-ink-faint">
+        Estimated from mid-tier host-read CPM benchmarks (${alloc.cpmLow}–$
+        {alloc.cpmHigh}, {thesis.arbitrage.source}). Not quoted rates. Every
+        rate is confirmed with the show.
+      </p>
+    </section>
   );
 }

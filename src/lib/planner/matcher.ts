@@ -181,7 +181,7 @@ function buildReasons(
   if (f.formatFit >= 1 && plan.creativeFormats.length)
     out.push(`Offers your requested format`);
   if (price.bucket === "contact")
-    out.push("Pricing on request — contact the show");
+    out.push("Pricing on request, contact the show");
   if (price.bucket === "in_budget") out.push("Fits your budget");
   if (f.freshness >= 0.8) out.push("Publishing consistently");
   if (f.verification >= 1) out.push("Verified profile");
