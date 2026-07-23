@@ -2,7 +2,13 @@ import { PlannerForm } from "@/components/planner-form";
 
 export const metadata = { title: "Ad Planner" };
 
-export default function PlanPage() {
+export default async function PlanPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ goal?: string; budget?: string; audience?: string }>;
+}) {
+  const { goal, budget, audience } = await searchParams;
+
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange">
@@ -16,7 +22,11 @@ export default function PlanPage() {
         rate — pricing is confirmed directly with each show.
       </p>
       <div className="mt-8">
-        <PlannerForm />
+        <PlannerForm
+          initialGoal={goal}
+          initialBudget={budget}
+          initialAudience={audience}
+        />
       </div>
     </div>
   );

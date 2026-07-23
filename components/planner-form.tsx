@@ -37,7 +37,15 @@ const priceLabel: Record<string, string> = {
 const field =
   "rounded-lg border border-line bg-navy-2 px-4 py-2.5 text-sm text-ink placeholder:text-ink-faint focus:border-orange w-full";
 
-export function PlannerForm() {
+export function PlannerForm({
+  initialGoal,
+  initialBudget,
+  initialAudience,
+}: {
+  initialGoal?: string;
+  initialBudget?: string;
+  initialAudience?: string;
+} = {}) {
   const [out, setOut] = useState<MatchOutput | null>(null);
   const [pending, start] = useTransition();
 
@@ -67,7 +75,7 @@ export function PlannerForm() {
       <form onSubmit={onSubmit} className="flex flex-col gap-4 rounded-2xl border border-line bg-navy-1 p-6">
         <div>
           <label className="mb-1.5 block text-sm text-ink-dim">Campaign goal</label>
-          <select name="goal" className={field} defaultValue="product_launch">
+          <select name="goal" className={field} defaultValue={initialGoal ?? "product_launch"}>
             {GOALS.map((g) => (
               <option key={g.value} value={g.value}>{g.label}</option>
             ))}
@@ -75,11 +83,11 @@ export function PlannerForm() {
         </div>
         <div>
           <label className="mb-1.5 block text-sm text-ink-dim">Budget (USD)</label>
-          <input name="budget" type="number" min={0} placeholder="3000" className={field} />
+          <input name="budget" type="number" min={0} placeholder="3000" defaultValue={initialBudget} className={field} />
         </div>
         <div>
           <label className="mb-1.5 block text-sm text-ink-dim">Audience to reach</label>
-          <input name="audience" placeholder="entrepreneurs, hip-hop, investing" className={field} />
+          <input name="audience" placeholder="entrepreneurs, hip-hop, investing" defaultValue={initialAudience} className={field} />
           <p className="mt-1 text-xs text-ink-faint">Comma-separated interests.</p>
         </div>
         <div>

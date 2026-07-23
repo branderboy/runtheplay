@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPodcasts, listCategories } from "@/lib/data/podcasts";
+import { getAllPlays, money } from "@/lib/data/plays";
 import { PodcastCard } from "@/components/podcast-card";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 
@@ -7,6 +8,12 @@ export default function HomePage() {
   const podcasts = getAllPodcasts();
   const featured = podcasts.slice(0, 6);
   const categories = listCategories();
+  const plays = getAllPlays();
+  const samplePlays = [
+    plays.find((p) => p.tier === "Starter"),
+    plays.find((p) => p.tier === "Growth"),
+    plays.find((p) => p.tier === "Pro"),
+  ].filter(Boolean).slice(0, 3);
 
   return (
     <div className="mx-auto max-w-6xl px-5">
@@ -56,6 +63,38 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Plays to Run */}
+      {samplePlays.length > 0 && (
+        <section className="py-10">
+          <div className="mb-5 flex items-baseline justify-between">
+            <div>
+              <h2 className="text-xl font-bold">Plays to Run</h2>
+              <p className="mt-1 text-sm text-ink-dim">
+                Not sure where to start? Copy a proven campaign for your budget.
+              </p>
+            </div>
+            <Link href="/plays" className="text-sm text-orange">
+              All plays →
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {samplePlays.map((p) => (
+              <Link
+                key={p!.slug}
+                href={`/plays/${p!.slug}`}
+                className="flex flex-col gap-2 rounded-2xl border border-line bg-navy-1 p-5 transition-colors hover:border-orange/50"
+              >
+                <span className="text-2xl font-extrabold tabular-nums text-orange">
+                  {money(p!.budget)}
+                </span>
+                <h3 className="text-[15px] font-bold leading-tight">{p!.title}</h3>
+                <p className="line-clamp-2 text-[13px] text-ink-dim">{p!.objective}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Keep in the loop */}
       <section className="my-16 rounded-3xl border border-line bg-navy-1 p-8 sm:p-12">
