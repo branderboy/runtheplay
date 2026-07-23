@@ -14,6 +14,7 @@ export interface BasketItem {
   slug: string;
   name: string;
   category: string | null;
+  artworkUrl?: string | null;
 }
 
 interface BasketState {
@@ -110,10 +111,12 @@ export function AddToPlanButton({
   slug,
   name,
   category,
+  artworkUrl = null,
 }: {
   slug: string;
   name: string;
   category: string | null;
+  artworkUrl?: string | null;
 }) {
   const { add, has } = useBasket();
   const added = has(slug);
@@ -124,7 +127,7 @@ export function AddToPlanButton({
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        add({ slug, name, category });
+        add({ slug, name, category, artworkUrl });
       }}
       className={`flex-1 rounded-full py-3 text-xs font-black uppercase tracking-widest transition-all ${
         added

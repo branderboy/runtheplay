@@ -124,7 +124,7 @@ export default async function ProfilePage({
       </div>
 
       <div className="mt-4 sm:hidden">
-        <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} />
+        <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} artworkUrl={p.artworkUrl} />
       </div>
 
       {p.networkName && (

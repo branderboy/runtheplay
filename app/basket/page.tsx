@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useBasket } from "@/components/basket";
 import { FinalizePlanForm } from "@/components/finalize-plan-form";
+import { CoverArt } from "@/components/cover-art";
 
 export default function BasketPage() {
   const { items, remove, clear } = useBasket();
@@ -50,23 +51,32 @@ export default function BasketPage() {
             {items.map((i) => (
               <li
                 key={i.slug}
-                className="flex items-center justify-between gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)]"
+                className="flex flex-col gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)] sm:flex-row sm:items-center sm:justify-between sm:p-6"
               >
-                <div className="min-w-0">
-                  <Link
-                    href={`/podcast/${i.slug}`}
-                    className="block truncate text-lg font-black uppercase tracking-tight text-ink hover:text-sky-600"
-                  >
-                    {i.name}
-                  </Link>
-                  <p className="text-sm font-bold text-ink-faint">
-                    {i.category ?? "Podcast"} · Contact for Pricing
-                  </p>
-                </div>
+                <Link
+                  href={`/podcast/${i.slug}`}
+                  className="group flex min-w-0 items-center gap-5"
+                >
+                  <CoverArt
+                    name={i.name}
+                    slug={i.slug}
+                    artworkUrl={i.artworkUrl ?? `/covers/${i.slug}.jpg`}
+                    size={72}
+                    radius={18}
+                  />
+                  <span className="min-w-0">
+                    <span className="block truncate text-xl font-black uppercase tracking-tight text-ink group-hover:text-sky-600 sm:text-2xl">
+                      {i.name}
+                    </span>
+                    <span className="mt-1 block text-sm font-bold text-ink-dim">
+                      {i.category ?? "Podcast"} · Contact for Pricing
+                    </span>
+                  </span>
+                </Link>
                 <div className="flex flex-none items-center gap-3">
                   <Link
-                    href={`/podcast/${i.slug}`}
-                    className="rounded-full bg-sky-50 px-5 py-2.5 text-xs font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
+                    href={`/podcast/${i.slug}#contact`}
+                    className="rounded-full bg-sky-50 px-6 py-3 text-sm font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
                   >
                     Contact
                   </Link>
@@ -74,7 +84,7 @@ export default function BasketPage() {
                     type="button"
                     onClick={() => remove(i.slug)}
                     aria-label={`Remove ${i.name}`}
-                    className="rounded-full border border-slate-200 px-4 py-2.5 text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:border-danger hover:text-danger"
+                    className="rounded-full border border-slate-200 px-5 py-3 text-sm font-black uppercase tracking-widest text-ink-faint transition-colors hover:border-danger hover:text-danger"
                   >
                     Remove
                   </button>

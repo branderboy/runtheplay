@@ -83,6 +83,7 @@ export function ProfileHero({ p }: { p: Podcast }) {
             slug={p.slug}
             name={p.name}
             category={p.primaryCategory}
+            artworkUrl={p.artworkUrl}
           />
         </div>
       </div>

@@ -68,7 +68,7 @@ export function PodcastCard({ p }: { p: Podcast }) {
           <br />
           Pricing
         </div>
-        <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} />
+        <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} artworkUrl={p.artworkUrl} />
       </div>
     </div>
   );

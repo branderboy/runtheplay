@@ -88,33 +88,33 @@ export default async function SavedPlanPage({
           return (
             <li
               key={i.slug}
-              className="flex items-center justify-between gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)]"
+              className="flex flex-col gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)] sm:flex-row sm:items-center sm:justify-between sm:p-6"
             >
-              <div className="flex min-w-0 items-center gap-4">
+              <Link
+                href={`/podcast/${i.slug}`}
+                className="group flex min-w-0 items-center gap-5"
+              >
                 <CoverArt
                   name={i.name}
                   slug={i.slug}
                   artworkUrl={p?.artworkUrl}
-                  size={44}
-                  radius={12}
+                  size={72}
+                  radius={18}
                 />
-                <div className="min-w-0">
-                  <Link
-                    href={`/podcast/${i.slug}`}
-                    className="block truncate text-lg font-black uppercase tracking-tight text-ink hover:text-sky-600"
-                  >
+                <span className="min-w-0">
+                  <span className="block truncate text-xl font-black uppercase tracking-tight text-ink group-hover:text-sky-600 sm:text-2xl">
                     {i.name}
-                  </Link>
-                  <p className="text-sm font-bold text-ink-faint">
+                  </span>
+                  <span className="mt-1 block text-sm font-bold text-ink-dim">
                     {i.category ?? p?.primaryCategory ?? "Podcast"} · Contact
                     for Pricing
-                  </p>
-                </div>
-              </div>
+                  </span>
+                </span>
+              </Link>
               <div className="flex flex-none items-center gap-3">
                 <Link
                   href={`/podcast/${i.slug}#contact`}
-                  className="rounded-full bg-sky-50 px-5 py-2.5 text-xs font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
+                  className="rounded-full bg-sky-50 px-6 py-3 text-sm font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
                 >
                   Contact
                 </Link>
@@ -124,7 +124,7 @@ export default async function SavedPlanPage({
                   <button
                     type="submit"
                     aria-label={`Remove ${i.name}`}
-                    className="rounded-full border border-slate-200 px-4 py-2.5 text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:border-danger hover:text-danger"
+                    className="rounded-full border border-slate-200 px-5 py-3 text-sm font-black uppercase tracking-widest text-ink-faint transition-colors hover:border-danger hover:text-danger"
                   >
                     Remove
                   </button>
@@ -148,35 +148,35 @@ export default async function SavedPlanPage({
             {suggestions.map((s) => (
               <li
                 key={s.slug}
-                className="flex items-center justify-between gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-sm"
+                className="flex items-center justify-between gap-4 rounded-[2rem] border border-sky-50 bg-white p-5 shadow-sm sm:p-6"
               >
-                <div className="flex min-w-0 items-center gap-4">
+                <Link
+                  href={`/podcast/${s.slug}`}
+                  className="group flex min-w-0 items-center gap-5"
+                >
                   <CoverArt
                     name={s.name}
                     slug={s.slug}
                     artworkUrl={s.artworkUrl}
-                    size={44}
-                    radius={12}
+                    size={64}
+                    radius={16}
                   />
-                  <div className="min-w-0">
-                    <Link
-                      href={`/podcast/${s.slug}`}
-                      className="block truncate text-lg font-black uppercase tracking-tight text-ink hover:text-sky-600"
-                    >
+                  <span className="min-w-0">
+                    <span className="block truncate text-lg font-black uppercase tracking-tight text-ink group-hover:text-sky-600 sm:text-xl">
                       {s.name}
-                    </Link>
-                    <p className="truncate text-sm font-bold text-ink-faint">
+                    </span>
+                    <span className="mt-1 block truncate text-sm font-bold text-ink-dim">
                       {s.primaryCategory ?? "Podcast"}
                       {s.hosts.length ? ` · ${s.hosts.slice(0, 2).join(", ")}` : ""}
-                    </p>
-                  </div>
-                </div>
+                    </span>
+                  </span>
+                </Link>
                 <form action={addPlanItem} className="flex-none">
                   <input type="hidden" name="planId" value={plan.id} />
                   <input type="hidden" name="slug" value={s.slug} />
                   <button
                     type="submit"
-                    className="rounded-full bg-orange px-5 py-2.5 text-xs font-black uppercase tracking-widest text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-600"
+                    className="rounded-full bg-orange px-6 py-3 text-sm font-black uppercase tracking-widest text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-600"
                   >
                     + Add
                   </button>
