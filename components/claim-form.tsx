@@ -10,7 +10,7 @@ export function ClaimForm({ slug, name }: { slug: string; name: string }) {
 
   if (state.ok) {
     return (
-      <div className="rounded-2xl border border-green/30 bg-green/10 p-5 text-sm text-ink">
+      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 text-sm font-bold text-ink">
         {state.message}
       </div>
     );

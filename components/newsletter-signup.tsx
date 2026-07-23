@@ -36,7 +36,7 @@ export function NewsletterSignup({
         Weekly. Double opt-in — we'll confirm before sending. Unsubscribe anytime.
       </p>
       {state.message && (
-        <p className={`text-sm font-bold ${state.ok ? "text-green" : "text-danger"}`}>
+        <p className={`text-sm font-bold ${state.ok ? "text-sky-600" : "text-danger"}`}>
           {state.message}
         </p>
       )}

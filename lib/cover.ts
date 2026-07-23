@@ -13,8 +13,8 @@ export function hashString(s: string): number {
   return h >>> 0;
 }
 
-// Culture-friendly accents that all sit well on navy. Warm-biased, on-brand.
-const HUES = [16, 26, 40, 46, 4, 142, 168, 192, 266, 300, 332];
+// Brand-locked accents only: sky/blue family + orange. No off-palette hues.
+const HUES = [199, 207, 217, 226, 17, 24];
 
 export interface Accent {
   h: number;
