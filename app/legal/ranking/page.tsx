@@ -10,41 +10,41 @@ export default function RankingPage() {
         are ordered and what a paid boost does.
       </p>
 
-      <h2>Organic results are ranked by relevance</h2>
+      <h2>Organic Results Are Ranked by Relevance</h2>
       <p>
         In the Ad Planner and directory, shows are ranked by a{" "}
-        <strong>transparent, rules-based score</strong> — audience fit, format
+        <strong>transparent, rules-based score</strong>: audience fit, format
         fit, goal, geography, budget compatibility, inventory, freshness,
         verification, and profile completeness. Every recommendation explains why
         it matched. The scoring does not know or care who has paid.
       </p>
 
-      <h2>Boosts buy visibility, not a better rank</h2>
+      <h2>Boosts Buy Visibility, Not a Better Rank</h2>
       <p>
         Listing is free. A creator can pay to <strong>boost</strong> their
-        listing's visibility on specific surfaces — the directory, planner
+        listing's visibility on specific surfaces: the directory, planner
         results, or the newsletter. A boost places the listing in a{" "}
         <strong>clearly labeled "Featured" slot</strong>. It does not change the
         show's organic score and does not push more relevant shows down the
         organic list.
       </p>
 
-      <h2>What a boost never does</h2>
+      <h2>What a Boost Never Does</h2>
       <ul>
         <li>It never appears unlabeled.</li>
         <li>It never rewrites match scores or match reasons.</li>
         <li>It never buys a false claim of editorial endorsement.</li>
         <li>
-          It never affects our weekly data charts — chart positions are earned by
+          It never affects our weekly data charts. Chart positions are earned by
           the numbers and cannot be purchased.
         </li>
       </ul>
 
-      <h2>Why we do it this way</h2>
+      <h2>Why We Do It This Way</h2>
       <p>
         The whole point of Run the Play is trustworthy data on shows the industry
         overlooks. If money could quietly reorder results, that trust would be
-        worthless. Featured placement is a labeled ad — never a thumb on the
+        worthless. Featured placement is a labeled ad, never a thumb on the
         scale.
       </p>
     </LegalPage>

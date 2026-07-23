@@ -8,26 +8,26 @@ import { SITE_URL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    default: `${SITE_NAME} | ${SITE_TAGLINE}`,
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "Plan podcast advertising with Black creators. Tell us your goal, audience, and budget — Run the Play organizes the right shows.",
+    "Plan podcast advertising with Black creators. Tell us your goal, audience, and budget. Run the Play organizes the right shows.",
   applicationName: SITE_NAME,
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
     description:
-      "Plan podcast advertising with Black creators — directory, ad planner, charts, and campaign plays.",
+      "Plan podcast advertising with Black creators: directory, ad planner, charts, and campaign plays.",
     url: SITE_URL,
     images: ["/runlogo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
     description:
-      "Plan podcast advertising with Black creators — directory, ad planner, charts, and campaign plays.",
+      "Plan podcast advertising with Black creators: directory, ad planner, charts, and campaign plays.",
     images: ["/runlogo.png"],
   },
 };

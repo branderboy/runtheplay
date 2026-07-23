@@ -60,7 +60,7 @@ export const CHARTS: ChartDef[] = [
   {
     slug: "cross-platform",
     title: "Most Cross-Platform",
-    subtitle: "Shows built to work everywhere — feed and clip economy.",
+    subtitle: "Shows built to work everywhere: feed and clip economy.",
     metricLabel: "Platforms",
     methodology:
       "Ranked by number of public platforms on file, then by combined reach. Reflects a show's clip-economy footprint, not audience size.",

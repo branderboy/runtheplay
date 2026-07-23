@@ -41,7 +41,7 @@ export default async function ChartPage({
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: `${c.title} — ${CHART_WEEK}`,
+          name: `${c.title} | ${CHART_WEEK}`,
           url: `${SITE_URL}/charts/${c.slug}`,
           itemListElement: entries.map((e) => ({
             "@type": "ListItem",

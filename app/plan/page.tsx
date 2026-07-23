@@ -19,7 +19,7 @@ export default async function PlanPage({
       </h1>
       <p className="mt-3 max-w-xl text-ink-dim">
         Every recommendation explains why it matched. Nothing here is a quoted
-        rate — pricing is confirmed directly with each show.
+        rate. Pricing is confirmed directly with each show.
       </p>
       <div className="mt-8">
         <PlannerForm

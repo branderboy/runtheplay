@@ -24,7 +24,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getPodcastBySlug(slug);
   if (!p) return { title: "Podcast not found" };
-  const title = `${p.name} — Advertising, Audience & Sponsorship`;
+  const title = `${p.name} | Advertising, Audience & Sponsorship`;
   const description =
     p.shortDescription ??
     `${p.name} advertising opportunities, audience, and how to reach the show on Run the Play.`;
@@ -280,8 +280,8 @@ export default async function ProfilePage({
         <section className="rounded-2xl border border-line bg-navy-1 p-6" id="claim">
           <h2 className="text-lg font-bold">Is this your show?</h2>
           <p className="mb-4 mt-1 text-sm text-ink-dim">
-            Claim it free to publish your real ad inventory — placements,
-            rates, and availability — right on this page.
+            Claim it free to publish your real ad inventory: placements,
+            rates, and availability, right on this page.
           </p>
           <ClaimForm slug={p.slug} name={p.name} />
         </section>

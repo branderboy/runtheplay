@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = categoryBySlug(slug);
   if (!c) return { title: "Category not found" };
-  const title = `${c.name} Podcasts — Black Creators Open to Advertising`;
+  const title = `${c.name} Podcasts | Black Creators Open to Advertising`;
   return {
     title,
     description: `${c.shows.length} Black-creator ${c.name} podcasts and their advertising opportunities. Plan a culture-first campaign on Run the Play.`,

@@ -12,7 +12,7 @@ export default function BasketPage() {
         Your Media Mix
       </p>
       <h1 className="display text-4xl text-ink sm:text-5xl">
-        {items.length > 0 ? "Your plan so far." : "Nothing saved yet."}
+        {items.length > 0 ? "Your Plan So Far." : "Nothing Saved Yet."}
       </h1>
       <p className="mt-4 max-w-xl text-lg font-medium text-ink-dim">
         {items.length > 0
@@ -51,7 +51,7 @@ export default function BasketPage() {
                     {i.name}
                   </Link>
                   <p className="text-sm font-bold text-ink-faint">
-                    {i.category ?? "Podcast"} · Contact for pricing
+                    {i.category ?? "Podcast"} · Contact for Pricing
                   </p>
                 </div>
                 <div className="flex flex-none items-center gap-3">
@@ -79,10 +79,10 @@ export default function BasketPage() {
               onClick={clear}
               className="text-xs font-black uppercase tracking-widest text-ink-faint hover:text-danger"
             >
-              Clear all
+              Clear All
             </button>
             <p className="text-xs font-bold uppercase tracking-widest text-ink-faint">
-              Pricing is set by each show — never by Run the Play
+              Pricing Is Set by Each Show, Never by Run the Play
             </p>
           </div>
         </>

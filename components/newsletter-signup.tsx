@@ -29,7 +29,7 @@ export function NewsletterSignup({
           disabled={pending}
           className="rounded-full bg-sky-500 px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-[0_10px_20px_-10px_rgba(14,165,233,0.5)] disabled:opacity-60"
         >
-          {pending ? "…" : "Keep me in the loop"}
+          {pending ? "…" : "Keep Me in the Loop"}
         </button>
       </div>
       <p className="text-xs font-medium text-ink-faint">

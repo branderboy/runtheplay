@@ -13,7 +13,7 @@ export function Wordmark() {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/runlogo.png"
-      alt="Run the Play — Advertising Made Simple for the Culture"
+      alt="Run the Play | Advertising Made Simple for the Culture"
       className="h-16 w-auto rounded-lg object-contain"
     />
   );

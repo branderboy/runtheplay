@@ -127,7 +127,7 @@ for (const path of PATHS) {
   const page = await browser.newPage();
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
   await page.fill("input[type=email]", "e2e@example.com");
-  await page.click('button:has-text("Keep me in the loop")');
+  await page.click('button:has-text("Keep Me in the Loop")');
   await page.waitForTimeout(1500);
   const text = await page.textContent("body");
   /confirm/i.test(text ?? "")

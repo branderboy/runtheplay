@@ -69,7 +69,7 @@ export async function submitInquiry(
     ok: true,
     message: routedTo
       ? `Sent. ${pod.name} will receive your inquiry at their listed contact.`
-      : `Received. ${pod.name} has no public contact on file yet — Run the Play will route your inquiry when they claim their profile.`,
+      : `Received. ${pod.name} has no public contact on file yet. Run the Play will route your inquiry when they claim their profile.`,
   };
 }
 
@@ -102,7 +102,7 @@ export async function submitClaim(
     // TODO: send a confirmation code via Resend to complete the claim.
     return {
       ok: true,
-      message: `Verified — this matches ${pod.name}'s email on file. We'll email a confirmation link to finish the claim.`,
+      message: `Verified. This matches ${pod.name}'s email on file. We'll email a confirmation link to finish the claim.`,
     };
   }
 
@@ -154,7 +154,7 @@ export async function subscribeNewsletter(
   // TODO: send a double opt-in confirmation via Resend before adding to sends.
   return {
     ok: true,
-    message: "Almost there — check your inbox to confirm your subscription.",
+    message: "Almost there. Check your inbox to confirm your subscription.",
   };
 }
 

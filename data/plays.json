@@ -513,7 +513,7 @@
  {
   "slug": "independent-rapper-single-release",
   "title": "The $1,500 Independent Artist Play",
-  "businessType": "Independent rapper \u2014 single release",
+  "businessType": "Independent Rapper: Single Release",
   "tier": "Growth",
   "goal": "music_release",
   "budget": 1500,
@@ -971,7 +971,7 @@
  {
   "slug": "self-published-author-book-launch",
   "title": "The $1,100 Book Launch Play",
-  "businessType": "Self-published author \u2014 book launch",
+  "businessType": "Self-Published Author: Book Launch",
   "tier": "Growth",
   "goal": "product_launch",
   "budget": 1100,

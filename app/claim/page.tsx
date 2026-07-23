@@ -14,12 +14,12 @@ export default async function ClaimPage({
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
-        For creators
+        For Creators
       </p>
-      <h1 className="text-3xl font-extrabold">Claim your profile</h1>
+      <h1 className="text-3xl font-extrabold">Claim Your Profile</h1>
       <p className="mt-3 text-ink-dim">
         Listing is free. Find your show, then verify with your public business
-        email — if it matches what's on file, you're verified instantly.
+        email. If it matches what's on file, you're verified instantly.
       </p>
 
       <form action="/claim" className="mt-6 flex gap-2">
@@ -34,7 +34,7 @@ export default async function ClaimPage({
           type="submit"
           className="rounded-lg bg-orange px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-navy"
         >
-          Find it
+          Find It
         </button>
       </form>
 
@@ -42,7 +42,7 @@ export default async function ClaimPage({
         <div className="mt-8">
           {results.length === 0 ? (
             <p className="text-ink-faint">
-              No match. Your show may not be listed yet — email hello@runtheplay
+              No match. Your show may not be listed yet. Email hello@runtheplay
               to get added.
             </p>
           ) : (

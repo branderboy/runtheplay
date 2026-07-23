@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const tierBlurb: Record<string, string> = {
-  Starter: "Local businesses and first-time buyers — small budgets, real reach.",
+  Starter: "Local businesses and first-time buyers. Small budgets, real reach.",
   Growth: "Brands and apps scaling with regional and national culture audiences.",
   Pro: "Bigger pushes built on sponsorship and repetition inside trusted voices.",
   National: "Assemble many loyal culture audiences into one national campaign.",
@@ -28,7 +28,7 @@ export default function PlaysPage() {
       </h1>
       <p className="mt-3 max-w-2xl text-ink-dim">
         {total} ready-made campaign examples across business types and budgets.
-        Each shows the objective, media mix, budget split, and why it works —
+        Each shows the objective, media mix, budget split, and why it works,
         then drops into the Ad Planner so you can customize it.
       </p>
 

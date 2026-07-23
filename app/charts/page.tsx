@@ -5,7 +5,7 @@ import { ChartTable } from "@/components/chart-table";
 export const metadata = {
   title: "Charts",
   description:
-    "Weekly rankings of Black-creator podcasts — who's biggest, who's everywhere, sourced and dated.",
+    "Weekly rankings of Black-creator podcasts. Who's biggest, who's everywhere, sourced and dated.",
 };
 
 export default function ChartsPage() {

@@ -329,7 +329,7 @@ export function PlannerForm({
               disabled={pending}
               className={continueBtn}
             >
-              {pending ? "Building your play…" : "Build my plan →"}
+              {pending ? "Building Your Play…" : "Build My Plan →"}
             </button>
           </div>
         </div>
