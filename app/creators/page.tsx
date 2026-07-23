@@ -180,6 +180,44 @@ export default async function CreatorsPage({
         </div>
       </section>
 
+      {/* ------------------ Use case: get discovered by brands ------------------ */}
+      <section className="bg-white pb-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 rounded-[3rem] border border-sky-50 bg-sky-50/30 p-10 md:p-14 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+                Get Discovered
+              </h2>
+              <p className="display mb-6 text-3xl text-ink md:text-4xl">
+                Discoverable by Brands.
+              </p>
+              <p className="max-w-xl text-base font-medium leading-relaxed text-ink-dim">
+                Stop waiting for agencies to find a media kit buried in your
+                bio. Your profile puts your show in front of brands actively
+                looking for Black podcast inventory. Audience, pricing,
+                formats, and sponsorship opportunities in one place.
+                Advertisers find you instead of the other way around.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                "More Sponsor Opportunities",
+                "Less Cold Outreach",
+                "A Professional Media Profile",
+                "Direct Inquiries",
+              ].map((t) => (
+                <div
+                  key={t}
+                  className="rounded-[1.5rem] border border-sky-50 bg-white p-6 text-sm font-black uppercase tracking-tight text-ink shadow-sm"
+                >
+                  {t}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ------------------------------ Claim ------------------------------ */}
       <section className="bg-sky-50/30 py-20" id="claim">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
@@ -237,6 +275,41 @@ export default async function CreatorsPage({
               <GetListedForm initialShowName={show ?? ""} />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ------------- Use case: manage sponsorships (the RTP vision) ------------- */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+            Manage Sponsorships
+          </h2>
+          <p className="display mx-auto mb-6 max-w-3xl text-4xl text-ink md:text-5xl">
+            Turn Conversations Into Campaigns.
+          </p>
+          <p className="mx-auto mb-10 max-w-2xl text-lg font-medium leading-relaxed text-ink-dim">
+            Most sponsorships live in emails, DMs, spreadsheets, and PDFs. Run
+            the Play is one place to receive campaign requests, share your
+            media kit, answer questions, and manage brand conversations.
+          </p>
+          <div className="mx-auto mb-4 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+            <span className="rounded-full bg-sky-500 px-4 py-2 text-xs font-black uppercase tracking-widest text-white">
+              Campaign Requests · Live
+            </span>
+            {["Deliverables", "Contracts", "Payments", "Performance Reporting"].map(
+              (t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-sky-100 bg-white px-4 py-2 text-xs font-black uppercase tracking-widest text-ink-faint"
+                >
+                  {t} · On the Roadmap
+                </span>
+              ),
+            )}
+          </div>
+          <p className="mx-auto mt-10 max-w-3xl text-xl font-black uppercase tracking-tight text-ink">
+            The Operating System for Podcast Sponsorships.
+          </p>
         </div>
       </section>
 

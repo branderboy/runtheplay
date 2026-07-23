@@ -33,6 +33,7 @@ export interface Thesis {
     heroHeadline: string;
     heroSub: string;
     problem: string;
+    fragmentation: string;
     power: string;
     journey: string;
     publicLine: string;

@@ -183,6 +183,9 @@ export default function HomePage() {
           <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed text-ink-dim">
             {thesis.positioning.premise}
           </p>
+          <p className="mt-6 max-w-3xl border-l-4 border-sky-400 pl-5 text-lg font-bold leading-relaxed text-ink">
+            {thesis.story.fragmentation}
+          </p>
 
           {/* The receipts — why podcast ads work */}
           <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -329,6 +332,10 @@ export default function HomePage() {
         className="relative z-40 mx-auto mb-20 mt-14 max-w-5xl px-4 sm:px-6 lg:px-8"
       >
         {/* Campaign builder — Step 1 of the real planning flow: pick your goal */}
+        <p className="mb-6 text-center text-sm font-black uppercase tracking-widest text-ink-dim">
+          The Fastest Way to Discover, Compare, and Plan Advertising Across
+          Black Podcasts
+        </p>
         <div className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.3)] sm:p-10">
           <div className="mb-8 text-center">
             <p className="mb-2 text-[11px] font-black uppercase tracking-widest text-sky-500">
@@ -461,6 +468,12 @@ export default function HomePage() {
               <h3 className="display text-4xl text-ink md:text-6xl">
                 Your media mix.
               </h3>
+              <p className="mt-4 max-w-2xl text-base font-medium text-ink-dim">
+                Finding Black podcasts shouldn't take scrolling Instagram,
+                searching YouTube, and emailing creators one by one. One
+                searchable marketplace instead. Spend the time choosing the
+                right partners, not hunting for them.
+              </p>
             </div>
             <Link
               href="/directory"
@@ -468,6 +481,23 @@ export default function HomePage() {
             >
               All {podcasts.length} creators →
             </Link>
+          </div>
+
+          <div className="mb-10 flex flex-wrap gap-3">
+            {[
+              "Discover by Audience and Category",
+              "Compare Sponsorship Opportunities",
+              "Request Campaigns Directly",
+              "Build Media Plans Faster",
+              "Trusted Voices, Engaged Listeners",
+            ].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600"
+              >
+                {t}
+              </span>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

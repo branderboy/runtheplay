@@ -23,6 +23,11 @@ export default async function DirectoryPage({
           <p className="display text-4xl text-ink md:text-6xl">
             Your media mix.
           </p>
+          <p className="mt-4 max-w-xl text-base font-medium text-ink-dim">
+            No more scrolling Instagram, searching YouTube, and emailing one by
+            one. Independent Black podcasts, organized into one searchable
+            marketplace.
+          </p>
         </div>
         <div className="text-sm font-bold uppercase tracking-widest text-ink-faint">
           Showing <span className="text-sky-500">{results.length}</span> creators
