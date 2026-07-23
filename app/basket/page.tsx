@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useBasket } from "@/components/basket";
+import { FinalizePlanForm } from "@/components/finalize-plan-form";
 
 export default function BasketPage() {
   const { items, remove, clear } = useBasket();
@@ -84,6 +85,10 @@ export default function BasketPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-ink-faint">
               Pricing Is Set by Each Show, Never by Run the Play
             </p>
+          </div>
+
+          <div className="mt-10">
+            <FinalizePlanForm />
           </div>
         </>
       )}

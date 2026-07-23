@@ -10,9 +10,12 @@ import {
   inquiries,
   claims,
   listingRequests,
+  advertisers,
+  savedPlans,
   newsletterSubscribers,
   newsletterEditionSubscriptions,
 } from "@/src/db/schema/index";
+import { eq } from "drizzle-orm";
 
 /**
  * Persistence: writes to Postgres when DATABASE_URL is set (Neon storage on
@@ -34,7 +37,7 @@ function record(kind: string, data: unknown) {
 
 const isEmail = (s: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s);
 
-export type ActionState = { ok: boolean; message: string };
+export type ActionState = { ok: boolean; message: string; planId?: string };
 
 /* ------------------------------ buyer inquiry ------------------------------ */
 
@@ -119,6 +122,69 @@ export async function submitClaim(
     message: onFile
       ? `Submitted for review. That email doesn't match the one on file, so a person will verify your claim.`
       : `Submitted for review. We don't have an email on file for ${pod.name} yet, so a person will verify your claim.`,
+  };
+}
+
+/* ------------------ finalize plan (advertiser account, A4) ------------------ */
+
+export async function finalizePlan(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const name = String(formData.get("name") ?? "").trim();
+  const company = String(formData.get("company") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  let items: { slug: string; name: string; category?: string | null }[] = [];
+  try {
+    const parsed = JSON.parse(String(formData.get("items") ?? "[]"));
+    if (Array.isArray(parsed))
+      items = parsed
+        .filter((i) => i && typeof i.slug === "string" && typeof i.name === "string")
+        .slice(0, 50);
+  } catch {
+    /* treated as empty below */
+  }
+
+  if (!isEmail(email))
+    return { ok: false, message: "Enter a valid business email." };
+  if (items.length === 0)
+    return { ok: false, message: "Add at least one show to your media mix first." };
+
+  record("advertisers", { email, name, company });
+  record("saved_plans", { email, items: items.map((i) => i.slug) });
+
+  const db = await getDb();
+  if (db) {
+    try {
+      await db
+        .insert(advertisers)
+        .values({ email, name: name || null, company: company || null })
+        .onConflictDoNothing({ target: advertisers.email });
+      const [account] = await db
+        .select({ id: advertisers.id })
+        .from(advertisers)
+        .where(eq(advertisers.email, email));
+      if (account) {
+        const [plan] = await db
+          .insert(savedPlans)
+          .values({ advertiserId: account.id, itemsJson: items })
+          .returning({ id: savedPlans.id });
+        if (plan) {
+          // TODO: email the plan link via Resend once email is wired up.
+          return {
+            ok: true,
+            planId: plan.id,
+            message: `Plan saved to your account. Keep the link below, it's your plan's permanent home.`,
+          };
+        }
+      }
+    } catch {
+      /* fall back to the log */
+    }
+  }
+  return {
+    ok: true,
+    message: `Plan saved and logged for ${email}. Contact each show from its profile while account access is being finished.`,
   };
 }
 

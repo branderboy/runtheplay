@@ -9,6 +9,7 @@ import { ProfileHero } from "@/components/profile-hero";
 import { PodcastCard } from "@/components/podcast-card";
 import { RequestForm } from "@/components/request-form";
 import { ClaimForm } from "@/components/claim-form";
+import { AddToPlanButton } from "@/components/basket";
 import { JsonLd } from "@/components/json-ld";
 import { SITE_URL } from "@/lib/site";
 
@@ -120,6 +121,10 @@ export default async function ProfilePage({
 
       <div className="mt-4">
         <ProfileHero p={p} />
+      </div>
+
+      <div className="mt-4 sm:hidden">
+        <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} />
       </div>
 
       {p.networkName && (

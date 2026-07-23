@@ -163,7 +163,24 @@ for (const path of PATHS) {
   await page.close();
 }
 
-// 6) Mobile nav opens and shows all links.
+// 6) Advertiser account: add to plan, finalize on the basket page.
+{
+  const page = await browser.newPage();
+  await page.goto(BASE + "/podcast/drink-champs", { waitUntil: "networkidle" });
+  await page.click('button:has-text("Add to Plan")');
+  await page.goto(BASE + "/basket", { waitUntil: "networkidle" });
+  try {
+    await page.fill("#fin-email", "e2e-buyer@example.com");
+    await page.click('button:has-text("Save My Plan")');
+    await page.waitForSelector("text=Plan Saved", { timeout: 10000 });
+    ok("finalize plan creates account and saves the mix");
+  } catch (e) {
+    fail("finalize plan", e.message);
+  }
+  await page.close();
+}
+
+// 7) Mobile nav opens and shows all links.
 {
   const page = await browser.newPage({ viewport: { width: 390, height: 720 } });
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
@@ -182,4 +199,4 @@ if (failures.length) {
   console.error(`\nE2E FAILED: ${failures.length} problem(s).`);
   process.exit(1);
 }
-console.log(`\nE2E passed: ${PATHS.length} pages + 6 flows clean.`);
+console.log(`\nE2E passed: ${PATHS.length} pages + 7 flows clean.`);

@@ -2,6 +2,7 @@ import type { Podcast } from "@/lib/data/podcasts";
 import { accentFor, hashString } from "@/lib/cover";
 import { CoverArt } from "./cover-art";
 import { Badge } from "./badges";
+import { AddToPlanButton } from "./basket";
 
 export function ProfileHero({ p }: { p: Podcast }) {
   const a = accentFor(p.slug);
@@ -76,6 +77,13 @@ export function ProfileHero({ p }: { p: Podcast }) {
               <Badge tone="contact">Advertising available</Badge>
             )}
           </div>
+        </div>
+        <div className="ml-auto hidden flex-none pb-1 sm:block">
+          <AddToPlanButton
+            slug={p.slug}
+            name={p.name}
+            category={p.primaryCategory}
+          />
         </div>
       </div>
     </div>

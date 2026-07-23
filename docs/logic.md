@@ -26,7 +26,8 @@ not move a user one row down these tables is a silo.
 | A1 | Aware | Homepage: thesis, arbitrage, receipts | Clicks Start Building | Opens planner at step 1 | A2 | LIVE |
 | A2 | Planning | 4-step wizard: goal, budget, audience, details | Completes steps | Deterministic matcher returns explained slate | A3 | LIVE |
 | A3 | Evaluating | Results with match reasons, featured labeled | Adds shows to media mix | Basket persists across pages | A4 | LIVE |
-| A4 | Committed | Media mix page, per-show contact | Sends inquiry per show | Stores inquiry, routes to email on file | A5 | OPEN: email delivery (Resend) not wired |
+| A4 | Committed | Finalize Plan on the media mix page | Creates account (name, company, email), saves plan | Advertiser account + saved plan with permanent /plans/[id] link | A5 | LIVE (DB); OPEN: no magic-link login until Resend |
+| A4b | Contacting | Per-show contact on profile and saved plan | Sends inquiry per show | Stores inquiry, routes to email on file | A5 | OPEN: email delivery (Resend) not wired |
 | A5 | Negotiating | "Sent to the show's contact" | Deals directly with the show | Nothing, we do not broker | A6 | BY DESIGN |
 | A6 | Live campaign | Their ad running on culture shows | Comes back weekly | Charts and newsletter keep them in the loop | A7 | LIVE (newsletter opt-in), OPEN: sends |
 | A7 | Repeat buyer | New plays, new charts | Builds next plan | Loop restarts with receipts added | A2 | LIVE |
@@ -42,9 +43,10 @@ advertiser loop leaks at A4 and the podcaster loop never reaches P8.
 1. Claim search must show real states (in database or not, claimed or not,
    instant verify or review) so P1 to P4 is one continuous motion. (This
    commit.)
-2. Email delivery via Resend: inquiry routing (A4/P7), claim confirmations
+2. Email delivery via Resend: inquiry routing (A4b/P7), claim confirmations
    (P4), listing-request notifications to the owner (P2), newsletter double
-   opt-in (A6). One integration closes four gaps. Needs RESEND_API_KEY.
+   opt-in (A6), and magic-link login for advertiser accounts (A4). One
+   integration closes five gaps. Needs RESEND_API_KEY.
 3. Creator dashboard after claim: publish inventory, placements, rates (P6
    to P7).
 4. Admin review surface for pending claims and listing requests (P2, P5).
