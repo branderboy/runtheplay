@@ -3,9 +3,10 @@ import { Wordmark } from "./brand";
 
 const nav = [
   { href: "/plan", label: "Ad Planner" },
+  { href: "/charts", label: "Charts" },
   { href: "/plays", label: "Plays to Run" },
   { href: "/directory", label: "Explore Podcasts" },
-  { href: "/claim", label: "Claim Your Profile" },
+  { href: "/claim", label: "Claim" },
 ];
 
 export function SiteHeader() {

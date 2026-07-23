@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { getAllPodcasts, listCategories } from "@/lib/data/podcasts";
 import { getAllPlays, money } from "@/lib/data/plays";
+import { computeChart, CHART_WEEK } from "@/lib/charts";
 import { PodcastCard } from "@/components/podcast-card";
+import { ChartTable } from "@/components/chart-table";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export default function HomePage() {
@@ -14,39 +16,60 @@ export default function HomePage() {
     plays.find((p) => p.tier === "Growth"),
     plays.find((p) => p.tier === "Pro"),
   ].filter(Boolean).slice(0, 3);
+  const topChart = computeChart("youtube-subscribers").slice(0, 5);
 
   return (
     <div className="mx-auto max-w-6xl px-5">
       {/* Hero */}
-      <section className="py-16 sm:py-24">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-orange">
-          Advertising Made Simple for the Culture
-        </p>
-        <h1 className="max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-          Build a podcast ad plan with Black creators.
-        </h1>
-        <p className="mt-5 max-w-xl text-lg text-ink-dim">
-          Tell us your goal, audience, and budget. Run the Play organizes the
-          right hip-hop and culture podcasts — reach, formats, and how to contact
-          them directly.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/plan"
-            className="rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
-          >
-            Start Planning
-          </Link>
-          <Link
-            href="/directory"
-            className="rounded-lg border border-line px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink hover:border-orange/50"
-          >
-            Explore Podcasts
-          </Link>
+      <section className="grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2">
+        <div>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-orange">
+            Advertising Made Simple for the Culture
+          </p>
+          <h1 className="text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
+            Build a podcast ad plan with Black creators.
+          </h1>
+          <p className="mt-5 max-w-xl text-lg text-ink-dim">
+            Tell us your goal, audience, and budget. Run the Play organizes the
+            right hip-hop and culture podcasts — reach, formats, and how to
+            contact them directly.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/plan"
+              className="rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
+            >
+              Start Planning
+            </Link>
+            <Link
+              href="/directory"
+              className="rounded-lg border border-line px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink hover:border-orange/50"
+            >
+              Explore Podcasts
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-ink-faint">
+            {podcasts.length} shows and counting · {categories.length} categories
+          </p>
         </div>
-        <p className="mt-6 text-sm text-ink-faint">
-          {podcasts.length} shows and counting · {categories.length} categories
-        </p>
+
+        {/* Live mini-chart */}
+        {topChart.length > 0 && (
+          <div className="rounded-3xl border border-line bg-navy-1 p-5 shadow-sm">
+            <div className="mb-3 flex items-baseline justify-between">
+              <div>
+                <h2 className="text-sm font-bold uppercase tracking-wide">
+                  Top YouTube Subscribers
+                </h2>
+                <p className="text-xs text-ink-faint">{CHART_WEEK}</p>
+              </div>
+              <Link href="/charts" className="text-sm text-orange">
+                All charts →
+              </Link>
+            </div>
+            <ChartTable entries={topChart} metricLabel="Subs" />
+          </div>
+        )}
       </section>
 
       {/* Featured shows */}

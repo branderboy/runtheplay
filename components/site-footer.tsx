@@ -10,6 +10,7 @@ export function SiteFooter() {
         </p>
         <nav className="flex flex-wrap gap-x-5 gap-y-2">
           <Link href="/directory" className="hover:text-ink-dim">Directory</Link>
+          <Link href="/charts" className="hover:text-ink-dim">Charts</Link>
           <Link href="/plan" className="hover:text-ink-dim">Ad Planner</Link>
           <Link href="/claim" className="hover:text-ink-dim">Claim a profile</Link>
           <Link href="/legal/ranking" className="hover:text-ink-dim">How ranking works</Link>
