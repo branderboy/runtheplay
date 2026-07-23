@@ -7,13 +7,14 @@ export function PlayGlyph({ size = 22 }: { size?: number }) {
   );
 }
 
+/** The real Run the Play logo, set in a navy badge so it reads on the white UI. */
 export function Wordmark() {
   return (
-    <span className="flex items-center gap-2">
-      <PlayGlyph />
-      <span className="text-[15px] font-extrabold uppercase tracking-[0.14em]">
-        Run the Play
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/runlogo.png"
+      alt="Run the Play — Advertising Made Simple for the Culture"
+      className="h-12 w-auto"
+    />
   );
 }

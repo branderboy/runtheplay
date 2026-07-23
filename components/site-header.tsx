@@ -11,8 +11,8 @@ const nav = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line bg-white/85 backdrop-blur sticky top-0 z-20">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <header className="sticky top-0 z-20 border-b border-white/10 bg-navy/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
         <Link href="/" aria-label="Run the Play home">
           <Wordmark />
         </Link>
@@ -21,7 +21,7 @@ export function SiteHeader() {
             <Link
               key={n.href}
               href={n.href}
-              className="text-ink-dim hover:text-ink transition-colors"
+              className="text-white/70 transition-colors hover:text-white"
             >
               {n.label}
             </Link>
