@@ -4,11 +4,13 @@ import { join } from "node:path";
 import { parse } from "csv-parse/sync";
 import type { PodcastInput } from "@/src/lib/planner/types";
 import artworkMap from "@/data/seed/artwork.json";
+import spotifyUrlMap from "@/data/seed/spotify_urls.json";
 
 const ARTWORK = artworkMap as Record<
   string,
-  { artworkUrl?: string; appleUrl?: string }
+  { artworkUrl?: string; sourceUrl?: string; provider?: string }
 >;
+const SPOTIFY = spotifyUrlMap as Record<string, string>;
 
 /**
  * File-backed podcast source. Reads data/seed/podcasts_seed.csv so the app runs
@@ -149,10 +151,17 @@ function loadPodcasts(): Podcast[] {
     trim: true,
   });
   cache = rows.filter((r) => clean(r.podcast_name)).map(rowToPodcast);
-  // Overlay real cover art when the fetch script has populated it.
   for (const p of cache) {
+    // Overlay real cover art when the fetch script has populated it.
     const art = ARTWORK[p.slug]?.artworkUrl;
     if (art) p.artworkUrl = art;
+    // Overlay the verified Spotify show link (drives "Listen on Spotify" + oEmbed).
+    const spotify = SPOTIFY[p.slug];
+    if (spotify) {
+      const existing = p.platforms.find((x) => x.platform === "spotify");
+      if (existing) existing.url = spotify;
+      else p.platforms.push({ platform: "spotify", url: spotify, followers: null });
+    }
   }
   return cache;
 }
