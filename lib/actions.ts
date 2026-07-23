@@ -5,11 +5,18 @@ import { join } from "node:path";
 import { getPodcastBySlug, getAllPodcasts, toPlannerInput } from "@/lib/data/podcasts";
 import { matchPlan } from "@/src/lib/planner/matcher";
 import type { PlanInput } from "@/src/lib/planner/types";
+import { getDb } from "@/lib/db-optional";
+import {
+  inquiries,
+  claims,
+  newsletterSubscribers,
+  newsletterEditionSubscriptions,
+} from "@/src/db/schema/index";
 
 /**
- * Persistence + email are stubbed with a local append-only log so the flows run
- * before Neon + Resend are wired. Replace `record()` with DB writes and add a
- * Resend send where noted.
+ * Persistence: writes to Postgres when DATABASE_URL is set (Neon storage on
+ * Vercel), and always keeps a local append-only log as a dev fallback. Email
+ * (Resend) is still TODO where noted.
  */
 function record(kind: string, data: unknown) {
   try {
@@ -20,7 +27,7 @@ function record(kind: string, data: unknown) {
       JSON.stringify({ at: new Date().toISOString(), ...(data as object) }) + "\n",
     );
   } catch {
-    // best-effort in read-only environments
+    // best-effort in read-only/serverless environments
   }
 }
 
@@ -48,6 +55,14 @@ export async function submitInquiry(
   // Route to the podcast's public business contact, claimed or not.
   const routedTo = pod.advertisingContactEmail ?? pod.advertisingContactUrl ?? null;
   record("inquiries", { slug, fromEmail, message, routedTo });
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.insert(inquiries).values({ podcastSlug: slug, fromEmail, message, routedTo });
+    } catch {
+      /* fall back to the log */
+    }
+  }
   // TODO: send via Resend to `routedTo` (or queue for RTP routing if null).
 
   return {
@@ -75,9 +90,15 @@ export async function submitClaim(
 
   const onFile = pod.advertisingContactEmail?.trim().toLowerCase() ?? null;
 
+  const db = await getDb();
   if (onFile && claimEmail === onFile) {
     // Fast path: matches the public business email we already have on file.
     record("claims", { slug, claimEmail, role, method: "email_on_file", status: "auto_verified" });
+    if (db) {
+      try {
+        await db.insert(claims).values({ podcastSlug: slug, claimEmail, role, method: "email_on_file", status: "auto_verified" });
+      } catch { /* fall back to the log */ }
+    }
     // TODO: send a confirmation code via Resend to complete the claim.
     return {
       ok: true,
@@ -87,6 +108,11 @@ export async function submitClaim(
 
   // Otherwise queue for manual review (still legitimate, just not auto-verified).
   record("claims", { slug, claimEmail, role, method: "manual_review", status: "pending" });
+  if (db) {
+    try {
+      await db.insert(claims).values({ podcastSlug: slug, claimEmail, role, method: "manual_review", status: "pending" });
+    } catch { /* fall back to the log */ }
+  }
   return {
     ok: true,
     message: onFile
@@ -106,6 +132,25 @@ export async function subscribeNewsletter(
   if (!isEmail(email))
     return { ok: false, message: "Enter a valid email address." };
   record("subscribers", { email, edition, status: "pending" });
+  const db = await getDb();
+  if (db) {
+    try {
+      const [sub] = await db
+        .insert(newsletterSubscribers)
+        .values({ email, status: "pending", consentSource: `signup:${edition}` })
+        .onConflictDoUpdate({
+          target: newsletterSubscribers.email,
+          set: { updatedAt: new Date() },
+        })
+        .returning({ id: newsletterSubscribers.id });
+      if (sub?.id) {
+        await db
+          .insert(newsletterEditionSubscriptions)
+          .values({ subscriberId: sub.id, edition: edition as "buyer" | "creator" })
+          .onConflictDoNothing();
+      }
+    } catch { /* fall back to the log */ }
+  }
   // TODO: send a double opt-in confirmation via Resend before adding to sends.
   return {
     ok: true,

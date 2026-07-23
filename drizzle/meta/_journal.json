@@ -15,6 +15,13 @@
       "when": 1784777611569,
       "tag": "0001_cheerful_hairball",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784790875780,
+      "tag": "0002_fancy_maximus",
+      "breakpoints": true
     }
   ]
 }
