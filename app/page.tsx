@@ -94,12 +94,12 @@ export default function HomePage() {
                 The Urban Podcast Network
               </div>
               <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
-                Promote your{" "}
+                Promote Your{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent drop-shadow-sm">
                   Brand
                 </span>
                 <br />
-                through the podcasts driving the culture.
+                Through the Podcasts Driving the Culture.
               </h1>
               <p className="mx-auto mb-8 max-w-2xl text-lg font-medium leading-relaxed tracking-tight text-ink-dim md:text-xl lg:mx-0">
                 {thesis.story.heroSub}
@@ -371,12 +371,12 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              ["brand_awareness", "Brand awareness", "Get your name in the culture"],
-              ["product_launch", "Product launch", "Drop something new"],
-              ["music_release", "Music release", "Push a single or project"],
-              ["event_promotion", "Event promotion", "Fill the room"],
-              ["local_business", "Local business", "Own your city"],
-              ["lead_generation", "Lead generation", "Drive signups & sales"],
+              ["brand_awareness", "Brand Awareness", "Get Your Name in the Culture"],
+              ["product_launch", "Product Launch", "Drop Something New"],
+              ["music_release", "Music Release", "Push a Single or Project"],
+              ["event_promotion", "Event Promotion", "Fill the Room"],
+              ["local_business", "Local Business", "Own Your City"],
+              ["lead_generation", "Lead Generation", "Drive Signups & Sales"],
             ].map(([value, label, blurb]) => (
               <Link
                 key={value}

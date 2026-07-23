@@ -10,12 +10,12 @@ import { Badge } from "./badges";
  *  1. Goal  →  2. Budget  →  3. Audience  →  4. Details  →  Results   */
 
 export const GOALS: { value: CampaignGoal; label: string; blurb: string }[] = [
-  { value: "brand_awareness", label: "Brand awareness", blurb: "Get your name in the culture" },
-  { value: "product_launch", label: "Product launch", blurb: "Drop something new" },
-  { value: "music_release", label: "Music release", blurb: "Push a single or project" },
-  { value: "event_promotion", label: "Event promotion", blurb: "Fill the room" },
-  { value: "local_business", label: "Local business", blurb: "Own your city" },
-  { value: "lead_generation", label: "Lead generation", blurb: "Drive signups & sales" },
+  { value: "brand_awareness", label: "Brand Awareness", blurb: "Get Your Name in the Culture" },
+  { value: "product_launch", label: "Product Launch", blurb: "Drop Something New" },
+  { value: "music_release", label: "Music Release", blurb: "Push a Single or Project" },
+  { value: "event_promotion", label: "Event Promotion", blurb: "Fill the Room" },
+  { value: "local_business", label: "Local Business", blurb: "Own Your City" },
+  { value: "lead_generation", label: "Lead Generation", blurb: "Drive Signups & Sales" },
 ];
 
 const BUDGET_PRESETS = [500, 1500, 5000, 10000];

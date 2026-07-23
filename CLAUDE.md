@@ -24,6 +24,8 @@
   Advertisers must see the community's value; creators must be shown as able
   to deliver.
 - Copy style: short, punchy sentences. No emoji icons in the UI. No em-dashes.
+- Headlines, subheads, and card labels use Title Case. Never lowercase-first
+  display copy; it reads low value.
 - Voice: a community for the underdogs. Never cheap SaaS talk. The culture's
   own words, from mission.md. Underdog pride, receipts, and a plan.
 - **Real data only. Nothing fake, ever.** No invented metrics, prices, views,
