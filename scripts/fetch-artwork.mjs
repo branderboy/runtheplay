@@ -1,16 +1,18 @@
 /**
- * Fetches real podcast cover art from the public iTunes Search API and writes
- * a slug -> { artworkUrl, appleUrl } map to data/seed/artwork.json. The app and
- * the DB import read that map, so real art replaces the generated monograms
- * everywhere the moment this file is populated.
+ * Fetches real podcast cover art and writes a slug -> { artworkUrl, sourceUrl,
+ * provider } map to data/seed/artwork.json. The app and DB import read that map,
+ * so real art replaces the generated monograms everywhere the moment it's
+ * populated — no other code changes needed.
  *
- * Run it from any machine with open outbound network (your laptop, or a session
- * whose network policy allows itunes.apple.com):
+ * Source order: Spotify (clean square cover art) → iTunes (no key) as fallback.
  *
- *     node scripts/fetch-artwork.mjs
+ * Spotify needs a free app's credentials (https://developer.spotify.com/dashboard):
+ *     SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=yyy node scripts/fetch-artwork.mjs
+ * Without them it uses iTunes only. iTunes needs nothing.
  *
- * In a restricted Claude session the proxy must allow Apple; then run:
- *     NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt node scripts/fetch-artwork.mjs
+ * Run from any machine with open outbound network. (This Claude environment's
+ * network policy blocks Apple AND Spotify hosts, so it must run elsewhere, or
+ * after the environment's network policy is opened.)
  *
  * Idempotent: keeps existing entries, only fills shows still missing art.
  */
@@ -33,43 +35,77 @@ const norm = (s) =>
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-function upgrade(url) {
-  // Apple returns 100x100/600x600 variants; prefer a crisp 600.
-  return url ? url.replace(/\/\d+x\d+bb?\.(jpg|png)/, "/600x600bb.$1") : url;
-}
-
-function bestMatch(target, results) {
+/** Pick the best candidate by title similarity; return null if nothing matches. */
+function bestMatch(target, candidates) {
   const t = norm(target);
   let best = null;
-  let bestScore = 0;
-  for (const r of results) {
-    const c = norm(r.collectionName || "");
-    let score = 0;
-    if (c === t) score = 4;
-    else if (c.startsWith(t) || t.startsWith(c)) score = 3;
-    else if (c.includes(t) || t.includes(c)) score = 2;
+  let score = 0;
+  for (const c of candidates) {
+    const n = norm(c.title || "");
+    let s = 0;
+    if (n === t) s = 4;
+    else if (n.startsWith(t) || t.startsWith(n)) s = 3;
+    else if (n.includes(t) || t.includes(n)) s = 2;
     else {
       const tw = new Set(t.split(" "));
-      const overlap = c.split(" ").filter((w) => tw.has(w)).length;
-      score = overlap >= 2 ? 1 : 0;
+      s = n.split(" ").filter((w) => tw.has(w)).length >= 2 ? 1 : 0;
     }
-    if (score > bestScore) {
-      bestScore = score;
-      best = r;
+    if (s > score) {
+      score = s;
+      best = c;
     }
   }
-  return bestScore > 0 ? best : null;
+  return score > 0 ? best : null;
 }
 
-async function search(term) {
-  const url = `https://itunes.apple.com/search?term=${encodeURIComponent(
-    term,
-  )}&entity=podcast&limit=5`;
-  const res = await fetch(url, { headers: { "User-Agent": "RunThePlay/0.1" } });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
-  return json.results ?? [];
+/* --------------------------------- Spotify -------------------------------- */
+
+async function spotifyToken() {
+  const id = process.env.SPOTIFY_CLIENT_ID;
+  const secret = process.env.SPOTIFY_CLIENT_SECRET;
+  if (!id || !secret) return null;
+  const res = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${id}:${secret}`).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "grant_type=client_credentials",
+  });
+  if (!res.ok) throw new Error(`Spotify token HTTP ${res.status}`);
+  return (await res.json()).access_token;
 }
+
+async function spotifySearch(token, term) {
+  const url = `https://api.spotify.com/v1/search?type=show&market=US&limit=5&q=${encodeURIComponent(term)}`;
+  const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  if (!res.ok) throw new Error(`Spotify search HTTP ${res.status}`);
+  const items = (await res.json()).shows?.items ?? [];
+  return items.map((s) => ({
+    title: s.name,
+    imageUrl: (s.images ?? []).sort((a, b) => (b.width ?? 0) - (a.width ?? 0))[0]?.url,
+    sourceUrl: s.external_urls?.spotify ?? "",
+  }));
+}
+
+/* --------------------------------- iTunes --------------------------------- */
+
+async function itunesSearch(term) {
+  const url = `https://itunes.apple.com/search?entity=podcast&limit=5&term=${encodeURIComponent(term)}`;
+  const res = await fetch(url, { headers: { "User-Agent": "RunThePlay/0.1" } });
+  if (!res.ok) throw new Error(`iTunes HTTP ${res.status}`);
+  const results = (await res.json()).results ?? [];
+  return results.map((r) => ({
+    title: r.collectionName,
+    imageUrl: (r.artworkUrl600 || r.artworkUrl100 || "").replace(
+      /\/\d+x\d+bb?\.(jpg|png)/,
+      "/600x600bb.$1",
+    ),
+    sourceUrl: r.collectionViewUrl ?? "",
+  }));
+}
+
+/* ---------------------------------- main ---------------------------------- */
 
 async function main() {
   const rows = parse(readFileSync(CSV, "utf8"), {
@@ -79,32 +115,45 @@ async function main() {
   }).filter((r) => r.podcast_name);
 
   const map = JSON.parse(readFileSync(OUT, "utf8"));
+
+  let token = null;
+  try {
+    token = await spotifyToken();
+  } catch (e) {
+    console.log(`Spotify auth failed (${e.message}); using iTunes only.`);
+  }
+  console.log(token ? "Source: Spotify → iTunes fallback\n" : "Source: iTunes\n");
+
   let filled = 0;
   let missed = 0;
-
   for (const r of rows) {
     const slug = r.slug || norm(r.podcast_name).replace(/\s+/g, "-");
-    if (map[slug]?.artworkUrl) continue; // already have it
+    if (map[slug]?.artworkUrl) continue;
 
+    let hit = null;
+    let provider = null;
     try {
-      const results = await search(r.podcast_name);
-      const m = bestMatch(r.podcast_name, results);
-      if (m && m.artworkUrl600) {
-        map[slug] = {
-          artworkUrl: upgrade(m.artworkUrl600 || m.artworkUrl100),
-          appleUrl: m.collectionViewUrl || "",
-        };
-        filled++;
-        console.log(`  ✓ ${r.podcast_name} -> ${map[slug].artworkUrl}`);
-      } else {
-        missed++;
-        console.log(`  · ${r.podcast_name} — no Apple match (keeps generated art)`);
+      if (token) {
+        hit = bestMatch(r.podcast_name, await spotifySearch(token, r.podcast_name));
+        if (hit?.imageUrl) provider = "spotify";
       }
-    } catch (err) {
-      missed++;
-      console.log(`  ✗ ${r.podcast_name}: ${err.message}`);
+      if (!hit?.imageUrl) {
+        hit = bestMatch(r.podcast_name, await itunesSearch(r.podcast_name));
+        if (hit?.imageUrl) provider = "itunes";
+      }
+    } catch (e) {
+      console.log(`  ✗ ${r.podcast_name}: ${e.message}`);
     }
-    await sleep(400); // be polite to the API
+
+    if (hit?.imageUrl) {
+      map[slug] = { artworkUrl: hit.imageUrl, sourceUrl: hit.sourceUrl, provider };
+      filled++;
+      console.log(`  ✓ ${r.podcast_name} [${provider}]`);
+    } else {
+      missed++;
+      console.log(`  · ${r.podcast_name} — no match (keeps generated art)`);
+    }
+    await sleep(350);
   }
 
   writeFileSync(OUT, JSON.stringify(map, null, 1) + "\n");
