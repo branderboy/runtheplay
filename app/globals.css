@@ -37,3 +37,38 @@ a {
   outline: 2px solid var(--color-orange);
   outline-offset: 2px;
 }
+
+/* Legal / long-form prose */
+.legal {
+  color: var(--color-ink-dim);
+  line-height: 1.7;
+}
+.legal h2 {
+  color: var(--color-ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+.legal h3 {
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+.legal p {
+  margin: 0.75rem 0;
+}
+.legal ul {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.legal li {
+  margin: 0.35rem 0;
+}
+.legal a {
+  color: var(--color-orange);
+}
+.legal strong {
+  color: var(--color-ink);
+}
