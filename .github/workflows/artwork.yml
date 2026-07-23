@@ -1,10 +1,15 @@
 name: Fetch cover art
 
-# Run this from the GitHub UI: Actions → "Fetch cover art" → Run workflow.
-# The runner has open internet, so it can reach Spotify (which the dev sandbox
-# cannot). It fills data/seed/artwork.json and commits it back to the branch.
+# Runs automatically on push (and can be run manually from Actions). The runner
+# has open internet, so it can reach Spotify (which the dev sandbox cannot). It
+# fills data/seed/artwork.json and commits it back to the branch. It only fetches
+# shows still missing art, so after the first run it's a no-op (no commit loop).
 on:
   workflow_dispatch:
+  push:
+    branches: ["main", "claude/**"]
+    paths-ignore:
+      - "data/seed/artwork.json" # avoid re-triggering on the bot's own commit
 
 permissions:
   contents: write
