@@ -283,5 +283,25 @@
   "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1fc61c07c154d5a58b55f4be5e",
   "sourceUrl": "https://open.spotify.com/show/17MnQPCH3hJHXN9IgTdEmM",
   "provider": "spotify"
+ },
+ "effective-immediately": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/27/21/98/272198d6-a724-7b90-717f-7573e5119f23/mza_16257654618246847482.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/effective-immediately-w-dj-hed-gina-views/id1753829873?uo=4",
+  "provider": "apple-itunes"
+ },
+ "sherri": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/79/d3/63/79d363ac-7470-c7cd-94e2-1b83bb2fac65/mza_8982646682067270650.jpeg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/hoax-the-sherri-papini-story/id1630188668?uo=4",
+  "provider": "apple-itunes"
+ },
+ "tea-with-tia": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/4c/86/cf/4c86cfa2-feec-bf8f-481e-2685118d0bb2/mza_4241324671652874362.png/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/tea-with-tia-a-podcast-about-health-nutrition/id1848232940?uo=4",
+  "provider": "apple-itunes"
+ },
+ "the-shade-room": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/9f/7e/20/9f7e200d-abb5-d711-7255-c158363de1d6/mza_16598602646309819514.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/the-shade-room-lock-down/id1486675848?uo=4",
+  "provider": "apple-itunes"
  }
 }
