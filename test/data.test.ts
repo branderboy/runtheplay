@@ -32,7 +32,7 @@ describe("seed data integrity", () => {
   });
 
   it("real Spotify cover art is overlaid for 50+ shows", () => {
-    const withArt = pods.filter((p) => p.artworkUrl?.includes("spotifycdn"));
+    const withArt = pods.filter((p) => p.artworkUrl?.includes("spotifycdn") || p.artworkUrl?.startsWith("/covers/"));
     expect(withArt.length).toBeGreaterThanOrEqual(50);
   });
 

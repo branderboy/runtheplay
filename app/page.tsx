@@ -23,8 +23,9 @@ export default function HomePage() {
   const topChart = computeChart("youtube-subscribers").slice(0, 4);
   const categoryGroups = listCategoryGroups().filter((c) => c.indexable);
 
-  // Hero "viral proof" card: the real #1 charting show, real cover, real stats.
-  const topEntry = topChart[0];
+  // Hero "viral proof" card: the top charting show WITH real cover art.
+  const topEntry =
+    topChart.find((e) => getPodcastBySlug(e.slug)?.artworkUrl) ?? topChart[0];
   const topShow = topEntry ? getPodcastBySlug(topEntry.slug) : undefined;
   const fmtCount = (n: number) =>
     n >= 1e6 ? `${(n / 1e6).toFixed(n >= 1e7 ? 0 : 1)}M` : `${Math.round(n / 1e3)}K`;
@@ -179,42 +180,6 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-
-                {/* Floating live chart — real weekly ranking */}
-                <div className="absolute -bottom-10 -left-6 z-30 hidden w-72 rounded-[1.5rem] border border-sky-50 bg-white p-4 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.35)] lg:block xl:-left-24">
-                  <div className="mb-2 flex items-center justify-between px-1">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-ink">
-                      This Week's Chart
-                    </span>
-                    <Link
-                      href="/charts"
-                      className="text-[10px] font-black uppercase tracking-widest text-sky-500 hover:text-sky-600"
-                    >
-                      All →
-                    </Link>
-                  </div>
-                  <ol>
-                    {topChart.slice(0, 3).map((e) => (
-                      <li key={e.slug}>
-                        <Link
-                          href={`/podcast/${e.slug}`}
-                          className="flex items-center gap-3 rounded-xl px-1 py-2 transition-colors hover:bg-sky-50/60"
-                        >
-                          <span className="w-4 text-center text-sm font-black tabular-nums text-sky-500">
-                            {e.rank}
-                          </span>
-                          <CoverArt name={e.name} slug={e.slug} artworkUrl={e.artworkUrl} size={30} radius={9} />
-                          <span className="min-w-0 flex-1 truncate text-xs font-black uppercase tracking-tight text-ink">
-                            {e.name}
-                          </span>
-                          <span className="flex-none text-xs font-black tabular-nums text-ink">
-                            {e.display}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
               </div>
             )}
           </div>
@@ -292,6 +257,72 @@ export default function HomePage() {
               {label}
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* ---------------- This week's charts — 3 side by side ---------------- */}
+      <section className="mx-auto mb-24 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <h2 className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+              This Week's Charts
+            </h2>
+            <p className="display text-3xl text-ink sm:text-4xl">
+              The numbers behind the culture.
+            </p>
+          </div>
+          <Link
+            href="/charts"
+            className="text-sm font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
+          >
+            All charts →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[
+            ["youtube-subscribers", "Top YouTube Subscribers", "Subs"],
+            ["instagram-followers", "Top Instagram Followers", "Followers"],
+            ["combined-reach", "Biggest Combined Reach", "Total"],
+          ].map(([slug, title, unit]) => {
+            const entries = computeChart(slug).slice(0, 5);
+            return (
+              <div
+                key={slug}
+                className="rounded-[2rem] border border-sky-50 bg-white p-6 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)]"
+              >
+                <h3 className="mb-4 px-1 text-sm font-black uppercase tracking-tight text-ink">
+                  {title}
+                </h3>
+                <ol>
+                  {entries.map((e) => (
+                    <li key={e.slug}>
+                      <Link
+                        href={`/podcast/${e.slug}`}
+                        className="flex items-center gap-3 rounded-xl px-1 py-2.5 transition-colors hover:bg-sky-50/60"
+                      >
+                        <span className="w-5 text-center text-base font-black tabular-nums text-sky-500">
+                          {e.rank}
+                        </span>
+                        <CoverArt name={e.name} slug={e.slug} artworkUrl={e.artworkUrl} size={36} radius={10} />
+                        <span className="min-w-0 flex-1 truncate text-[13px] font-black uppercase tracking-tight text-ink">
+                          {e.name}
+                        </span>
+                        <span className="flex-none text-[13px] font-black tabular-nums text-ink">
+                          {e.display}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+                <Link
+                  href={`/charts/${slug}`}
+                  className="mt-4 block rounded-full bg-sky-50 py-2.5 text-center text-[11px] font-black uppercase tracking-widest text-sky-600 transition-colors hover:bg-sky-500 hover:text-white"
+                >
+                  Full {unit} chart →
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </section>
 

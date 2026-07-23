@@ -119,6 +119,32 @@ async function main() {
 
   writeFileSync(OUT, JSON.stringify(map, null, 1) + "\n");
   console.log(`\nDone. Filled ${filled}, no match ${missed}. Wrote ${OUT}`);
+
+  // Download the actual image files into public/covers so the site serves
+  // them from its own domain — immune to hotlink/CDN issues.
+  const { mkdirSync, existsSync } = await import("node:fs");
+  const coversDir = join(root, "public/covers");
+  const manifestPath = join(root, "data/seed/covers.json");
+  mkdirSync(coversDir, { recursive: true });
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+  let saved = 0;
+  for (const [slug, entry] of Object.entries(map)) {
+    const file = join(coversDir, `${slug}.jpg`);
+    if (manifest[slug] && existsSync(file)) continue;
+    try {
+      const res = await fetch(entry.artworkUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const buf = Buffer.from(await res.arrayBuffer());
+      writeFileSync(file, buf);
+      manifest[slug] = `/covers/${slug}.jpg`;
+      saved++;
+    } catch (e) {
+      console.log(`  · cover download failed for ${slug}: ${e.message}`);
+    }
+    await sleep(150);
+  }
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, 1) + "\n");
+  console.log(`Downloaded ${saved} cover files -> public/covers (manifest updated).`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { parse } from "csv-parse/sync";
 import type { PodcastInput } from "@/src/lib/planner/types";
 import artworkMap from "@/data/seed/artwork.json";
+import coversManifest from "@/data/seed/covers.json";
 import spotifyUrlMap from "@/data/seed/spotify_urls.json";
 
 const ARTWORK = artworkMap as Record<
@@ -11,6 +12,7 @@ const ARTWORK = artworkMap as Record<
   { artworkUrl?: string; sourceUrl?: string; provider?: string }
 >;
 const SPOTIFY = spotifyUrlMap as Record<string, string>;
+const COVERS = coversManifest as Record<string, string>;
 
 /**
  * File-backed podcast source. Reads data/seed/podcasts_seed.csv so the app runs
@@ -152,8 +154,9 @@ function loadPodcasts(): Podcast[] {
   });
   cache = rows.filter((r) => clean(r.podcast_name)).map(rowToPodcast);
   for (const p of cache) {
-    // Overlay real cover art when the fetch script has populated it.
-    const art = ARTWORK[p.slug]?.artworkUrl;
+    // Overlay real cover art: local downloaded file first (served from our
+    // own domain, hotlink-proof), then the remote Spotify URL.
+    const art = COVERS[p.slug] ?? ARTWORK[p.slug]?.artworkUrl;
     if (art) p.artworkUrl = art;
     // Overlay the verified Spotify show link (drives "Listen on Spotify" + oEmbed).
     const spotify = SPOTIFY[p.slug];
