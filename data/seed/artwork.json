@@ -303,5 +303,80 @@
   "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/9f/7e/20/9f7e200d-abb5-d711-7255-c158363de1d6/mza_16598602646309819514.jpg/600x600bb.jpg",
   "sourceUrl": "https://podcasts.apple.com/us/podcast/the-shade-room-lock-down/id1486675848?uo=4",
   "provider": "apple-itunes"
+ },
+ "i-am-athlete": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/81/c8/e8/81c8e865-d205-8b8c-713f-a737c89ea045/mza_9797479428495920016.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/i-am-athlete/id1537836233?uo=4",
+  "provider": "apple-itunes"
+ },
+ "club-520-podcast": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/65/fd/ea/65fdea3d-8917-e574-dbd3-1f73753062a6/mza_8828642719005135709.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/club-520-podcast/id1397682720?uo=4",
+  "provider": "apple-itunes"
+ },
+ "the-draymond-green-show": {
+  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1fbcaf724b890b16de3d620ecd",
+  "sourceUrl": "https://open.spotify.com/show/4uEA3lPBibUlrPOciIMCRY",
+  "provider": "spotify"
+ },
+ "unapologetically-angel": {
+  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f07847d97e335f87fe724d250",
+  "sourceUrl": "https://open.spotify.com/show/20mCYxLTYvlJYmrmA17dKM",
+  "provider": "spotify"
+ },
+ "the-shop-uninterrupted": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/57/98/ca/5798caaa-a7da-a6e1-8634-72933a59e8fb/mza_13861450170773383878.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/the-shop/id1612191065?uo=4",
+  "provider": "apple-itunes"
+ },
+ "small-doses-amanda-seales": {
+  "artworkUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67656300005f1fb431197f2b8b72864aeb4fd7",
+  "sourceUrl": "https://open.spotify.com/show/2YXZqgzD27c9ijd2stGagX",
+  "provider": "spotify"
+ },
+ "good-moms-bad-choices": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/8f/ea/34/8fea344d-7b93-5d5a-7623-6896bc835a48/mza_11860142530291877374.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/good-moms-bad-choices/id1356670998?uo=4",
+  "provider": "apple-itunes"
+ },
+ "dear-future-wifey": {
+  "artworkUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67656300005f1ff28792c9d9f9d0c86440abfc",
+  "sourceUrl": "https://open.spotify.com/show/1r3Ba1GxkpwFkWVqmxZNPA",
+  "provider": "spotify"
+ },
+ "social-proof-podcast": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/88/3d/99/883d993e-57c8-8359-1e31-a295608678ff/mza_14919437545948465944.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/social-proof-podcast/id1374373035?uo=4",
+  "provider": "apple-itunes"
+ },
+ "side-hustle-pro": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/77/30/0e/77300ef9-6c06-748e-bec2-888a2789503d/mza_12107041010136998093.jpeg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/side-hustle-pro/id1126021323?uo=4",
+  "provider": "apple-itunes"
+ },
+ "techish": {
+  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1fdaac82feb8e00a5da2c1ee3c",
+  "sourceUrl": "https://open.spotify.com/show/1XtSnvR9YHJQJH3JG1iGfH",
+  "provider": "spotify"
+ },
+ "shxtsngigs": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/7f/c8/c1/7fc8c1e7-2793-3dfb-755a-c4678ea4363b/mza_16359112044297367251.jpeg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/shxtsngigs/id1481898329?uo=4",
+  "provider": "apple-itunes"
+ },
+ "the-receipts-podcast": {
+  "artworkUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67656300005f1fb5fef45eaf84e515ffe6ba32",
+  "sourceUrl": "https://open.spotify.com/show/3GMZiZnqL4Hib6DD5PGhdj",
+  "provider": "spotify"
+ },
+ "snap-judgment": {
+  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6d73dad1a55a0f4d1a589fef",
+  "sourceUrl": "https://open.spotify.com/show/3Cct7ZWmxHNAtLgBTqjC5v",
+  "provider": "spotify"
+ },
+ "the-terrell-show": {
+  "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/57/7d/92/577d92b9-bc7b-76f5-27a4-e2a79b70402c/mza_2689009689967444950.jpg/600x600bb.jpg",
+  "sourceUrl": "https://podcasts.apple.com/us/podcast/the-jazz-terrell-show/id1482993772?uo=4",
+  "provider": "apple-itunes"
  }
 }
