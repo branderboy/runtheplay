@@ -1,1 +1,896 @@
-{}
+{
+ "7pm-in-brooklyn": {
+  "piId": 6710151,
+  "feedUrl": "https://feeds.megaphone.fm/7pminbrooklyn",
+  "episodeCount": 124,
+  "newestItemPubdate": "2026-07-06",
+  "categories": [
+   "Music",
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/a2905640-8016-11ee-a436-d731fdff9ea9/image/b627816a27b792d2baf29e85b83ec47d.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "85-south-show": {
+  "piId": 432521,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/31de47d6-49be-46bb-9fa0-ae33005f6391/b6dc0ba5-1ca0-42de-b4e7-ae33005f639f/podcast.rss",
+  "episodeCount": 770,
+  "newestItemPubdate": "2026-07-17",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/31de47d6-49be-46bb-9fa0-ae33005f6391/image.jpg?t=1750702859&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "all-the-smoke": {
+  "piId": 96749,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/3bb6ed46-a795-4116-b7ef-ae3900375e77/fd0a584d-3ada-4c93-bbe1-ae3900375e85/podcast.rss",
+  "episodeCount": 587,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/3bb6ed46-a795-4116-b7ef-ae3900375e77/image.jpg?t=1750703033&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "angela-yee-s-lip-service": {
+  "piId": 742708,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/5b385304-3ab8-4d05-8b39-af2001466a56/baca5dbc-da5a-408a-9860-af2001466a72/podcast.rss",
+  "episodeCount": 688,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Comedy",
+   "Society",
+   "Culture",
+   "Relationships"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/5b385304-3ab8-4d05-8b39-af2001466a56/baca5dbc-da5a-408a-9860-af2001466a72/image.jpg?t=1664567307&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "angie-martinez-irl": {
+  "piId": 5570864,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/09313230-a088-4537-b3d1-aeca00f910df/910ebdb0-f7f7-4c39-a376-aeca00f9f039/podcast.rss",
+  "episodeCount": 123,
+  "newestItemPubdate": "2026-07-16",
+  "categories": [
+   "Music",
+   "Society",
+   "Culture",
+   "Personal",
+   "Journals"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/09313230-a088-4537-b3d1-aeca00f910df/910ebdb0-f7f7-4c39-a376-aeca00f9f039/image.jpg?t=1771894342&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "assets-over-liabilities": {
+  "piId": 4458266,
+  "feedUrl": "https://feeds.megaphone.fm/RMTV7653046665",
+  "episodeCount": 32,
+  "newestItemPubdate": "2023-12-20",
+  "categories": [
+   "Business",
+   "Interviews",
+   "Music"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/498c5678-b499-11ed-86bb-2fda43c0f758/image/AOL_KEY_ART.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "baby-this-is-keke-palmer": {
+  "piId": 5999484,
+  "feedUrl": "https://rss.art19.com/baby-this-is-keke-palmer",
+  "episodeCount": 182,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Comedy",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://content.production.cdn.art19.com/images/9f/0d/4e/c8/9f0d4ec8-11ed-45b6-b1b6-209d287745e6/67cdef1a25c101f81a9a27894602f79c4e5640cec3b3fcfa2153cb7edf9c0bfd49dffdabdc6d7ec3c4298d70735882bd30044434246afb814467318b38048041.jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "big-boys-neighborhood-podcast": {
+  "piId": 857679,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/98a2599f-cd9b-4f2a-9be4-b22c00e585f2/f90fa126-9527-4a66-b964-b367012d56e3/7bb60e12-be20-4879-9b60-b367012d56f7/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-11",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/98a2599f-cd9b-4f2a-9be4-b22c00e585f2/f90fa126-9527-4a66-b964-b367012d56e3/7bb60e12-be20-4879-9b60-b367012d56f7/image.jpg?t=1759169859&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "big-facts-big-bank-dj-scream": {
+  "piId": 105007,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/0b7f7269-c77b-4094-b249-ae33005f64cb/38b33d9c-66d4-443e-8bf0-ae33005f64d9/podcast.rss",
+  "episodeCount": 441,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Interviews",
+   "Music",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/0b7f7269-c77b-4094-b249-ae33005f64cb/image.jpg?t=1750436790&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "black-girl-podcast": {
+  "piId": 1384395,
+  "feedUrl": "https://feeds.megaphone.fm/HSW5077891380",
+  "episodeCount": 314,
+  "newestItemPubdate": "2026-07-16",
+  "categories": [
+   "True Crime"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/b4afe5e0-0cb2-11ec-a6ed-3bee9fc916c3/image/f562faf463bb039752c4cf79ceb3e8cf.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "brown-ambition": {
+  "piId": 47680,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/4b894cc7-34cc-4155-8d9e-b2aa01086686/09b4fe67-f731-4362-8519-b2aa010866a1/podcast.rss",
+  "episodeCount": 842,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Business",
+   "Education",
+   "Self Improvement"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/4b894cc7-34cc-4155-8d9e-b2aa01086686/09b4fe67-f731-4362-8519-b2aa010866a1/image.jpg?t=1748464480&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "caresha-please": {
+  "piId": 5548083,
+  "feedUrl": "https://feeds.megaphone.fm/RMTV8099766811",
+  "episodeCount": 19,
+  "newestItemPubdate": "2024-12-06",
+  "categories": [
+   "Music"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/d0916a8c-b499-11ed-a218-4bb9a3f5dc36/image/CARESHA_PLEASE_KEY_ART.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "club-shay-shay": {
+  "piId": 1365825,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/817afed1-6d6f-4567-815b-b06c00f6ca9b/4c89ab15-4df5-4d00-829a-b06c00f6caeb/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "News",
+   "Sports",
+   "Football"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/817afed1-6d6f-4567-815b-b06c00f6ca9b/image.jpg?t=1756840492&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "detroit-is-different": {
+  "piId": 739609,
+  "feedUrl": "https://pinecast.com/feed/detroit-is-different",
+  "episodeCount": 591,
+  "newestItemPubdate": "2026-07-16",
+  "categories": [
+   "Arts",
+   "Business",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://storage.pinecast.net/podcasts/covers/5bd27d6f-9531-4486-8034-7984c0ce1934/Det_is_Diff_hoodie_shirt.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "drink-champs": {
+  "piId": 960005,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9ff2dac3-12fd-4561-b512-ae33005f64f5/df6d181a-09ea-4bf2-adc6-ae33005f650d/podcast.rss",
+  "episodeCount": 601,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Music",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/9ff2dac3-12fd-4561-b512-ae33005f64f5/image.jpg?t=1750703037&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "earn-your-leisure": {
+  "piId": 850517,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8dbc4f54-a337-4481-9ef2-b355012b0a3d/eac4c628-29cb-469a-b5c8-b355012b0a48/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-16",
+  "categories": [
+   "Business",
+   "Education",
+   "News"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/8dbc4f54-a337-4481-9ef2-b355012b0a3d/eac4c628-29cb-469a-b5c8-b355012b0a48/image.jpg?t=1757614128&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "effective-immediately": {
+  "piId": 6947676,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/1cbe5c1e-ae64-4051-81b7-b44e00f873b6/8dd54bb7-6e31-440b-ac09-b44e00f87427/podcast.rss",
+  "episodeCount": 107,
+  "newestItemPubdate": "2026-07-17",
+  "categories": [
+   "Music",
+   "Commentary",
+   "News",
+   "Entertainment"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/1cbe5c1e-ae64-4051-81b7-b44e00f873b6/8dd54bb7-6e31-440b-ac09-b44e00f87427/image.jpg?t=1781025818&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "funky-friday": {
+  "piId": 5662647,
+  "feedUrl": "https://media.rss.com/funkyfriday/feed.xml",
+  "episodeCount": 25,
+  "newestItemPubdate": "2023-03-09",
+  "categories": [
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://media.rss.com/funkyfriday/20220901_060907_0989bced05e35754f2d3dfcb580ba0ce.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "gils-arena": {
+  "piId": 6405472,
+  "feedUrl": "https://feeds.megaphone.fm/BVLLC5834209128",
+  "episodeCount": 470,
+  "newestItemPubdate": "2026-07-01",
+  "categories": [
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/0b4fadd0-aa55-11ee-8af8-f3e09dd58f23/image/df15780b7afe171a836f54466a2d2b7d.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "higher-learning-van-lathan-rachel-lindsay": {
+  "piId": 868880,
+  "feedUrl": "https://feeds.megaphone.fm/higherlearning",
+  "episodeCount": 579,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/84d7ce9a-9b99-11ea-9385-77aa137f18c1/image/f5e824cf42d1cefc63b2110b8ee7ea88.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "it-is-what-it-is": {
+  "piId": 6712988,
+  "feedUrl": "https://feeds.megaphone.fm/BLU7984721871",
+  "episodeCount": 485,
+  "newestItemPubdate": "2026-06-15",
+  "categories": [
+   "News",
+   "Sports"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/481aaff4-909b-11ee-8a3b-8fcd79c1bd53/image/75805ac4d97a49be2a94f6243cf17af8.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "journey-to-launch": {
+  "piId": 1003572,
+  "feedUrl": "https://journeytolaunch.libsyn.com/rss",
+  "episodeCount": 496,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Business",
+   "Investing"
+  ],
+  "artworkUrl": "https://static.libsyn.com/p/assets/3/6/2/2/36220f4d020f19c2/journey-to-launch-podcast-cover-2x.png",
+  "fetchedAt": "2026-07-23"
+ },
+ "market-mondays": {
+  "piId": 1318858,
+  "feedUrl": "https://feeds.redcircle.com/34df7015-ce8e-4451-bfa2-dd4ffe91e8b7",
+  "episodeCount": 737,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Business"
+  ],
+  "artworkUrl": "https://media.redcircle.com/images/2022/12/22/21/69f1e55a-bfb0-4749-90d9-6f75d4733598_39ab_a1cb11eb-fc03-46ec-a462-10a0b7fdffab_blob.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "million-dollaz-worth-of-game": {
+  "piId": 430223,
+  "feedUrl": "https://mcsorleys.barstoolsports.com/feed/million-dollaz-worth-of-game",
+  "episodeCount": 455,
+  "newestItemPubdate": "2026-07-19",
+  "categories": [
+   "Music",
+   "Commentary"
+  ],
+  "artworkUrl": "https://chumley.barstoolsports.com/union/2025/09/19/IMG_3607.fbc05094.jpeg?crop=3000%3A3000%2Csmart&format=jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "money-making-conversations-master-class": {
+  "piId": 991829,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/b1db7263-d1a3-4d00-8976-af62012aab44/35a10561-3e1b-4d05-a529-af62012aab6a/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Business",
+   "Education",
+   "Self Improvement",
+   "Health",
+   "Society",
+   "Culture",
+   "Relationships"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/b1db7263-d1a3-4d00-8976-af62012aab44/image.jpg?t=1739488379&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "my-expert-opinion": {
+  "piId": 4191064,
+  "feedUrl": "https://feeds.megaphone.fm/ATAUU2520790881",
+  "episodeCount": 336,
+  "newestItemPubdate": "2026-04-22",
+  "categories": [
+   "Music",
+   "Commentary",
+   "News",
+   "Entertainment"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/3f08a2e0-71ac-11ed-96c3-f778a58cb74d/image/mth_podcast_logo.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "new-rory-and-mal": {
+  "piId": 4001212,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/5dc96576-96a9-4daf-96ec-b28800fcf0bd/ea74c34e-b3df-4cc3-97fb-b28800fcf0d2/podcast.rss",
+  "episodeCount": 607,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Comedy",
+   "Music",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/5dc96576-96a9-4daf-96ec-b28800fcf0bd/ea74c34e-b3df-4cc3-97fb-b28800fcf0d2/image.jpg?t=1771869488&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "nightcap": {
+  "piId": 6604842,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/6ced0da2-f257-4234-bf7c-b07601488685/99f1543b-ae3c-4f45-90f2-b076014995d9/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Sports"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/6ced0da2-f257-4234-bf7c-b07601488685/image.jpg?t=1780765656&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "off-the-record": {
+  "piId": 4214693,
+  "feedUrl": "https://anchor.fm/s/64e84f18/podcast/rss",
+  "episodeCount": 194,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Business",
+   "Entrepreneurship"
+  ],
+  "artworkUrl": "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo/16829462/16829462-1633507851350-9808801431a31.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "podcast-p-with-paul-george": {
+  "piId": 6073578,
+  "feedUrl": "https://feeds.megaphone.fm/podcastp",
+  "episodeCount": 103,
+  "newestItemPubdate": "2025-07-28",
+  "categories": [
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/61949f6a-b48e-11ed-97f0-1fe1a9197ffc/image/8064af0c8e0b02c94e6a756f491cfea6.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "rb-money": {
+  "piId": 5460780,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/ffd06750-9c13-4998-b266-ae90010bb2af/240a7ed2-a685-4bc6-91de-ae90010c6176/podcast.rss",
+  "episodeCount": 199,
+  "newestItemPubdate": "2026-07-15",
+  "categories": [
+   "Music"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/ffd06750-9c13-4998-b266-ae90010bb2af/image.jpg?t=1772126303&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "rap-radar": {
+  "piId": 5598329,
+  "feedUrl": "https://www.spreaker.com/show/6128701/episodes/feed",
+  "episodeCount": 90,
+  "newestItemPubdate": "2023-12-14",
+  "categories": [
+   "Music",
+   "News",
+   "Entertainment",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://d3wo5wojvuv7l.cloudfront.net/t_rss_itunes_square_1400/images.spreaker.com/original/b1cef9978298747438ef49079e4d7141.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "reasonably-shady": {
+  "piId": 3794039,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/f0c397a3-5ac2-4802-aa8f-ae330037e243/8dd25a25-6fe7-4fbb-9140-ae330037e255/podcast.rss",
+  "episodeCount": 315,
+  "newestItemPubdate": "2026-07-20",
+  "categories": [
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/f0c397a3-5ac2-4802-aa8f-ae330037e243/image.jpg?t=1772127594&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "red-table-talk": {
+  "piId": 3721024,
+  "feedUrl": "https://anchor.fm/s/4fd753f8/podcast/rss",
+  "episodeCount": 1,
+  "newestItemPubdate": "2021-04-14",
+  "categories": [
+   "Health",
+   "Fitness",
+   "Mental"
+  ],
+  "artworkUrl": "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo/13295118/13295118-1618430109720-098094249e9ea.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "roommates-show": {
+  "piId": 6783962,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/45cd9048-7554-43c1-bab6-b3d30103f95a/e53d2649-75cb-4ac4-b853-b3d30103f975/podcast.rss",
+  "episodeCount": 309,
+  "newestItemPubdate": "2026-07-19",
+  "categories": [
+   "Business",
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/45cd9048-7554-43c1-bab6-b3d30103f95a/e53d2649-75cb-4ac4-b853-b3d30103f975/image.jpg?t=1769618423&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "sherri": {
+  "piId": 408870,
+  "feedUrl": "https://branthansen.libsyn.com/rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Christianity",
+   "Religion",
+   "Spirituality",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://static.libsyn.com/p/assets/0/f/8/e/0f8e74263f5a864f/Brant-Sherri-Oddcast-Cover-2021.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "steve-harvey": {
+  "piId": 56687,
+  "feedUrl": "https://omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/69F89044-CE7B-4A37-B8FE-AE2C007B3CF5/4331CC95-C2E7-4689-A79C-AE2C007B3CFF/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Comedy",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/69f89044-ce7b-4a37-b8fe-ae2c007b3cf5/4331cc95-c2e7-4689-a79c-ae2c007b3cff/image.jpg?t=1643441332&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "tea-with-tia": {
+  "piId": 5369682,
+  "feedUrl": "https://media.rss.com/teawithtia/feed.xml",
+  "episodeCount": 34,
+  "newestItemPubdate": "2026-01-22",
+  "categories": [
+   "Health",
+   "Fitness"
+  ],
+  "artworkUrl": "https://media.rss.com/teawithtia/20251023_111007_61e59804df3f07d3827db046d4c2bc14.png",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-breakfast-club": {
+  "piId": 482368,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/a6620428-68fa-4b5d-a5af-ae33005f660f/0660e13d-8aa3-45f5-90ef-ae33005f6621/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/a6620428-68fa-4b5d-a5af-ae33005f660f/image.jpg?t=1749760462&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "brilliant-idiots": {
+  "piId": 467914,
+  "feedUrl": "https://feeds.megaphone.fm/APPI7124031987",
+  "episodeCount": 335,
+  "newestItemPubdate": "2026-07-17",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/291050fc-8012-11ef-957a-d7adfaeff93d/image/cbbbc2d91c1ce781e92d934df6a0c24f.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-danza-project": {
+  "piId": 5362982,
+  "feedUrl": "https://feeds.megaphone.fm/RMTV4348390497",
+  "episodeCount": 148,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Interviews",
+   "Music"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/ba25f0ec-80d0-11ef-9c85-1fd764bdc1e2/image/58e97a27243aa8f2a7e460f7ed41e07b.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-donnie-houston-podcast": {
+  "piId": 1127818,
+  "feedUrl": "https://www.spreaker.com/show/5982177/episodes/feed",
+  "episodeCount": 360,
+  "newestItemPubdate": "2025-08-12",
+  "categories": [
+   "Interviews",
+   "Music",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://d3wo5wojvuv7l.cloudfront.net/t_rss_itunes_square_1400/images.spreaker.com/original/5c9b7f91c4c3add9074f789c6937fa83.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-friend-zone": {
+  "piId": 440448,
+  "feedUrl": "https://feeds.simplecast.com/_AH7RObB",
+  "episodeCount": 536,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://image.simplecastcdn.com/images/d8f9c959-da74-4abb-97a2-096313d9e04a/84351a9c-053c-4c70-a66c-a6ff5bab0334/3000x3000/avatars-000160108945-uu49n3-original.jpg?aid=rss_feed",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-joe-budden-podcast": {
+  "piId": 1319009,
+  "feedUrl": "https://jbpod.libsyn.com/applepodcast",
+  "episodeCount": 745,
+  "newestItemPubdate": "2026-07-18",
+  "categories": [
+   "Music"
+  ],
+  "artworkUrl": "https://static.libsyn.com/p/assets/6/5/5/a/655a79b7f130e7cde5bbc093207a2619/JBN_Apple_Podcast.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-morning-hustle": {
+  "piId": 6557399,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/78a347aa-3282-4ac5-837c-a72300032082/53949e6a-a1ed-4f90-85b2-b00e00d85804/ec037fec-b4e4-44f6-beaa-b00e00d97e3e/podcast.rss",
+  "episodeCount": 818,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Comedy",
+   "Society",
+   "Culture"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/78a347aa-3282-4ac5-837c-a72300032082/53949e6a-a1ed-4f90-85b2-b00e00d85804/image.jpg?t=1685106712&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-ogs": {
+  "piId": 6726251,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/74aec5de-024d-4b7d-8ddb-b3e80090602b/8d700bda-8655-4e86-835a-b3e800906055/podcast.rss",
+  "episodeCount": 197,
+  "newestItemPubdate": "2025-09-03",
+  "categories": [
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/74aec5de-024d-4b7d-8ddb-b3e80090602b/8d700bda-8655-4e86-835a-b3e800906055/image.jpg?t=1770281141&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-pivot-podcast": {
+  "piId": 4684505,
+  "feedUrl": "https://feeds.megaphone.fm/pivotpodcast",
+  "episodeCount": 459,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Society",
+   "Culture",
+   "Sports",
+   "Football"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/fae213ce-6d8a-11ec-9438-6ba7401b16cf/image/55c951e649343fad4646720ad3656b45.jpg?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-rap-music-plug-podcast": {
+  "piId": 1306159,
+  "feedUrl": "https://feed.podbean.com/qlctv/feed.xml",
+  "episodeCount": 244,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Music",
+   "Commentary"
+  ],
+  "artworkUrl": "https://pbcdn1.podbean.com/imglogo/image-logo/9227826/RMPP_-_Main_Artwork9usgu.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-read": {
+  "piId": 436519,
+  "feedUrl": "https://feeds.simplecast.com/hEYNk1fd",
+  "episodeCount": 671,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://image.simplecastcdn.com/images/f9d4fe81-1b39-44ad-b760-fad809efd9e9/04431068-8266-4026-95e5-90dd64016a23/3000x3000/the-read-logo.jpg?aid=rss_feed",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-shade-room": {
+  "piId": 7468859,
+  "feedUrl": "https://www.spreaker.com/show/6725479/episodes/feed",
+  "episodeCount": 1,
+  "newestItemPubdate": "2025-08-31",
+  "categories": [
+   "Tv",
+   "Film"
+  ],
+  "artworkUrl": "https://d3wo5wojvuv7l.cloudfront.net/t_rss_itunes_square_1400/images.spreaker.com/original/a603bfadf6f8b894aad05a77cb764dd9.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-trap-nerds-podcast": {
+  "piId": 2669668,
+  "feedUrl": "https://anchor.fm/s/114f4b7fc/podcast/rss",
+  "episodeCount": 319,
+  "newestItemPubdate": "2026-07-20",
+  "categories": [
+   "News"
+  ],
+  "artworkUrl": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46365495/46365495-1784159702809-3fc16491d2a97.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "therapy-for-black-girls": {
+  "piId": 223022,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/2a22ac04-0eb4-4aad-8dc2-ae270179efb9/2d42d89c-4962-4760-a616-ae270179efd5/podcast.rss",
+  "episodeCount": 572,
+  "newestItemPubdate": "2026-07-22",
+  "categories": [
+   "Health",
+   "Fitness",
+   "Mental"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/2a22ac04-0eb4-4aad-8dc2-ae270179efb9/image.jpg?t=1772128648&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "thfctry-radio": {
+  "piId": 4408697,
+  "feedUrl": "https://anchor.fm/s/74452044/podcast/rss",
+  "episodeCount": 4,
+  "newestItemPubdate": "2022-02-03",
+  "categories": [
+   "Interviews",
+   "Music"
+  ],
+  "artworkUrl": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/19406873/8b110d3e08d3f32a.jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "two-funny-mamas": {
+  "piId": 130499,
+  "feedUrl": "https://feeds.megaphone.fm/MAB6703404510",
+  "episodeCount": 261,
+  "newestItemPubdate": "2026-07-10",
+  "categories": [
+   "Comedy",
+   "Kids",
+   "Family",
+   "Parenting",
+   "Society",
+   "Culture",
+   "Relationships"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/6f005ecc-88e0-11eb-8951-af966919dd58/image/459788c81a691926f13f85c910e05190.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "way-up-with-angela-yee": {
+  "piId": 6016408,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/6090ce0a-8168-4ce8-abba-afa101126698/be99e7c1-d0ea-43f5-958a-afa101135fad/podcast.rss",
+  "episodeCount": 1000,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Interviews",
+   "Music",
+   "News",
+   "Entertainment"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/6090ce0a-8168-4ce8-abba-afa101126698/image.jpg?t=1675702822&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "we-in-miami-podcast": {
+  "piId": 5078422,
+  "feedUrl": "https://anchor.fm/s/b1a187d4/podcast/rss",
+  "episodeCount": 30,
+  "newestItemPubdate": "2024-07-12",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/29701533/338819468cc2321f.jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "whoreible-decisions": {
+  "piId": 2451860,
+  "feedUrl": "https://audiomack.com/rss/whoreible-decisions/podcast.rss",
+  "episodeCount": 300,
+  "newestItemPubdate": "2022-10-17",
+  "categories": [],
+  "artworkUrl": "https://assets.audiomack.com/whoreible-decisions/7afd08c3d9fa63a6cc06cb4d78e1f8c4.jpeg?min=true&height=1400&width=1400",
+  "fetchedAt": "2026-07-23"
+ },
+ "i-am-athlete": {
+  "piId": 1319853,
+  "feedUrl": "https://feeds.simplecast.com/9qu4L8Ip",
+  "episodeCount": 607,
+  "newestItemPubdate": "2025-11-13",
+  "categories": [
+   "Business",
+   "Society",
+   "Culture",
+   "Sports"
+  ],
+  "artworkUrl": "https://image.simplecastcdn.com/images/b8408261-4513-442e-88b5-0538bcbdb0aa/22717738-f68b-458d-b16d-d84426ba8731/3000x3000/untitled-20design-20-1.jpg?aid=rss_feed",
+  "fetchedAt": "2026-07-23"
+ },
+ "club-520-podcast": {
+  "piId": 614496,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/77a6df17-4a8a-4929-ac1b-b088010683dd/e3575515-668a-4eb8-8c52-b0880106843a/podcast.rss",
+  "episodeCount": 692,
+  "newestItemPubdate": "2026-07-15",
+  "categories": [
+   "Comedy",
+   "News",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/77a6df17-4a8a-4929-ac1b-b088010683dd/e3575515-668a-4eb8-8c52-b0880106843a/image.jpg?t=1772724782&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-draymond-green-show": {
+  "piId": 4486143,
+  "feedUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/draymond-green",
+  "episodeCount": 330,
+  "newestItemPubdate": "2026-07-20",
+  "categories": [
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://images.castfire.com/image/661/0/0/0/0-8382801.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "unapologetically-angel": {
+  "piId": 7002139,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/84f6fce7-accf-4d72-9c34-b3d90127ca85/a69471df-3b63-4ae5-9b3f-b3d90127ca91/podcast.rss",
+  "episodeCount": 170,
+  "newestItemPubdate": "2026-04-02",
+  "categories": [
+   "Society",
+   "Culture",
+   "Sports",
+   "Basketball"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/84f6fce7-accf-4d72-9c34-b3d90127ca85/a69471df-3b63-4ae5-9b3f-b3d90127ca91/image.jpg?t=1769018217&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-shop-uninterrupted": {
+  "piId": 6665953,
+  "feedUrl": "https://feeds.megaphone.fm/DMXPO5414462793",
+  "episodeCount": 139,
+  "newestItemPubdate": "2026-07-21",
+  "categories": [
+   "Business",
+   "Entrepreneurship",
+   "Kids",
+   "Family",
+   "Pets",
+   "Animals"
+  ],
+  "artworkUrl": "https://megaphone.imgix.net/podcasts/c1b9a462-0530-11f1-baa2-cbcfa9fdec9b/image/76efa938e071f25dff864ca4b503e60e.png?ixlib=rails-4.3.1&max-w=3000&max-h=3000&fit=crop&auto=format,compress",
+  "fetchedAt": "2026-07-23"
+ },
+ "good-moms-bad-choices": {
+  "piId": 331227,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/3a1d1a54-d546-49ef-b80e-b22701598b4a/80d7c235-4adb-40c7-852d-b22701598b78/podcast.rss",
+  "episodeCount": 437,
+  "newestItemPubdate": "2026-07-16",
+  "categories": [
+   "Kids",
+   "Family",
+   "Parenting",
+   "Society",
+   "Culture",
+   "Personal",
+   "Journals"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/programs/e73c998e-6e60-432f-8610-ae210140c5b1/3a1d1a54-d546-49ef-b80e-b22701598b4a/image.jpg?t=1772052451&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "dear-future-wifey": {
+  "piId": 586284,
+  "feedUrl": "https://www.omnycontent.com/d/playlist/78a347aa-3282-4ac5-837c-a72300032082/293692a5-5b4e-44f3-89a3-b172011fe37c/ae4e871a-36ca-4d76-83c3-b172011fe393/podcast.rss",
+  "episodeCount": 300,
+  "newestItemPubdate": "2026-07-15",
+  "categories": [
+   "Education",
+   "Christianity",
+   "Religion",
+   "Spirituality",
+   "Society",
+   "Culture",
+   "Relationships"
+  ],
+  "artworkUrl": "https://www.omnycontent.com/d/playlist/78a347aa-3282-4ac5-837c-a72300032082/293692a5-5b4e-44f3-89a3-b172011fe37c/ae4e871a-36ca-4d76-83c3-b172011fe393/image.jpg?t=1748373770&size=Large",
+  "fetchedAt": "2026-07-23"
+ },
+ "side-hustle-pro": {
+  "piId": 219020,
+  "feedUrl": "https://feeds.acast.com/public/shows/659c22ccb31581001651ebcd",
+  "episodeCount": 530,
+  "newestItemPubdate": "2026-07-17",
+  "categories": [
+   "Business",
+   "Entrepreneurship",
+   "Marketing"
+  ],
+  "artworkUrl": "https://assets.pippa.io/shows/659c22ccb31581001651ebcd/1704813387576-56024f662bd39299b657bb9c2744b765.jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "techish": {
+  "piId": 1006253,
+  "feedUrl": "https://rss.buzzsprout.com/1841547.rss",
+  "episodeCount": 328,
+  "newestItemPubdate": "2026-04-21",
+  "categories": [
+   "Business",
+   "Careers",
+   "Entrepreneurship",
+   "Technology"
+  ],
+  "artworkUrl": "https://storage.buzzsprout.com/bs4o2n8bww3i3i6povfmux2629nn?.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "shxtsngigs": {
+  "piId": 348566,
+  "feedUrl": "https://feeds.acast.com/public/shows/6477204262b0900011c3fb37",
+  "episodeCount": 286,
+  "newestItemPubdate": "2026-07-13",
+  "categories": [
+   "Comedy"
+  ],
+  "artworkUrl": "https://assets.pippa.io/shows/6477204262b0900011c3fb37/1767625105520-12a54e5d-5748-4066-abaa-a05e3f98f7c6.jpeg",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-receipts-podcast": {
+  "piId": 1112980,
+  "feedUrl": "https://feeds.acast.com/public/shows/67dbd903782fc3c7c6b02a0b",
+  "episodeCount": 570,
+  "newestItemPubdate": "2026-07-15",
+  "categories": [
+   "Comedy",
+   "Society",
+   "Culture",
+   "Relationships"
+  ],
+  "artworkUrl": "https://assets.pippa.io/shows/67dbd903782fc3c7c6b02a0b/show-cover.jpg",
+  "fetchedAt": "2026-07-23"
+ },
+ "snap-judgment": {
+  "piId": 727637,
+  "feedUrl": "https://snap.feed.snapjudgment.org",
+  "episodeCount": 543,
+  "newestItemPubdate": "2026-07-23",
+  "categories": [
+   "Arts",
+   "Performing"
+  ],
+  "artworkUrl": "https://f.prxu.org/320/images/160b7ca8-e7ae-4a21-9201-8348d913c06e/SnapIconKQEDPRX-3000x3000__1_.png",
+  "fetchedAt": "2026-07-23"
+ }
+}
