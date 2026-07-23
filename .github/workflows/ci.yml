@@ -1,0 +1,46 @@
+name: CI
+
+# Every push and PR must pass typecheck, unit tests, a production build, and
+# the end-to-end smoke suite before it can be trusted on main.
+on:
+  push:
+    branches: ["main", "claude/**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Production build
+        run: npm run build
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Start server
+        run: |
+          npm run start &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 >/dev/null && break
+            sleep 1
+          done
+
+      - name: End-to-end smoke suite
+        env:
+          BASE_URL: http://localhost:3000
+        run: npm run test:e2e

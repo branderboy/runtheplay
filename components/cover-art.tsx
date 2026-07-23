@@ -1,8 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import { accentFor, initials, hashString } from "@/lib/cover";
 
 /**
- * Square generated avatar for a podcast. Renders real artwork if a URL is
- * provided; otherwise a deterministic branded monogram.
+ * Square avatar for a podcast. Renders real artwork when a URL is provided;
+ * if the URL is missing OR the image fails to load, falls back to the
+ * deterministic branded monogram — a broken image icon can never appear.
  */
 export function CoverArt({
   name,
@@ -19,7 +23,9 @@ export function CoverArt({
   radius?: number;
   className?: string;
 }) {
-  if (artworkUrl) {
+  const [failed, setFailed] = useState(false);
+
+  if (artworkUrl && !failed) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
@@ -27,6 +33,8 @@ export function CoverArt({
         alt={`${name} artwork`}
         width={size}
         height={size}
+        loading="lazy"
+        onError={() => setFailed(true)}
         style={{ width: size, height: size, borderRadius: radius }}
         className={`object-cover ${className}`}
       />
