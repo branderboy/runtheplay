@@ -94,12 +94,12 @@ export default function HomePage() {
                 The Urban Podcast Network
               </div>
               <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
-                Big-brand reach.
-                <br />
+                Promote your{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent drop-shadow-sm">
-                  Underdog
-                </span>{" "}
-                budget.
+                  Brand
+                </span>
+                <br />
+                through the podcasts driving the culture.
               </h1>
               <p className="mx-auto mb-8 max-w-2xl text-lg font-medium leading-relaxed tracking-tight text-ink-dim md:text-xl lg:mx-0">
                 {thesis.story.heroSub}
