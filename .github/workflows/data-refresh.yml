@@ -14,10 +14,12 @@ on:
   schedule:
     - cron: "0 11 * * 1" # Mondays 11:00 UTC, before the week's charts
   push:
+    branches: ["main"] # main only, so branch pushes don't create twin data commits
     paths:
       - "scripts/fetch-podcastindex.mjs"
       - "scripts/refresh-youtube.mjs"
       - "scripts/fetch-apple-charts.mjs"
+      - "scripts/fetch-apify-social.mjs"
       - ".github/workflows/data-refresh.yml"
 
 permissions:
