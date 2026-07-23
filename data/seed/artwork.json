@@ -340,7 +340,7 @@
   "provider": "apple-itunes"
  },
  "dear-future-wifey": {
-  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1ff28792c9d9f9d0c86440abfc",
+  "artworkUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67656300005f1ff28792c9d9f9d0c86440abfc",
   "sourceUrl": "https://open.spotify.com/show/1r3Ba1GxkpwFkWVqmxZNPA",
   "provider": "spotify"
  },
@@ -365,7 +365,7 @@
   "provider": "apple-itunes"
  },
  "the-receipts-podcast": {
-  "artworkUrl": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1fb5fef45eaf84e515ffe6ba32",
+  "artworkUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67656300005f1fb5fef45eaf84e515ffe6ba32",
   "sourceUrl": "https://open.spotify.com/show/3GMZiZnqL4Hib6DD5PGhdj",
   "provider": "spotify"
  },
