@@ -29,6 +29,15 @@ export interface Thesis {
   };
   whatWeDo: string[];
   sources: string[];
+  story: {
+    heroHeadline: string;
+    heroSub: string;
+    problem: string;
+    power: string;
+    journey: string;
+    publicLine: string;
+    resolution: string;
+  };
 }
 
 export interface CaseStudy {

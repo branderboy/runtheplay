@@ -24,6 +24,17 @@ export default function HomePage() {
   const topChart = computeChart("youtube-subscribers").slice(0, 4);
   const categoryGroups = listCategoryGroups().filter((c) => c.indexable);
 
+  // Real aggregation demo: five actual mid-tier shows and their combined reach.
+  const midTierShows = podcasts
+    .map((p) => ({
+      p,
+      total: p.platforms.reduce((n, x) => n + (x.followers ?? 0), 0),
+    }))
+    .filter((x) => x.total >= 10_000 && x.total <= 700_000)
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 5);
+  const combinedReach = midTierShows.reduce((n, x) => n + x.total, 0);
+
   // Hero "viral proof" card: the top charting show WITH real cover art.
   const topEntry =
     topChart.find((e) => getPodcastBySlug(e.slug)?.artworkUrl) ?? topChart[0];
@@ -83,17 +94,16 @@ export default function HomePage() {
                 ✦ The Urban Podcast Network
               </div>
               <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
-                Create your next{" "}
+                Build a national{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent drop-shadow-sm">
                   Campaign
                 </span>
                 <br />
-                on the hottest podcasts on the planet.
+                through independent culture media.
               </h1>
               <p className="mx-auto mb-8 max-w-2xl text-lg font-medium leading-relaxed tracking-tight text-ink-dim md:text-xl lg:mx-0">
-                Leverage the culture. Promote your business, music, or brand by
-                building a media plan across top Black creators and independent
-                shows.
+                {thesis.story.heroSub} Big business buys culture in bulk — this
+                is how the culture aggregates too.
               </p>
               <div className="flex items-center justify-center lg:justify-start">
                 <Link
@@ -104,7 +114,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="mt-6 text-sm font-bold uppercase tracking-widest text-ink-faint">
-                {podcasts.length} shows · {categories.length} categories
+                {thesis.story.publicLine}
               </p>
             </div>
 
@@ -191,15 +201,15 @@ export default function HomePage() {
       <PlatformLogos />
 
       {/* ------------------------ WHY WE EXIST — the thesis ------------------------ */}
-      <section className="bg-navy py-24 text-white" id="why">
+      <section className="bg-white py-24" id="why">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-400">
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
             Why We Exist
           </h2>
-          <p className="display max-w-4xl text-3xl leading-[1.1] text-white sm:text-5xl">
-            {thesis.arbitrage.headline}
+          <p className="display max-w-4xl text-3xl leading-[1.1] text-ink sm:text-5xl">
+            {thesis.story.problem}
           </p>
-          <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed text-white/70">
+          <p className="mt-6 max-w-3xl text-lg font-medium leading-relaxed text-ink-dim">
             {thesis.positioning.premise}
           </p>
 
@@ -208,18 +218,18 @@ export default function HomePage() {
             {thesis.whyItWorks.map((s) => (
               <div
                 key={s.id}
-                className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6"
+                className="rounded-[1.5rem] border border-sky-50 bg-white p-6 shadow-[0_10px_30px_-15px_rgba(14,165,233,0.15)]"
               >
-                <div className="text-4xl font-black tracking-tighter text-sky-400">
+                <div className="text-4xl font-black tracking-tighter text-sky-500">
                   {s.value}
                 </div>
-                <div className="mt-2 text-sm font-black uppercase tracking-tight text-white">
+                <div className="mt-2 text-sm font-black uppercase tracking-tight text-ink">
                   {s.label}
                 </div>
-                <div className="mt-2 text-xs font-medium leading-relaxed text-white/60">
+                <div className="mt-2 text-xs font-medium leading-relaxed text-ink-dim">
                   {s.detail}
                 </div>
-                <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-white/40">
+                <div className="mt-3 text-[10px] font-bold uppercase tracking-widest text-ink-faint">
                   {s.source}
                 </div>
               </div>
@@ -227,37 +237,37 @@ export default function HomePage() {
           </div>
 
           {/* The arbitrage — CPM comparison */}
-          <div className="mt-12 rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10">
+          <div className="mt-12 rounded-[2rem] border border-sky-100 bg-white p-8 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.2)] sm:p-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
               <div className="flex-1">
                 <div className="mb-6">
                   <div className="mb-2 flex items-baseline justify-between">
-                    <span className="text-sm font-black uppercase tracking-tight text-white/80">
+                    <span className="text-sm font-black uppercase tracking-tight text-ink-dim">
                       {thesis.arbitrage.outliers.label}
                     </span>
-                    <span className="text-xl font-black tabular-nums text-white/80">
+                    <span className="text-xl font-black tabular-nums text-ink-dim">
                       ${thesis.arbitrage.outliers.cpmLow}–${thesis.arbitrage.outliers.cpmHigh}{" "}
-                      <span className="text-xs font-bold text-white/50">CPM</span>
+                      <span className="text-xs font-bold text-ink-faint">CPM</span>
                     </span>
                   </div>
-                  <div className="h-3 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-full rounded-full bg-white/30" />
+                  <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+                    <div className="h-full w-full rounded-full bg-slate-300" />
                   </div>
-                  <p className="mt-2 text-xs font-medium text-white/50">
+                  <p className="mt-2 text-xs font-medium text-ink-faint">
                     {thesis.arbitrage.outliers.note}
                   </p>
                 </div>
                 <div>
                   <div className="mb-2 flex items-baseline justify-between">
-                    <span className="text-sm font-black uppercase tracking-tight text-sky-400">
+                    <span className="text-sm font-black uppercase tracking-tight text-sky-600">
                       {thesis.arbitrage.midTier.label}
                     </span>
-                    <span className="text-xl font-black tabular-nums text-sky-400">
+                    <span className="text-xl font-black tabular-nums text-sky-600">
                       ${thesis.arbitrage.midTier.cpmLow}–${thesis.arbitrage.midTier.cpmHigh}{" "}
-                      <span className="text-xs font-bold text-sky-400/60">CPM</span>
+                      <span className="text-xs font-bold text-sky-400">CPM</span>
                     </span>
                   </div>
-                  <div className="h-3 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-3 overflow-hidden rounded-full bg-slate-100">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-sky-500 to-blue-500"
                       style={{
@@ -269,16 +279,16 @@ export default function HomePage() {
                       }}
                     />
                   </div>
-                  <p className="mt-2 text-xs font-medium text-white/50">
+                  <p className="mt-2 text-xs font-medium text-ink-faint">
                     {thesis.arbitrage.midTier.note}
                   </p>
                 </div>
               </div>
               <div className="max-w-sm flex-none">
-                <p className="text-lg font-medium leading-relaxed text-white/70">
+                <p className="text-lg font-medium leading-relaxed text-ink-dim">
                   {thesis.arbitrage.conclusion}
                 </p>
-                <p className="display mt-4 text-2xl text-white">
+                <p className="display mt-4 text-2xl text-ink">
                   Same trust engine.{" "}
                   <span className="text-orange">A fraction of the price.</span>
                   <br />
@@ -288,7 +298,56 @@ export default function HomePage() {
             </div>
           </div>
 
-          <p className="mt-6 text-[11px] font-bold uppercase tracking-widest text-white/30">
+          {/* The aggregation play — real shows, real combined reach */}
+          {midTierShows.length >= 3 && (
+            <div className="mt-12">
+              <h3 className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+                The Aggregation Play
+              </h3>
+              <p className="display mb-8 max-w-3xl text-2xl text-ink sm:text-3xl">
+                {thesis.story.journey}
+              </p>
+              <div className="flex flex-wrap items-stretch gap-3">
+                {midTierShows.map(({ p, total }, i) => (
+                  <div key={p.slug} className="flex items-center gap-3">
+                    <Link
+                      href={`/podcast/${p.slug}`}
+                      className="flex items-center gap-3 rounded-2xl border border-sky-50 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-200"
+                    >
+                      <CoverArt name={p.name} slug={p.slug} artworkUrl={p.artworkUrl} size={40} radius={11} />
+                      <span>
+                        <span className="block max-w-36 truncate text-xs font-black uppercase tracking-tight text-ink">
+                          {p.name}
+                        </span>
+                        <span className="text-xs font-bold tabular-nums text-ink-dim">
+                          {fmtCount(total)} reach
+                        </span>
+                      </span>
+                    </Link>
+                    <span className="text-xl font-black text-ink-faint">
+                      {i < midTierShows.length - 1 ? "+" : "="}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex items-center rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-4 shadow-[0_10px_30px_-10px_rgba(14,165,233,0.5)]">
+                  <span>
+                    <span className="block text-2xl font-black tabular-nums text-white">
+                      {fmtCount(combinedReach)}
+                    </span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-white/80">
+                      combined reach
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <p className="mt-4 text-xs font-medium text-ink-faint">
+                Five real shows from the directory, public follower counts
+                combined. {thesis.story.power}
+              </p>
+            </div>
+          )}
+
+          <p className="mt-10 text-[11px] font-bold uppercase tracking-widest text-ink-faint">
             Sources: {thesis.sources.join(" · ")}
           </p>
         </div>
