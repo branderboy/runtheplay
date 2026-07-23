@@ -44,6 +44,28 @@ async function oembed(showUrl) {
   return j.thumbnail_url || null;
 }
 
+/**
+ * Keyless fallback: iTunes Search. Only accepted on a normalized name match,
+ * never items[0] blindly — wrong art is worse than the generated monogram.
+ */
+async function itunesSearch(name) {
+  const res = await fetch(
+    `https://itunes.apple.com/search?media=podcast&limit=8&term=${encodeURIComponent(name)}`,
+  );
+  if (!res.ok) throw new Error(`itunes HTTP ${res.status}`);
+  const items = (await res.json()).results ?? [];
+  const t = norm(name);
+  const best = items.find((s) => {
+    const n = norm(s.collectionName ?? "");
+    return n && (n === t || n.includes(t) || t.includes(n));
+  });
+  if (!best?.artworkUrl600) return null;
+  return {
+    artworkUrl: best.artworkUrl600,
+    sourceUrl: best.collectionViewUrl ?? "",
+  };
+}
+
 /** Optional fallback: Spotify Web API search by name (needs app credentials). */
 async function apiToken() {
   const id = process.env.SPOTIFY_CLIENT_ID;
@@ -93,7 +115,7 @@ async function main() {
     const slug = r.slug;
     if (map[slug]?.artworkUrl) continue;
 
-    let art = null, sourceUrl = urls[slug] || "";
+    let art = null, sourceUrl = urls[slug] || "", provider = "spotify";
     try {
       if (urls[slug]) {
         art = await oembed(urls[slug]);
@@ -102,17 +124,21 @@ async function main() {
         const hit = await apiSearch(token, r.podcast_name);
         if (hit) { art = hit.artworkUrl; sourceUrl = hit.sourceUrl; }
       }
+      if (!art) {
+        const hit = await itunesSearch(r.podcast_name);
+        if (hit) { art = hit.artworkUrl; sourceUrl = hit.sourceUrl; provider = "apple-itunes"; }
+      }
     } catch (e) {
       console.log(`  ✗ ${r.podcast_name}: ${e.message}`);
     }
 
     if (art) {
-      map[slug] = { artworkUrl: art, sourceUrl, provider: "spotify" };
+      map[slug] = { artworkUrl: art, sourceUrl, provider };
       filled++;
-      console.log(`  ✓ ${r.podcast_name}`);
+      console.log(`  ✓ ${r.podcast_name} (${provider})`);
     } else {
       missed++;
-      console.log(`  · ${r.podcast_name} — no Spotify art (keeps generated)`);
+      console.log(`  · ${r.podcast_name} — no matched art (keeps generated)`);
     }
     await sleep(300);
   }

@@ -9,6 +9,7 @@ export const metadata = {
   title: "For Creators",
   description:
     "Claim your show or get listed free on Run the Play. A structured way to add ad revenue, even incremental income, on your terms.",
+  alternates: { canonical: "/creators" },
 };
 
 /** The creator journey, mirroring the product: Directory, Planner, Charts. */

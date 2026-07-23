@@ -612,7 +612,7 @@ export default function HomePage() {
             </div>
 
             {/* The actual shows the brands below bought, floating card style */}
-            <div className="flex items-start justify-center gap-5 sm:gap-7 lg:justify-end">
+            <div className="grid grid-cols-3 gap-3 sm:flex sm:items-start sm:justify-center sm:gap-7 lg:justify-end">
               {receiptShows.map((r, i) => (
                 <ReceiptCard
                   key={r.show.slug}
@@ -793,7 +793,7 @@ function ReceiptCard({
   return (
     <Link
       href={`/podcast/${show.slug}`}
-      className={`group relative block w-36 rounded-[1.5rem] border border-sky-50 bg-white p-3 shadow-[0_20px_40px_-20px_rgba(14,165,233,0.25)] transition-transform duration-500 hover:-translate-y-1 sm:w-44 ${className}`}
+      className={`group relative block w-full min-w-0 rounded-[1.5rem] border border-sky-50 bg-white p-3 shadow-[0_20px_40px_-20px_rgba(14,165,233,0.25)] transition-transform duration-500 hover:-translate-y-1 sm:w-44 ${className}`}
     >
       {subs && (
         <span className="absolute -left-3 top-5 z-10 rounded-xl bg-white px-2.5 py-1.5 text-center shadow-md">

@@ -66,7 +66,7 @@ export function PodcastCard({ p }: { p: Podcast }) {
         <div className="text-xs font-black uppercase leading-tight tracking-widest text-ink-faint">
           Contact for
           <br />
-          pricing
+          Pricing
         </div>
         <AddToPlanButton slug={p.slug} name={p.name} category={p.primaryCategory} />
       </div>

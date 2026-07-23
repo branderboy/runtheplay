@@ -6,7 +6,10 @@ import { similarShows } from "@/lib/categories";
 import { removePlanItem, addPlanItem } from "@/lib/actions";
 import { CoverArt } from "@/components/cover-art";
 
-export const metadata = { title: "Saved Plan" };
+export const metadata = {
+  title: "Saved Plan",
+  robots: { index: false, follow: false },
+};
 
 /** Suggestions grow from what's already in the plan: same categories, real shows. */
 function suggestFor(items: { slug: string }[], limit = 4): Podcast[] {

@@ -263,7 +263,7 @@ export default async function ProfilePage({
           ))}
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-sky-50 bg-sky-50/50 p-4 text-sm font-medium text-ink-dim">
-          <Badge tone="contact">Contact for pricing</Badge>
+          <Badge tone="contact">Contact for Pricing</Badge>
           Typical placements for this format.{" "}
           {p.advertisingAvailable
             ? "This show accepts advertising. Confirm formats and rates in your inquiry."
@@ -274,7 +274,7 @@ export default async function ProfilePage({
 
       {/* Request + Claim */}
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <section className="rounded-2xl border border-line bg-navy-1 p-6">
+        <section className="rounded-2xl border border-line bg-navy-1 p-6" id="contact">
           <h2 className="text-lg font-bold">Contact {p.name}</h2>
           <p className="mb-4 mt-1 text-sm text-ink-dim">
             Your inquiry goes straight to the show's own contact.
@@ -283,7 +283,7 @@ export default async function ProfilePage({
         </section>
 
         <section className="rounded-2xl border border-line bg-navy-1 p-6" id="claim">
-          <h2 className="text-lg font-bold">Is this your show?</h2>
+          <h2 className="text-lg font-bold">Is This Your Show?</h2>
           <p className="mb-4 mt-1 text-sm text-ink-dim">
             Claim it free to publish your real ad inventory: placements,
             rates, and availability, right on this page.

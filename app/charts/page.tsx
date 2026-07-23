@@ -21,7 +21,7 @@ export default function ChartsPage() {
         Every ranking is computed from stored public data and dated. Same records as the profiles. Growth charts unlock as weekly snapshots build.
       </p>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
         {CHARTS.map((c) => {
           const entries = computeChart(c.slug);
           return (

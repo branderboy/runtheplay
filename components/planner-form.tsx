@@ -5,6 +5,7 @@ import Link from "next/link";
 import { runPlan } from "@/lib/actions";
 import type { CampaignGoal, MatchOutput } from "@/src/lib/planner/types";
 import { Badge } from "./badges";
+import { AddToPlanButton } from "./basket";
 
 /** Step-by-step campaign wizard — how an ad plan is actually built:
  *  1. Goal  →  2. Budget  →  3. Audience  →  4. Details  →  Results   */
@@ -41,7 +42,7 @@ const FORMATS = [
 const priceLabel: Record<string, string> = {
   in_budget: "Fits budget",
   starting_within: "Starting price fits",
-  contact: "Contact for pricing",
+  contact: "Contact for Pricing",
   over_budget: "Over budget",
 };
 
@@ -406,27 +407,33 @@ function ResultRow({
   featured?: boolean;
 }) {
   return (
-    <Link
-      href={`/podcast/${r.podcastId}`}
-      className={`flex items-start justify-between gap-4 rounded-[1.5rem] border p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)] ${
+    <div
+      className={`flex flex-col rounded-[1.5rem] border p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)] ${
         featured ? "border-orange/40 bg-orange/5" : "border-sky-50 bg-white"
       }`}
     >
-      <div className="min-w-0">
-        <div className="flex items-center gap-2">
-          <h4 className="font-black uppercase tracking-tight text-ink">{r.name}</h4>
-          {featured && <Badge tone="featured">Featured</Badge>}
+      <div className="flex items-start justify-between gap-4">
+        <Link href={`/podcast/${r.podcastId}`} className="group min-w-0">
+          <div className="flex items-center gap-2">
+            <h4 className="font-black uppercase tracking-tight text-ink group-hover:text-sky-600">
+              {r.name}
+            </h4>
+            {featured && <Badge tone="featured">Featured</Badge>}
+          </div>
+          <p className="mt-1 text-[13px] font-medium text-ink-dim">
+            {r.reasons.join(" · ")}
+          </p>
+        </Link>
+        <div className="flex flex-none flex-col items-end gap-1">
+          <span className="text-lg font-black tabular-nums text-ink">{r.score}</span>
+          <span className="text-[10px] font-bold uppercase tracking-wide text-ink-faint">
+            {priceLabel[r.priceBucket]}
+          </span>
         </div>
-        <p className="mt-1 text-[13px] font-medium text-ink-dim">
-          {r.reasons.join(" · ")}
-        </p>
       </div>
-      <div className="flex flex-none flex-col items-end gap-1">
-        <span className="text-lg font-black tabular-nums text-ink">{r.score}</span>
-        <span className="text-[10px] font-bold uppercase tracking-wide text-ink-faint">
-          {priceLabel[r.priceBucket]}
-        </span>
+      <div className="mt-4 flex">
+        <AddToPlanButton slug={r.podcastId} name={r.name} category={null} />
       </div>
-    </Link>
+    </div>
   );
 }

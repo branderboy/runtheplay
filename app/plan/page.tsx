@@ -1,6 +1,11 @@
 import { PlannerForm } from "@/components/planner-form";
 
-export const metadata = { title: "Ad Planner" };
+export const metadata = {
+  title: "Ad Planner",
+  description:
+    "Tell us your goal, budget, and audience. Run the Play builds an explained media plan across Black-creator podcasts.",
+  alternates: { canonical: "/plan" },
+};
 
 export default async function PlanPage({
   searchParams,

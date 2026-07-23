@@ -1,6 +1,11 @@
 import { ClaimSearch } from "@/components/claim-search";
 
-export const metadata = { title: "Claim Your Profile" };
+export const metadata = {
+  title: "Claim Your Profile",
+  description:
+    "Search the Run the Play database, see if your show is listed and claimed, and verify with your business email.",
+  alternates: { canonical: "/claim" },
+};
 
 export default async function ClaimPage({
   searchParams,

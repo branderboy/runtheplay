@@ -154,7 +154,7 @@ export function PlanSummaryBar() {
         </div>
         <div>
           <p className="font-black uppercase tracking-tight text-ink">
-            Media mix building
+            Media Mix Building
           </p>
           <p className="text-sm font-bold text-ink-dim">
             {items.length} {items.length === 1 ? "show" : "shows"} saved

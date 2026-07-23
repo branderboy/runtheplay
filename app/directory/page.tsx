@@ -2,7 +2,12 @@ import Link from "next/link";
 import { searchPodcasts, listCategories } from "@/lib/data/podcasts";
 import { PodcastCard } from "@/components/podcast-card";
 
-export const metadata = { title: "The Directory" };
+export const metadata = {
+  title: "The Directory",
+  description:
+    "Independent Black podcasts organized into one searchable marketplace. Browse by category and format, then build your media mix.",
+  alternates: { canonical: "/directory" },
+};
 
 export default async function DirectoryPage({
   searchParams,
