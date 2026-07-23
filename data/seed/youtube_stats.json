@@ -26,7 +26,7 @@
  },
  "gils-arena": {
   "channelId": "UCuJ6CSQLBNb0nUvOn-s4aSA",
-  "subscribers": 336000,
+  "subscribers": 337000,
   "fetchedAt": "2026-07-23"
  },
  "higher-learning-van-lathan-rachel-lindsay": {
@@ -141,7 +141,7 @@
  },
  "the-tamron-hall-show": {
   "channelId": "UCcq6gCTW4ntQny2ACWXXLlw",
-  "subscribers": 727000,
+  "subscribers": 728000,
   "fetchedAt": "2026-07-23"
  },
  "the-trap-nerds-podcast": {
@@ -172,6 +172,51 @@
  "we-in-miami-podcast": {
   "channelId": "UCiKAlktth67ey2CanQKc4RA",
   "subscribers": 534000,
+  "fetchedAt": "2026-07-23"
+ },
+ "i-am-athlete": {
+  "channelId": "UC4qMMCxdNfU6cwpaXZOyUSg",
+  "subscribers": 1040000,
+  "fetchedAt": "2026-07-23"
+ },
+ "club-520-podcast": {
+  "channelId": "UCoA3lm9UTWDWK8Z1kcoWQcA",
+  "subscribers": 878000,
+  "fetchedAt": "2026-07-23"
+ },
+ "unapologetically-angel": {
+  "channelId": "UCVrzAZB3LbXuBa7mDi3shEw",
+  "subscribers": 164000,
+  "fetchedAt": "2026-07-23"
+ },
+ "the-shop-uninterrupted": {
+  "channelId": "UCh0_oEIReJmE7g3ZYVxxthA",
+  "subscribers": 788000,
+  "fetchedAt": "2026-07-23"
+ },
+ "dear-future-wifey": {
+  "channelId": "UCMu9xA4iRLCDDJZFuVsHAsw",
+  "subscribers": 675000,
+  "fetchedAt": "2026-07-23"
+ },
+ "social-proof-podcast": {
+  "channelId": "UC9Ukgdp3UIbHn9Yl-ECpv1w",
+  "subscribers": 1,
+  "fetchedAt": "2026-07-23"
+ },
+ "shxtsngigs": {
+  "channelId": "UCjIzb2Pdq10TZC0CTerDmzg",
+  "subscribers": 74,
+  "fetchedAt": "2026-07-23"
+ },
+ "the-receipts-podcast": {
+  "channelId": "UCMonAtZcSstwRB2vC-66yaw",
+  "subscribers": 17400,
+  "fetchedAt": "2026-07-23"
+ },
+ "the-terrell-show": {
+  "channelId": "UCxzOCsfOU-ZVeNYX4K8aj2g",
+  "subscribers": 1440000,
   "fetchedAt": "2026-07-23"
  }
 }
