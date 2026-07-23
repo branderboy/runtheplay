@@ -20,7 +20,7 @@ export default function PlaysPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
         Plays to Run
       </p>
       <h1 className="max-w-2xl text-balance text-3xl font-extrabold sm:text-4xl">
@@ -61,7 +61,7 @@ function PlayCard({ p }: { p: Play }) {
       className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
     >
       <div className="flex items-center justify-between">
-        <span className="text-2xl font-extrabold tabular-nums text-orange">
+        <span className="text-2xl font-extrabold tabular-nums text-ink">
           {money(p.budget)}
         </span>
         <span className="rounded-full border border-line bg-navy-2 px-2.5 py-0.5 text-[11px] font-semibold text-ink-dim">

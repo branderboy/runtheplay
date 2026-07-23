@@ -20,12 +20,14 @@ export const metadata: Metadata = {
     description:
       "Plan podcast advertising with Black creators — directory, ad planner, charts, and campaign plays.",
     url: SITE_URL,
+    images: ["/runlogo.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description:
       "Plan podcast advertising with Black creators — directory, ad planner, charts, and campaign plays.",
+    images: ["/runlogo.png"],
   },
 };
 

@@ -4,3 +4,4 @@ export * from "./inventory";
 export * from "./newsletter";
 export * from "./planning";
 export * from "./promotions";
+export * from "./submissions";

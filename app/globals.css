@@ -21,6 +21,7 @@
   --color-ink-faint: #5c6879; /* darkened to meet WCAG AA on white */
   --color-orange: #f26a1b;
   --color-green: #12a06a;
+  --color-danger: #d64545;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -38,11 +39,6 @@ html {
 
 body {
   min-height: 100vh;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 ::selection {

@@ -51,7 +51,7 @@ export function ClaimForm({ slug, name }: { slug: string; name: string }) {
         {pending ? "Checking…" : "Claim this profile"}
       </button>
       {state.message && !state.ok && (
-        <p className="text-sm text-orange">{state.message}</p>
+        <p className="text-sm text-danger">{state.message}</p>
       )}
       <p className="text-xs text-ink-faint">
         If your email matches the public business contact we have on file, you're

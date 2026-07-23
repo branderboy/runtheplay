@@ -11,7 +11,7 @@ export const metadata = {
 export default function ChartsPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 py-12">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
         The Charts · {CHART_WEEK}
       </p>
       <h1 className="max-w-2xl text-balance text-3xl font-extrabold sm:text-4xl">
@@ -34,7 +34,7 @@ export default function ChartsPage() {
                   <h2 className="text-lg font-bold">{c.title}</h2>
                   <p className="text-sm text-ink-dim">{c.subtitle}</p>
                 </div>
-                <Link href={`/charts/${c.slug}`} className="flex-none text-sm text-orange">
+                <Link href={`/charts/${c.slug}`} className="flex-none text-sm font-semibold text-ink-dim hover:text-ink">
                   Full chart →
                 </Link>
               </div>
@@ -46,7 +46,7 @@ export default function ChartsPage() {
 
       <p className="mt-10 text-xs text-ink-faint">
         Chart positions are earned by the numbers and cannot be purchased. See{" "}
-        <Link href="/legal/ranking" className="text-orange">
+        <Link href="/legal/ranking" className="font-semibold text-ink underline underline-offset-2">
           how ranking works
         </Link>
         .

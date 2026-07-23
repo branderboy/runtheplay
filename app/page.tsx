@@ -49,7 +49,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2">
         <div>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-orange">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-ink-dim">
             Advertising Made Simple for the Culture
           </p>
           <h1 className="text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
@@ -89,7 +89,7 @@ export default function HomePage() {
                 </h2>
                 <p className="text-xs text-ink-faint">{CHART_WEEK}</p>
               </div>
-              <Link href="/charts" className="text-sm text-orange">
+              <Link href="/charts" className="text-sm font-semibold text-ink-dim hover:text-ink">
                 All charts →
               </Link>
             </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
       <section className="py-6">
         <div className="mb-5 flex items-baseline justify-between">
           <h2 className="text-xl font-bold">Recently added</h2>
-          <Link href="/directory" className="text-sm text-orange">
+          <Link href="/directory" className="text-sm font-semibold text-ink-dim hover:text-ink">
             See all →
           </Link>
         </div>
@@ -142,7 +142,7 @@ export default function HomePage() {
                 Not sure where to start? Copy a proven campaign for your budget.
               </p>
             </div>
-            <Link href="/plays" className="text-sm text-orange">
+            <Link href="/plays" className="text-sm font-semibold text-ink-dim hover:text-ink">
               All plays →
             </Link>
           </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
                 href={`/plays/${p!.slug}`}
                 className="flex flex-col gap-2 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
               >
-                <span className="text-2xl font-extrabold tabular-nums text-orange">
+                <span className="text-2xl font-extrabold tabular-nums text-ink">
                   {money(p!.budget)}
                 </span>
                 <h3 className="text-[15px] font-bold leading-tight">{p!.title}</h3>

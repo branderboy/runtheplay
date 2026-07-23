@@ -40,7 +40,7 @@ export default async function PlayPage({
       </Link>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <span className="text-3xl font-extrabold tabular-nums text-orange">
+        <span className="text-3xl font-extrabold tabular-nums text-ink">
           {money(p.budget)}
         </span>
         <span className="rounded-full border border-line bg-navy-2 px-3 py-1 text-xs font-semibold text-ink-dim">
@@ -74,7 +74,7 @@ export default async function PlayPage({
                 <div className="font-semibold">{m.channel}</div>
                 <div className="mt-0.5 text-sm text-ink-dim">{m.detail}</div>
               </div>
-              <div className="flex-none text-lg font-extrabold tabular-nums text-orange">
+              <div className="flex-none text-lg font-extrabold tabular-nums text-ink">
                 {m.count}×
               </div>
             </div>
