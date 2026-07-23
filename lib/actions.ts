@@ -10,12 +10,11 @@ import {
   inquiries,
   claims,
   listingRequests,
-  advertisers,
-  savedPlans,
   newsletterSubscribers,
   newsletterEditionSubscriptions,
 } from "@/src/db/schema/index";
-import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
+import { createPlan, getPlan, updatePlanItems, type PlanItem } from "@/lib/plan-store";
 
 /**
  * Persistence: writes to Postgres when DATABASE_URL is set (Neon storage on
@@ -153,39 +152,54 @@ export async function finalizePlan(
   record("advertisers", { email, name, company });
   record("saved_plans", { email, items: items.map((i) => i.slug) });
 
-  const db = await getDb();
-  if (db) {
-    try {
-      await db
-        .insert(advertisers)
-        .values({ email, name: name || null, company: company || null })
-        .onConflictDoNothing({ target: advertisers.email });
-      const [account] = await db
-        .select({ id: advertisers.id })
-        .from(advertisers)
-        .where(eq(advertisers.email, email));
-      if (account) {
-        const [plan] = await db
-          .insert(savedPlans)
-          .values({ advertiserId: account.id, itemsJson: items })
-          .returning({ id: savedPlans.id });
-        if (plan) {
-          // TODO: email the plan link via Resend once email is wired up.
-          return {
-            ok: true,
-            planId: plan.id,
-            message: `Plan saved to your account. Keep the link below, it's your plan's permanent home.`,
-          };
-        }
-      }
-    } catch {
-      /* fall back to the log */
-    }
+  const planId = await createPlan({
+    email,
+    name: name || null,
+    company: company || null,
+    items,
+  });
+  if (planId) {
+    // TODO: email the plan link via Resend once email is wired up.
+    return {
+      ok: true,
+      planId,
+      message: `Plan saved to your account. Keep the link below, it's your plan's permanent home.`,
+    };
   }
   return {
     ok: true,
     message: `Plan saved and logged for ${email}. Contact each show from its profile while account access is being finished.`,
   };
+}
+
+/* ----------------------- edit a saved plan (A4 workspace) ------------------- */
+
+export async function removePlanItem(formData: FormData) {
+  const planId = String(formData.get("planId") ?? "");
+  const slug = String(formData.get("slug") ?? "");
+  const plan = await getPlan(planId);
+  if (!plan) return;
+  await updatePlanItems(
+    planId,
+    plan.items.filter((i) => i.slug !== slug),
+  );
+  revalidatePath(`/plans/${planId}`);
+}
+
+export async function addPlanItem(formData: FormData) {
+  const planId = String(formData.get("planId") ?? "");
+  const slug = String(formData.get("slug") ?? "");
+  const plan = await getPlan(planId);
+  const pod = getPodcastBySlug(slug);
+  if (!plan || !pod) return;
+  if (plan.items.some((i) => i.slug === slug)) return;
+  const item: PlanItem = {
+    slug: pod.slug,
+    name: pod.name,
+    category: pod.primaryCategory,
+  };
+  await updatePlanItems(planId, [...plan.items, item].slice(0, 50));
+  revalidatePath(`/plans/${planId}`);
 }
 
 /* -------------------- claim search (Yelp-style, live states) ---------------- */

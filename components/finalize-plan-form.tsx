@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import Link from "next/link";
 import { finalizePlan, type ActionState } from "@/lib/actions";
 import { useBasket } from "@/components/basket";
@@ -14,6 +14,21 @@ const init: ActionState = { ok: false, message: "" };
 export function FinalizePlanForm() {
   const { items } = useBasket();
   const [state, action, pending] = useActionState(finalizePlan, init);
+
+  // Track saved plans in this browser so /plans can list them.
+  useEffect(() => {
+    if (!state.ok || !state.planId) return;
+    try {
+      const key = "rtp-my-plans";
+      const list = JSON.parse(localStorage.getItem(key) ?? "[]");
+      if (Array.isArray(list) && !list.some((p) => p?.id === state.planId)) {
+        list.push({ id: state.planId, count: items.length, at: new Date().toISOString() });
+        localStorage.setItem(key, JSON.stringify(list));
+      }
+    } catch {
+      /* localStorage unavailable */
+    }
+  }, [state.ok, state.planId, items.length]);
 
   if (state.ok) {
     return (

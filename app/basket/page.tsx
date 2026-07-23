@@ -9,9 +9,17 @@ export default function BasketPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-14">
-      <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
-        Your Media Mix
-      </p>
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
+          Your Media Mix
+        </p>
+        <Link
+          href="/plans"
+          className="text-xs font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
+        >
+          My Plans →
+        </Link>
+      </div>
       <h1 className="display text-4xl text-ink sm:text-5xl">
         {items.length > 0 ? "Your Plan So Far." : "Nothing Saved Yet."}
       </h1>

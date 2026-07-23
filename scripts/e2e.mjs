@@ -30,6 +30,7 @@ const PATHS = [
   "/plays",
   "/plays/500-barbershop-play",
   "/creators",
+  "/plans",
   "/claim",
   "/claim?q=drink",
   "/legal/privacy",
@@ -163,7 +164,8 @@ for (const path of PATHS) {
   await page.close();
 }
 
-// 6) Advertiser account: add to plan, finalize on the basket page.
+// 6) Advertiser account: add to plan, finalize, open the saved plan,
+//    then edit it with a one-tap suggestion.
 {
   const page = await browser.newPage();
   await page.goto(BASE + "/podcast/drink-champs", { waitUntil: "networkidle" });
@@ -176,6 +178,19 @@ for (const path of PATHS) {
     ok("finalize plan creates account and saves the mix");
   } catch (e) {
     fail("finalize plan", e.message);
+  }
+  try {
+    await page.click('a:has-text("Open My Plan")');
+    await page.waitForSelector("text=Drink Champs", { timeout: 10000 });
+    await page.waitForSelector("text=Suggested Additions", { timeout: 10000 });
+    await page.click('button:has-text("+ Add")');
+    await page.waitForTimeout(1500);
+    const removeButtons = (await page.$$('button:has-text("Remove")')).length;
+    removeButtons >= 2
+      ? ok("saved plan is editable and suggestions add with one tap")
+      : fail("plan edit", `expected 2 plan items, saw ${removeButtons}`);
+  } catch (e) {
+    fail("plan edit", e.message);
   }
   await page.close();
 }
