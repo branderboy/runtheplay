@@ -16,7 +16,7 @@ export function PodcastCard({ p }: { p: Podcast }) {
   return (
     <Link
       href={`/podcast/${p.slug}`}
-      className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 transition-colors hover:border-orange/50"
+      className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
     >
       <div className="flex items-start gap-3">
         <div className="flex-none">

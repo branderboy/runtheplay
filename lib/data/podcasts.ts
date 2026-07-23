@@ -71,7 +71,7 @@ const splitMulti = (v: string | undefined): string[] =>
 
 const splitHosts = (v: string | undefined): string[] =>
   (clean(v) ?? "")
-    .split(/\s*(?:,|&|\/| and )\s*/i)
+    .split(/\s*(?:,|\||&|\/| and )\s*/i)
     .map((s) => s.trim())
     .filter((s) => s && s.toUpperCase() !== "NEEDS_VERIFICATION");
 

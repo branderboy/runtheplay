@@ -61,10 +61,10 @@ export function ProfileHero({ p }: { p: Podcast }) {
           />
         </div>
         <div className="min-w-0 pb-1">
-          <h1 className="text-balance text-2xl font-extrabold leading-tight sm:text-3xl">
+          <h1 className="text-balance text-2xl font-extrabold leading-tight text-white sm:text-3xl">
             {p.name}
           </h1>
-          <p className="mt-1 truncate text-sm text-ink-dim">
+          <p className="mt-1 truncate text-sm text-white/75">
             {p.primaryCategory}
             {location ? ` · ${location}` : ""}
             {p.hosts.length ? ` · ${p.hosts.slice(0, 3).join(", ")}` : ""}

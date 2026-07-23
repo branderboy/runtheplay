@@ -83,7 +83,7 @@ export default function HomePage() {
               <Link
                 key={p!.slug}
                 href={`/plays/${p!.slug}`}
-                className="flex flex-col gap-2 rounded-2xl border border-line bg-navy-1 p-5 transition-colors hover:border-orange/50"
+                className="flex flex-col gap-2 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
               >
                 <span className="text-2xl font-extrabold tabular-nums text-orange">
                   {money(p!.budget)}
@@ -97,7 +97,7 @@ export default function HomePage() {
       )}
 
       {/* Keep in the loop */}
-      <section className="my-16 rounded-3xl border border-line bg-navy-1 p-8 sm:p-12">
+      <section className="my-16 rounded-3xl border border-line bg-navy-2 p-8 sm:p-12">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 className="text-2xl font-bold">Keep in the loop</h2>

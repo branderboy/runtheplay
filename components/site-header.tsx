@@ -10,7 +10,7 @@ const nav = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line/60 bg-navy/95 backdrop-blur sticky top-0 z-20">
+    <header className="border-b border-line bg-white/85 backdrop-blur sticky top-0 z-20">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link href="/" aria-label="Run the Play home">
           <Wordmark />

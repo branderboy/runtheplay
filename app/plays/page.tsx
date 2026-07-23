@@ -58,7 +58,7 @@ function PlayCard({ p }: { p: Play }) {
   return (
     <Link
       href={`/plays/${p.slug}`}
-      className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 transition-colors hover:border-orange/50"
+      className="group flex flex-col gap-3 rounded-2xl border border-line bg-navy-1 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-orange/40 hover:shadow-md"
     >
       <div className="flex items-center justify-between">
         <span className="text-2xl font-extrabold tabular-nums text-orange">

@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+/*
+ * Light editorial theme — Apple Podcasts clean + Spotify discovery + BET/iHeart
+ * boldness, in the logo's navy + orange. Token names are kept from the earlier
+ * dark build so components didn't need renaming; their VALUES are now light:
+ *   navy-1  = card surface (white)
+ *   navy-2  = raised / input / chip (light gray)
+ *   ink*    = text (navy → slate → light slate)
+ *   navy    = the brand dark, used only for button text and generated art
+ */
 @theme {
+  --color-bg: #ffffff;
   --color-navy: #0a1524;
-  --color-navy-1: #0e1b2c;
-  --color-navy-2: #13233a;
-  --color-line: #21344d;
-  --color-line-soft: #182842;
-  --color-ink: #f4f7fb;
-  --color-ink-dim: #93a3b8;
-  --color-ink-faint: #5e7189;
+  --color-navy-1: #ffffff;
+  --color-navy-2: #f1f4f9;
+  --color-line: #e3e7ef;
+  --color-line-soft: #eef1f7;
+  --color-ink: #0a1524;
+  --color-ink-dim: #52627a;
+  --color-ink-faint: #8592a3;
   --color-orange: #f26a1b;
-  --color-green: #37c08a;
+  --color-green: #12a06a;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
-  background-color: var(--color-navy);
+  background:
+    radial-gradient(1100px 480px at 78% -8%, #fff4ec 0%, #ffffff 55%);
+  background-color: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -32,7 +45,10 @@ a {
   text-decoration: none;
 }
 
-/* Visible keyboard focus everywhere (accessibility baseline). */
+::selection {
+  background: color-mix(in srgb, var(--color-orange) 22%, transparent);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-orange);
   outline-offset: 2px;
