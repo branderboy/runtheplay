@@ -1,13 +1,22 @@
 name: Migrate and seed database
 
-# Run from the GitHub UI: Actions → "Migrate and seed database" → Run workflow.
+# Creates the tables and loads the 66 seed shows into your Neon database.
 # The runner has open internet, so it can reach Neon (which the dev sandbox
-# cannot). Creates the tables and loads the 66 seed shows.
+# cannot).
 #
 # Setup (once): add a repo secret DATABASE_URL = your Neon pooled connection
-# string (Vercel → Storage → your Neon DB → .env.local / connection string).
+# string (GitHub → Settings → Secrets and variables → Actions → New secret).
+#
+# Then it runs automatically on push, OR from Actions → Run workflow once this
+# file is on your default branch.
 on:
   workflow_dispatch:
+  push:
+    branches: ["main", "claude/**"]
+    paths:
+      - "src/db/schema/**"
+      - "drizzle/**"
+      - ".github/workflows/db-migrate.yml"
 
 jobs:
   migrate:
@@ -19,11 +28,27 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: npm ci
+
+      - name: Check for DATABASE_URL secret
+        id: chk
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "DATABASE_URL secret not set — skipping. Add it in repo Settings → Secrets → Actions."
+            echo "has=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Apply migrations
+        if: steps.chk.outputs.has == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:migrate
+
       - name: Seed 66 shows
+        if: steps.chk.outputs.has == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:seed
