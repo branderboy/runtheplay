@@ -1,1 +1,157 @@
-{}
+{
+ "podcast-p-with-paul-george": {
+  "rank": 1,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "baby-this-is-keke-palmer": {
+  "rank": 7,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-read": {
+  "rank": 21,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-breakfast-club": {
+  "rank": 26,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "85-south-show": {
+  "rank": 125,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "brilliant-idiots": {
+  "rank": 151,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "steve-harvey": {
+  "rank": 173,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "decisions-decisions": {
+  "rank": 177,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-friend-zone": {
+  "rank": 182,
+  "chart": "Comedy (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "tea-with-tia": {
+  "rank": 7,
+  "chart": "Sports (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "club-shay-shay": {
+  "rank": 20,
+  "chart": "Sports (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "nightcap": {
+  "rank": 33,
+  "chart": "Sports (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "7pm-in-brooklyn": {
+  "rank": 45,
+  "chart": "Sports (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "all-the-smoke": {
+  "rank": 49,
+  "chart": "Sports (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-joe-budden-podcast": {
+  "rank": 1,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-joe-and-jada-podcast": {
+  "rank": 7,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "new-rory-and-mal": {
+  "rank": 9,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "questlove-supreme": {
+  "rank": 21,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "million-dollaz-worth-of-game": {
+  "rank": 22,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "red-table-talk": {
+  "rank": 26,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "drink-champs": {
+  "rank": 31,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "angie-martinez-irl": {
+  "rank": 35,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "rb-money": {
+  "rank": 52,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "big-facts-big-bank-dj-scream": {
+  "rank": 62,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "rap-radar": {
+  "rank": 181,
+  "chart": "Music (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "way-up-with-angela-yee": {
+  "rank": 104,
+  "chart": "Business (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "brown-ambition": {
+  "rank": 27,
+  "chart": "Society & Culture (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "higher-learning-van-lathan-rachel-lindsay": {
+  "rank": 87,
+  "chart": "Society & Culture (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "the-jason-lee-podcast-hollywood-unlocked": {
+  "rank": 123,
+  "chart": "Society & Culture (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "woman-evolve-with-sarah-jakes-roberts": {
+  "rank": 139,
+  "chart": "Society & Culture (US)",
+  "fetchedAt": "2026-07-23"
+ },
+ "money-making-conversations-master-class": {
+  "rank": 182,
+  "chart": "Society & Culture (US)",
+  "fetchedAt": "2026-07-23"
+ }
+}
