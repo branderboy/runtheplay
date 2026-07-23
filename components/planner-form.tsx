@@ -132,7 +132,7 @@ export function PlannerForm({
           <div className="flex flex-col gap-6">
             {out.featured.length > 0 && (
               <section>
-                <h2 className="mb-3 text-xs font-bold uppercase tracking-wider text-orange">Featured</h2>
+                <h2 className="mb-3 text-xs font-bold uppercase tracking-wider text-ink-dim">Featured</h2>
                 <div className="flex flex-col gap-3">
                   {out.featured.map((r) => (
                     <ResultRow key={r.podcastId} r={r} featured />

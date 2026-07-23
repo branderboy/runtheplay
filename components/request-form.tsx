@@ -43,7 +43,7 @@ export function RequestForm({ slug, name }: { slug: string; name: string }) {
         {pending ? "Sending…" : "Send inquiry"}
       </button>
       {state.message && !state.ok && (
-        <p className="text-sm text-orange">{state.message}</p>
+        <p className="text-sm text-danger">{state.message}</p>
       )}
       <p className="text-xs text-ink-faint">
         Run the Play doesn't broker deals — your inquiry goes to the show's own

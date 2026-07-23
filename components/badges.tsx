@@ -1,7 +1,7 @@
 const styles: Record<string, string> = {
   public: "bg-navy-2 text-ink-dim border-line",
   verified: "bg-green/15 text-green border-green/30",
-  estimated: "bg-orange/12 text-orange border-orange/30",
+  estimated: "bg-amber-50 text-amber-700 border-amber-200",
   unclaimed: "bg-navy-2 text-ink-faint border-line",
   featured: "bg-orange text-navy border-orange",
   contact: "bg-navy-2 text-ink-dim border-line",

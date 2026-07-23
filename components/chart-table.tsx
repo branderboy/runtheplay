@@ -21,7 +21,7 @@ export function ChartTable({
           href={`/podcast/${e.slug}`}
           className="flex items-center gap-4 border-b border-line-soft px-4 py-3 last:border-0 hover:bg-navy-2"
         >
-          <span className="w-6 flex-none text-center text-lg font-extrabold tabular-nums text-orange">
+          <span className="w-6 flex-none text-center text-lg font-extrabold tabular-nums text-ink">
             {e.rank}
           </span>
           <CoverArt name={e.name} slug={e.slug} artworkUrl={e.artworkUrl} size={40} radius={9} />

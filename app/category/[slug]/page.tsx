@@ -71,7 +71,7 @@ export default async function CategoryPage({
       <p className="mt-3 max-w-2xl text-ink-dim">
         {c.shows.length} Black-creator {c.name.toLowerCase()} {c.shows.length === 1 ? "show" : "shows"} with
         real reach and direct contact. Add them to a plan, or{" "}
-        <Link href="/plan" className="text-orange">build your ad plan</Link>.
+        <Link href="/plan" className="font-semibold text-ink underline underline-offset-2">build your ad plan</Link>.
       </p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
