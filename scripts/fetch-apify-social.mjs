@@ -97,9 +97,11 @@ async function main() {
   /* ------------------------------- TikTok -------------------------------- */
   for (const group of chunk(tiktok, 15)) {
     try {
+      // 8 videos per profile keeps a weekly 66-show run inside Apify's free
+      // $5 monthly credit while still catching each show's top clip.
       const items = await runActor("clockworks~tiktok-scraper", {
         profiles: group.map((g) => g.username),
-        resultsPerPage: 10,
+        resultsPerPage: 8,
         shouldDownloadVideos: false,
         shouldDownloadCovers: false,
         shouldDownloadSubtitles: false,
