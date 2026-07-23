@@ -7,12 +7,12 @@ export function PlayGlyph({ size = 22 }: { size?: number }) {
   );
 }
 
-/** The real Run the Play logo, set in a navy badge so it reads on the white UI. */
+/** White transparent logo — sits directly on the navy header, no box. */
 export function Wordmark() {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/runlogo.png"
+      src="/runlogo-white.png"
       alt="Run the Play — Advertising Made Simple for the Culture"
       className="h-12 w-auto"
     />
