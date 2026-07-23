@@ -5,17 +5,17 @@ _Generated 2026-07-23 · from 6 research batches (A–F)_
 ## Counts
 
 - Raw rows researched: **55**
-- Excluded (non-Black solo host, per inclusion rule): **3** — No Jumper, The Bootleg Kev Podcast
+- Excluded (out of scope): **3 distinct** — Native Land Pod — politics (out of scope); No Jumper — non-Black host; The Bootleg Kev Podcast — non-Black host
 - Duplicates merged: **3** — BIG FACTS with Big Bank & DJ Scream (B+C); Way Up With Angela Yee (B+D); Club Shay Shay (A+E)
-- **Final unique shows: 49**
+- **Final unique shows: 48**
 
 ## Completeness
 
-- Meet minimum-viable profile (core fields + ≥1 platform link): **45/49** (92%)
+- Meet minimum-viable profile (core fields + ≥1 platform link): **44/48** (92%)
 - Average field fill across 50 columns: **60%**
-- advertising_available = yes: **43/49**
-- Has a public advertising contact email: **4/49**
-- Has a confirmed most-recent-episode date: **13/49**
+- advertising_available = yes: **42/48**
+- Has a public advertising contact email: **4/48**
+- Has a confirmed most-recent-episode date: **13/48**
 
 ## Weakest fields (fill < 40% — the verification round targets these)
 
@@ -32,8 +32,8 @@ _Generated 2026-07-23 · from 6 research batches (A–F)_
 - `average_episode_minutes` — 6%
 - `advertising_contact_email` — 8%
 - `rss_url` — 12%
-- `x_url` — 14%
-- `inventory_types` — 18%
+- `x_url` — 15%
+- `inventory_types` — 19%
 - `most_recent_episode_date` — 27%
 - `youtube_subscribers` — 29%
 
@@ -69,7 +69,6 @@ _Generated 2026-07-23 · from 6 research batches (A–F)_
 - Million Dollaz Worth of Game — Society & Culture · fill 64%
 - Money Making Conversations Master Class — Business · fill 58%
 - My Expert Opinion — Music (Hip-Hop) · fill 52%
-- Native Land Pod — News & Politics · fill 54%
 - New Rory & Mal — Comedy · fill 68%
 - Nightcap — Sports · fill 58%
 - Podcast P with Paul George — Sports · fill 62%
