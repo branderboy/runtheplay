@@ -1,10 +1,15 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getPodcastBySlug, getAllPodcasts } from "@/lib/data/podcasts";
+import { similarShows, categorySlug } from "@/lib/categories";
 import { Badge } from "@/components/badges";
 import { ProfileHero } from "@/components/profile-hero";
+import { PodcastCard } from "@/components/podcast-card";
 import { RequestForm } from "@/components/request-form";
 import { ClaimForm } from "@/components/claim-form";
+import { JsonLd } from "@/components/json-ld";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllPodcasts().map((p) => ({ slug: p.slug }));
@@ -14,13 +19,24 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const p = getPodcastBySlug(slug);
   if (!p) return { title: "Podcast not found" };
+  const title = `${p.name} — Advertising, Audience & Sponsorship`;
+  const description =
+    p.shortDescription ??
+    `${p.name} advertising opportunities, audience, and how to reach the show on Run the Play.`;
   return {
-    title: `${p.name} — Advertising & Audience`,
-    description: p.shortDescription ?? undefined,
+    title,
+    description,
+    alternates: { canonical: `${SITE_URL}/podcast/${p.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/podcast/${p.slug}`,
+      images: p.artworkUrl ? [p.artworkUrl] : undefined,
+    },
   };
 }
 
@@ -39,6 +55,11 @@ function fmt(n: number): string {
   return String(n);
 }
 
+function spotifyEmbed(url?: string): string | null {
+  const m = /show\/([A-Za-z0-9]+)/.exec(url ?? "");
+  return m ? `https://open.spotify.com/embed/show/${m[1]}` : null;
+}
+
 export default async function ProfilePage({
   params,
 }: {
@@ -48,11 +69,51 @@ export default async function ProfilePage({
   const p = getPodcastBySlug(slug);
   if (!p) notFound();
 
+  const spotifyUrl = p.platforms.find((x) => x.platform === "spotify")?.url;
+  const embed = spotifyEmbed(spotifyUrl);
+  const similar = similarShows(p);
+
   return (
     <div className="mx-auto max-w-4xl px-5 py-12">
-      <Link href="/directory" className="text-sm text-ink-faint hover:text-ink-dim">
-        ← Explore Podcasts
-      </Link>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "PodcastSeries",
+          name: p.name,
+          url: `${SITE_URL}/podcast/${p.slug}`,
+          description: p.shortDescription ?? undefined,
+          image: p.artworkUrl ?? undefined,
+          genre: p.primaryCategory ?? undefined,
+          webFeed: undefined,
+          author: p.hosts.map((h) => ({ "@type": "Person", name: h })),
+          sameAs: p.platforms.map((pl) => pl.url),
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Explore Podcasts", item: `${SITE_URL}/directory` },
+            ...(p.primaryCategory
+              ? [{ "@type": "ListItem", position: 2, name: p.primaryCategory, item: `${SITE_URL}/category/${categorySlug(p.primaryCategory)}` }]
+              : []),
+            { "@type": "ListItem", position: p.primaryCategory ? 3 : 2, name: p.name, item: `${SITE_URL}/podcast/${p.slug}` },
+          ],
+        }}
+      />
+
+      <nav className="text-sm text-ink-faint" aria-label="Breadcrumb">
+        <Link href="/directory" className="hover:text-ink-dim">Explore Podcasts</Link>
+        {p.primaryCategory && (
+          <>
+            <span className="mx-2">/</span>
+            <Link href={`/category/${categorySlug(p.primaryCategory)}`} className="hover:text-ink-dim">
+              {p.primaryCategory}
+            </Link>
+          </>
+        )}
+      </nav>
 
       <div className="mt-4">
         <ProfileHero p={p} />
@@ -64,6 +125,21 @@ export default async function ProfilePage({
 
       {p.shortDescription && (
         <p className="mt-6 max-w-2xl text-ink-dim">{p.shortDescription}</p>
+      )}
+
+      {/* Spotify player */}
+      {embed && (
+        <section className="mt-8" aria-label="Listen on Spotify">
+          <iframe
+            title={`${p.name} on Spotify`}
+            src={embed}
+            width="100%"
+            height="152"
+            loading="lazy"
+            allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"
+            className="rounded-2xl border border-line"
+          />
+        </section>
       )}
 
       {/* Platforms / reach */}
@@ -150,6 +226,20 @@ export default async function ProfilePage({
           <ClaimForm slug={p.slug} name={p.name} />
         </section>
       </div>
+
+      {/* Similar shows — internal linking */}
+      {similar.length > 0 && (
+        <section className="mt-14">
+          <h2 className="mb-4 text-lg font-bold">
+            Similar {p.primaryCategory} podcasts
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {similar.map((s) => (
+              <PodcastCard key={s.slug} p={s} />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

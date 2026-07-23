@@ -1,0 +1,43 @@
+name: Fetch cover art
+
+# Run this from the GitHub UI: Actions → "Fetch cover art" → Run workflow.
+# The runner has open internet, so it can reach Spotify (which the dev sandbox
+# cannot). It fills data/seed/artwork.json and commits it back to the branch.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  artwork:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Fetch Spotify cover art
+        env:
+          # Optional — the oEmbed path needs no keys. Add these repo secrets only
+          # if you want the Spotify Web API fallback for shows without a URL.
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: npm run artwork
+
+      - name: Commit artwork if changed
+        run: |
+          if git diff --quiet -- data/seed/artwork.json; then
+            echo "No artwork changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seed/artwork.json
+          git commit -m "Add real Spotify cover art (automated)"
+          git push

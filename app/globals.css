@@ -17,8 +17,8 @@
   --color-line: #e3e7ef;
   --color-line-soft: #eef1f7;
   --color-ink: #0a1524;
-  --color-ink-dim: #52627a;
-  --color-ink-faint: #8592a3;
+  --color-ink-dim: #4a5a70;
+  --color-ink-faint: #5c6879; /* darkened to meet WCAG AA on white */
   --color-orange: #f26a1b;
   --color-green: #12a06a;
 

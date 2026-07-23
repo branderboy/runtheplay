@@ -8,6 +8,8 @@ import {
   CAPTURE_DATE,
 } from "@/lib/charts";
 import { ChartTable } from "@/components/chart-table";
+import { JsonLd } from "@/components/json-ld";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return CHARTS.map((c) => ({ slug: c.slug }));
@@ -35,6 +37,20 @@ export default async function ChartPage({
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: `${c.title} — ${CHART_WEEK}`,
+          url: `${SITE_URL}/charts/${c.slug}`,
+          itemListElement: entries.map((e) => ({
+            "@type": "ListItem",
+            position: e.rank,
+            name: e.name,
+            url: `${SITE_URL}/podcast/${e.slug}`,
+          })),
+        }}
+      />
       <Link href="/charts" className="text-sm text-ink-faint hover:text-ink-dim">
         ← All charts
       </Link>

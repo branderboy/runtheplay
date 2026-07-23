@@ -2,9 +2,12 @@ import Link from "next/link";
 import { getAllPodcasts, listCategories } from "@/lib/data/podcasts";
 import { getAllPlays, money } from "@/lib/data/plays";
 import { computeChart, CHART_WEEK } from "@/lib/charts";
+import { listCategoryGroups } from "@/lib/categories";
 import { PodcastCard } from "@/components/podcast-card";
 import { ChartTable } from "@/components/chart-table";
 import { NewsletterSignup } from "@/components/newsletter-signup";
+import { JsonLd } from "@/components/json-ld";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 export default function HomePage() {
   const podcasts = getAllPodcasts();
@@ -17,9 +20,32 @@ export default function HomePage() {
     plays.find((p) => p.tier === "Pro"),
   ].filter(Boolean).slice(0, 3);
   const topChart = computeChart("youtube-subscribers").slice(0, 5);
+  const categoryGroups = listCategoryGroups().filter((c) => c.indexable);
 
   return (
     <div className="mx-auto max-w-6xl px-5">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+          slogan: "Advertising Made Simple for the Culture",
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${SITE_URL}/directory?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       {/* Hero */}
       <section className="grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2">
         <div>
@@ -86,6 +112,25 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Browse by category — internal links */}
+      {categoryGroups.length > 0 && (
+        <section className="py-6">
+          <h2 className="mb-4 text-xl font-bold">Browse by category</h2>
+          <div className="flex flex-wrap gap-2">
+            {categoryGroups.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/category/${c.slug}`}
+                className="rounded-full border border-line bg-navy-1 px-4 py-2 text-sm font-semibold shadow-sm transition hover:border-orange/40"
+              >
+                {c.name}
+                <span className="ml-1.5 text-ink-faint">{c.shows.length}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Plays to Run */}
       {samplePlays.length > 0 && (
