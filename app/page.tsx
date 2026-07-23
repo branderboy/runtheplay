@@ -470,9 +470,9 @@ export default function HomePage() {
               </h3>
               <p className="mt-4 max-w-2xl text-base font-medium text-ink-dim">
                 Finding Black podcasts shouldn't take scrolling Instagram,
-                searching YouTube, and emailing creators one by one. One
-                searchable marketplace instead. Spend the time choosing the
-                right partners, not hunting for them.
+                searching YouTube, and emailing creators one by one. We help
+                advertisers find the right audience faster: less time
+                searching, more time reaching audiences that matter.
               </p>
             </div>
             <Link
