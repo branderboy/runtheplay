@@ -6,7 +6,11 @@ import { submitListingRequest, type ActionState } from "@/lib/actions";
 const init: ActionState = { ok: false, message: "" };
 
 /** Sign-up form for creators whose show is not in the directory yet. */
-export function GetListedForm() {
+export function GetListedForm({
+  initialShowName = "",
+}: {
+  initialShowName?: string;
+}) {
   const [state, action, pending] = useActionState(submitListingRequest, init);
 
   if (state.ok) {
@@ -31,6 +35,7 @@ export function GetListedForm() {
             id="listing-show"
             name="showName"
             required
+            defaultValue={initialShowName}
             placeholder="Your Podcast"
             className="rounded-xl border border-sky-100 bg-white px-4 py-3 text-sm text-ink shadow-sm placeholder:text-ink-faint focus:border-sky-400"
           />

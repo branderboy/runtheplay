@@ -137,7 +137,33 @@ for (const path of PATHS) {
   await page.close();
 }
 
-// 5) Mobile nav opens and shows all links.
+// 5) Claim search: live database hit, miss, and handoff to Get Listed.
+{
+  const page = await browser.newPage();
+  await page.goto(BASE + "/claim", { waitUntil: "networkidle" });
+  await page.fill('input[aria-label="Search for your show"]', "drink");
+  try {
+    await page.waitForSelector("text=Drink Champs", { timeout: 10000 });
+    ok("claim search finds a listed show with status");
+  } catch {
+    fail("claim search hit", "no result row for 'drink'");
+  }
+  await page.fill('input[aria-label="Search for your show"]', "zzz not a show");
+  try {
+    await page.waitForSelector("text=Not in the Database Yet", { timeout: 10000 });
+    await page.click('a:has-text("Get Listed Free")');
+    await page.waitForURL(/creators\?show=/, { timeout: 10000 });
+    const v = await page.inputValue("#listing-show");
+    v === "zzz not a show"
+      ? ok("claim miss hands off to Get Listed with name prefilled")
+      : fail("claim miss handoff", `prefill was ${JSON.stringify(v)}`);
+  } catch (e) {
+    fail("claim miss handoff", e.message);
+  }
+  await page.close();
+}
+
+// 6) Mobile nav opens and shows all links.
 {
   const page = await browser.newPage({ viewport: { width: 390, height: 720 } });
   await page.goto(BASE + "/", { waitUntil: "networkidle" });
@@ -156,4 +182,4 @@ if (failures.length) {
   console.error(`\nE2E FAILED: ${failures.length} problem(s).`);
   process.exit(1);
 }
-console.log(`\nE2E passed: ${PATHS.length} pages + 4 flows clean.`);
+console.log(`\nE2E passed: ${PATHS.length} pages + 6 flows clean.`);

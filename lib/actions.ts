@@ -2,7 +2,7 @@
 
 import { appendFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { getPodcastBySlug, getAllPodcasts, toPlannerInput } from "@/lib/data/podcasts";
+import { getPodcastBySlug, getAllPodcasts, searchPodcasts, toPlannerInput } from "@/lib/data/podcasts";
 import { matchPlan } from "@/src/lib/planner/matcher";
 import type { PlanInput } from "@/src/lib/planner/types";
 import { getDb } from "@/lib/db-optional";
@@ -120,6 +120,60 @@ export async function submitClaim(
       ? `Submitted for review. That email doesn't match the one on file, so a person will verify your claim.`
       : `Submitted for review. We don't have an email on file for ${pod.name} yet, so a person will verify your claim.`,
   };
+}
+
+/* -------------------- claim search (Yelp-style, live states) ---------------- */
+
+export type ClaimSearchResult = {
+  slug: string;
+  name: string;
+  category: string | null;
+  artworkUrl: string | null;
+  hasEmailOnFile: boolean;
+  claimStatus: "claimed" | "pending" | "unclaimed";
+};
+
+/**
+ * The P1-P4 motion in docs/logic.md: one search answers "is my show in the
+ * database, is it claimed already, and can I verify instantly?"
+ */
+export async function searchShowsForClaim(
+  q: string,
+): Promise<ClaimSearchResult[]> {
+  const query = q.trim();
+  if (query.length < 2) return [];
+  const results = searchPodcasts(query).slice(0, 8);
+
+  // Claim state lives in Postgres once the DB is connected; before that,
+  // nothing is claimed, which is also the truth.
+  const statusBySlug = new Map<string, string>();
+  const db = await getDb();
+  if (db) {
+    try {
+      const rows = await db
+        .select({ slug: claims.podcastSlug, status: claims.status })
+        .from(claims);
+      for (const r of rows) {
+        if (r.status === "auto_verified" || !statusBySlug.has(r.slug))
+          statusBySlug.set(r.slug, r.status);
+      }
+    } catch {
+      /* fall back to unclaimed */
+    }
+  }
+
+  return results.map((p) => {
+    const s = statusBySlug.get(p.slug);
+    return {
+      slug: p.slug,
+      name: p.name,
+      category: p.primaryCategory,
+      artworkUrl: p.artworkUrl,
+      hasEmailOnFile: Boolean(p.advertisingContactEmail),
+      claimStatus:
+        s === "auto_verified" ? "claimed" : s === "pending" ? "pending" : "unclaimed",
+    };
+  });
 }
 
 /* --------------------- creator sign-up (not listed yet) --------------------- */

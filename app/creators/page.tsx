@@ -3,6 +3,7 @@ import { getAllPodcasts } from "@/lib/data/podcasts";
 import { thesis } from "@/lib/data/thesis";
 import { CoverArt } from "@/components/cover-art";
 import { GetListedForm } from "@/components/get-listed-form";
+import { ClaimSearch } from "@/components/claim-search";
 
 export const metadata = {
   title: "For Creators",
@@ -38,7 +39,12 @@ const JOURNEY = [
   },
 ];
 
-export default function CreatorsPage() {
+export default async function CreatorsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ show?: string }>;
+}) {
+  const { show } = await searchParams;
   const podcasts = getAllPodcasts();
   const covers = podcasts.filter((p) => p.artworkUrl).slice(0, 6);
   const revenueStat = thesis.growth[0];
@@ -187,20 +193,7 @@ export default function CreatorsPage() {
             Find your show, then verify with your public business email. If it
             matches what's on file, you're verified instantly.
           </p>
-          <form action="/claim" className="mx-auto flex max-w-xl gap-3">
-            <input
-              name="q"
-              placeholder="Search for your show…"
-              aria-label="Search for your show"
-              className="flex-1 rounded-full border border-sky-100 bg-white px-6 py-4 text-sm text-ink shadow-sm placeholder:text-ink-faint focus:border-sky-400"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg transition-all hover:-translate-y-0.5"
-            >
-              Find It
-            </button>
-          </form>
+          <ClaimSearch />
           <p className="mt-6 text-xs font-bold uppercase tracking-widest text-ink-faint">
             Claiming Unlocks Your Real Inventory, Rates, and Availability
           </p>
@@ -241,7 +234,7 @@ export default function CreatorsPage() {
               </ul>
             </div>
             <div className="rounded-[2.5rem] border border-sky-50 bg-white p-8 shadow-[0_20px_50px_-15px_rgba(14,165,233,0.15)] md:p-10">
-              <GetListedForm />
+              <GetListedForm initialShowName={show ?? ""} />
             </div>
           </div>
         </div>
