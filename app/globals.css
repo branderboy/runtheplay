@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0a1524;
+  --color-navy-1: #0e1b2c;
+  --color-navy-2: #13233a;
+  --color-line: #21344d;
+  --color-line-soft: #182842;
+  --color-ink: #f4f7fb;
+  --color-ink-dim: #93a3b8;
+  --color-ink-faint: #5e7189;
+  --color-orange: #f26a1b;
+  --color-green: #37c08a;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background-color: var(--color-navy);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Visible keyboard focus everywhere (accessibility baseline). */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}

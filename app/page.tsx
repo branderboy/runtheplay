@@ -1,0 +1,92 @@
+import Link from "next/link";
+import { getAllPodcasts, listCategories } from "@/lib/data/podcasts";
+import { PodcastCard } from "@/components/podcast-card";
+import { NewsletterSignup } from "@/components/newsletter-signup";
+
+export default function HomePage() {
+  const podcasts = getAllPodcasts();
+  const featured = podcasts.slice(0, 6);
+  const categories = listCategories();
+
+  return (
+    <div className="mx-auto max-w-6xl px-5">
+      {/* Hero */}
+      <section className="py-16 sm:py-24">
+        <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-orange">
+          Advertising Made Simple for the Culture
+        </p>
+        <h1 className="max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] sm:text-6xl">
+          Build a podcast ad plan with Black creators.
+        </h1>
+        <p className="mt-5 max-w-xl text-lg text-ink-dim">
+          Tell us your goal, audience, and budget. Run the Play organizes the
+          right hip-hop and culture podcasts — reach, formats, and how to contact
+          them directly.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/plan"
+            className="rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
+          >
+            Start Planning
+          </Link>
+          <Link
+            href="/directory"
+            className="rounded-lg border border-line px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink hover:border-orange/50"
+          >
+            Explore Podcasts
+          </Link>
+        </div>
+        <p className="mt-6 text-sm text-ink-faint">
+          {podcasts.length} shows and counting · {categories.length} categories
+        </p>
+      </section>
+
+      {/* Featured shows */}
+      <section className="py-6">
+        <div className="mb-5 flex items-baseline justify-between">
+          <h2 className="text-xl font-bold">Recently added</h2>
+          <Link href="/directory" className="text-sm text-orange">
+            See all →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((p) => (
+            <PodcastCard key={p.slug} p={p} />
+          ))}
+        </div>
+      </section>
+
+      {/* Keep in the loop */}
+      <section className="my-16 rounded-3xl border border-line bg-navy-1 p-8 sm:p-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="text-2xl font-bold">Keep in the loop</h2>
+            <p className="mt-3 text-ink-dim">
+              Weekly charts, new shows open to advertising, and budget-based
+              campaign ideas — the culture's media, in your inbox.
+            </p>
+          </div>
+          <NewsletterSignup edition="buyer" />
+        </div>
+      </section>
+
+      {/* Creator CTA */}
+      <section className="mb-8 flex flex-col items-start gap-4 rounded-3xl border border-orange/30 bg-orange/5 p-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-xl font-bold">Are you a creator?</h2>
+          <p className="mt-2 max-w-xl text-ink-dim">
+            Listing is free. Claim your profile to control your info, add your
+            advertising options, and choose how brands reach you.
+          </p>
+        </div>
+        <Link
+          href="/claim"
+          className="flex-none rounded-lg bg-orange px-6 py-3 text-sm font-bold uppercase tracking-wide text-navy"
+        >
+          Claim Your Profile
+        </Link>
+      </section>
+    </div>
+  );
+}
