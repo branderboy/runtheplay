@@ -139,9 +139,14 @@ export default async function ProfilePage({
         <p className="mt-3 text-xs text-ink-faint">Network: {p.networkName}</p>
       )}
 
-      {/* Recently Active trust signal, from Podcast Index enrichment */}
-      {(p.mostRecentEpisodeDate || p.episodeCount) && (
+      {/* Trust signals: recency (Podcast Index), Apple chart rank, top clip */}
+      {(p.mostRecentEpisodeDate || p.episodeCount || p.appleChart || p.topClip) && (
         <div className="mt-4 flex flex-wrap items-center gap-2">
+          {p.appleChart && (
+            <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-[11px] font-black uppercase tracking-widest text-sky-600">
+              #{p.appleChart.rank} Apple Podcasts · {p.appleChart.chart}
+            </span>
+          )}
           {p.mostRecentEpisodeDate &&
             Date.now() - new Date(p.mostRecentEpisodeDate).getTime() <
               45 * 24 * 3600 * 1000 && (
@@ -163,6 +168,12 @@ export default async function ProfilePage({
             <span className="text-xs font-bold text-ink-faint">
               · {p.episodeCount.toLocaleString()} Episodes · Source: Podcast
               Index
+            </span>
+          )}
+          {p.topClip && (
+            <span className="w-full text-xs font-bold text-ink-faint sm:w-auto">
+              Top Recent Clip: "{p.topClip.title}" · {fmt(p.topClip.views)}{" "}
+              Views (YouTube, {p.topClip.publishedAt})
             </span>
           )}
         </div>

@@ -9,6 +9,8 @@ import coversManifest from "@/data/seed/covers.json";
 import spotifyUrlMap from "@/data/seed/spotify_urls.json";
 import podcastIndexMap from "@/data/seed/podcastindex.json";
 import youtubeStatsMap from "@/data/seed/youtube_stats.json";
+import appleChartsMap from "@/data/seed/apple_charts.json";
+import youtubeClipsMap from "@/data/seed/youtube_clips.json";
 
 const ARTWORK = artworkMap as Record<
   string,
@@ -29,6 +31,24 @@ const YOUTUBE_STATS = youtubeStatsMap as Record<
   string,
   { subscribers?: number; fetchedAt?: string }
 >;
+const APPLE_CHARTS = appleChartsMap as Record<
+  string,
+  { rank: number; chart: string; fetchedAt: string }
+>;
+const YOUTUBE_CLIPS = youtubeClipsMap as Record<
+  string,
+  {
+    clips: { videoId: string; title: string; views: number; publishedAt: string }[];
+    fetchedAt: string;
+  }
+>;
+
+export interface TopClip {
+  videoId: string;
+  title: string;
+  views: number;
+  publishedAt: string;
+}
 
 /**
  * File-backed podcast source. Reads data/seed/podcasts_seed.csv so the app runs
@@ -62,6 +82,8 @@ export interface Podcast {
   mostRecentEpisodeDate: string | null;
   episodeCount: number | null;
   rssUrl: string | null;
+  appleChart?: { rank: number; chart: string; fetchedAt: string } | null;
+  topClip?: TopClip | null;
   status: string;
   advertisingAvailable: boolean | null;
   advertisingContactEmail: string | null;
@@ -203,6 +225,10 @@ function loadPodcasts(): Podcast[] {
       const ch = p.platforms.find((x) => x.platform === "youtube");
       if (ch) ch.followers = yt.subscribers;
     }
+    // Overlay Apple Podcasts chart position (keyless public charts feed).
+    p.appleChart = APPLE_CHARTS[p.slug] ?? null;
+    // Overlay the biggest recent clip (official YouTube API, last 30 days).
+    p.topClip = YOUTUBE_CLIPS[p.slug]?.clips?.[0] ?? null;
   }
   return cache;
 }

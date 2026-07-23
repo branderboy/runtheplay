@@ -14,6 +14,7 @@
     "db:seed": "tsx scripts/import-seed.ts",
     "artwork": "node scripts/fetch-artwork.mjs",
     "podcastindex": "node scripts/fetch-podcastindex.mjs",
+    "apple-charts": "node scripts/fetch-apple-charts.mjs",
     "youtube-stats": "node scripts/refresh-youtube.mjs",
     "snapshot": "node scripts/snapshot.mjs",
     "planner:demo": "tsx scripts/planner-demo.ts",

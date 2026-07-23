@@ -24,6 +24,7 @@ export default function ChartsPage() {
       <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
         {CHARTS.map((c) => {
           const entries = computeChart(c.slug);
+          if (entries.length === 0) return null;
           return (
             <section key={c.slug}>
               <div className="mb-3 flex items-baseline justify-between">

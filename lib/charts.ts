@@ -65,6 +65,14 @@ export const CHARTS: ChartDef[] = [
     methodology:
       "Ranked by number of public platforms on file, then by combined reach. Reflects a show's clip-economy footprint, not audience size.",
   },
+  {
+    slug: "viral-clips",
+    title: "Most Viral Clips",
+    subtitle: "Each show's biggest upload of the last 30 days.",
+    metricLabel: "Clip views",
+    methodology:
+      "Ranked by the view count of each show's most-viewed YouTube upload published in the last 30 days, via the official YouTube Data API. Refreshed weekly.",
+  },
 ];
 
 function fmt(n: number): string {
@@ -127,6 +135,8 @@ export function computeChart(slug: string): ChartEntry[] {
         (v) => `${Math.floor(v / 1e9)} platforms`,
         15,
       );
+    case "viral-clips":
+      return rank(pods.map((p) => ({ p, value: p.topClip?.views ?? 0 })), fmt);
     default:
       return [];
   }

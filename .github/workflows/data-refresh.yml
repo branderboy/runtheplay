@@ -17,6 +17,7 @@ on:
     paths:
       - "scripts/fetch-podcastindex.mjs"
       - "scripts/refresh-youtube.mjs"
+      - "scripts/fetch-apple-charts.mjs"
       - ".github/workflows/data-refresh.yml"
 
 permissions:
@@ -39,7 +40,10 @@ jobs:
           PODCASTINDEX_SECRET: ${{ secrets.PODCASTINDEX_SECRET }}
         run: npm run podcastindex
 
-      - name: YouTube subscriber refresh
+      - name: Apple Podcasts charts (keyless)
+        run: npm run apple-charts
+
+      - name: YouTube subscribers and viral clips
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: npm run youtube-stats
@@ -49,7 +53,7 @@ jobs:
 
       - name: Commit refreshed data
         run: |
-          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/snapshots
+          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/snapshots
           if git diff --cached --quiet; then
             echo "No data changes."
             exit 0
