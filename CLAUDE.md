@@ -48,4 +48,6 @@
   workflow). Never hotlink as the primary source.
 - The seed CSV in data/seed is the source of truth until the DB is flipped on;
   scope: Black creators only (mixed-host shows qualify with at least one Black
-  host), no politics.
+  host), no politics. Also OUT of scope for roster expansion: faith, food,
+  film/TV recap, and regional shows (owner's call, 2026-07-23). Mainly
+  hip-hop and urban culture; national or global reach.
