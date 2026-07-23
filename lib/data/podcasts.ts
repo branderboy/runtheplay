@@ -3,6 +3,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parse } from "csv-parse/sync";
 import type { PodcastInput } from "@/src/lib/planner/types";
+import artworkMap from "@/data/seed/artwork.json";
+
+const ARTWORK = artworkMap as Record<
+  string,
+  { artworkUrl?: string; appleUrl?: string }
+>;
 
 /**
  * File-backed podcast source. Reads data/seed/podcasts_seed.csv so the app runs
@@ -143,6 +149,11 @@ function loadPodcasts(): Podcast[] {
     trim: true,
   });
   cache = rows.filter((r) => clean(r.podcast_name)).map(rowToPodcast);
+  // Overlay real cover art when the fetch script has populated it.
+  for (const p of cache) {
+    const art = ARTWORK[p.slug]?.artworkUrl;
+    if (art) p.artworkUrl = art;
+  }
   return cache;
 }
 

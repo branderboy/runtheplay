@@ -12,6 +12,7 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:seed": "tsx scripts/import-seed.ts",
+    "artwork": "node scripts/fetch-artwork.mjs",
     "planner:demo": "tsx scripts/planner-demo.ts",
     "typecheck": "tsc --noEmit"
   },
