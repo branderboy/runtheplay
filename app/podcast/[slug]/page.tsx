@@ -139,6 +139,35 @@ export default async function ProfilePage({
         <p className="mt-3 text-xs text-ink-faint">Network: {p.networkName}</p>
       )}
 
+      {/* Recently Active trust signal, from Podcast Index enrichment */}
+      {(p.mostRecentEpisodeDate || p.episodeCount) && (
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          {p.mostRecentEpisodeDate &&
+            Date.now() - new Date(p.mostRecentEpisodeDate).getTime() <
+              45 * 24 * 3600 * 1000 && (
+              <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-[11px] font-black uppercase tracking-widest text-sky-600">
+                Recently Active
+              </span>
+            )}
+          {p.mostRecentEpisodeDate && (
+            <span className="text-xs font-bold text-ink-faint">
+              Last Episode{" "}
+              {new Date(p.mostRecentEpisodeDate).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+          )}
+          {p.episodeCount && (
+            <span className="text-xs font-bold text-ink-faint">
+              · {p.episodeCount.toLocaleString()} Episodes · Source: Podcast
+              Index
+            </span>
+          )}
+        </div>
+      )}
+
       {description && (
         <p className="mt-6 max-w-2xl text-ink-dim">{description}</p>
       )}

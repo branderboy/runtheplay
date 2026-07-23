@@ -44,10 +44,12 @@ advertiser loop leaks at A4 and the podcaster loop never reaches P8.
 1. Claim search must show real states (in database or not, claimed or not,
    instant verify or review) so P1 to P4 is one continuous motion. (This
    commit.)
-2. Email delivery via Resend: inquiry routing (A4b/P7), claim confirmations
-   (P4), listing-request notifications to the owner (P2), newsletter double
-   opt-in (A6), and magic-link login for advertiser accounts (A4). One
-   integration closes five gaps. Needs RESEND_API_KEY.
+2. Email delivery via Resend: WIRED and key-gated. Inquiry routing (A4b/P7),
+   claim confirmation with studio link (P4), listing receipt to the creator
+   and notification to the owner (P2), plan-link email (A4), and newsletter
+   double opt-in with the /confirm endpoint (A6) all send the moment
+   RESEND_API_KEY (plus RTP_EMAIL_FROM, RTP_OWNER_EMAIL) is set. Still open:
+   magic-link login.
 3. Creator dashboard after claim: publish inventory, placements, rates (P6
    to P7).
 4. Admin review surface for pending claims and listing requests (P2, P5).

@@ -23,6 +23,8 @@ import {
   type InventoryItem,
 } from "@/lib/creator-store";
 import { supportTickets } from "@/src/db/schema/index";
+import { sendEmail, templates } from "@/lib/email";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * Persistence: writes to Postgres when DATABASE_URL is set (Neon storage on
@@ -79,7 +81,13 @@ export async function submitInquiry(
       /* fall back to the log */
     }
   }
-  // TODO: send via Resend to `routedTo` (or queue for RTP routing if null).
+  if (routedTo) {
+    await sendEmail({
+      to: routedTo,
+      subject: `New Advertising Inquiry for ${pod.name} via Run the Play`,
+      html: templates.inquiry(pod.name, fromEmail, message),
+    });
+  }
 
   return {
     ok: true,
@@ -115,13 +123,19 @@ export async function submitClaim(
         await db.insert(claims).values({ podcastSlug: slug, claimEmail, role, method: "email_on_file", status: "auto_verified" });
       } catch { /* fall back to the log */ }
     }
-    // TODO: send a confirmation code via Resend to complete the claim.
     const studioId = await createCreatorProfile({
       podcastSlug: pod.slug,
       showName: pod.name,
       contactEmail: claimEmail,
       source: "claim",
     });
+    if (studioId) {
+      await sendEmail({
+        to: claimEmail,
+        subject: `${pod.name} Is Verified on Run the Play`,
+        html: templates.claimVerified(pod.name, `${SITE_URL}/studio/${studioId}`),
+      });
+    }
     return {
       ok: true,
       studioId: studioId ?? undefined,
@@ -179,7 +193,11 @@ export async function finalizePlan(
     items,
   });
   if (planId) {
-    // TODO: email the plan link via Resend once email is wired up.
+    await sendEmail({
+      to: email,
+      subject: "Your Run the Play Media Mix Is Saved",
+      html: templates.planSaved(items.length, `${SITE_URL}/plans/${planId}`),
+    });
     return {
       ok: true,
       planId,
@@ -443,7 +461,21 @@ export async function submitListingRequest(
     contactEmail: email,
     source: "listing",
   });
-  // TODO: send a confirmation via Resend once email is wired up.
+  if (studioId) {
+    await sendEmail({
+      to: email,
+      subject: "Your Show Is in Review on Run the Play",
+      html: templates.listingReceived(showName, `${SITE_URL}/studio/${studioId}`),
+    });
+  }
+  const owner = process.env.RTP_OWNER_EMAIL;
+  if (owner) {
+    await sendEmail({
+      to: owner,
+      subject: `New Listing Request: ${showName}`,
+      html: templates.listingNotifyOwner(showName, email, showUrl || null),
+    });
+  }
   return {
     ok: true,
     studioId: studioId ?? undefined,
@@ -478,10 +510,15 @@ export async function subscribeNewsletter(
           .insert(newsletterEditionSubscriptions)
           .values({ subscriberId: sub.id, edition: edition as "buyer" | "creator" })
           .onConflictDoNothing();
+        // Double opt-in: nobody is added to sends until they confirm.
+        await sendEmail({
+          to: email,
+          subject: "Confirm Your Run the Play Subscription",
+          html: templates.confirmSubscription(`${SITE_URL}/confirm/${sub.id}`),
+        });
       }
     } catch { /* fall back to the log */ }
   }
-  // TODO: send a double opt-in confirmation via Resend before adding to sends.
   return {
     ok: true,
     message: "Almost there. Check your inbox to confirm your subscription.",

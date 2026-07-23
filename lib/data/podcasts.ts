@@ -7,6 +7,8 @@ import { deriveFormats } from "@/lib/formats";
 import artworkMap from "@/data/seed/artwork.json";
 import coversManifest from "@/data/seed/covers.json";
 import spotifyUrlMap from "@/data/seed/spotify_urls.json";
+import podcastIndexMap from "@/data/seed/podcastindex.json";
+import youtubeStatsMap from "@/data/seed/youtube_stats.json";
 
 const ARTWORK = artworkMap as Record<
   string,
@@ -14,6 +16,19 @@ const ARTWORK = artworkMap as Record<
 >;
 const SPOTIFY = spotifyUrlMap as Record<string, string>;
 const COVERS = coversManifest as Record<string, string>;
+const PODCAST_INDEX = podcastIndexMap as Record<
+  string,
+  {
+    feedUrl?: string | null;
+    episodeCount?: number | null;
+    newestItemPubdate?: string | null;
+    fetchedAt?: string;
+  }
+>;
+const YOUTUBE_STATS = youtubeStatsMap as Record<
+  string,
+  { subscribers?: number; fetchedAt?: string }
+>;
 
 /**
  * File-backed podcast source. Reads data/seed/podcasts_seed.csv so the app runs
@@ -45,6 +60,8 @@ export interface Podcast {
   city: string | null;
   publishingFrequency: string | null;
   mostRecentEpisodeDate: string | null;
+  episodeCount: number | null;
+  rssUrl: string | null;
   status: string;
   advertisingAvailable: boolean | null;
   advertisingContactEmail: string | null;
@@ -127,6 +144,8 @@ function rowToPodcast(r: Record<string, string>): Podcast {
     city: clean(r.city),
     publishingFrequency: clean(r.publishing_frequency),
     mostRecentEpisodeDate: clean(r.most_recent_episode_date),
+    episodeCount: null,
+    rssUrl: clean(r.rss_url),
     status: mapStatus(r.active_status),
     advertisingAvailable: adAvail === "yes" ? true : adAvail === "no" ? false : null,
     advertisingContactEmail: clean(r.advertising_contact_email),
@@ -165,6 +184,24 @@ function loadPodcasts(): Podcast[] {
       const existing = p.platforms.find((x) => x.platform === "spotify");
       if (existing) existing.url = spotify;
       else p.platforms.push({ platform: "spotify", url: spotify, followers: null });
+    }
+    // Overlay Podcast Index enrichment: verified feed, episode count, and the
+    // freshest last-episode date (drives the Recently Active trust signal).
+    const pi = PODCAST_INDEX[p.slug];
+    if (pi) {
+      if (pi.feedUrl && !p.rssUrl) p.rssUrl = pi.feedUrl;
+      if (pi.episodeCount) p.episodeCount = pi.episodeCount;
+      if (
+        pi.newestItemPubdate &&
+        (!p.mostRecentEpisodeDate || pi.newestItemPubdate > p.mostRecentEpisodeDate)
+      )
+        p.mostRecentEpisodeDate = pi.newestItemPubdate;
+    }
+    // Overlay live YouTube subscriber counts from the official API refresh.
+    const yt = YOUTUBE_STATS[p.slug];
+    if (yt?.subscribers) {
+      const ch = p.platforms.find((x) => x.platform === "youtube");
+      if (ch) ch.followers = yt.subscribers;
     }
   }
   return cache;

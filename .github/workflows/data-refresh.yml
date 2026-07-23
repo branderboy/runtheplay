@@ -1,0 +1,61 @@
+name: Weekly data refresh
+
+# Keeps the data engine live: Podcast Index enrichment (verified feeds,
+# episode counts, last-episode dates) and official YouTube subscriber counts.
+# Both scripts skip cleanly when their keys are missing, so this is safe to
+# run before the secrets exist.
+#
+# Setup (free keys, both optional, each activates its half):
+#   PODCASTINDEX_KEY + PODCASTINDEX_SECRET  — https://api.podcastindex.org
+#   YOUTUBE_API_KEY                          — Google Cloud console, YouTube Data API v3
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 11 * * 1" # Mondays 11:00 UTC, before the week's charts
+  push:
+    paths:
+      - "scripts/fetch-podcastindex.mjs"
+      - "scripts/refresh-youtube.mjs"
+      - ".github/workflows/data-refresh.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+
+      - name: Podcast Index enrichment
+        env:
+          PODCASTINDEX_KEY: ${{ secrets.PODCASTINDEX_KEY }}
+          PODCASTINDEX_SECRET: ${{ secrets.PODCASTINDEX_SECRET }}
+        run: npm run podcastindex
+
+      - name: YouTube subscriber refresh
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: npm run youtube-stats
+
+      - name: Weekly snapshot
+        run: node scripts/snapshot.mjs || true
+
+      - name: Commit refreshed data
+        run: |
+          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/snapshots
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Weekly data refresh (automated)"
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push

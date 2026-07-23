@@ -21,6 +21,8 @@ function fake(platforms: string[]): Podcast {
     city: null,
     publishingFrequency: null,
     mostRecentEpisodeDate: null,
+    episodeCount: null,
+    rssUrl: null,
     status: "active",
     advertisingAvailable: null,
     advertisingContactEmail: null,
