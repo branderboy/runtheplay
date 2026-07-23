@@ -46,8 +46,7 @@ export function RequestForm({ slug, name }: { slug: string; name: string }) {
         <p className="text-sm text-danger">{state.message}</p>
       )}
       <p className="text-xs text-ink-faint">
-        Run the Play doesn't broker deals — your inquiry goes to the show's own
-        contact. Pricing and availability are set by the podcast.
+        Your inquiry goes straight to the show. Pricing is set by the podcast.
       </p>
     </form>
   );

@@ -2,7 +2,7 @@
  "positioning": {
   "name": "Run the Play",
   "tagline": "Advertising Made Simple for the Culture",
-  "premise": "Podcast advertising is the most trusted ad format left. The money chases the top 100 shows, priced like Super Bowl inventory \u2014 while mid-tier culture shows deliver the same trust engine at a fraction of the price. Nobody is planning against that. Run the Play is the plan.",
+  "premise": "Podcast ads are the most trusted format left. The money chases the top 100. Mid-tier culture shows carry the same trust at a fraction of the price. Nobody plans against that. We do.",
   "closer": "Same trust engine. A fraction of the price. That's the play."
  },
  "whyItWorks": [
@@ -10,28 +10,28 @@
    "id": "host-read-recall",
    "value": "60\u201370%",
    "label": "ad recall on host-read ads",
-   "detail": "versus 24\u201331% for programmatic insertions \u2014 a host-read is a trust transfer, not an interruption",
+   "detail": "Programmatic pulls 24 to 31%. A host read is a recommendation from a trusted voice.",
    "source": "Ad Results Media benchmarks"
   },
   {
    "id": "nielsen-recall",
    "value": "+71%",
    "label": "higher brand recall for host-read spots",
-   "detail": "host-read ads outperform pre-produced ads on brand recall",
+   "detail": "Host reads beat pre-produced ads on brand recall.",
    "source": "Nielsen"
   },
   {
    "id": "skip-rate",
    "value": "~8%",
    "label": "skip rate on mid-roll podcast ads",
-   "detail": "listeners chose the show and stay through the ad \u2014 compare that to a YouTube pre-roll",
+   "detail": "Listeners chose the show. They stay through the ad.",
    "source": "Industry benchmarks"
   },
   {
    "id": "monthly-listeners",
    "value": "165M",
    "label": "Americans listen to podcasts monthly",
-   "detail": "about 55% of everyone 12 and up \u2014 locked-in, weekly audiences",
+   "detail": "That is 55% of everyone 12 and up. Weekly habits, locked in.",
    "source": "Edison Research, Infinite Dial"
   }
  ],
@@ -57,15 +57,15 @@
    "label": "Top 100 shows",
    "cpmLow": 60,
    "cpmHigh": 120,
-   "note": "Great shows \u2014 priced like Super Bowl inventory. For most brands the math stops working."
+   "note": "Great shows, priced like Super Bowl inventory. The math stops working for most brands."
   },
   "midTier": {
    "label": "Mid-tier culture shows",
    "cpmLow": 25,
    "cpmHigh": 50,
-   "note": "Same host-read trust mechanics, often tighter audience fit: 80,000 die-hard weekly listeners in your exact demo beat 3M casuals who will never buy."
+   "note": "Same host-read trust. Tighter audience fit. 80,000 die-hards beat 3M casuals."
   },
-  "conclusion": "The performance gap between host-read and programmatic is documented. The price gap between the outliers and the mid-tier is documented. The arbitrage lives in between \u2014 and nobody is planning against it.",
+  "conclusion": "The performance gap is documented. The price gap is documented. The arbitrage sits in between. Nobody is planning against it.",
   "source": "Host-read CPM ranges per industry benchmarks (Ad Results Media, IAB)"
  },
  "whatWeDo": [
@@ -82,9 +82,9 @@
  ],
  "story": {
   "heroHeadline": "Build a national campaign through independent culture media.",
-  "heroSub": "Reach trusted audiences across independent podcasts, clips, and creator media \u2014 without a major agency budget.",
+  "heroSub": "Trusted audiences. Independent shows. No agency budget required.",
   "problem": "Big business buys culture in bulk. Small players are forced to negotiate one by one.",
-  "power": "Big business buys culture in bulk. Run the Play gives the people inside the culture the power to aggregate too.",
+  "power": "Big business buys culture in bulk. Run the Play gives the culture the power to aggregate too.",
   "journey": "One audience may look small. Combined, they move culture.",
   "publicLine": "Independent voices. Combined reach. National opportunity.",
   "resolution": "Small brands move nationally without pretending to be major corporations, and independent media competes without giving up ownership."

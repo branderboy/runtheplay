@@ -9,13 +9,13 @@ import { Badge } from "./badges";
 /** Step-by-step campaign wizard — how an ad plan is actually built:
  *  1. Goal  →  2. Budget  →  3. Audience  →  4. Details  →  Results   */
 
-export const GOALS: { value: CampaignGoal; label: string; blurb: string; icon: string }[] = [
-  { value: "brand_awareness", label: "Brand awareness", blurb: "Get your name in the culture", icon: "📣" },
-  { value: "product_launch", label: "Product launch", blurb: "Drop something new", icon: "🚀" },
-  { value: "music_release", label: "Music release", blurb: "Push a single or project", icon: "🎵" },
-  { value: "event_promotion", label: "Event promotion", blurb: "Fill the room", icon: "🎟️" },
-  { value: "local_business", label: "Local business", blurb: "Own your city", icon: "📍" },
-  { value: "lead_generation", label: "Lead generation", blurb: "Drive signups & sales", icon: "🎯" },
+export const GOALS: { value: CampaignGoal; label: string; blurb: string }[] = [
+  { value: "brand_awareness", label: "Brand awareness", blurb: "Get your name in the culture" },
+  { value: "product_launch", label: "Product launch", blurb: "Drop something new" },
+  { value: "music_release", label: "Music release", blurb: "Push a single or project" },
+  { value: "event_promotion", label: "Event promotion", blurb: "Fill the room" },
+  { value: "local_business", label: "Local business", blurb: "Own your city" },
+  { value: "lead_generation", label: "Lead generation", blurb: "Drive signups & sales" },
 ];
 
 const BUDGET_PRESETS = [500, 1500, 5000, 10000];
@@ -155,7 +155,6 @@ export function PlannerForm({
                     : "border-sky-50 bg-white shadow-sm"
                 }`}
               >
-                <span className="text-3xl" aria-hidden="true">{g.icon}</span>
                 <span>
                   <span className="block font-black uppercase tracking-tight text-ink">
                     {g.label}
@@ -220,7 +219,7 @@ export function PlannerForm({
             Who are you trying to reach?
           </h2>
           <p className="mb-8 font-medium text-ink-dim">
-            Pick interests or type your own, comma-separated.
+            Pick interests or type your own.
           </p>
           <div className="mb-6 flex flex-wrap gap-2.5">
             {AUDIENCE_PRESETS.map((t) => {
@@ -272,7 +271,7 @@ export function PlannerForm({
             Last details.
           </h2>
           <p className="mb-8 font-medium text-ink-dim">
-            Optional — build your plan whenever you're ready.
+            Optional. Build when ready.
           </p>
           <div className="mb-6">
             <p className="mb-2 text-[11px] font-black uppercase tracking-widest text-ink-faint">
@@ -352,7 +351,7 @@ export function PlannerForm({
               onClick={() => { setOut(null); setStep(0); }}
               className={backBtn}
             >
-              ↺ Start over
+              Start over
             </button>
           </div>
 

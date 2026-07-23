@@ -16,7 +16,7 @@ export default function BasketPage() {
       </h1>
       <p className="mt-4 max-w-xl text-lg font-medium text-ink-dim">
         {items.length > 0
-          ? "Contact each show directly from its profile — pricing and availability are confirmed with the creator, not by Run the Play."
+          ? "Contact each show from its profile. Pricing is confirmed with the creator."
           : "Browse the directory or run the Ad Planner, then add shows to build your media mix."}
       </p>
 

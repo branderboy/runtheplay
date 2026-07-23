@@ -138,17 +138,17 @@ export default async function ProfilePage({
         <div className="flex flex-wrap gap-2">
           {formats.video && (
             <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
-              🎬 Video Podcast
+              Video Podcast
             </span>
           )}
           {formats.audio && (
             <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
-              🎧 Audio
+              Audio
             </span>
           )}
           {formats.clips && (
             <span className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600">
-              ✂️ Clips
+              Clips
             </span>
           )}
           {formats.social.map((s) => (
@@ -156,7 +156,7 @@ export default async function ProfilePage({
               key={s}
               className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-black uppercase tracking-widest text-sky-600"
             >
-              {s === "instagram" ? "📸 Instagram" : "🎥 TikTok"}
+              {s === "instagram" ? "Instagram" : "TikTok"}
             </span>
           ))}
         </div>
@@ -259,12 +259,11 @@ export default async function ProfilePage({
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-sky-50 bg-sky-50/50 p-4 text-sm font-medium text-ink-dim">
           <Badge tone="contact">Contact for pricing</Badge>
-          Typical placements for this show's format —{" "}
+          Typical placements for this format.{" "}
           {p.advertisingAvailable
-            ? "this show accepts advertising. Confirm formats and rates in your inquiry below."
-            : "availability isn't confirmed yet. Ask in your inquiry below."}{" "}
-          When the show claims its profile, its real inventory and rates appear
-          here.
+            ? "This show accepts advertising. Confirm formats and rates in your inquiry."
+            : "Availability not confirmed. Ask in your inquiry."}{" "}
+          Claimed profiles publish real inventory and rates here.
         </div>
       </section>
 

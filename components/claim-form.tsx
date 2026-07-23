@@ -54,8 +54,7 @@ export function ClaimForm({ slug, name }: { slug: string; name: string }) {
         <p className="text-sm text-danger">{state.message}</p>
       )}
       <p className="text-xs text-ink-faint">
-        If your email matches the public business contact we have on file, you're
-        verified instantly. Otherwise a person reviews your claim.
+        Match the business email on file and you are verified instantly. Otherwise we review it.
       </p>
     </form>
   );

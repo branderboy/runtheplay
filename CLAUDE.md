@@ -19,6 +19,11 @@
   real data, don't copy its sample content.
 
 ## Content rules (non-negotiable)
+- The site carries three currents at once: emotion (the culture's story),
+  opportunity (the arbitrage and the plan), and social proof (real receipts).
+  Advertisers must see the community's value; creators must be shown as able
+  to deliver.
+- Copy style: short, punchy sentences. No emoji icons in the UI. No em-dashes.
 - **Real data only. Nothing fake, ever.** No invented metrics, prices, views,
   or case studies. Every stat and case study carries a named source (enforced
   by unit tests). Unverifiable = excluded, not approximated.

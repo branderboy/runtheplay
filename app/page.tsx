@@ -91,7 +91,7 @@ export default function HomePage() {
             {/* Left: copy */}
             <div className="text-center lg:text-left">
               <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-sky-100 bg-sky-50 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-600 shadow-sm lg:justify-start">
-                ✦ The Urban Podcast Network
+                The Urban Podcast Network
               </div>
               <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
                 Build a national{" "}
@@ -102,15 +102,14 @@ export default function HomePage() {
                 through independent culture media.
               </h1>
               <p className="mx-auto mb-8 max-w-2xl text-lg font-medium leading-relaxed tracking-tight text-ink-dim md:text-xl lg:mx-0">
-                {thesis.story.heroSub} Big business buys culture in bulk — this
-                is how the culture aggregates too.
+                {thesis.story.heroSub}
               </p>
               <div className="flex items-center justify-center lg:justify-start">
                 <Link
                   href="#campaign-builder"
                   className="flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-[0_10px_20px_-10px_rgba(14,165,233,0.6)] transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
-                  Start Building ↓
+                  Start Building
                 </Link>
               </div>
               <p className="mt-6 text-sm font-bold uppercase tracking-widest text-ink-faint">
@@ -143,7 +142,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <span className="flex animate-pulse items-center gap-1.5 rounded-full border border-red-100 bg-red-50 px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-red-500 shadow-sm">
-                      🔥 #1 This Week
+                      #1 This Week
                     </span>
                   </div>
 
@@ -166,7 +165,7 @@ export default function HomePage() {
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/60 to-transparent p-5 pt-16">
                       <span className="block text-lg font-black leading-tight text-white drop-shadow-md">
                         {topShow.shortDescription ??
-                          "The culture's biggest show — see the receipts."}
+                          "The culture's biggest show."}
                       </span>
                     </span>
                   </Link>
@@ -341,8 +340,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="mt-4 text-xs font-medium text-ink-faint">
-                Five real shows from the directory, public follower counts
-                combined. {thesis.story.power}
+                Five real shows. Public counts, combined. {thesis.story.power}
               </p>
             </div>
           )}
@@ -368,25 +366,23 @@ export default function HomePage() {
               What are you promoting?
             </h2>
             <p className="mt-2 font-medium text-ink-dim">
-              Pick a goal — then budget, audience, and your plan. Like a real
-              media buy, minus the agency.
+              Pick a goal. Budget and audience next. Then your plan.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              ["brand_awareness", "📣", "Brand awareness", "Get your name in the culture"],
-              ["product_launch", "🚀", "Product launch", "Drop something new"],
-              ["music_release", "🎵", "Music release", "Push a single or project"],
-              ["event_promotion", "🎟️", "Event promotion", "Fill the room"],
-              ["local_business", "📍", "Local business", "Own your city"],
-              ["lead_generation", "🎯", "Lead generation", "Drive signups & sales"],
-            ].map(([value, icon, label, blurb]) => (
+              ["brand_awareness", "Brand awareness", "Get your name in the culture"],
+              ["product_launch", "Product launch", "Drop something new"],
+              ["music_release", "Music release", "Push a single or project"],
+              ["event_promotion", "Event promotion", "Fill the room"],
+              ["local_business", "Local business", "Own your city"],
+              ["lead_generation", "Lead generation", "Drive signups & sales"],
+            ].map(([value, label, blurb]) => (
               <Link
                 key={value}
                 href={`/plan?goal=${value}`}
                 className="flex items-center gap-4 rounded-2xl border border-sky-50 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)]"
               >
-                <span className="text-3xl" aria-hidden="true">{icon}</span>
                 <span>
                   <span className="block font-black uppercase tracking-tight text-ink">
                     {label}
@@ -606,8 +602,7 @@ export default function HomePage() {
               Big brands already run this play.
             </p>
             <p className="mt-4 text-lg font-medium text-ink-dim">
-              Documented partnerships on culture podcasts — every one sourced.
-              The plan works; the receipts are public.
+              Documented partnerships on culture podcasts. Every one sourced.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -641,7 +636,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="mt-auto text-[11px] font-black uppercase tracking-widest text-ink-faint transition-colors hover:text-sky-500"
                 >
-                  Source: {c.sourceTitle} ↗
+                  Source: {c.sourceTitle}
                 </a>
               </div>
             ))}
@@ -686,7 +681,7 @@ export default function HomePage() {
             {/* Creators: claim */}
             <div className="relative flex flex-col justify-center overflow-hidden rounded-[3rem] bg-gradient-to-br from-orange-400 to-orange-600 p-10 text-white shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] md:p-14 lg:-translate-y-6">
               <div className="mb-8 inline-flex items-center self-start rounded-full border border-white/30 bg-white/20 px-5 py-2 text-xs font-black uppercase tracking-[0.2em] backdrop-blur-md">
-                🎙 Media Owners
+                Media Owners
               </div>
               <h3 className="display relative z-10 mb-6 text-5xl text-white drop-shadow-md lg:text-6xl">
                 Was your show featured?
@@ -699,7 +694,7 @@ export default function HomePage() {
                 href="/claim"
                 className="relative z-10 self-start rounded-full bg-white px-10 py-5 text-sm font-black uppercase tracking-[0.2em] text-orange-600 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
               >
-                Claim Free Profile ↗
+                Claim Free Profile
               </Link>
             </div>
           </div>

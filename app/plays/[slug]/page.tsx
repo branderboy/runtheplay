@@ -129,15 +129,14 @@ export default async function PlayPage({
         <div>
           <h2 className="display text-2xl text-white">Run a show? Get in plays like this.</h2>
           <p className="mt-2 max-w-md font-medium text-white/90">
-            Plays are live case studies. Claim your free profile and publish
-            your inventory so buyers can book you into campaigns like this one.
+            Plays are live case studies. Claim your profile. Publish your inventory. Get booked.
           </p>
         </div>
         <Link
           href="/claim"
           className="flex-none rounded-full bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-orange-600 shadow-xl transition-all hover:scale-105"
         >
-          Claim Free Profile ↗
+          Claim Free Profile
         </Link>
       </section>
 

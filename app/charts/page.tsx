@@ -18,10 +18,7 @@ export default function ChartsPage() {
         The numbers behind the culture's podcasts.
       </h1>
       <p className="mt-3 max-w-2xl text-ink-dim">
-        Every ranking is computed from stored public data and dated — the same
-        records that power the profiles, so a number never says one thing here
-        and another there. Growth and engagement charts arrive as weekly
-        snapshots build up.
+        Every ranking is computed from stored public data and dated. Same records as the profiles. Growth charts unlock as weekly snapshots build.
       </p>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
