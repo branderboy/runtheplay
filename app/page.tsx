@@ -125,7 +125,7 @@ export default function HomePage() {
             {/* Left: copy */}
             <div className="text-center lg:text-left">
               <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-sky-100 bg-sky-50 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-600 shadow-sm lg:justify-start">
-                The Urban Podcast Network
+                The No. 1 Ad Planner for Urban Podcasts
               </div>
               <h1 className="display mb-6 text-4xl leading-[1.05] text-ink md:text-5xl lg:text-[3.6rem]">
                 Promote Your{" "}
