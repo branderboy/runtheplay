@@ -58,9 +58,12 @@ jobs:
       - name: Weekly snapshot
         run: node scripts/snapshot.mjs || true
 
+      - name: Draft the weekly Substack issue
+        run: npm run newsletter || true
+
       - name: Commit refreshed data
         run: |
-          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/seed/social_stats.json data/seed/social_clips.json data/snapshots
+          git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/seed/social_stats.json data/seed/social_clips.json data/snapshots content/newsletter
           if git diff --cached --quiet; then
             echo "No data changes."
             exit 0
