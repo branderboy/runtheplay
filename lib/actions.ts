@@ -4,7 +4,11 @@ import { appendFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { getPodcastBySlug, getAllPodcasts, searchPodcasts, toPlannerInput } from "@/lib/data/podcasts";
 import { matchPlan } from "@/src/lib/planner/matcher";
-import type { PlanInput } from "@/src/lib/planner/types";
+import type {
+  PlanInput,
+  PlanResult,
+  ResultProfile,
+} from "@/src/lib/planner/types";
 import { getDb } from "@/lib/db-optional";
 import {
   inquiries,
@@ -527,7 +531,24 @@ export async function subscribeNewsletter(
 
 /* --------------------------------- planner --------------------------------- */
 
-export async function runPlan(input: PlanInput) {
-  const podcasts = getAllPodcasts().map(toPlannerInput);
-  return matchPlan(input, podcasts, { referenceDate: new Date("2026-07-23") });
+export async function runPlan(input: PlanInput): Promise<PlanResult> {
+  const pods = getAllPodcasts();
+  const out = matchPlan(input, pods.map(toPlannerInput), {
+    referenceDate: new Date("2026-07-23"),
+  });
+  const cutoff = new Date("2026-07-23").getTime() - 45 * 86400 * 1000;
+  const profiles: Record<string, ResultProfile> = {};
+  for (const p of pods) {
+    const reach = p.platforms.reduce((n, pl) => n + (pl.followers ?? 0), 0);
+    profiles[p.slug] = {
+      artworkUrl: p.artworkUrl,
+      reach: reach > 0 ? reach : null,
+      appleRank: p.appleChart?.rank ?? null,
+      appleChart: p.appleChart?.chart ?? null,
+      active: p.mostRecentEpisodeDate
+        ? new Date(p.mostRecentEpisodeDate).getTime() >= cutoff
+        : false,
+    };
+  }
+  return { ...out, profiles };
 }

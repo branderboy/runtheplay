@@ -92,3 +92,17 @@ export interface MatchOutput {
   organic: ScoredResult[]; // ranked purely by relevance
   excludedCount: number; // failed hard filters (over budget / local-only miss / inactive)
 }
+
+/** Public receipts shown on each result card, keyed by slug. All fields come
+ *  from the sourced overlays; null means we have no verifiable number. */
+export interface ResultProfile {
+  artworkUrl: string | null;
+  reach: number | null; // combined public followers across platforms
+  appleRank: number | null;
+  appleChart: string | null;
+  active: boolean; // episode within the last 45 days (Podcast Index)
+}
+
+export interface PlanResult extends MatchOutput {
+  profiles: Record<string, ResultProfile>;
+}

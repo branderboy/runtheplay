@@ -4,8 +4,14 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { runPlan } from "@/lib/actions";
-import type { CampaignGoal, MatchOutput } from "@/src/lib/planner/types";
+import type {
+  CampaignGoal,
+  MatchOutput,
+  PlanResult,
+  ResultProfile,
+} from "@/src/lib/planner/types";
 import { Badge } from "./badges";
+import { CoverArt } from "./cover-art";
 import { AddToPlanButton, useBasket } from "./basket";
 import { allocateBudget } from "@/src/lib/planner/allocate";
 import { thesis } from "@/lib/data/thesis";
@@ -69,7 +75,7 @@ export function PlannerForm({
   const [formats, setFormats] = useState<string[]>([]);
   const [city, setCity] = useState("");
   const [media, setMedia] = useState<"both" | "audio" | "video">("both");
-  const [out, setOut] = useState<MatchOutput | null>(null);
+  const [out, setOut] = useState<PlanResult | null>(null);
   const [pending, start] = useTransition();
   const ran = useRef(false);
 
@@ -374,7 +380,12 @@ export function PlannerForm({
                   </h3>
                   <div className="flex flex-col gap-3">
                     {out.featured.map((r) => (
-                      <ResultRow key={r.podcastId} r={r} featured />
+                      <ResultRow
+                        key={r.podcastId}
+                        r={r}
+                        profile={out.profiles[r.podcastId]}
+                        featured
+                      />
                     ))}
                   </div>
                 </section>
@@ -391,7 +402,11 @@ export function PlannerForm({
                 </div>
                 <div className="flex flex-col gap-3">
                   {out.organic.map((r) => (
-                    <ResultRow key={r.podcastId} r={r} />
+                    <ResultRow
+                      key={r.podcastId}
+                      r={r}
+                      profile={out.profiles[r.podcastId]}
+                    />
                   ))}
                 </div>
               </section>
@@ -412,39 +427,73 @@ export function PlannerForm({
   );
 }
 
+const fmtReach = (n: number) =>
+  n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : String(n);
+
 function ResultRow({
   r,
+  profile,
   featured = false,
 }: {
   r: MatchOutput["organic"][number];
+  profile?: ResultProfile;
   featured?: boolean;
 }) {
   return (
     <div
-      className={`flex flex-col rounded-[1.5rem] border p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)] ${
+      className={`flex flex-col gap-4 rounded-[1.5rem] border p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(14,165,233,0.4)] sm:flex-row sm:items-center ${
         featured ? "border-orange/40 bg-orange/5" : "border-sky-50 bg-white"
       }`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <Link href={`/podcast/${r.podcastId}`} className="group min-w-0">
+      <Link
+        href={`/podcast/${r.podcastId}`}
+        className="group flex min-w-0 flex-1 items-center gap-4"
+      >
+        <CoverArt
+          name={r.name}
+          slug={r.podcastId}
+          artworkUrl={profile?.artworkUrl ?? null}
+          size={64}
+          radius={16}
+        />
+        <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <h4 className="font-black uppercase tracking-tight text-ink group-hover:text-sky-600">
+            <h4 className="truncate font-black uppercase tracking-tight text-ink group-hover:text-sky-600">
               {r.name}
             </h4>
             {featured && <Badge tone="featured">Featured</Badge>}
           </div>
-          <p className="mt-1 text-[13px] font-medium text-ink-dim">
-            {r.reasons.join(" · ")}
-          </p>
-        </Link>
-        <div className="flex flex-none flex-col items-end gap-1">
-          <span className="text-lg font-black tabular-nums text-ink">{r.score}</span>
-          <span className="text-[10px] font-bold uppercase tracking-wide text-ink-faint">
-            {priceLabel[r.priceBucket]}
-          </span>
+          <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+            {profile?.reach != null && (
+              <span className="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-black tabular-nums text-sky-700">
+                {fmtReach(profile.reach)} Reach
+              </span>
+            )}
+            {profile?.appleRank != null && (
+              <span className="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-black text-sky-700">
+                #{profile.appleRank} Apple
+              </span>
+            )}
+            {profile?.active && (
+              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-black text-emerald-700">
+                Active
+              </span>
+            )}
+            <span className="rounded-full bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-ink-faint">
+              {priceLabel[r.priceBucket]}
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="mt-4 flex">
+      </Link>
+      <div className="flex flex-none items-center justify-between gap-4 sm:justify-end">
+        <div className="text-right">
+          <p className="text-xl font-black tabular-nums leading-none text-ink">
+            {r.score}
+          </p>
+          <p className="mt-0.5 text-[9px] font-bold uppercase tracking-widest text-ink-faint">
+            Match
+          </p>
+        </div>
         <AddToPlanButton slug={r.podcastId} name={r.name} category={null} />
       </div>
     </div>
