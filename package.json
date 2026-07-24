@@ -17,6 +17,7 @@
     "apple-charts": "node scripts/fetch-apple-charts.mjs",
     "apify-social": "node scripts/fetch-apify-social.mjs",
     "newsletter": "node scripts/generate-newsletter.mjs",
+    "newsletter:send": "node scripts/send-newsletter.mjs",
     "youtube-stats": "node scripts/refresh-youtube.mjs",
     "snapshot": "node scripts/snapshot.mjs",
     "planner:demo": "tsx scripts/planner-demo.ts",

@@ -61,6 +61,13 @@ jobs:
       - name: Draft the weekly Substack issue
         run: npm run newsletter || true
 
+      - name: Email the draft to the owner
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RTP_OWNER_EMAIL: ${{ secrets.RTP_OWNER_EMAIL }}
+          RTP_EMAIL_FROM: ${{ secrets.RTP_EMAIL_FROM }}
+        run: npm run newsletter:send || true
+
       - name: Commit refreshed data
         run: |
           git add data/seed/podcastindex.json data/seed/youtube_stats.json data/seed/youtube_clips.json data/seed/apple_charts.json data/seed/social_stats.json data/seed/social_clips.json data/snapshots content/newsletter
