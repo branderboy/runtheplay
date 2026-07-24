@@ -16,6 +16,7 @@ export const metadata = {
 };
 
 const PLACEMENTS = [
+  "Guest Appearance",
   "30–60s Host-Read Ad",
   "Pre-Roll",
   "Mid-Roll",

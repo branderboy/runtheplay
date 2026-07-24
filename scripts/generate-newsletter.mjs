@@ -26,6 +26,7 @@ const apple = read("data/seed/apple_charts.json");
 const pi = read("data/seed/podcastindex.json");
 const plays = read("data/plays.json");
 const thesis = read("data/thesis.json");
+const guestMoments = read("data/guest_moments.json");
 
 const name = Object.fromEntries(rows.map((r) => [r.slug, r.podcast_name]));
 const count = (v) => {
@@ -82,6 +83,7 @@ const week = Math.floor(Date.now() / (7 * 86400 * 1000));
 const play = plays[week % plays.length];
 
 const stat = thesis.whyItWorks[week % thesis.whyItWorks.length];
+const fly = guestMoments[week % guestMoments.length];
 
 const top5 = reach.slice(0, 5);
 const md = `# The Play Sheet · ${today}
@@ -89,6 +91,16 @@ const md = `# The Play Sheet · ${today}
 *Black podcast culture, by the numbers. Real data, weekly, from [Run the Play](https://runtheplay.com).*
 
 ---
+
+## Fly on the Wall
+
+${fly.open} ${fly.moment}
+
+The receipt: ${fly.receipt}
+
+${fly.lesson} (Source: [${fly.sourceTitle}](${fly.sourceUrl}).)
+
+Here's the part brands sleep on: the guest chair is bookable. A guest appearance is an ad placement, the strongest one in audio. Shows on Run the Play can publish it as inventory, and buyers can request it like any other placement.
 
 ${topClip ? `## Stop Scrolling. ${fmt(topClip.views)} People Didn't.
 
