@@ -392,12 +392,23 @@ export function PlannerForm({
               )}
 
               <section>
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-xs font-black uppercase tracking-widest text-ink-faint">
-                    Recommended · ranked by relevance
+                    {goal
+                      ? `Audiences That Fit Your ${GOALS.find((g) => g.value === goal)?.label}`
+                      : "Recommended · Ranked by Fit"}
                   </h3>
                   <span className="text-xs font-bold text-ink-faint">
-                    {out.organic.length} shows · {out.excludedCount} filtered out
+                    {out.organic.length} shows
+                    {(() => {
+                      const total = out.organic.reduce(
+                        (n, r) => n + (out.profiles[r.podcastId]?.reach ?? 0),
+                        0,
+                      );
+                      return total > 0
+                        ? ` · ${fmtReach(total)} Combined Audience`
+                        : "";
+                    })()}
                   </span>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -494,7 +505,18 @@ function ResultRow({
             Match
           </p>
         </div>
-        <AddToPlanButton slug={r.podcastId} name={r.name} category={null} />
+        <AddToPlanButton
+          slug={r.podcastId}
+          name={r.name}
+          category={null}
+          artworkUrl={profile?.artworkUrl ?? null}
+          label={
+            profile?.reach != null
+              ? `+ Add This ${fmtReach(profile.reach)} Audience`
+              : "+ Add to Campaign"
+          }
+          addedLabel="In Your Campaign"
+        />
       </div>
     </div>
   );

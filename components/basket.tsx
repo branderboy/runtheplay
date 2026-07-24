@@ -112,11 +112,15 @@ export function AddToPlanButton({
   name,
   category,
   artworkUrl = null,
+  label,
+  addedLabel,
 }: {
   slug: string;
   name: string;
   category: string | null;
   artworkUrl?: string | null;
+  label?: string;
+  addedLabel?: string;
 }) {
   const { add, has } = useBasket();
   const added = has(slug);
@@ -129,13 +133,13 @@ export function AddToPlanButton({
         e.stopPropagation();
         add({ slug, name, category, artworkUrl });
       }}
-      className={`flex-1 rounded-full py-3 text-xs font-black uppercase tracking-widest transition-all ${
+      className={`flex-1 rounded-full px-5 py-3 text-xs font-black uppercase tracking-widest transition-all ${
         added
           ? "cursor-default border border-sky-100 bg-sky-50 text-sky-600"
           : "bg-orange text-white shadow-[0_10px_20px_-10px_rgba(249,115,22,0.6)] hover:-translate-y-0.5 hover:bg-orange-600"
       }`}
     >
-      {added ? "Added" : "+ Add to Plan"}
+      {added ? (addedLabel ?? "Added") : (label ?? "+ Add to Plan")}
     </button>
   );
 }
