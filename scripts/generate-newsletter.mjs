@@ -94,13 +94,17 @@ const md = `# The Play Sheet · ${today}
 
 ## Fly on the Wall
 
+The "fly on the wall" concept is what drives podcast guest virality. The interview stops being an interview and becomes a raw, unfiltered eavesdrop on an exclusive conversation. Rigid pitching gets replaced by vulnerable storytelling. And short-form algorithms get exactly what they feed on: high-retention clips.
+
+That's how fly on the wall podcast videos can launch a new brand. Here's how it looks in the wild.
+
 ${fly.open} ${fly.moment}
 
 The receipt: ${fly.receipt}
 
 ${fly.lesson} (Source: [${fly.sourceTitle}](${fly.sourceUrl}).)
 
-Here's the part brands sleep on: the guest chair is bookable. A guest appearance is an ad placement, the strongest one in audio. Shows on Run the Play can publish it as inventory, and buyers can request it like any other placement.
+The play for brands: the guest chair is bookable. A guest appearance is an ad placement, the strongest one in audio, because the audience hears a person, not a pitch. Shows on Run the Play can publish it as inventory, and buyers can request it like any other placement.
 
 ${topClip ? `## Stop Scrolling. ${fmt(topClip.views)} People Didn't.
 
