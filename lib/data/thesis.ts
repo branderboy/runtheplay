@@ -34,6 +34,7 @@ export interface Thesis {
     heroSub: string;
     problem: string;
     fragmentation: string;
+    market: string;
     power: string;
     journey: string;
     publicLine: string;

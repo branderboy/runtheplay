@@ -332,6 +332,9 @@ export default function HomePage() {
         className="relative z-40 mx-auto mb-20 mt-14 max-w-5xl px-4 sm:px-6 lg:px-8"
       >
         {/* Campaign builder — Step 1 of the real planning flow: pick your goal */}
+        <p className="mx-auto mb-6 max-w-3xl text-center text-base font-medium leading-relaxed text-ink-dim">
+          {thesis.story.market}
+        </p>
         <p className="mb-6 text-center text-sm font-black uppercase tracking-widest text-ink-dim">
           The Fastest Way to Discover, Compare, and Plan Advertising Across
           Black Podcasts
