@@ -6,6 +6,7 @@ import {
   plannerLink,
   money,
 } from "@/lib/data/plays";
+import { RunPlayButton } from "@/components/run-play-button";
 
 export function generateStaticParams() {
   return getAllPlays().map((p) => ({ slug: p.slug }));
@@ -140,13 +141,21 @@ export default async function PlayPage({
         </Link>
       </section>
 
-      {/* CTAs */}
+      {/* CTAs: one tap adds the play, the planner is the secondary path */}
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <RunPlayButton
+          goal={p.goal}
+          budget={p.budget}
+          audienceTags={p.audienceTags}
+          showCount={
+            p.mediaMix.find((m) => m.channel === "Podcasts")?.count ?? 3
+          }
+        />
         <Link
           href={plannerLink(p)}
-          className="rounded-lg bg-orange px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-navy"
+          className="rounded-lg border border-line px-6 py-3 text-center text-sm font-bold uppercase tracking-wide hover:border-orange/50"
         >
-          Customize this play
+          Customize This Play
         </Link>
         {p.shopCategories.map((c) => (
           <Link

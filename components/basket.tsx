@@ -40,23 +40,29 @@ export function BasketProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const persist = (next: BasketItem[]) => {
-    setItems(next);
-    try {
-      localStorage.setItem(KEY, JSON.stringify(next));
-    } catch {
-      /* ignore */
-    }
+  /* Functional updates so back-to-back adds (e.g. adding a whole play) never
+     clobber each other on a stale snapshot. */
+  const persist = (updater: (prev: BasketItem[]) => BasketItem[]) => {
+    setItems((prev) => {
+      const next = updater(prev);
+      try {
+        localStorage.setItem(KEY, JSON.stringify(next));
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
   };
 
   const state: BasketState = {
     items,
-    add: (item) => {
-      if (!items.some((i) => i.slug === item.slug)) persist([...items, item]);
-    },
-    remove: (slug) => persist(items.filter((i) => i.slug !== slug)),
+    add: (item) =>
+      persist((prev) =>
+        prev.some((i) => i.slug === item.slug) ? prev : [...prev, item],
+      ),
+    remove: (slug) => persist((prev) => prev.filter((i) => i.slug !== slug)),
     has: (slug) => items.some((i) => i.slug === slug),
-    clear: () => persist([]),
+    clear: () => persist(() => []),
   };
 
   return (
