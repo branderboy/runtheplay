@@ -367,8 +367,6 @@ export function PlannerForm({
 
           {out && (
             <div className="flex flex-col gap-8">
-              <PlanOverview out={out} budget={budget ? Number(budget) : null} />
-
               {out.featured.length > 0 && (
                 <section>
                   <h3 className="mb-3 text-xs font-black uppercase tracking-widest text-ink-faint">
@@ -382,7 +380,21 @@ export function PlannerForm({
                 </section>
               )}
 
-              <ResultsTable out={out} />
+              <section>
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-ink-faint">
+                    Recommended · ranked by relevance
+                  </h3>
+                  <span className="text-xs font-bold text-ink-faint">
+                    {out.organic.length} shows · {out.excludedCount} filtered out
+                  </span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {out.organic.map((r) => (
+                    <ResultRow key={r.podcastId} r={r} />
+                  ))}
+                </div>
+              </section>
 
               {out.organic.length > 0 && budget && (
                 <BudgetSplitCard
@@ -534,117 +546,6 @@ function BudgetSplitCard({
         {alloc.cpmHigh}, {thesis.arbitrage.source}). Not quoted rates. Every
         rate is confirmed with the show.
       </p>
-    </section>
-  );
-}
-
-/* Plan Overview: forecast tiles up top, the Google Ad Planner read of the plan.
-   Impressions come from the sourced CPM benchmarks and are always labeled. */
-function PlanOverview({
-  out,
-  budget,
-}: {
-  out: MatchOutput;
-  budget: number | null;
-}) {
-  const { midTier } = thesis.arbitrage;
-  const alloc = budget
-    ? allocateBudget(
-        budget,
-        out.organic.map((r) => ({ podcastId: r.podcastId, name: r.name, score: r.score })),
-        { cpmLow: midTier.cpmLow, cpmHigh: midTier.cpmHigh },
-      )
-    : null;
-  const fmtImp = (n: number) =>
-    n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : String(n);
-  const impLow = alloc ? alloc.lines.reduce((n, l) => n + l.impressionsLow, 0) : null;
-  const impHigh = alloc ? alloc.lines.reduce((n, l) => n + l.impressionsHigh, 0) : null;
-
-  const tiles: { value: string; label: string; estimated?: boolean }[] = [
-    { value: String(out.organic.length), label: "Shows Matched" },
-    ...(budget ? [{ value: `$${budget.toLocaleString()}`, label: "Budget" }] : []),
-    ...(impLow && impHigh
-      ? [{ value: `${fmtImp(impLow)}–${fmtImp(impHigh)}`, label: "Est. Impressions", estimated: true }]
-      : []),
-    {
-      value: `$${midTier.cpmLow}–${midTier.cpmHigh}`,
-      label: "Benchmark CPM",
-      estimated: true,
-    },
-  ];
-
-  return (
-    <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      {tiles.map((t) => (
-        <div
-          key={t.label}
-          className="rounded-2xl border border-sky-100 bg-white p-4 shadow-sm"
-        >
-          <p className="text-xl font-black tabular-nums tracking-tight text-ink sm:text-2xl">
-            {t.value}
-          </p>
-          <p className="mt-0.5 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-ink-faint">
-            {t.label}
-            {t.estimated && <Badge tone="estimated">Est.</Badge>}
-          </p>
-        </div>
-      ))}
-    </section>
-  );
-}
-
-/* Results as a plan table: the Keyword Planner look. Every row explains its
-   match and adds to the mix in place. */
-function ResultsTable({ out }: { out: MatchOutput }) {
-  return (
-    <section>
-      <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-xs font-black uppercase tracking-widest text-ink-faint">
-          Recommended · Ranked by Relevance
-        </h3>
-        <span className="text-xs font-bold text-ink-faint">
-          {out.organic.length} shows · {out.excludedCount} filtered out
-        </span>
-      </div>
-      <div className="overflow-hidden rounded-[1.5rem] border border-sky-100 bg-white shadow-sm">
-        <div className="hidden grid-cols-[1fr_5rem_9rem_9rem] items-center gap-3 border-b border-sky-100 bg-sky-50/40 px-5 py-3 sm:grid">
-          {["Show & Why It Matched", "Score", "Pricing", ""].map((h, i) => (
-            <span
-              key={i}
-              className={`text-[10px] font-black uppercase tracking-widest text-ink-faint ${i > 0 ? "text-right" : ""}`}
-            >
-              {h}
-            </span>
-          ))}
-        </div>
-        {out.organic.map((r) => (
-          <div
-            key={r.podcastId}
-            className="grid grid-cols-1 gap-3 border-b border-sky-50 px-5 py-4 last:border-0 hover:bg-sky-50/30 sm:grid-cols-[1fr_5rem_9rem_9rem] sm:items-center"
-          >
-            <div className="min-w-0">
-              <Link
-                href={`/podcast/${r.podcastId}`}
-                className="font-black uppercase tracking-tight text-ink hover:text-sky-600"
-              >
-                {r.name}
-              </Link>
-              <p className="mt-0.5 text-[13px] font-medium text-ink-dim">
-                {r.reasons.join(" · ")}
-              </p>
-            </div>
-            <span className="text-lg font-black tabular-nums text-ink sm:text-right">
-              {r.score}
-            </span>
-            <span className="text-[11px] font-bold uppercase tracking-wide text-ink-faint sm:text-right">
-              {priceLabel[r.priceBucket]}
-            </span>
-            <div className="flex sm:justify-end">
-              <AddToPlanButton slug={r.podcastId} name={r.name} category={null} />
-            </div>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
